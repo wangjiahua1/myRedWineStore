@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="redwineback:war">
-    <output-path>$PROJECT_DIR$/redwineback/target</output-path>
-    <root id="archive" name="redwineback.war">
-      <element id="artifact" artifact-name="redwineback:war exploded" />
-    </root>
-  </artifact>
-</component>
