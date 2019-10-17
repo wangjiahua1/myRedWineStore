@@ -1,6 +1,6 @@
 package com.igeek.service;
 
-import com.igeek.dao.ProductDao;
+
 import com.igeek.domain.Product;
 
 import java.util.List;

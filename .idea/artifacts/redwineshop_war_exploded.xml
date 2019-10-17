@@ -33,6 +33,7 @@
           <element id="library" level="project" name="Maven: xalan:xalan:2.6.0" />
           <element id="library" level="project" name="Maven: com.ibm.icu:icu4j:2.6.1" />
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.57" />
         </element>
       </element>
       <element id="directory" name="META-INF">

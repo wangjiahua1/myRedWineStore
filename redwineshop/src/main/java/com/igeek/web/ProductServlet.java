@@ -2,6 +2,7 @@ package com.igeek.web;
 
 import com.igeek.domain.Product;
 import com.igeek.service.ProductService;
+import com.igeek.utils.BeanFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @WebServlet("/product")
 public class ProductServlet extends BaseServlet {
-    ProductService ps=new ProductService();
+    ProductService ps=(ProductService)BeanFactory.getBean("myredwineservice");
     public void getAllRedWine(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int sizePage= Integer.parseInt(request.getParameter("sizePage"));
         List<Product> RedWines=ps.getallredwine(sizePage);

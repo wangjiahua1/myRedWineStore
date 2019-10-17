@@ -8,7 +8,7 @@ import com.igeek.utils.BeanFactory;
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
-    ProductService pd=(ProductService)BeanFactory.getBean("productService");
+    ProductDao pd= (ProductDao) BeanFactory.getBean("myredwinedao");
     public int getCountRedWine() {
         return pd.getCountRedWine();
     }
