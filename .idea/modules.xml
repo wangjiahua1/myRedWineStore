@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mygit.iml" filepath="$PROJECT_DIR$/mygit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myRedWineStore.iml" filepath="$PROJECT_DIR$/myRedWineStore.iml" />
       <module fileurl="file://$PROJECT_DIR$/redwineback/redwineback.iml" filepath="$PROJECT_DIR$/redwineback/redwineback.iml" />
       <module fileurl="file://$PROJECT_DIR$/redwineshop/redwineshop.iml" filepath="$PROJECT_DIR$/redwineshop/redwineshop.iml" />
     </modules>
