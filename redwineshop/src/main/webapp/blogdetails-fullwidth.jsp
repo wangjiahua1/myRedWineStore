@@ -120,7 +120,7 @@
                 <span class="icon_setting"><i class="pe-7s-config"></i></span>
                 <div class="setting-wrap">
                     <ul class="setting-account-list">
-                        <li><a href="#">My Account</a></li>
+                        <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Account</a></li>
                         <li><a href="my-wishlist.html">My Wishlist</a></li>
                         <li><a href="compare.html">Compare</a></li>
                         <li><a href="shopping-cart-fullwidth.html">My Cart</a></li>
