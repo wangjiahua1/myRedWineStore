@@ -61,7 +61,7 @@
             </p>
             <p class="login-password">
                 <label for="user_pass">Password*:</label>
-                <input name="pwd" id="user_pass" class="input" value="123456" size="20" type="password">
+                <input name="pwd" id="user_pass" class="input" value="123456789." size="20" type="password">
             </p>
             <p class="login-submit">
                 <input  id="wp-submit" class="button-primary" value="Login" type="submit">
@@ -69,7 +69,7 @@
         </form>
 
         <div class="modal-footer">
-            <a href="#">Register</a>
+            <a href="register.jsp">Register</a>
             <a href="#">Forgot Password</a>
         </div>
     </div><!-- .popup-inner -->
@@ -94,7 +94,48 @@
     </div><!-- .popup-inner -->
     <div class="mask popup-close"></div>
 </div><!-- .search-popup -->
+        <div id="myAccout_dialog" class="modal fade login-popup">
+            <div class="popup-inner">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
+                    <h3 class="modal-title">MyAccout</h3>
+                </div>
 
+                <form action="${pageContext.request.contextPath}/user?method=" method="post">
+                    <p class="login-username">
+                        <label for="user_login">Username*:</label>
+
+                        <input name="log" id="user_login" class="input" value="${user.username}
+                                <c:if test="${user.username==null}">请设置</c:if>" size="20" type="text"/>
+                    </p>
+                    <p class="login-password">
+                        <label for="user_pass">Password*:</label>
+                        <input name="pwd" id="user_pass" class="input" value="${user.password}" size="20" type="password"/>
+                    </p>
+                    <p class="login-username">
+                        <label for="sex">Sex*:</label>
+                        <input name="sex" id="sex" class="input" value="${user.sex}<c:if test="${user.sex==null}">请设置</c:if>" size="20" type="text"/>
+                    </p>
+                    <p class="login-username">
+                        <label for="telephone">Telephone*:</label>
+                        <input name="telephone" id="telephone" class="input" value="${user.telephone}<c:if test="${user.telephone==null}">请设置</c:if>" size="20" type="text"/>
+                    </p>
+                    <p class="login-username">
+                        <label for="email">Email*:</label>
+                        <input name="email" id="email" class="input" value="${user.email}<c:if test="${user.email==null}">请设置</c:if>" size="20" type="text"/>
+                    </p>
+                    <p class="login-submit">
+                        <input  id="wp-submit" class="button-primary" value="Edit" type="submit"/>
+                    </p>
+                </form>
+
+                <div class="modal-footer">
+                    <a href="register.jsp">Register</a>
+                    <a href="#">Forgot Password</a>
+                </div>
+            </div><!-- .popup-inner -->
+            <div class="mask popup-close"></div>
+        </div>
 <header id="header" class="site-header">
 
     <div class="top-header">
@@ -103,10 +144,19 @@
                 <span class="icon_setting"><i class="pe-7s-config"></i></span>
                 <div class="setting-wrap">
                     <ul class="setting-account-list">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="my-wishlist.jsp">My Wishlist</a></li>
+                        <li>
+                            <!--利用session中的user来判断用户是否登录-->
+                            <!--通过改变data-target属性的值来跳转不同页面-->
+                            <a class="top-account top-login" id="myAccount"
+                               href="#" data-toggle="modal"
+                               data-target="<c:if test="${user!=null}">#myAccout_dialog</c:if>
+                                <c:if test="${user==null}">#login_dialog</c:if>">
+                                My Account
+                            </a>
+                        </li>
+                        <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Wishlist</a></li>
                         <li><a href="compare.jsp">Compare</a></li>
-                        <li><a href="shopping-cart-fullwidth.jsp">My Cart</a></li>
+                        <li><a href="shopgridleft.jsp">My Cart</a></li>
                         <li><a href="check-out.jsp">Check out</a></li>
                     </ul>
                     <div class="currency">
