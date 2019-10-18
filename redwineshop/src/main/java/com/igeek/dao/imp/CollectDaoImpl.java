@@ -30,7 +30,6 @@ public class CollectDaoImpl implements CollectDao {
 
     @Override
     public Product findProductByPid(int pid) {
-        System.out.println("dao");
         sql = "select * from product where pid = ?;";
         try {
             return  qr.query(sql,new BeanHandler<>(Product.class),pid);
