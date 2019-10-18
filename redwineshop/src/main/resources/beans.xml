@@ -3,6 +3,11 @@
 <beans>
     <!--子节点对应每个java类-->
     <!--id 唯一标识   class 对应类的包名+类名-->
+    <!--Service-->
     <bean id="myredwineservice" class="com.igeek.service.imp.ProductServiceImpl"></bean>
+    <bean id="userService" class="com.igeek.service.imp.UserServiceImpl"></bean>
+
+    <!--Dao-->
     <bean id="myredwinedao" class="com.igeek.dao.imp.ProductDaoImpl"></bean>
+    <bean id="userDao" class="com.igeek.dao.imp.UserDaoImpl"></bean>
 </beans>
