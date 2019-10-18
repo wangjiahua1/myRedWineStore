@@ -23,7 +23,7 @@ public class ProductServlet extends BaseServlet {
     public void getAllRedWine(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int sizePage= Integer.parseInt(request.getParameter("sizePage"));
         List<Product> RedWines=ps.getallredwine(sizePage);
-        System.out.println(RedWines);
+//        System.out.println(RedWines);
         int maxPage = getMaxPage(request, response);
         request.setAttribute("allredwine",RedWines);
         request.setAttribute("maxPage",maxPage);
