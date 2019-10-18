@@ -1,8 +1,11 @@
 package com.igeek.web;
 
+import com.google.gson.Gson;
 import com.igeek.domain.User;
 import com.igeek.service.UserService;
 import com.igeek.utils.BeanFactory;
+import com.igeek.utils.MD5Utils;
+import com.igeek.utils.MailUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Random;
+import java.util.UUID;
 
 /**
  * @author jerryHe
@@ -23,7 +28,6 @@ public class UserServlet extends BaseServlet {
     public void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session=request.getSession();
         session.removeAttribute("user");
-
         response.sendRedirect(request.getContextPath()+"/index.jsp");
     }
 
@@ -41,8 +45,6 @@ public class UserServlet extends BaseServlet {
             user.setUsername(log);
         }
         user.setPassword(pwd);
-//        System.out.println("user:"+user);
-        //调用service判断是否存在此用户
         User u= service.findUser(user);
         String msg="";
         if(u==null){
@@ -54,9 +56,68 @@ public class UserServlet extends BaseServlet {
             //用户存入session中
             HttpSession session=request.getSession();
             session.setAttribute("user",u);
-
             //跳转
             request.getRequestDispatcher("index.jsp").forward(request,response);
+        }
+    }
+    public void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String password=request.getParameter("password");
+        String code=request.getParameter("accode");
+        String emailhidden=request.getParameter("emailhidden");
+        String emaill=request.getParameter("emaill");
+        System.out.println(password+code+emaill);
+        User user=new User();
+        user.setEmail(emaill);
+        String uuid = UUID.randomUUID().toString();
+        user.setUid(uuid);
+        Random rd=new Random();
+        String activeCode  = rd.nextInt(100000)+100000+"";
+        if(emailhidden.equals(code)&&!emailhidden.equals("")&&emailhidden!=null){
+            user.setCode(activeCode);
+            System.out.println(user);
+            String encodePwd = MD5Utils.enCode(password);
+            user.setPassword(encodePwd);
+            HttpSession httpSession=request.getSession();
+            httpSession.setAttribute("user",user);
+            service.save(user);
+            //激活成功，跳转到登录页面
+            response.sendRedirect("index.jsp");
+        }
+        else
+        {
+            response.sendRedirect("register.jsp");
+        }
+    }
+    public void getactivecode(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("getactivecode inner");
+        String email=request.getParameter("emaill");
+        String uuid = UUID.randomUUID().toString();
+        Random rd=new Random();
+        String activeCode  = rd.nextInt(100000)+100000+"";
+        System.out.println("email"+email+"activeCode"+activeCode);
+
+        String content = "<a href='http://localhost:8888/webstore/user?method=activecode&activeCode="+activeCode+"'>您的验证码为："+activeCode+"</a>";
+        //发送邮件
+        MailUtils.sendMail(email,"邮件验证",content);
+        Gson gson=new Gson();
+        String s = gson.toJson(activeCode);
+        response.getWriter().write(s);
+    }
+    public void activecode(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String activeCode=request.getParameter("activeCode");
+     //   UserService service = new UserService();
+        //1.判断激活码是否一致
+        boolean flag = service.checkActiveCode(activeCode);
+        HttpSession httpSession=request.getSession();
+        httpSession.setAttribute("flag",flag);
+        if(flag){
+            //2.修改状态
+            service.updateActiveCode(activeCode);
+            //激活成功，跳转到登录页面
+            response.sendRedirect("login.jsp");
+        }else{
+            //激活失败，跳转到注册页面
+            response.sendRedirect("register.jsp");
         }
     }
 }

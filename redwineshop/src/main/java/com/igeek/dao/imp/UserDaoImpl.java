@@ -22,4 +22,32 @@ public class UserDaoImpl implements UserDao{
         }
         return u;
     }
+    public boolean checkActiveCode(String activeCode) {
+        String sql = "select * from user where code = ?";
+        User user = null;
+        try {
+            user = qr.query(sql,new BeanHandler<>(User.class),activeCode);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user!=null?true:false;
+    }
+
+    public void updateActiveCode(String activeCode) {
+        String  sql ="update user set state = 1 where code = ?";
+        try {
+            qr.update(sql,activeCode);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void save(User user) {//INSERT INTO table_name (列1, 列2,...) VALUES (值1, 值2,....)
+        String sql="insert into user(uid,email,password,code) values(?,?,?,?)";
+        try {
+            qr.update(sql,user.getUid(),user.getEmail(),user.getPassword(),user.getCode());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

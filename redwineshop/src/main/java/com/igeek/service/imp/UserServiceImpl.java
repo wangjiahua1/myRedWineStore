@@ -17,4 +17,14 @@ public class UserServiceImpl implements UserService {
 
         return dao.findUser(user);
     }
+    public boolean checkActiveCode(String activeCode) {
+        return dao.checkActiveCode(activeCode);
+    }
+
+    public void updateActiveCode(String activeCode) {
+        dao.updateActiveCode(activeCode);
+    }
+    public void save(User user) {
+        dao.save(user);
+    }
 }

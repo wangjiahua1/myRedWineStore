@@ -25,7 +25,7 @@
             </form>
 
             <div class="modal-footer">
-                <a href="#">Register</a>
+                <a href="register.jsp">Register</a>
                 <a href="#">Forgot Password</a>
             </div>
         </div><!-- .popup-inner -->
