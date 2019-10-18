@@ -3,5 +3,7 @@ package com.igeek.service;
 import com.igeek.domain.User;
 
 public interface UserService {
-    User findUser(User user);
+    User findUserByEmail(User user);
+
+    User findUserByUsername(User user);
 }

@@ -7,22 +7,22 @@
             <h3 class="modal-title">Login</h3>
         </div>
 
-        <form action="${pageContext.request.contextPath}/user?method=login" method="post">
+        <form action="${pageContext.request.contextPath}/user?method=login&url=pageloader.jsp" method="post">
             <p class="login-username">
                 <label for="user_login">Username*:</label>
-                <input name="log" id="user_login" class="input" value="tom" size="20" type="text">
+                <input name="log" id="user_login" class="input" value="tom" size="20" type="text"/>
             </p>
             <p class="login-password">
                 <label for="user_pass">Password*:</label>
-                <input name="pwd" id="user_pass" class="input" value="123456" size="20" type="password">
+                <input name="pwd" id="user_pass" class="input" value="123456" size="20" type="password"/>
             </p>
             <p class="login-submit">
-                <input  id="wp-submit" class="button-primary" value="Login" type="submit">
+                <input  id="wp-submit" class="button-primary" value="Login" type="submit"/>
             </p>
         </form>
 
         <div class="modal-footer">
-            <a href="#">Register</a>
+            <a href="register.jsp">Register</a>
             <a href="#">Forgot Password</a>
         </div>
     </div><!-- .popup-inner -->

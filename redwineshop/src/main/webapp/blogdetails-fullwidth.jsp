@@ -1,12 +1,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
-    <title>Compare</title>
-
+    <title>Blog Details Fullwidth</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.getJSON(
+                "${pageContext.request.contextPath}/message?method=findFiveMessage",
+                function (data) {
+                    $.each(data , function (i,v) {
+                        var lili = "<li class='comment'><div class='comment-wrapper'><div class='comment-avatar'>";
+                        lili += "<img class='avatar' alt='' width='70px' height='68px' src='images/placeholder/avatar_0"+(v.mid % 5 + 1)+".jpg'></div>";
+                        lili += "<div class='comment-body'><header class='comment-meta clearfix'><cite class='comment-author'>";
+                        lili += "<span class='comment-date'>"+v.time+"</span>";
+                        lili += "<span><a class='url' rel='external nofollow' href='#'>"+v.name+"</a></span></cite></header><div class='comment-content'>";
+                        lili += "<p>"+v.message+"</p></div></div></div></li>";
+                        $("#pinglun").append(lili);
+                    });
+                }
+            )
+        });
+    </script>
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Responsive CSS -->
@@ -22,7 +40,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="single-post">
 
     <div id="pageloader">
         <div class="s1">
@@ -47,72 +65,28 @@
 
     <div id="wrapper">
 
-        <div id="myAccout_dialog" class="modal fade login-popup">
-            <div class="popup-inner">
-                <div class="modal-header">
-                    <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-                    <h3 class="modal-title">MyAccout</h3>
-                </div>
-
-                <form action="${pageContext.request.contextPath}/user?method=" method="post">
-                    <p class="login-username">
-                        <label for="user_login">Username*:</label>
-
-                        <input name="log" id="user_login" class="input" value="${user.username}
-                                <c:if test="${user.username==null}">请设置</c:if>" size="20" type="text"/>
-                    </p>
-                    <p class="login-password">
-                        <label for="user_pass">Password*:</label>
-                        <input name="pwd" id="user_pass" class="input" value="${user.password}" size="20" type="password"/>
-                    </p>
-                    <p class="login-username">
-                        <label for="sex">Sex*:</label>
-                        <input name="sex" id="sex" class="input" value="${user.sex}<c:if test="${user.sex==null}">请设置</c:if>" size="20" type="text"/>
-                    </p>
-                    <p class="login-username">
-                        <label for="telephone">Telephone*:</label>
-                        <input name="telephone" id="telephone" class="input" value="${user.telephone}<c:if test="${user.telephone==null}">请设置</c:if>" size="20" type="text"/>
-                    </p>
-                    <p class="login-username">
-                        <label for="email">Email*:</label>
-                        <input name="email" id="email" class="input" value="${user.email}<c:if test="${user.email==null}">请设置</c:if>" size="20" type="text"/>
-                    </p>
-                    <p class="login-submit">
-                        <input  id="wp-submit" class="button-primary" value="Edit" type="submit"/>
-                    </p>
-                </form>
-
-                <div class="modal-footer">
-                    <a href="register.jsp">Register</a>
-                    <a href="#">Forgot Password</a>
-                </div>
-            </div><!-- .popup-inner -->
-            <div class="mask popup-close"></div>
-        </div>
-
 <div id="login_dialog" class="modal fade login-popup">
     <div class="popup-inner">
         <div class="modal-header">
             <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
             <h3 class="modal-title">Login</h3>
         </div>
-
-        <form action="${pageContext.request.contextPath}/user?method=login&url=compare.jsp" method="post">
+        <form action="#">
             <p class="login-username">
                 <label for="user_login">Username*:</label>
-                <input name="log" id="user_login" class="input" value="1664320691@qq.com" size="20" type="text">
+                <input name="log" id="user_login" class="input" value="" size="20" type="text">
             </p>
             <p class="login-password">
                 <label for="user_pass">Password*:</label>
-                <input name="pwd" id="user_pass" class="input" value="123456789." size="20" type="password">
+                <input name="pwd" id="user_pass" class="input" value="" size="20" type="password">
             </p>
             <p class="login-submit">
-                <input  id="wp-submit" class="button-primary" value="Login" type="submit">
+                <input name="wp-submit" id="wp-submit" class="button-primary" value="Login" type="submit">
             </p>
-        </form>
 
+        </form>
         <div class="modal-footer">
-            <a href="register.jsp">Register</a>
+            <a href="#">Register</a>
             <a href="#">Forgot Password</a>
         </div>
     </div><!-- .popup-inner -->
@@ -146,20 +120,11 @@
                 <span class="icon_setting"><i class="pe-7s-config"></i></span>
                 <div class="setting-wrap">
                     <ul class="setting-account-list">
-                        <li>
-                            <!--利用session中的user来判断用户是否登录-->
-                            <!--通过改变data-target属性的值来跳转不同页面-->
-                            <a class="top-account top-login" id="myAccount"
-                               href="#" data-toggle="modal"
-                               data-target="<c:if test="${user!=null}">#myAccout_dialog</c:if>
-                                <c:if test="${user==null}">#login_dialog</c:if>">
-                                My Account
-                            </a>
-                        </li>
-                        <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Wishlist</a></li>
-                        <li><a href="compare.jsp">Compare</a></li>
-                        <li><a href="shopgridleft.jsp">My Cart</a></li>
-                        <li><a href="check-out.jsp">Check out</a></li>
+                        <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Account</a></li>
+                        <li><a href="my-wishlist.html">My Wishlist</a></li>
+                        <li><a href="compare.html">Compare</a></li>
+                        <li><a href="shopping-cart-fullwidth.html">My Cart</a></li>
+                        <li><a href="check-out.html">Check out</a></li>
                     </ul>
                     <div class="currency">
                         <span>Currency</span>
@@ -184,21 +149,11 @@
 
             <div class="right-header">
                 <ul>
-                    <c:if test="${user!=null}">
-                        <li style="font-size:20px ">${user.username}</li>
-                        <li >
-                            <a href="${pageContext.request.contextPath}/user?method=logout" style="font-size: 20px">
-                                LogOut
-                            </a>
-                        </li>
-                    </c:if>
-                    <c:if test="${user==null}">
-                        <li>
-                            <a class="top-account top-login" href="#" data-toggle="modal" data-target="#login_dialog">
-                                <i class="pe-7s-users"></i>
-                            </a>
-                        </li>
-                    </c:if>
+                    <li>
+                        <a class="top-account top-login" href="#" data-toggle="modal" data-target="#login_dialog">
+                            <i class="pe-7s-users"></i>
+                        </a>
+                    </li>
 
                     <li>
                         <a class="top-search" href="#" data-toggle="modal" data-target="#search_dialog">
@@ -218,11 +173,11 @@
                                 <ul class="cart_list">
 
                                     <li class="clearfix">
-                                        <a class="p-thumb" href="productdetails-fullwidth.jsp">
+                                        <a class="p-thumb" href="productdetails-fullwidth.html">
                                             <img src="images/placeholder/thumb-product-cart1.jpg" alt="">
                                         </a>
                                         <div class="p-info">
-                                            <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
+                                            <a class="p-title" href="productdetails-fullwidth.html">Tomatin 12 Year Old</a>
                                             <span class="price">
                                                 <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
                                             </span>
@@ -231,11 +186,11 @@
                                     </li>
 
                                     <li class="clearfix">
-                                        <a class="p-thumb" href="productdetails-fullwidth.jsp">
+                                        <a class="p-thumb" href="productdetails-fullwidth.html">
                                             <img src="images/placeholder/thumb-product-cart2.jpg" alt="">
                                         </a>
                                         <div class="p-info">
-                                            <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
+                                            <a class="p-title" href="productdetails-fullwidth.html">Tomatin 12 Year Old</a>
                                             <span class="price">
                                                 <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
                                             </span>
@@ -248,8 +203,8 @@
                                 <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
 
                                 <p class="buttons">
-                                    <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
-                                    <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
+                                    <a href="shopping-cart-fullwidth.html" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
+                                    <a href="check-out.html" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
                                 </p>
                             </div>
                         </div>
@@ -287,31 +242,31 @@
                                 </ul>
                             </div>
                             <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
+                                <a href="productdetails-fullwidth.html">
                                     <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
                                 </a>
                             </div>                          
                             <div class="mega-item">
                                 <h3 class="menu-title">Shop Page</h3>
                                 <ul>
-                                    <li><a href="shopgrid-fullwidth.jsp">Shop Page</a></li>
-                                    <li><a href="productdetails-fullwidth.jsp">Single Product</a></li>
-                                    <li><a href="shopping-cart-fullwidth.jsp">Shopping cart</a></li>
-                                    <li><a href="check-out.jsp">Checkout</a></li>
-                                    <li><a href="compare.jsp">Compare</a></li>
+                                    <li><a href="shopgrid-fullwidth.html">Shop Page</a></li>
+                                    <li><a href="productdetails-fullwidth.html">Single Product</a></li>
+                                    <li><a href="shopping-cart-fullwidth.html">Shopping cart</a></li>
+                                    <li><a href="check-out.html">Checkout</a></li>
+                                    <li><a href="compare.html">Compare</a></li>
                                 </ul>
                             </div>
                             <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
+                                <a href="productdetails-fullwidth.html">
                                     <img src="images/placeholder/mega-menu-img2.jpg" alt=""/>
                                 </a>
                             </div>
                         </div><!-- .menu-mega -->
                     </li>
-                    <li class="mega-menu-wrap current-menu-item"><a href="shopgrid-fullwidth.jsp">Shop</a>
+                    <li class="mega-menu-wrap"><a href="shopgrid-fullwidth.html">Shop</a>
                         <div class="sub-menu menu-mega">
                             <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
+                                <a href="productdetails-fullwidth.html">
                                     <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
                                 </a>
                             </div>
@@ -320,7 +275,7 @@
                                 <ul>
                                     <li><a href="shoplist-leftsidebar.html">Shop List Left Sidebar</a></li>
                                     <li><a href="shoplist-rightsidebar.html">Shop List Right Sidebar</a></li>
-                                    <li><a href="shopgrid-fullwidth.jsp">Shop Grid Full Width</a></li>
+                                    <li><a href="shopgrid-fullwidth.html">Shop Grid Full Width</a></li>
                                     <li><a href="shopgrid-leftsidebar.html">Shop Grid Left Sidebar</a></li>
                                     <li><a href="shopgrid-rightsidebar.html">Shop Grid Right Sidebar</a></li>
                                 </ul>
@@ -328,7 +283,7 @@
                             <div class="mega-item">
                                 <h3 class="menu-title">Shop Single</h3>
                                 <ul>
-                                    <li><a href="productdetails-fullwidth.jsp">Full Width</a></li>
+                                    <li><a href="productdetails-fullwidth.html">Full Width</a></li>
                                     <li><a href="productdetails-leftsidebar.html">Left Sidebar</a></li>
                                     <li><a href="productdetails-rightsidebar.html">Right Sidebar</a></li>
                                 </ul>
@@ -336,7 +291,7 @@
                             <div class="mega-item">
                                 <h3 class="menu-title">Shopping Cart</h3>
                                 <ul>
-                                    <li><a href="shopping-cart-fullwidth.jsp">Cart Full Width</a></li>
+                                    <li><a href="shopping-cart-fullwidth.html">Cart Full Width</a></li>
                                     <li><a href="shopping-cart-leftsidebar.html">Cart Left Sidebar</a></li>
                                     <li><a href="shopping-cart-rightsidebar.html">Cart Right Sidebar</a></li>
                                 </ul>
@@ -344,9 +299,9 @@
                             <div class="mega-item">
                                 <h3 class="menu-title">Orther</h3>
                                 <ul>
-                                    <li><a href="my-wishlist.jsp">My Wishlist</a></li>
-                                    <li><a href="check-out.jsp">Check Out</a></li>
-                                    <li class="current-menu-item"><a href="compare.jsp">Compare</a></li>
+                                    <li><a href="my-wishlist.html">My Wishlist</a></li>
+                                    <li><a href="check-out.html">Check Out</a></li>
+                                    <li><a href="compare.html">Compare</a></li>
                                 </ul>
                             </div>
                         </div><!-- .menu-mega -->
@@ -368,24 +323,9 @@
                             <li><a href="page-404.html">404</a></li>
                         </ul>
                     </li>
-                    <li><a href="bloglist-fullwidth.html">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blogdetails-leftsidebar.html">Blog Details LeftSideBar</a></li>
-                            <li><a href="blogdetails-rightsidebar.html">Blog Details RightSidebar</a></li>
-                            <li><a href="blogdetails-fullwidth.html">Blog Details FullWidth</a></li>
-                            <li><a href="bloggrid-2column.html">Blog Grid 2Column</a></li>
-                            <li><a href="bloggrid-3column.html">Blog Grid 3Column</a></li>
-                            <li><a href="bloglist-fullwidth.html">Blog List Full Width</a></li>
-                            <li><a href="bloglist-rightsidebar.html">Blog List Right SideBar</a></li>
-                            <li><a href="bloglist-leftsidebar.html">Blog List Left SideBar</a></li>
-                            <li><a href="bloglist-zigzac.html">Blog List ZigZac</a></li>
-                            <li><a href="bloggrid-masonry.html">Blog Grid Masonry</a></li>
-                        </ul>
+                    <li class="current-menu-item"><a href="blogdetails-fullwidth.jsp">Blog</a>
                     </li>
-                    <li><a href="contact-us.html">Contact</a>
-                        <ul class="sub-menu">
-                            <li><a href="contact-us2.html">Contact 2</a></li>
-                        </ul>
+                    <li><a href="contact.jsp">Contact</a>
                     </li>
                 </ul>
 
@@ -398,17 +338,19 @@
 <div id="content" class="site-content content-fullwidth">
 <div class="space-dark"></div>
 <div class="no-container">
-    <div class="blog-breadcrumb shop-breadcrumb">
+    <div class="blog-breadcrumb">
         <div class="container">
 
             <div class="intro-div">
-                <h1 class="page-title">Compare</h1>
+                <h1 class="page-title">Full Width</h1>
                 <div class="breadcrumb">
                     <ul>
 
-                        <li><a href="#">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
 
-                        <li><span class="current">Compare</span></li>
+                        <li><a href="blogdetails-fullwidth.jsp">Blog</a></li>
+
+                        <li><span class="current">Details</span></li>
 
                     </ul>
 
@@ -423,214 +365,88 @@
 
 <main id="main" class="site-main">
 
-    <div class="inner-content">
-        <div class="compare-table">
-            <table class="shop_table compare">
-                <tbody class="clearfix">
+    <article class="post clearfix">
 
-                <tr class="compare-name compare-item">
+        <div class="post-thumb post-thumb-full">
 
-                    <th class="compare-head">
-                        <span>items</span>
-                    </th>
-                    <td>
-                        <a href="#">
-                            <span class="thumb">
-                                <img src="images/placeholder/feature-prod-img1.jpg" alt="">
-                            </span>
-                            <span class="prod-name">Tomatin 12 Year Old</span>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#">
-                            <span class="thumb"><img src="images/placeholder/feature-prod-img1.jpg" alt=""></span>
-                            <span class="prod-name">Tomatin 12 Year Old</span>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#">
-                            <span class="thumb"><img src="images/placeholder/feature-prod-img1.jpg" alt=""></span>
-                            <span class="prod-name">Tomatin 12 Year Old</span>
-                        </a>
-                    </td>
+            <img src="images/placeholder/blog-img01.jpg" alt="">
 
-                </tr>
+        </div><!-- .post-thumb.post-thumb-full -->
 
-                <tr class="compare-rating compare-item">
 
-                    <th class="compare-head">
-                        <span>Rating</span>
-                    </th>
-                    <td>
-                        <div class="star-rating">
-                            <span style="width:60%"></span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="star-rating">
-                            <span style="width:60%"></span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="star-rating">
-                            <span style="width:60%"></span>
-                        </div>
-                    </td>
+        <div class="post-info">
+            <div class="post-date"><span class="month">Aug</span> <span class="date">08</span></div>
 
-                </tr>
+            <h3 class="post-title">William Shatner's New Wine Enterprise</h3>
 
-                <tr class="compare-price compare-item">
+            <div class="post-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
+                <blockquote>
+                    Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something.
+                    <span class="author-qoute">LUCY MARKET</span>
+                </blockquote>
+                <p class="txt-title">Recipes from a Winemaker's Restaurant</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nutlla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+            </div>
 
-                    <th class="compare-head">
-                        <span>UNIT PRICE</span>
-                    </th>
-                    <td>
-                        <span class="amount"><span class="symbol">$</span>145.00</span>
-                    </td>
-                    <td>
-                        <span class="amount"><span class="symbol">$</span>145.00</span>
-                    </td>
-                    <td>
-                        <span class="amount"><span class="symbol">$</span>145.00</span>
-                    </td>
+            <div class="entry-footer">
+                <div class="tags-links">
+                    <a href="#" rel="tag">Fashions</a>
+                    <a href="#" rel="tag">LIFE STYLE</a>
+                    <a href="#" rel="tag">Summer</a>
+                </div>
+                <div class="single-share">
+                    <div class="social">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-heart"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- entry-footer -->
 
-                </tr>
+            <div class="comments-area" id="comments">
+                <h3 class="comments-title widget-title"><span>5</span> comments</h3>
+                <ol class="comment-list" id="pinglun">
 
-                <tr class="compare-des compare-item">
 
-                    <th class="compare-head">
-                        <span>Description</span>
-                    </th>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-                    </td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-                    </td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-                    </td>
+                </ol><!-- .comment-list -->
 
-                </tr>
+                <div class="comment-respond" id="respond">
+                    <h3 class="comment-reply-title widget-title" id="reply-title">LEAVE A COMMENT</h3>
 
-                <tr class="compare-manufature compare-item">
+                    <form novalidate="" class="comment-form" id="commentform" method="post" action="${pageContext.request.contextPath}/message?method=addMessage">
 
-                    <th class="compare-head">
-                        <span>manufature</span>
-                    </th>
-                    <td>
-                        Gucci
-                    </td>
-                    <td>
-                        Lacoste
-                    </td>
-                    <td>
-                        Buberry
-                    </td>
+                        <p class="comment-form-author">
+                            <input size="30" value="" name="author" placeholder="Name" id="author" type="text">
+                        </p>
 
-                </tr>
+                        <p class="comment-form-email">
+                            <input size="30" value="" name="email" placeholder="Email" id="email" type="text">
+                        </p>
 
-                <tr class="compare-availability compare-item">
+                        <p class="comment-form-comment">
+                            <textarea aria-required="true" rows="9" cols="45" placeholder="Your comment" name="comment" id="comment"></textarea>
+                        </p>
 
-                    <th class="compare-head">
-                        <span>availability</span>
-                    </th>
-                    <td class="instock">
-                        In Stock
-                    </td>
-                    <td class="outstock">
-                        Out Stock
-                    </td>
-                    <td class="instock">
-                        In Stock
-                    </td>
+                        <p class="form-submit">
+                            <input value="Send Messages" class="submit button radius plum bold" id="submit" name="submit" type="submit">
+                        </p>
+                    </form>
+                </div> <!-- #respond -->
+            </div><!-- comments-area -->
 
-                </tr>
+        </div><!-- .post-info -->
 
-                <tr class="compare-size compare-item">
+    </article>
 
-                    <th class="compare-head">
-                        <span>Size</span>
-                    </th>
-                    <td class="list-size">
-                        <a href="#">S</a>
-                    </td>
-                    <td class="list-size">
-                        <a href="#">M</a>
-                    </td>
-                    <td class="list-size">
-                        <a href="#">L</a>
-                    </td>
-
-                </tr>
-
-                <tr class="compare-color compare-item">
-
-                    <th class="compare-head">
-                        <span>Color</span>
-                    </th>
-                    <td class="list-color">
-                        <a class="color" href="#"></a>
-                    </td>
-                    <td class="list-color">
-                        <a class="red" href="#"></a>
-                    </td>
-                    <td class="list-color">
-                        <a class="blue" href="#"></a>
-                    </td>
-
-                </tr>
-
-                <tr class="compare-quantity compare-item">
-
-                    <th class="compare-head">
-                        <span>Quantity</span>
-                    </th>
-                    <td>
-                        01
-                    </td>
-                    <td>
-                        01
-                    </td>
-                    <td>
-                        01
-                    </td>
-
-                </tr>
-
-                <tr class="action-wrap compare-item">
-                    <th class="compare-head">
-                        <span>actions</span>
-                    </th>
-
-                    <td>
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </td>
-
-                    <td>
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </td>
-
-                    <td>
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </td>
-
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div><!-- inner-content -->
 
 </main><!-- .site-main -->
+
 
 </div><!-- .container -->
 
