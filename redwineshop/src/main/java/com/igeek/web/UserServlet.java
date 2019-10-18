@@ -48,7 +48,7 @@ public class UserServlet extends BaseServlet {
         if(u==null){
             //用户名或密码错误
             msg="用户名或密码错误";
-            response.sendRedirect(request.getContextPath()+"/check-out.jsp");
+            response.sendRedirect(request.getContextPath()+"/index.jsp");
             return;
         }else {
             //用户存入session中
