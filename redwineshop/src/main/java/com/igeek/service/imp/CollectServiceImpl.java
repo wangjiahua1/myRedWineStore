@@ -21,7 +21,6 @@ public class CollectServiceImpl implements CollectService {
 
     @Override
     public Product findProductByPid(int pid) {
-        System.out.println("???");
         return dao.findProductByPid(pid);
     }
 
