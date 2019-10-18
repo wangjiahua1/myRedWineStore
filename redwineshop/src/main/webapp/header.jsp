@@ -13,31 +13,83 @@
             <form action="${pageContext.request.contextPath}/user?method=login" method="post">
                 <p class="login-username">
                     <label for="user_login">Username*:</label>
-                    <input name="log" id="user_login" class="input" value="tom" size="20" type="text" />
+                    <input name="log" id="user_login" class="input" value="tom" size="20" type="text">
                 </p>
                 <p class="login-password">
                     <label for="user_pass">Password*:</label>
-                    <input name="pwd" id="user_pass" class="input" value="123456" size="20" type="password" />
+                    <input name="pwd" id="user_pass" class="input" value="123456" size="20" type="password">
                 </p>
                 <p class="login-submit">
-                    <input  id="wp-submit" class="button-primary" value="Login" type="submit" />
+                    <input  id="wp-submit" class="button-primary" value="Login" type="submit">
                 </p>
             </form>
 
             <div class="modal-footer">
-                <a href="register.jsp">Register</a>
+                <a href="#">Register</a>
                 <a href="#">Forgot Password</a>
             </div>
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
     </div><!-- .search-popup -->
+
+    <%--显示个人信息弹窗--%>
+    <div id="myAccout_dialog" class="modal fade login-popup">
+        <div class="popup-inner">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
+                <h3 class="modal-title">MyAccout</h3>
+            </div>
+
+            <form action="${pageContext.request.contextPath}/user?method=login" method="post">
+                <p class="login-username">
+                    <label for="user_login">Username*:</label>
+                    <input name="log" id="user_login" class="input" value="tom" size="20" type="text"/>
+                </p>
+                <p class="login-password">
+                    <label for="user_pass">Password*:</label>
+                    <input name="pwd" id="user_pass" class="input" value="123456" size="20" type="password"/>
+                </p>
+                <p class="login-username">
+                    <label for="sex">Username*:</label>
+                    <input name="sex" id="sex" class="input" value="" size="20" type="text"/>
+                </p>
+                <p class="login-username">
+                    <label for="user_login">Username*:</label>
+                    <input name="log" id="user_login" class="input" value="tom" size="20" type="text"/>
+                </p>
+                <p class="login-username">
+                    <label for="user_login">Username*:</label>
+                    <input name="log" id="user_login" class="input" value="tom" size="20" type="text"/>
+                </p>
+                <p class="login-submit">
+                    <input  id="wp-submit" class="button-primary" value="Login" type="submit"/>
+                </p>
+            </form>
+
+            <div class="modal-footer">
+                <a href="#">Register</a>
+                <a href="#">Forgot Password</a>
+            </div>
+        </div><!-- .popup-inner -->
+        <div class="mask popup-close"></div>
+    </div>
+
+
     <div class="top-header">
         <div class="no-container">
             <div class="left-header">
-                <span class="icon_setting"><i class="pe-7s-config"></i></span>
+
+                <span class="icon_setting">
+                    <a class="top-account top-login">
+                        <i class="pe-7s-config" ></i>
+                    </a>
+                </span>
                 <div class="setting-wrap">
                     <ul class="setting-account-list">
-                        <li><a href="#">My Account</a></li>
+                        <li>
+                            <a class="top-account top-login" href="#" data-toggle="modal" data-target="#myAccout_dialog">My Account
+                            </a>
+                        </li>
                         <li><a href="my-wishlist.jsp">My Wishlist</a></li>
                         <li><a href="compare.jsp">Compare</a></li>
                         <li><a href="shopgridleft.jsp">My Cart</a></li>
@@ -62,14 +114,15 @@
                     </div><!-- .language -->
 
                 </div>
+
             </div>
 
             <div class="right-header">
                 <ul>
                     <c:if test="${user!=null}">
-                        <li style="font-size:20px "><a href="#" style="color:black; font-size:20px">${user.username}</a> </li>
+                        <li style="font-size:20px "><a href="#" class="top-account top-login" style="font-size:20px">${user.username}</a> </li>
                         <li >
-                            <a href="${pageContext.request.contextPath}/user?method=logout" style="font-size: 20px">
+                            <a href="${pageContext.request.contextPath}/user?method=logout" class="top-account top-login" style="font-size:20px">
                                 LogOut
                             </a>
                         </li>
