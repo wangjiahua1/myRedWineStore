@@ -22,7 +22,6 @@ public class CollectServlet extends BaseServlet {
     CollectService service = (CollectService) BeanFactory.getBean("collectservice");
     public void findAllCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Collect> collects = findAllCid(request,response);
-        System.out.println(collects);
         List<MyCollect> lists = new LinkedList<>();
         for (int i = 0; i < collects.size(); i++) {
             MyCollect my = new MyCollect();
