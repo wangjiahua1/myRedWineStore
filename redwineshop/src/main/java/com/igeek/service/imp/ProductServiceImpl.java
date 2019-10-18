@@ -20,4 +20,19 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getCurrentPage(int currentpage) {
         return pd.getCurrentPage(currentpage);
     }
+
+    @Override
+    public List<Product> gethotRedwine() {
+        return pd.gethotRedwine();
+    }
+
+    @Override
+    public List<Product> getChoosePrice(int price1, int price2) {
+        return pd.getChoosePrice(price1,price2);
+    }
+
+    @Override
+    public List<Product> getChooseColor(String color) {
+        return pd.getChooseColor(color);
+    }
 }

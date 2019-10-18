@@ -41,4 +41,37 @@ public class ProductDaoImpl implements ProductDao {
         }
         return null;
     }
+
+    @Override
+    public List<Product> gethotRedwine() {
+        String sql="select * from product where ishot='new' limit 0,5";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Product> getChoosePrice(int price1, int price2) {
+        String sql="select * from product where price>=? and price<=?";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class),price1,price2);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Product> getChooseColor(String color) {
+        String sql="select * from product where color=?";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class),color);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

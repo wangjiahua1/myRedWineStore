@@ -20,7 +20,36 @@
     <%--加载分页页面样式--%>
     <link href="css/zxf_page.css" type="text/css" rel="stylesheet"/>
 </head>
+<script type="text/javascript">
 
+    //左下热门商品加载
+    $(function () {
+        $.getJSON(
+            "product?method=gethotRedwine",
+            function (data) {
+                console.log(data);
+                var myhot=$("#newul");
+                $.each(data,function (i,v) {
+                    console.log(v);
+                    myhot.append("<li class=\"clearfix\">\n" +
+                        "                <a class=\"product-thumb\" href=\"productdetails-fullwidth.jsp\">\n" +
+                        "                    <img src=\""+v.pimage+"\" style='height: 50px' >\n" +
+                        "                </a>\n" +
+                        "                <div class=\"product-info\">\n" +
+                        "                    <h3 class=\"title\"><a href=\"productdetails-fullwidth.jsp\">"+v.pname+"</a></h3>\n" +
+                        "                    <div class=\"star-rating\">\n" +
+                        "                        <span style=\"width:60%\"></span>\n" +
+                        "                    </div>\n" +
+                        "                    <span class=\"price\">\n" +
+                        "                        <span class=\"amount\">$"+v.price+"</span>\n" +
+                        "                    </span>\n" +
+                        "                </div><!-- .product-info -->\n" +
+                        "            </li>");
+                })
+            }
+        )
+    });
+</script>
 <body>
 <jsp:include page="pageloader.jsp"></jsp:include>
 <jsp:include page="header.jsp"></jsp:include>
@@ -69,20 +98,9 @@
                 <script type="text/javascript">
                     $("#select-numb").change(function () {
                         var options=$("#select-numb option:selected").val();
+
                         var path="product?method=getAllRedWine&sizePage="+options;
-                        console.log(options);
                         window.location.href=path;
-
-                        /*$.ajax({
-                            type: 'get',
-                            url : path,
-                            //url: '/api/one/new/list?p=1',
-                            dataType: 'json',
-                            success: function (data) {
-
-                            }
-                            });*/
-
                     });
                 </script>
             </div>
@@ -112,7 +130,15 @@
         <div class="p-thumb">
             <a href="productdetails-fullwidth.jsp">
                 <img src="${redwine.pimage}" alt="" style="height: 480px">
-                <a href="#" class="onnew">${redwine.ishot}</a>
+                <c:if test="${redwine.ishot == 'new'}">
+                    <a href="#" class="onnew">${redwine.ishot}</a>
+                </c:if>
+                <c:if test="${redwine.ishot == 'hot'}">
+                    <a href="#" class="onsale">${redwine.ishot}</a>
+                </c:if>
+                <c:if test="${redwine.ishot == null}">
+                    <a href="#" class="">${redwine.ishot}</a>
+                </c:if>
             </a>
         </div><!-- .p-thumb -->
 
@@ -138,66 +164,7 @@
         </div><!-- .p-info -->
     </div><!-- .product -->
     </c:forEach>
-   <%--&lt;%&ndash;第二个&ndash;%&gt;--%>
-    <%--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item">--%>
-        <%--<div class="p-thumb">--%>
-            <%--<a href="productdetails-fullwidth.jsp">--%>
-                <%--<img src="images/placeholder/product2.jpg" alt="">--%>
-            <%--</a>--%>
-            <%--<a href="#" class="onnew">New</a>--%>
-        <%--</div><!-- .p-thumb -->--%>
 
-        <%--<div class="p-info">--%>
-            <%--<h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>--%>
-
-            <%--<div class="clearfix">--%>
-                <%--<div class="star-rating">--%>
-                    <%--<span style="width:60%"></span>--%>
-                <%--</div>--%>
-
-                    <%--<span class="price">--%>
-                        <%--<span class="amount">$125.00</span>--%>
-                    <%--</span>--%>
-            <%--</div>--%>
-
-            <%--<div class="p-actions">--%>
-                <%--<a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>--%>
-                <%--<a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>--%>
-                <%--<a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>--%>
-                <%--<a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>--%>
-            <%--</div><!-- .p-actions -->--%>
-        <%--</div><!-- .p-info -->--%>
-    <%--</div><!-- .product -->--%>
-
-    <%--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item">--%>
-        <%--<div class="p-thumb">--%>
-            <%--<a href="productdetails-fullwidth.jsp">--%>
-                <%--<img src="images/placeholder/product3.jpg" alt="">--%>
-            <%--</a>--%>
-            <%--<a href="#" class="onsale">Sale</a>--%>
-        <%--</div><!-- .p-thumb -->--%>
-
-        <%--<div class="p-info">--%>
-            <%--<h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>--%>
-
-            <%--<div class="clearfix">--%>
-                <%--<div class="star-rating">--%>
-                    <%--<span style="width:60%"></span>--%>
-                <%--</div>--%>
-
-                    <%--<span class="price">--%>
-                        <%--<span class="amount">$125.00</span>--%>
-                    <%--</span>--%>
-            <%--</div>--%>
-
-            <%--<div class="p-actions">--%>
-                <%--<a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>--%>
-                <%--<a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>--%>
-                <%--<a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>--%>
-                <%--<a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>--%>
-            <%--</div><!-- .p-actions -->--%>
-        <%--</div><!-- .p-info -->--%>
-    <%--</div><!-- .product -->--%>
 
     </div>
 
@@ -217,11 +184,12 @@
                     if (currentPage>${maxPage}){
                         currentPage=${maxPage};
                     }
+                    var options=$("#select-numb option:selected").val();
                     $.ajax({
                         type: 'get',
                         url : 'page?method=getCurrentPage',
                         //url: '/api/one/new/list?p=1',
-                        data: {"currentPage":currentPage},
+                        data: {"currentPage":currentPage,"options":options},
                         dataType: 'json',
                         success: function (data) {
                             $("#myproduct").empty();
@@ -229,7 +197,7 @@
                                 var message="<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item\">\n" +
                                     "        <div class=\"p-thumb\">\n" +
                                     "            <a href=\"productdetails-fullwidth.jsp\">\n" +
-                                    "                <img src=\""+v.pimage+"\" alt=\"\" style=\"height: 480px\">\n" +
+                                    "                <img src=\""+v.pimage+"\" class=\"myimg\" style=\"height: 480px\">\n" +
                                     "                <a href=\"#\" class=\"onnew\">"+v.ishot+"</a>\n" +
                                     "            </a>\n" +
                                     "        </div><!-- .p-thumb -->\n" +
@@ -269,60 +237,83 @@
     </main><!-- .site-main -->
 
     <div id="sidebar" class="sidebar left-sidebar left-shop-sidebar col-md-3">
-
-    <aside class="widget list-category">
-
-        <h3 class="widget-title"><span>CATEGORIES</span></h3>
-
-        <ul class="menu">
-
-            <li><a href="#">WoMen</a></li>
-            <li><a href="#">men</a></li>
-            <li><a href="#">Accesories</a></li>
-            <li><a href="#">blog</a></li>
-            <li><a href="#">NEW</a></li>
-            <li><a href="#">SALES</a></li>
-
-        </ul>
-
-    </aside>
-
     <aside class="widget">
-
         <h3 class="widget-title"><span>Shop by</span></h3>
-
         <div class="f-price">
-
             <div id="slider-range"></div>
-
             <span>Price: <strong id="amount"></strong></span>
-
-            <button class="button radius" type="button">Filter</button>
-
+            <button class="button radius" type="button" id="getPrice">Filter</button>
         </div>
-
     </aside>
+        <script type="text/javascript">
+            $("#getPrice").click(function () {
+                var price=$("#amount").text();
+                console.log(price);
+                $.ajax({
+                    type: 'get',
+                    url: 'product?method=getChoosePrice',
+                    //url: '/api/one/new/list?p=1',
+                    data: {"price": price},
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#myproduct").empty();
+                        $.each(data, function (i, v) {
+                            var message = "<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item\">\n" +
+                                "        <div class=\"p-thumb\">\n" +
+                                "            <a href=\"productdetails-fullwidth.jsp\">\n" +
+                                "                <img src=\"" + v.pimage + "\" class=\"myimg\" style=\"height: 480px\">\n" +
+                                "                <a href=\"#\" class=\"onnew\">" + v.ishot + "</a>\n" +
+                                "            </a>\n" +
+                                "        </div><!-- .p-thumb -->\n" +
+                                "\n" +
+                                "        <div class=\"p-info\">\n" +
+                                "            <h3 class=\"p-title\"><a href=\"productdetails-fullwidth.jsp\">" + v.pname + "</a></h3>\n" +
+                                "\n" +
+                                "            <div class=\"clearfix\">\n" +
+                                "                <div class=\"star-rating\">\n" +
+                                "                    <span style=\"width:60%\"></span>\n" +
+                                "                </div>\n" +
+                                "\n" +
+                                "                    <span class=\"price\">\n" +
+                                "                        <span class=\"amount\">$ " + v.price + "</span>\n" +
+                                "                    </span>\n" +
+                                "            </div>\n" +
+                                "\n" +
+                                "            <div class=\"p-actions\">\n" +
+                                "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
+                                "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
+                                "                <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
+                                "                <a href=\"#\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                                "            </div><!-- .p-actions -->\n" +
+                                "        </div><!-- .p-info -->\n" +
+                                "    </div><!-- .product -->";
+                            $("#myproduct").append(message);
+                        });
+                    }
+                });
+            });
+        </script>
+
+
+
+
+
+
+
+
+
+
 
     <aside class="widget">
-
         <h3 class="widget-title"><span>Colors</span></h3>
-
-        <ul class="list-color">
-
-            <li><a href="#" class="red">Red <span class="count">(42)</span></a></li>
-
-            <li><a href="#" class="black">Black <span class="count">(28)</span></a></li>
-
-            <li><a href="#" class="blue">Blue <span class="count">(27)</span></a></li>
-
-            <li><a href="#" class="green">Green <span class="count">(43)</span></a></li>
-
-            <li><a href="#" class="yellow">Yellow <span class="count">(15)</span></a></li>
+        <ul class="list-color" id="mycolor">
+            <li><a href="#" class="red" id="a1">red</a><span class="count" id="red">(42)</span></li>
+            <li><a href="#" class="black" id="a2">black</a> <span class="count" id="black">(28)</span></li>
+            <li><a href="#" class="blue" id="a3">blue</a><span class="count" id="blue">(27)</span></li>
+            <li><a href="#" class="yellow" id="a4">yellow</a><span class="count" id="yellow">(15)</span></li>
 
         </ul>
-
     </aside>
-
     <aside class="widget">
 
         <h3 class="widget-title"><span>Sizes</span></h3>
@@ -334,11 +325,6 @@
             <li><a href="#">M</a></li>
 
             <li><a href="#">L</a></li>
-
-            <li><a href="#">XL</a></li>
-
-            <li><a href="#">XXL</a></li>
-
         </ul>
 
     </aside>
@@ -350,152 +336,9 @@
 
     <aside class="widget featured-prod">
 
-        <h3 class="widget-title"><span>Featured</span></h3>
+        <h3 class="widget-title"><span>new shop</span></h3>
 
-        <ul>
-
-            <li class="clearfix">
-
-                <a class="product-thumb" href="productdetails-fullwidth.jsp">
-
-                    <img src="images/placeholder/feature-prod-img1.jpg" alt="">
-
-                </a>
-
-                <div class="product-info">
-
-                    <h3 class="title"><a href="productdetails-fullwidth.jsp">Rose Wines</a></h3>
-
-                    <div class="star-rating">
-
-                        <span style="width:60%"></span>
-
-                    </div>
-
-                    <span class="price">
-
-                        <span class="amount">$125.00</span>
-
-                    </span>
-
-                </div><!-- .product-info -->
-
-            </li>
-
-            <li class="clearfix">
-
-                <a class="product-thumb" href="productdetails-fullwidth.jsp">
-
-                    <img src="images/placeholder/feature-prod-img2.jpg" alt="">
-
-                </a>
-
-                <div class="product-info">
-
-                    <h3 class="title"><a href="productdetails-fullwidth.jsp">Rose Wines</a></h3>
-
-                    <div class="star-rating">
-
-                        <span style="width:60%"></span>
-
-                    </div>
-
-                    <span class="price">
-
-                        <span class="amount">$263.00</span>
-
-                    </span>
-
-                </div><!-- .product-info -->
-
-            </li>
-
-            <li class="clearfix">
-
-                <a class="product-thumb" href="productdetails-fullwidth.jsp">
-
-                    <img src="images/placeholder/feature-prod-img3.jpg" alt="">
-
-                </a>
-
-                <div class="product-info">
-
-                    <h3 class="title"><a href="productdetails-fullwidth.jsp">Rose Wines</a></h3>
-
-                    <div class="star-rating">
-
-                        <span style="width:60%"></span>
-
-                    </div>
-
-                    <span class="price">
-
-                        <span class="amount">$125.00</span>
-
-                    </span>
-
-                </div><!-- .product-info -->
-
-            </li>
-
-            <li class="clearfix">
-
-                <a class="product-thumb" href="productdetails-fullwidth.jsp">
-
-                    <img src="images/placeholder/feature-prod-img4.jpg" alt="">
-
-                </a>
-
-                <div class="product-info">
-
-                    <h3 class="title"><a href="productdetails-fullwidth.jsp">Rose Wines</a></h3>
-
-                    <div class="star-rating">
-
-                        <span style="width:60%"></span>
-
-                    </div>
-
-                    <span class="price">
-
-                        <span class="amount">$125.00</span>
-
-                    </span>
-
-                </div><!-- .product-info -->
-
-            </li>
-
-            <li class="clearfix">
-
-                <a class="product-thumb" href="productdetails-fullwidth.jsp">
-
-                    <img src="images/placeholder/feature-prod-img5.jpg" alt="">
-
-                </a>
-
-                <div class="product-info">
-
-                    <h3 class="title"><a href="productdetails-fullwidth.jsp">Rose Wines</a></h3>
-
-                    <div class="star-rating">
-
-                        <span style="width:60%"></span>
-
-                    </div>
-
-                    <span class="price">
-
-                        <span class="amount">$125.00</span>
-
-                    </span>
-
-                </div><!-- .product-info -->
-
-            </li>
-
-        </ul>
-
+        <ul id="newul"></ul>
     </aside>
     </div><!-- .left-sidebar -->
     </div>

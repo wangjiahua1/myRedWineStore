@@ -24,7 +24,7 @@
                             <ul class="menu">
                                 <li><a href="#">My account</a></li>
                                 <li><a href="#">My orders</a></li>
-                                <li><a href="#">Register</a></li>
+                                <li><a href="register.jsp">Register</a></li>
                                 <li><a href="#">Login</a></li>
                             </ul>
                         </aside><!-- .widget -->

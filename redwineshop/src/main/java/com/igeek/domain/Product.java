@@ -14,9 +14,10 @@ public class Product {
     private String description;
     private String brand;
     private String size;
+    private String availability;
     private String color;
     private String cid;
-    private int ishot;
+    private String ishot;
 
     public Product() {
     }
@@ -77,6 +78,14 @@ public class Product {
         this.size = size;
     }
 
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
+
     public String getColor() {
         return color;
     }
@@ -93,27 +102,11 @@ public class Product {
         this.cid = cid;
     }
 
-    public int getIshot() {
+    public String getIshot() {
         return ishot;
     }
 
-    public void setIshot(int ishot) {
+    public void setIshot(String ishot) {
         this.ishot = ishot;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "pid=" + pid +
-                ", pname='" + pname + '\'' +
-                ", pimage='" + pimage + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", brand='" + brand + '\'' +
-                ", size='" + size + '\'' +
-                ", color='" + color + '\'' +
-                ", cid='" + cid + '\'' +
-                ", ishot=" + ishot +
-                '}';
     }
 }
