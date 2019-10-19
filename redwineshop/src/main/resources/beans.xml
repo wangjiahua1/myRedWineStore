@@ -9,6 +9,8 @@
 
     <!--Dao-->
     <bean id="myredwinedao" class="com.igeek.dao.imp.ProductDaoImpl"></bean>
+    <bean id="mycateservice" class="com.igeek.service.imp.CategoryServiceImpl"></bean>
+    <bean id="mycatedao" class="com.igeek.dao.imp.CategoryDaoImpl"></bean>
     <bean id="userDao" class="com.igeek.dao.imp.UserDaoImpl"></bean>
 
     <bean id="messageservice" class="com.igeek.service.imp.MessageServiceImpl"></bean>

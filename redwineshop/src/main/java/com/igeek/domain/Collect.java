@@ -6,15 +6,30 @@ package com.igeek.domain;
 public class Collect {
     private int collectid;
     private int pid;
+    private int number;
     private String uid;
 
-    public Collect(int collectid, int pid, String uid) {
+    public Collect(int collectid, int pid, int number) {
         this.collectid = collectid;
         this.pid = pid;
+        this.number = number;
+    }
+
+    public Collect(int pid, int number, String uid) {
+        this.pid = pid;
+        this.number = number;
         this.uid = uid;
     }
 
     public Collect() {
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public int getCollectid() {
@@ -33,11 +48,21 @@ public class Collect {
         this.pid = pid;
     }
 
-    public String getUid() {
-        return uid;
+    public int getNumber() {
+        return number;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "Collect{" +
+                "collectid=" + collectid +
+                ", pid=" + pid +
+                ", number=" + number +
+                ", uid='" + uid + '\'' +
+                '}';
     }
 }

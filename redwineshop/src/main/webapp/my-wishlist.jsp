@@ -24,7 +24,6 @@
 <body>
 <jsp:include page="pageloader.jsp"></jsp:include>
 <jsp:include page="header.jsp"></jsp:include>
-
 <div id="content" class="site-content content-fullwidth">
 <div class="space-dark"></div>
 <div class="no-container">

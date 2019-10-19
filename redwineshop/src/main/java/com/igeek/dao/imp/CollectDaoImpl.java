@@ -41,6 +41,28 @@ public class CollectDaoImpl implements CollectDao {
     }
 
     @Override
+    public void addCollect(Collect collect) {
+        sql="insert into collect values (?,?,?,?)";
+        try {
+            qr.update(sql,null,collect.getPid(),collect.getNumber(),collect.getUid());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Collect> findCollectByUid(String uid) {
+        String sql="select * from collect where uid = ?";
+        List<Collect> collects=null;
+        try {
+            collects=qr.query(sql,new BeanListHandler<>(Collect.class),uid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return collects;
+    }
+
+    @Override
     public List<Collect> findPartCid(int start, int end) {
         sql = "select * from collect limit ?,?;";
         try {

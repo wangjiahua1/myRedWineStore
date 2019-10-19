@@ -6,6 +6,7 @@ package com.igeek.domain;
 public class MyCollect {
     private int collectid;
     private String uid;
+    private int number;
     private Product product;
 
     public MyCollect(int collectid, String uid, Product product) {
@@ -39,5 +40,13 @@ public class MyCollect {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
     }
 }

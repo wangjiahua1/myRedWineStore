@@ -25,6 +25,16 @@ public class CollectServiceImpl implements CollectService {
     }
 
     @Override
+    public void addCollect(Collect collect) {
+        dao.addCollect(collect);
+    }
+
+    @Override
+    public List<Collect> findCollectByUid(String uid) {
+        return dao.findCollectByUid(uid);
+    }
+
+    @Override
     public List<Collect> findPartCid(int page) {
         int start = (page - 1) * 3 +1;
         int end = page * 3;

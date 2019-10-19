@@ -23,4 +23,13 @@ public interface ProductDao {
     List<Cart> findallcart(String uid);
 
     Product getRedWineById(int id);
+    List<Product> findproduct(String cid);
+
+    List<Product> findproductbyIsnew(String aNew);
+
+    List<Product> findproductbyIshot(String s);
+
+    List<Product> findproductbyIsbhot(String hot);
+
+    Product findbyPidproduct(int pid);
 }

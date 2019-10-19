@@ -2,6 +2,7 @@ package com.igeek.web;
 
 import com.google.gson.Gson;
 import com.igeek.domain.Cart;
+import com.google.gson.Gson;
 import com.igeek.domain.Product;
 import com.igeek.domain.User;
 import com.igeek.service.ProductService;
@@ -10,7 +11,6 @@ import com.igeek.utils.BeanFactory;
 import javax.mail.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -93,7 +93,50 @@ public class ProductServlet extends BaseServlet {
     public void getRedWineById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id= Integer.parseInt(req.getParameter("id"));
         Product redwine=ps.getRedWineById(id);
-        req.setAttribute("RedWine",redwine);
+        req.setAttribute("product",redwine);
         req.getRequestDispatcher("productdetails-fullwidth.jsp").forward(req,resp);
+    }
+    public void findproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String cid=request.getParameter("cid");
+        List<Product> products=ps.findproduct(cid);
+        System.out.println("prodcut__"+products);
+        Gson gson =new Gson();
+        String jsonString =gson.toJson(products);
+        response.getWriter().write(jsonString);
+    }
+
+
+    public void findproductbyIsnew(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Product> products =ps.findproductbyIsnew("new");
+        System.out.println(products);
+        Gson gson =new Gson();
+        String jsonString =gson.toJson(products);
+        response.getWriter().write(jsonString);
+    }
+
+   public void findproductbyIshot(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Product> products =ps.findproductbyIshot("");
+       System.out.println(products);
+       Gson gson =new Gson();
+       String jsonString =gson.toJson(products);
+       response.getWriter().write(jsonString);
+    }
+
+
+    public void findproductbyIsbhot(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Product> products =ps.findproductbyIsbhot("hot");
+        System.out.println(products);
+        Gson gson =new Gson();
+        String jsonString =gson.toJson(products);
+        response.getWriter().write(jsonString);
+    }
+
+
+    public void findbyPidproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pid=Integer.parseInt(request.getParameter("pid"));
+        Product product =ps.findbyPidproduct(pid);
+        //System.out.println(product);
+        request.setAttribute("product",product);
+        request.getRequestDispatcher("productdetails-fullwidth.jsp").forward(request,response);
     }
 }

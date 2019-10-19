@@ -56,4 +56,32 @@ public class ProductServiceImpl implements ProductService {
     public Product getRedWineById(int id) {
         return pd.getRedWineById(id);
     }
+
+    @Override
+    public List<Product> findproduct(String cid) {
+        return pd.findproduct(cid);
+    }
+
+    @Override
+    public List<Product> findproductbyIsnew(String aNew) {
+        System.out.println(aNew);
+        return pd.findproductbyIsnew(aNew);
+    }
+
+    @Override
+    public List<Product> findproductbyIshot(String s) {
+        return pd.findproductbyIshot(s);
+    }
+
+    @Override
+    public List<Product> findproductbyIsbhot(String hot) {
+        return pd.findproductbyIsbhot(hot);
+    }
+
+    @Override
+    public Product findbyPidproduct(int pid) {
+        return pd.findbyPidproduct(pid);
+    }
+
+
 }
