@@ -2,7 +2,7 @@
 <html>
     <jsp:include page="head.jsp"></jsp:include>
     <body class="home-01">
-        <jsp:include page="head.jsp"></jsp:include>
+        <jsp:include page="pageloader.jsp"></jsp:include>
         <jsp:include page="header.jsp"></jsp:include>
 
             <div id="content" class="site-content content-fullwidth">

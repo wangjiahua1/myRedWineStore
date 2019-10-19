@@ -3,19 +3,7 @@
 <header id="header" class="site-header">
     <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/chooseme.js"></script>
-    <script type="text/javascript">
-        $(function(a) {
-            <!--$("#myAccount").click(function() {
-            alert("aaa");
-                $.getJSON(
-                    "user?method=myAccount",
-                    function(data) {
-                        alert(data);
-                    }
-                 )
-             });-->
-        });
-    </script>
+
         <%--登录弹窗--%>
     <div id="login_dialog" class="modal fade login-popup">
         <div class="popup-inner">
@@ -94,7 +82,6 @@
     <div class="top-header">
         <div class="no-container">
             <div class="left-header">
-
                 <span class="icon_setting">
                     <a class="top-account top-login">
                         <i class="pe-7s-config" ></i>
