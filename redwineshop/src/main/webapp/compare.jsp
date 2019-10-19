@@ -9,6 +9,8 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="css/zxf_page.css"/>
     <!-- Responsive CSS -->
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <!-- Favicon -->
@@ -66,27 +68,16 @@
                     <th class="compare-head">
                         <span>items</span>
                     </th>
+                    <c:forEach items="${partCollect}" var="part">
                     <td>
                         <a href="#">
                             <span class="thumb">
-                                <img src="images/placeholder/feature-prod-img1.jpg" alt="">
+                                <img src="${pageContext.request.contextPath}/${part.product.pimage}" alt="" style="height: 132px;">
                             </span>
-                            <span class="prod-name">Tomatin 12 Year Old</span>
+                            <span class="prod-name">${part.product.pname}</span>
                         </a>
                     </td>
-                    <td>
-                        <a href="#">
-                            <span class="thumb"><img src="images/placeholder/feature-prod-img1.jpg" alt=""></span>
-                            <span class="prod-name">Tomatin 12 Year Old</span>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#">
-                            <span class="thumb"><img src="images/placeholder/feature-prod-img1.jpg" alt=""></span>
-                            <span class="prod-name">Tomatin 12 Year Old</span>
-                        </a>
-                    </td>
-
+                    </c:forEach>
                 </tr>
 
                 <tr class="compare-rating compare-item">
@@ -117,16 +108,11 @@
                     <th class="compare-head">
                         <span>UNIT PRICE</span>
                     </th>
+                    <c:forEach items="${partCollect}" var="part">
                     <td>
-                        <span class="amount"><span class="symbol">$</span>145.00</span>
+                        <span class="amount"><span class="symbol">$</span>${part.product.price}</span>
                     </td>
-                    <td>
-                        <span class="amount"><span class="symbol">$</span>145.00</span>
-                    </td>
-                    <td>
-                        <span class="amount"><span class="symbol">$</span>145.00</span>
-                    </td>
-
+                    </c:forEach>
                 </tr>
 
                 <tr class="compare-des compare-item">
@@ -151,16 +137,11 @@
                     <th class="compare-head">
                         <span>manufature</span>
                     </th>
+                    <c:forEach items="${partCollect}" var="part">
                     <td>
-                        Gucci
+                        ${part.product.brand}
                     </td>
-                    <td>
-                        Lacoste
-                    </td>
-                    <td>
-                        Buberry
-                    </td>
-
+                    </c:forEach>
                 </tr>
 
                 <tr class="compare-availability compare-item">
@@ -168,16 +149,19 @@
                     <th class="compare-head">
                         <span>availability</span>
                     </th>
-                    <td class="instock">
-                        In Stock
-                    </td>
-                    <td class="outstock">
-                        Out Stock
-                    </td>
-                    <td class="instock">
-                        In Stock
-                    </td>
-
+                    <c:forEach items="${partCollect}" var="part">
+                        111
+                        <c:if test="${part.product.availability} == 'In Stock'">
+                            <td class="instock">
+                                    ${part.product.availability}
+                            </td>
+                        </c:if>
+                        <c:if test="${part.product.availability}== 'Out Stock'">
+                            <td class="outstock">
+                                    ${part.product.availability}
+                            </td>
+                        </c:if>
+                    </c:forEach>
                 </tr>
 
                 <tr class="compare-size compare-item">
@@ -185,16 +169,11 @@
                     <th class="compare-head">
                         <span>Size</span>
                     </th>
+                    <c:forEach items="${partCollect}" var="part">
                     <td class="list-size">
-                        <a href="#">S</a>
+                        <a href="#">${part.product.size}</a>
                     </td>
-                    <td class="list-size">
-                        <a href="#">M</a>
-                    </td>
-                    <td class="list-size">
-                        <a href="#">L</a>
-                    </td>
-
+                    </c:forEach>
                 </tr>
 
                 <tr class="compare-color compare-item">
@@ -202,16 +181,11 @@
                     <th class="compare-head">
                         <span>Color</span>
                     </th>
+                    <c:forEach items="${partCollect}" var="part">
                     <td class="list-color">
-                        <a class="color" href="#"></a>
+                        <a class="${part.product.color}" href="#"></a>
                     </td>
-                    <td class="list-color">
-                        <a class="red" href="#"></a>
-                    </td>
-                    <td class="list-color">
-                        <a class="blue" href="#"></a>
-                    </td>
-
+                    </c:forEach>
                 </tr>
 
                 <tr class="compare-quantity compare-item">
@@ -219,16 +193,11 @@
                     <th class="compare-head">
                         <span>Quantity</span>
                     </th>
+                    <c:forEach items="${partCollect}" var="part">
                     <td>
-                        01
+                        ${part.number}
                     </td>
-                    <td>
-                        01
-                    </td>
-                    <td>
-                        01
-                    </td>
-
+                    </c:forEach>
                 </tr>
 
                 <tr class="action-wrap compare-item">
@@ -238,21 +207,21 @@
 
                     <td>
                         <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
+                            <a href="#" class="button btn-circle add-to-wishlist" style="color:red"><span class="pe-7s-like"></span></a>
                             <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                         </div><!-- .p-actions -->
                     </td>
 
                     <td>
                         <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
+                            <a href="#" class="button btn-circle add-to-wishlist" style="color: red"><span class="pe-7s-like"></span></a>
                             <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                         </div><!-- .p-actions -->
                     </td>
 
                     <td>
                         <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
+                            <a href="#" class="button btn-circle add-to-wishlist" style="color: red"><span class="pe-7s-like"></span></a>
                             <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                         </div><!-- .p-actions -->
                     </td>
@@ -262,11 +231,26 @@
             </table>
         </div>
     </div><!-- inner-content -->
-
+    <br />
+    <div class="zxf_pagediv"></div>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/zxf_page.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(".zxf_pagediv").createPage({
+            pageNum: ${sessionScope.count},
+            current: 6,
+            backfun: function(e) {
+                var path="page?method=getCurrentPage&currentPage="+currentPage;
+                window.location.href=path;
+                //console.log(e);//回调
+            }
+        });
+    </script>
 </main><!-- .site-main -->
 
 </div><!-- .container -->
 
+    <%--分页--%>
 </div><!-- .site-content -->
 <div id="bottom" class="site-bottom">
     <div class="no-container">
@@ -291,8 +275,13 @@
                 <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
             </ul>
         </div>
+
     </div><!-- .container -->
 </div><!-- .site-bottom -->
+
+
+
+
 <jsp:include page="footer.jsp"></jsp:include>
 </div><!-- #wrapper -->
 

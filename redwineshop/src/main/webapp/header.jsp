@@ -100,7 +100,7 @@
                             </a>
                         </li>
                         <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Wishlist</a></li>
-                        <li><a href="compare.jsp">Compare</a></li>
+                        <li><a href="${pageContext.request.contextPath}/collect?method=findCountCollect">Compare</a></li>
                         <li><a href="shopgridleft.jsp">My Cart</a></li>
                         <li><a href="check-out.jsp">Check out</a></li>
                     </ul>

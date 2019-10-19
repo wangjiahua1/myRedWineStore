@@ -89,11 +89,11 @@
                                 </td>
                                 <td class="table-col-qty text-center">
                                     <div class="quantity">
-                                        <input type="number" step="1" min="0" value="${c.number}" title="Qty" class="qty" size="4">
+                                        <input type="number" step="1" min="0" value="1" title="Qty" class="qty" size="4">
                                     </div>
                                 </td>
                                 <td class="price text-right">
-                                    <span class="amount"><span class="symbol">$</span>${c.total}</span>
+                                    <span class="amount"><span class="symbol">$</span>${c.product.price}</span>
                                 </td>
                                 <td class="product-remove text-right">
                                     <a href="#" class="remove" title="Remove this item"><i class="pe-7s-close"></i></a>

@@ -21,28 +21,38 @@ import java.util.List;
 public class CollectServlet extends BaseServlet {
     CollectService service = (CollectService) BeanFactory.getBean("collectservice");
     public void findAllCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Collect> collects = findAllCid(request,response);
+        List<Collect> collects = service.findAllCid();
         List<MyCollect> lists = new LinkedList<>();
         for (int i = 0; i < collects.size(); i++) {
             MyCollect my = new MyCollect();
             my.setCollectid(collects.get(i).getCollectid());
-            my.setNumber(collects.get(i).getNumber());
-            Product product = findProductByPid(collects.get(i).getPid());
+            Product product = service.findProductByPid(collects.get(i).getPid());
             my.setProduct(product);
-            my.setTotal((int) (collects.get(i).getNumber() * product.getPrice()));
             lists.add(my);
         }
         request.setAttribute("collects",lists);
         request.getRequestDispatcher("my-wishlist.jsp").forward(request,response);
     }
 
-    private Product findProductByPid(int pid) {
-        return service.findProductByPid(pid);
+    public void findPartCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int page = Integer.valueOf(request.getParameter("page"));
+        List<Collect> collects = service.findPartCid(page);
+        List<MyCollect> list = new LinkedList<>();
+        for (int i = 0; i < collects.size(); i++) {
+            MyCollect my = new MyCollect();
+            Product product = service.findProductByPid(collects.get(i).getPid());
+            my.setCollectid(collects.get(i).getCollectid());
+            my.setProduct(product);
+            list.add(my);
+        }
+        request.setAttribute("partCollect",list);
+        request.getRequestDispatcher("compare.jsp").forward(request,response);
     }
 
-
-    public List<Collect> findAllCid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Collect> collects = service.findAllCid();
-        return collects;
+    public void findCountCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int count = service.findCountCollect();
+        count = (int) Math.ceil((double)count / 3);
+        request.getSession().setAttribute("count",count);
+        request.getRequestDispatcher("collect?method=findPartCollect&page=1").forward(request,response);
     }
 }

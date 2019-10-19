@@ -13,4 +13,8 @@ public interface CollectService {
 
 
     Product findProductByPid(int pid);
+
+    List<Collect> findPartCid(int page);
+
+    int findCountCollect();
 }

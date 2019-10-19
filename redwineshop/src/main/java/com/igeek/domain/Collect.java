@@ -6,12 +6,12 @@ package com.igeek.domain;
 public class Collect {
     private int collectid;
     private int pid;
-    private int number;
+    private String uid;
 
-    public Collect(int collectid, int pid, int number) {
+    public Collect(int collectid, int pid, String uid) {
         this.collectid = collectid;
         this.pid = pid;
-        this.number = number;
+        this.uid = uid;
     }
 
     public Collect() {
@@ -33,11 +33,11 @@ public class Collect {
         this.pid = pid;
     }
 
-    public int getNumber() {
-        return number;
+    public String getUid() {
+        return uid;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }
