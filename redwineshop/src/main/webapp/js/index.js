@@ -426,7 +426,7 @@ $(function () {
                });
               //商品内容 通过模板实现
                $("#list #organic").trigger("click");
-               $("#list #organic").click(function () {
+               $(".featured-container #organic").click(function () {
                    $.getJSON(
                        "product?method=findproduct&cid=2",
                        function (data) {

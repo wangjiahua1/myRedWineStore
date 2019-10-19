@@ -1,5 +1,6 @@
 package com.igeek.dao;
 
+import com.igeek.domain.Cart;
 import com.igeek.domain.Product;
 import java.util.List;
 

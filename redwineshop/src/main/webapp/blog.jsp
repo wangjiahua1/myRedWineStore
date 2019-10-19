@@ -47,14 +47,14 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img01.jpg" alt=""></a>
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img01.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
 
                             <div class="post-info">
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">Fieldsheer Motorcycle Products</a></h3>
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Fieldsheer Motorcycle Products</a></h3>
                                 <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
@@ -63,7 +63,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -73,14 +73,14 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img02.jpg" alt=""></a>
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img02.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
 
                             <div class="post-info">
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">William Shatner's New Wine Enterprise</a></h3>
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">William Shatner's New Wine Enterprise</a></h3>
                                 <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
@@ -89,7 +89,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -99,7 +99,7 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img03.jpg" alt=""></a>
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img03.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
@@ -107,7 +107,7 @@
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">Recipes from a Winemaker's Restaurant</a></h3>
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Recipes from a Winemaker's Restaurant</a></h3>
                                 <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
@@ -116,7 +116,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -127,14 +127,14 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img04.jpg" alt=""></a>
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img04.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">Louis Jadot Fine & Wine Tasting</a></h3>
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Louis Jadot Fine & Wine Tasting</a></h3>
                                 <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
@@ -143,35 +143,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
-
-                            </div><!-- .post-info -->
-
-
-                        </article>
-
-                        <article class="post thumb-full col-xs-12 col-sm-12 col-md-4 col-lg-4 grid-item">
-
-
-                            <div class="post-thumb light-line">
-
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img05.jpg" alt=""></a>
-
-                            </div><!-- .post-thumb -->
-
-                            <div class="post-info">
-
-
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">Recipes from a Winemaker's Restaurant</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
-                                        href="#">20 COMMENT</a></span></div>
-                                <div class="post-desc">
-
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa  officia deserunt mollitid est laborum. Sed ut perspiciatis unde qui omnis iste natus error sit voluptatem.</p>
-
-                                </div><!-- .post-desc -->
-
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -183,14 +155,14 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img06.jpg" alt=""></a>
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img05.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">I'll Drink to That: Bruce Neyers of Neyers Vineyards</a></h3>
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Recipes from a Winemaker's Restaurant</a></h3>
                                 <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
@@ -199,7 +171,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -211,14 +183,14 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img07.jpg" alt=""></a>
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img06.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">William Shatner's New Wine Enterprise</a></h3>
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">I'll Drink to That: Bruce Neyers of Neyers Vineyards</a></h3>
                                 <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
@@ -227,7 +199,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -239,14 +211,14 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img08.jpg" alt=""></a>
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img07.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">I'll Drink to That: Bruce Neyers of Neyers Vineyards</a></h3>
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">William Shatner's New Wine Enterprise</a></h3>
                                 <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
@@ -255,7 +227,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -267,14 +239,14 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.html"><img src="images/placeholder/blog-img09.jpg" alt=""></a>
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img08.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.html">Holiday Gift Guide for the Wine Lover</a></h3>
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">I'll Drink to That: Bruce Neyers of Neyers Vineyards</a></h3>
                                 <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
@@ -283,7 +255,35 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.html" class="link">CONTINUE</a>
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+
+                            </div><!-- .post-info -->
+
+
+                        </article>
+
+                        <article class="post thumb-full col-xs-12 col-sm-12 col-md-4 col-lg-4 grid-item">
+
+
+                            <div class="post-thumb light-line">
+
+                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img09.jpg" alt=""></a>
+
+                            </div><!-- .post-thumb -->
+
+                            <div class="post-info">
+
+
+                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Holiday Gift Guide for the Wine Lover</a></h3>
+                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                                        href="#">20 COMMENT</a></span></div>
+                                <div class="post-desc">
+
+                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa  officia deserunt mollitid est laborum. Sed ut perspiciatis unde qui omnis iste natus error sit voluptatem.</p>
+
+                                </div><!-- .post-desc -->
+
+                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 

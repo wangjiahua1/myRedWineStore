@@ -208,7 +208,7 @@
                         <ul class="sub-menu">
                             <li><a href="blogdetails-leftsidebar.html">Blog Details LeftSideBar</a></li>
                             <li><a href="blogdetails-rightsidebar.html">Blog Details RightSidebar</a></li>
-                            <li><a href="blogdetails-fullwidth.html">Blog Details FullWidth</a></li>
+                            <li><a href="blogdetails-fullwidth.jsp">Blog Details FullWidth</a></li>
                             <li><a href="bloggrid-2column.html">Blog Grid 2Column</a></li>
                             <li><a href="bloggrid-3column.html">Blog Grid 3Column</a></li>
                             <li><a href="bloglist-fullwidth.html">Blog List Full Width</a></li>

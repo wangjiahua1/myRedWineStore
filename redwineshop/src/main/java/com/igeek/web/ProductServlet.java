@@ -93,7 +93,7 @@ public class ProductServlet extends BaseServlet {
     public void getRedWineById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id= Integer.parseInt(req.getParameter("id"));
         Product redwine=ps.getRedWineById(id);
-        req.setAttribute("RedWine",redwine);
+        req.setAttribute("product",redwine);
         req.getRequestDispatcher("productdetails-fullwidth.jsp").forward(req,resp);
     }
     public void findproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

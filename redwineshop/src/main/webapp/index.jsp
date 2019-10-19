@@ -1,7 +1,27 @@
 <%@ page contentType="textml;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-    <jsp:include page="head.jsp"></jsp:include>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
+        <title>My Wishlist</title>
+
+        <!-- Style CSS -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" type="text/css" href="css/responsive.css">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <![endif]-->
+        <script src="js/ie9/html5shiv.min.js"></script>
+        <script src="js/ie9/respond.min.js"></script>
+
+    </head>
     <body class="home-01">
         <jsp:include page="pageloader.jsp"></jsp:include>
         <jsp:include page="header.jsp"></jsp:include>
@@ -128,11 +148,8 @@
                             <div class="featured-tab">
                                 <div class="featured-tab-heading">
                                     <ul id="list">
-
                                     </ul>
                                 </div>
-
-
                                 <div class="featured-container">
                                     <div id="roes" class="featured-content">
                                         <div class="row">
