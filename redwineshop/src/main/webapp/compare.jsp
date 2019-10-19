@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -265,7 +266,7 @@
                                 <h3 class="menu-title">Shop Single</h3>
                                 <ul>
                                     <li><a href="productdetails-fullwidth.jsp">Full Width</a></li>
-                                    <li><a href="productdetails-leftsidebar.html">Left Sidebar</a></li>
+                                    <li><a href="productdetails-fullwidth.jsp">Left Sidebar</a></li>
                                     <li><a href="productdetails-rightsidebar.html">Right Sidebar</a></li>
                                 </ul>
                             </div>

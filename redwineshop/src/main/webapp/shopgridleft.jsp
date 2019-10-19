@@ -138,66 +138,7 @@
         </div><!-- .p-info -->
     </div><!-- .product -->
     </c:forEach>
-   <%--&lt;%&ndash;第二个&ndash;%&gt;--%>
-    <%--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item">--%>
-        <%--<div class="p-thumb">--%>
-            <%--<a href="productdetails-fullwidth.jsp">--%>
-                <%--<img src="images/placeholder/product2.jpg" alt="">--%>
-            <%--</a>--%>
-            <%--<a href="#" class="onnew">New</a>--%>
-        <%--</div><!-- .p-thumb -->--%>
 
-        <%--<div class="p-info">--%>
-            <%--<h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>--%>
-
-            <%--<div class="clearfix">--%>
-                <%--<div class="star-rating">--%>
-                    <%--<span style="width:60%"></span>--%>
-                <%--</div>--%>
-
-                    <%--<span class="price">--%>
-                        <%--<span class="amount">$125.00</span>--%>
-                    <%--</span>--%>
-            <%--</div>--%>
-
-            <%--<div class="p-actions">--%>
-                <%--<a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>--%>
-                <%--<a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>--%>
-                <%--<a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>--%>
-                <%--<a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>--%>
-            <%--</div><!-- .p-actions -->--%>
-        <%--</div><!-- .p-info -->--%>
-    <%--</div><!-- .product -->--%>
-
-    <%--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item">--%>
-        <%--<div class="p-thumb">--%>
-            <%--<a href="productdetails-fullwidth.jsp">--%>
-                <%--<img src="images/placeholder/product3.jpg" alt="">--%>
-            <%--</a>--%>
-            <%--<a href="#" class="onsale">Sale</a>--%>
-        <%--</div><!-- .p-thumb -->--%>
-
-        <%--<div class="p-info">--%>
-            <%--<h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>--%>
-
-            <%--<div class="clearfix">--%>
-                <%--<div class="star-rating">--%>
-                    <%--<span style="width:60%"></span>--%>
-                <%--</div>--%>
-
-                    <%--<span class="price">--%>
-                        <%--<span class="amount">$125.00</span>--%>
-                    <%--</span>--%>
-            <%--</div>--%>
-
-            <%--<div class="p-actions">--%>
-                <%--<a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>--%>
-                <%--<a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>--%>
-                <%--<a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>--%>
-                <%--<a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>--%>
-            <%--</div><!-- .p-actions -->--%>
-        <%--</div><!-- .p-info -->--%>
-    <%--</div><!-- .product -->--%>
 
     </div>
 

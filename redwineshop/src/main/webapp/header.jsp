@@ -121,7 +121,7 @@
                     <li id="home" class="mega-menu-wrap"><a href="index.jsp" id="choose1" class="choose1">Home</a>
 
                     </li>
-                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/product?method=getAllRedWine&sizePage=9" class="choose1">Shop</a>
+                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/page?method=getCurrentPage&currentPage=1" class="choose1">Shop</a>
 
                     </li>
 

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -23,313 +24,8 @@
 
 <body class="single-post">
 
-    <div id="pageloader">
-        <div class="s1">
-            <div class="s b sb1"></div>
-            <div class="s b sb2"></div>
-            <div class="s b sb3"></div>
-            <div class="s b sb4"></div>
-        </div>
-
-
-        <div class="s2">
-            <div class="s b sb5"></div>
-            <div class="s b sb6"></div>
-            <div class="s b sb7"></div>
-            <div class="s b sb8"></div>
-        </div>
-
-        <div class="bigcon">
-            <div class="big b"></div>
-        </div>
-    </div><!-- #pageloader -->
-
-    <div id="wrapper">
-
-<div id="login_dialog" class="modal fade login-popup">
-    <div class="popup-inner">
-        <div class="modal-header">
-            <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-            <h3 class="modal-title">Login</h3>
-        </div>
-        <form action="#">
-            <p class="login-username">
-                <label for="user_login">Username*:</label>
-                <input name="log" id="user_login" class="input" value="" size="20" type="text">
-            </p>
-            <p class="login-password">
-                <label for="user_pass">Password*:</label>
-                <input name="pwd" id="user_pass" class="input" value="" size="20" type="password">
-            </p>
-            <p class="login-submit">
-                <input name="wp-submit" id="wp-submit" class="button-primary" value="Login" type="submit">
-            </p>
-
-        </form>
-        <div class="modal-footer">
-            <a href="#">Register</a>
-            <a href="#">Forgot Password</a>
-        </div>
-    </div><!-- .popup-inner -->
-    <div class="mask popup-close"></div>
-</div><!-- .search-popup -->
-
-<div id="search_dialog" class="modal fade search-popup">
-    <div class="popup-inner">
-        <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-        <form action="#">
-            <select class="selectpicker search-select" name="search_by_cat" id="search_by_cat">
-                <option value="#" selected>All Categories</option>
-                <option value="#">Champagne</option>
-                <option value="#">Kosher</option>
-                <option value="#">Organic</option>
-            </select>
-            <div class="search-div">
-                <input type="text" placeholder="Search">
-                <input value="Search" type="submit">
-            </div>
-        </form>
-    </div><!-- .popup-inner -->
-    <div class="mask popup-close"></div>
-</div><!-- .search-popup -->
-
-<header id="header" class="site-header">
-
-    <div class="top-header">
-        <div class="no-container">
-            <div class="left-header">
-                <span class="icon_setting"><i class="pe-7s-config"></i></span>
-                <div class="setting-wrap">
-                    <ul class="setting-account-list">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="my-wishlist.jsp">My Wishlist</a></li>
-                        <li><a href="compare.jsp">Compare</a></li>
-                        <li><a href="shopping-cart-fullwidth.jsp">My Cart</a></li>
-                        <li><a href="check-out.jsp">Check out</a></li>
-                    </ul>
-                    <div class="currency">
-                        <span>Currency</span>
-                        <ul>
-                            <li class="active"><a href="#">USD</a></li>
-                            <li><a href="#">EUR</a></li>
-                            <li><a href="#">GBP</a></li>
-                            <li><a href="#">CNY</a></li>
-                        </ul>
-                    </div><!-- .currency -->
-                    <div class="language">
-                        <span>Language</span>
-                        <ul>
-                            <li class="active"><a href="#"><img src="images/assets/icons/flag-en.jpg" alt=""/></a></li>
-                            <li><a href="#"><img src="images/assets/icons/flag-ger.jpg" alt=""/></a></li>
-                            <li><a href="#"><img src="images/assets/icons/flag-france.jpg" alt=""/></a></li>
-                        </ul>
-                    </div><!-- .language -->
-
-                </div>
-            </div>
-
-            <div class="right-header">
-                <ul>
-                    <li>
-                        <a class="top-account top-login" href="#" data-toggle="modal" data-target="#login_dialog">
-                            <i class="pe-7s-users"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="top-search" href="#" data-toggle="modal" data-target="#search_dialog">
-                            <i class="pe-7s-search"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cart-control" href="#">
-                            <i class="pe-7s-shopbag cart-icon"></i>
-                            <span class="cart-number">2</span>
-                        </a>
-
-                        <div class="shop-item" id="shopping_cart_dropdown">
-                            <div class="widget_shopping_cart_content">
-
-                                <ul class="cart_list">
-
-                                    <li class="clearfix">
-                                        <a class="p-thumb" href="productdetails-fullwidth.jsp">
-                                            <img src="images/placeholder/thumb-product-cart1.jpg" alt="">
-                                        </a>
-                                        <div class="p-info">
-                                            <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
-                                            <span class="price">
-                                                <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
-                                            </span>
-                                            <a class="remove" href="#"><i class="pe-7s-close"></i></a>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix">
-                                        <a class="p-thumb" href="productdetails-fullwidth.jsp">
-                                            <img src="images/placeholder/thumb-product-cart2.jpg" alt="">
-                                        </a>
-                                        <div class="p-info">
-                                            <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
-                                            <span class="price">
-                                                <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
-                                            </span>
-                                            <a class="remove" href="#"><i class="pe-7s-close"></i></a>
-                                        </div>
-                                    </li>
-
-                                </ul>
-
-                                <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
-
-                                <p class="buttons">
-                                    <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
-                                    <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div><!-- right-header -->
-
-            <div class="site-brand">
-                <a class="logo" href="index.html">
-                    <img src="images/assets/logo.png" alt="Vineyard">
-                </a>
-            </div><!-- .site-brand -->
-        </div>
-    </div><!-- top-header -->
-
-    <div class="header-menu">
-        <div class="container">
-            <div class="site-brand">
-                <a class="logo" href="index.html">
-                    <img src="images/assets/logo.png" alt="Vineyard">
-                </a>
-            </div><!-- .site-brand -->
-            <nav class="main-menu">
-                <span class="mobile-menu"><i class="fa fa-bars"></i></span>
-                <ul>
-                    <li class="mega-menu-wrap"><a href="index.html">Home</a>
-                        <div class="sub-menu menu-mega sub-menu menu-mega2">
-                            <div class="mega-item">
-                                <h3 class="menu-title">Home page</h3>
-                                <ul>
-                                    <li><a href="index.html">Home version 1</a></li>
-                                    <li><a href="home02.html">Home version 2</a></li>
-                                    <li><a href="home03.html">Home version 3</a></li>
-                                    <li><a href="home04.html">Home version 4</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
-                                    <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
-                                </a>
-                            </div>                          
-                            <div class="mega-item">
-                                <h3 class="menu-title">Shop Page</h3>
-                                <ul>
-                                    <li><a href="shopgrid-fullwidth.jsp">Shop Page</a></li>
-                                    <li><a href="productdetails-fullwidth.jsp">Single Product</a></li>
-                                    <li><a href="shopping-cart-fullwidth.jsp">Shopping cart</a></li>
-                                    <li><a href="check-out.jsp">Checkout</a></li>
-                                    <li><a href="compare.jsp">Compare</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
-                                    <img src="images/placeholder/mega-menu-img2.jpg" alt=""/>
-                                </a>
-                            </div>
-                        </div><!-- .menu-mega -->
-                    </li>
-                    <li class="mega-menu-wrap current-menu-item"><a href="shopgrid-fullwidth.jsp">Shop</a>
-                        <div class="sub-menu menu-mega">
-                            <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
-                                    <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="mega-item">
-                                <h3 class="menu-title">Shop Page</h3>
-                                <ul>
-                                    <li><a href="shoplist-leftsidebar.html">Shop List Left Sidebar</a></li>
-                                    <li><a href="shoplist-rightsidebar.html">Shop List Right Sidebar</a></li>
-                                    <li><a href="shopgrid-fullwidth.jsp">Shop Grid Full Width</a></li>
-                                    <li><a href="shopgrid-leftsidebar.html">Shop Grid Left Sidebar</a></li>
-                                    <li><a href="shopgrid-rightsidebar.html">Shop Grid Right Sidebar</a></li>
-                                </ul>
-                            </div>              
-                            <div class="mega-item">
-                                <h3 class="menu-title">Shop Single</h3>
-                                <ul>
-                                    <li class="current-menu-item"><a href="productdetails-fullwidth.jsp">Full Width</a></li>
-                                    <li><a href="productdetails-leftsidebar.html">Left Sidebar</a></li>
-                                    <li><a href="productdetails-rightsidebar.html">Right Sidebar</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item">
-                                <h3 class="menu-title">Shopping Cart</h3>
-                                <ul>
-                                    <li><a href="shopping-cart-fullwidth.jsp">Cart Full Width</a></li>
-                                    <li><a href="shopping-cart-leftsidebar.html">Cart Left Sidebar</a></li>
-                                    <li><a href="shopping-cart-rightsidebar.html">Cart Right Sidebar</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item">
-                                <h3 class="menu-title">Orther</h3>
-                                <ul>
-                                    <li><a href="my-wishlist.jsp">My Wishlist</a></li>
-                                    <li><a href="check-out.jsp">Check Out</a></li>
-                                    <li><a href="compare.jsp">Compare</a></li>
-                                </ul>
-                            </div>
-                        </div><!-- .menu-mega -->
-                    </li>
-                    <li><a href="portfolio-grid3column1.html">Pages</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="portfolio-grid3column1.html">Portfolio</a>
-                                <ul class="sub-menu">
-                                    <li><a href="portfolio-freestyle.html">Portfolio FreeStyle</a></li>
-                                    <li><a href="portfolio-grid2column.html">Portfolio Grid 2 Column</a></li>
-                                    <li><a href="portfolio-grid3column1.html">Portfolio Grid 3 Column 1</a></li>
-                                    <li><a href="portfolio-grid3column2.html">Portfolio Grid 3 Column 2</a></li>
-                                    <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="comming-soon.html">Comming Soon</a></li>
-                            <li><a href="page-404.html">404</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="bloglist-fullwidth.html">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blogdetails-leftsidebar.html">Blog Details LeftSideBar</a></li>
-                            <li><a href="blogdetails-rightsidebar.html">Blog Details RightSidebar</a></li>
-                            <li><a href="blogdetails-fullwidth.html">Blog Details FullWidth</a></li>
-                            <li><a href="bloggrid-2column.html">Blog Grid 2Column</a></li>
-                            <li><a href="bloggrid-3column.html">Blog Grid 3Column</a></li>
-                            <li><a href="bloglist-fullwidth.html">Blog List Full Width</a></li>
-                            <li><a href="bloglist-rightsidebar.html">Blog List Right SideBar</a></li>
-                            <li><a href="bloglist-leftsidebar.html">Blog List Left SideBar</a></li>
-                            <li><a href="bloglist-zigzac.html">Blog List ZigZac</a></li>
-                            <li><a href="bloggrid-masonry.html">Blog Grid Masonry</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact-us.html">Contact</a>
-                        <ul class="sub-menu">
-                            <li><a href="contact-us2.html">Contact 2</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </nav><!-- .main-menu -->
-        </div>
-    </div><!-- header-menu -->
-
-</header><!-- .site-header -->
+    <jsp:include page="pageloader.jsp"></jsp:include>
+    <jsp:include page="header.jsp"></jsp:include>
 
 <div id="content" class="site-content content-fullwidth">
 <div class="space-dark"></div>
@@ -341,18 +37,12 @@
                 <h1 class="page-title">Full Width</h1>
                 <div class="breadcrumb">
                     <ul>
-
-                        <li><a href="#">Home</a></li>
-
-                        <li><a href="#">Shop</a></li>
-
+                        <li><a href="index.jsp">Home</a></li>
+                        <li><a href="page?method=getCurrentPage&currentPage=1">Shop</a></li>
                         <li><span class="current">Details</span></li>
-
                     </ul>
-
                 </div><!-- .breadcrumb -->
             </div>
-
         </div><!-- .container -->
     </div>
 </div>
@@ -362,22 +52,21 @@
 <main id="main" class="site-main">
 
     <div class="product-detail">
-
         <div class="images row">
             <div class="p-preview owl-carousel">
                 <div class="item">
-                    <a data-gal="prettyPhoto[p-gal1]" class="zoom" href="images/placeholder/product-lg1.jpg">
-                        <img src="images/placeholder/product-lg1.jpg" alt="" />
+                    <a data-gal="prettyPhoto[p-gal1]" class="zoom" href="#">
+                        <img src="${product.pimage}" style="width:210px"  alt="" />
                     </a>
                 </div>
                 <div class="item">
-                    <a data-gal="prettyPhoto[p-gal1]" class="zoom" href="images/placeholder/product-lg1.jpg">
-                        <img src="images/placeholder/product-lg1.jpg" alt="" />
+                    <a data-gal="prettyPhoto[p-gal1]" class="zoom" href="#">
+                        <img src="${product.pimage}" style="width:210px"  alt="" />
                     </a>
                 </div>
                 <div class="item">
-                    <a data-gal="prettyPhoto[p-gal1]" class="zoom" href="images/placeholder/product-lg1.jpg">
-                        <img src="images/placeholder/product-lg1.jpg" alt="" />
+                    <a data-gal="prettyPhoto[p-gal1]" class="zoom" href="#">
+                        <img src="${product.pimage}" style="width:210px"   alt="" />
                     </a>
                 </div>
             </div><!-- #p-preview -->
@@ -385,20 +74,19 @@
             <div class="p-thumb">
                 <ul>
                     <li class="active"><a href="#">
-                        <img src="images/placeholder/product-sm1.jpg" alt="" />
+                        <img src="${product.pimage}" width: 157.5px alt="" />
                     </a></li>
                     <li><a href="#">
-                        <img src="images/placeholder/product1.jpg" alt="" />
+                        <img src="${product.pimage}" width: 157.5px  alt="" />
                     </a></li>
                     <li><a href="#">
-                        <img src="images/placeholder/product2.jpg" alt="" />
+                        <img src="${product.pimage}" width: 157.5px  alt="" />
                     </a></li>
                 </ul>
             </div><!-- #p-thumb -->
         </div><!-- .images -->
-
         <div class="p-info">
-            <h3 class="p-title"><a href="details-rightsidebar.html">Phasellus Vel Hendrerit</a></h3>
+            <h3 class="p-title"><a href="details-rightsidebar.html">${product.pname}</a></h3>
 
             <div class="clearfix">
                 <div class="star-rating">
@@ -406,7 +94,7 @@
                 </div>
 
                 <span class="price">
-                    <span class="amount">$146.00</span>
+                    <span class="amount"><span>$</span>${product.price}</span>
                 </span>
             </div>
             <div class="p-desc">
@@ -420,32 +108,30 @@
                         <div class="sl-color col-lg-6 col-md-6 col-sm-6">
                             <span>Select Color: </span>
                             <ul class="list-color">
+                                <li><a href="javascript:void(0)" class="red">Red<span class="count">(42)</span></a></li>
 
-                                <li><a href="#" class="red">Red <span class="count">(42)</span></a></li>
+                                <li><a href="javascript:void(0)" class="black">Black <span class="count">(28)</span></a></li>
 
-                                <li><a href="#" class="black">Black <span class="count">(28)</span></a></li>
+                                <li><a href="javascript:void(0)" class="blue">Blue <span class="count">(27)</span></a></li>
 
-                                <li><a href="#" class="blue">Blue <span class="count">(27)</span></a></li>
+                                <li><a href="javascript:void(0)" class="green">Green <span class="count">(43)</span></a></li>
 
-                                <li><a href="#" class="green">Green <span class="count">(43)</span></a></li>
-
-                                <li><a href="#" class="yellow">Yellow <span class="count">(15)</span></a></li>
+                                <li><a href="javascript:void(0)" class="yellow">Yellow <span class="count">(15)</span></a></li>
 
                             </ul>
                         </div>
                         <div class="sl-sizes col-lg-6 col-md-6 col-sm-6">
                             <span>Select Size: </span>
-                            <ul class="list-size clearfix">
+                            <ul class="list-size clearfix" id="list">
+                                <li><a href="javascript:void(0)">S</a></li>
 
-                                <li><a href="#">S</a></li>
+                                <li><a href="javascript:void(0)">M</a></li>
 
-                                <li><a href="#">M</a></li>
+                                <li><a href="javascript:void(0)">L</a></li>
 
-                                <li><a href="#">L</a></li>
+                                <li><a href="javascript:void(0)">XL</a></li>
 
-                                <li><a href="#">XL</a></li>
-
-                                <li><a href="#">XXL</a></li>
+                                <li><a href="javascript:void(0)">XXL</a></li>
 
                             </ul>
                         </div>
@@ -460,15 +146,6 @@
                         <a href="#">vanilla</a> ,
                         <a href="#">cocoa</a>
                     </div><!-- p-tags -->
-                    <div class="social">
-                        <span>Share Link: </span>
-                        <ul>
-                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                    </div>
                 </div><!-- p-tag-share -->
                 <div class="p-actions">
                     <div class="attr-item">
@@ -480,8 +157,8 @@
                     <div class="p-actions-btn">
                         <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
                         <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                        <a href="my-wishlist.jsp" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
+                        <a href="shopping-cart-fullwidth.jsp" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                     </div>
                 </div><!-- .p-actions -->
             </form>
@@ -569,25 +246,19 @@
                         </ol><!-- .comment-list -->
                         <div class="comment-respond" id="respond">
                             <h3 class="comment-reply-title widget-title" id="reply-title">LEAVE A COMMENT</h3>
-
                             <form novalidate="" class="comment-form" id="commentform" method="post" action="#">
-
                                 <p class="comment-form-author">
                                     <input size="30" value="" name="author" placeholder="Name" id="author" type="text">
                                 </p>
-
                                 <p class="comment-form-email">
                                     <input size="30" value="" name="email" placeholder="Email" id="email" type="text">
                                 </p>
-
                                 <p class="comment-form-comment">
                                     <textarea aria-required="true" rows="9" cols="45" placeholder="Your comment" name="comment" id="comment"></textarea>
                                 </p>
-
                                 <p class="form-submit">
                                     <input value="Send Messages" class="submit button radius plum bold" id="submit" name="submit" type="submit">
                                 </p>
-
                             </form>
                         </div> <!-- #respond -->
                     </div>
@@ -609,13 +280,13 @@
     <div class="list-products row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
             <div class="p-thumb">
-                <a href="productdetails-leftsidebar.html">
+                <a href="productdetails-fullwidth.jsp">
                     <img src="images/placeholder/product1.jpg" alt="">
                 </a>
             </div><!-- .p-thumb -->
 
             <div class="p-info">
-                <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
+                <h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>
 
                 <div class="clearfix">
                     <div class="star-rating">
@@ -638,13 +309,13 @@
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
             <div class="p-thumb">
-                <a href="productdetails-leftsidebar.html">
+                <a href="productdetails-fullwidth.jsp">
                     <img src="images/placeholder/product2.jpg" alt="">
                 </a>
             </div><!-- .p-thumb -->
 
             <div class="p-info">
-                <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
+                <h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>
 
                 <div class="clearfix">
                     <div class="star-rating">
@@ -667,13 +338,13 @@
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
             <div class="p-thumb">
-                <a href="productdetails-leftsidebar.html">
+                <a href="productdetails-fullwidth.jsp">
                     <img src="images/placeholder/product4.jpg" alt="">
                 </a>
             </div><!-- .p-thumb -->
 
             <div class="p-info">
-                <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
+                <h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>
 
                 <div class="clearfix">
                     <div class="star-rating">
@@ -696,13 +367,13 @@
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
             <div class="p-thumb">
-                <a href="productdetails-leftsidebar.html">
+                <a href="productdetails-fullwidth.jsp">
                     <img src="images/placeholder/product3.jpg" alt="">
                 </a>
             </div><!-- .p-thumb -->
 
             <div class="p-info">
-                <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
+                <h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>
 
                 <div class="clearfix">
                     <div class="star-rating">
@@ -736,14 +407,6 @@
 </div><!-- .site-content -->
 <div id="bottom" class="site-bottom">
     <div class="no-container">
-        <div class="social">
-            <ul>
-                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-            </ul>
-        </div>
         <div class="back-to-top">
             <a href="#" class="btn-circle"><i class="fa fa-angle-up"></i></a>
         </div>
@@ -874,5 +537,6 @@
 <script src="js/vendor/masonry.pkgd.min.js"></script>
 <!-- Main -->
 <script src="js/main.js"></script>
+    <script src="js/detailproduct.js" type="text/javascript"></script>
 </body>
 </html>

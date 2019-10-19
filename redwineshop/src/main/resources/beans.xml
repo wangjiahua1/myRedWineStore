@@ -5,4 +5,6 @@
     <!--id 唯一标识   class 对应类的包名+类名-->
     <bean id="myredwineservice" class="com.igeek.service.imp.ProductServiceImpl"></bean>
     <bean id="myredwinedao" class="com.igeek.dao.imp.ProductDaoImpl"></bean>
+    <bean id="mycateservice" class="com.igeek.service.imp.CategoryServiceImpl"></bean>
+    <bean id="mycatedao" class="com.igeek.dao.imp.CategoryDaoImpl"></bean>
 </beans>
