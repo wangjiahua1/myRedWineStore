@@ -1,10 +1,13 @@
 package com.igeek.web;
 
 import com.google.gson.Gson;
+import com.igeek.domain.Cart;
 import com.igeek.domain.Product;
+import com.igeek.domain.User;
 import com.igeek.service.ProductService;
 import com.igeek.utils.BeanFactory;
 
+import javax.mail.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +25,36 @@ import java.util.List;
 @WebServlet("/product")
 public class ProductServlet extends BaseServlet {
     ProductService ps=(ProductService)BeanFactory.getBean("myredwineservice");
+
+    public void addcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        System.out.println("i am coming");
+       User user= (User) request.getSession().getAttribute("user");
+        if(user!=null&&user.getUid()!=null&&!user.getUid().equals("")){
+//            System.out.println(request.getParameter("pid"));
+            Product product= ps.getcart(request.getParameter("pid"));
+            Cart cart=new Cart();
+            cart.setPid(product.getPid());
+            cart.setPimage(product.getPimage());
+            cart.setPname(product.getPname());
+            cart.setUid(user.getUid());
+            cart.setQuantity(1);
+            cart.setPrice(product.getPrice());
+            cart.setTotal(cart.getQuantity());
+            ps.addcart(cart);
+//            System.out.println("cart:"+cart);
+            /*查找出所有购物车关于此用户的信息*/
+
+           List<Cart> carts= ps.findallcart(user.getUid());
+//            System.out.println(carts);
+            request.setAttribute("carts",carts);
+            request.getRequestDispatcher("shopping-cart-fullwidth.jsp").forward(request,response);
+        }
+        else {
+            response.getWriter().write("You're not signed in. Get out of here+<br>你没有登录，滚蛋");
+        }
+
+    }
+
     public void getAllRedWine(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int sizePage= Integer.parseInt(request.getParameter("sizePage"));
         List<Product> RedWines=ps.getallredwine(sizePage);
