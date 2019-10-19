@@ -7,8 +7,6 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
 

@@ -3,6 +3,20 @@
 <header id="header" class="site-header">
     <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/chooseme.js"></script>
+    <script type="text/javascript">
+        $(function(a) {
+            <!--$("#myAccount").click(function() {
+            alert("aaa");
+                $.getJSON(
+                    "user?method=myAccount",
+                    function(data) {
+                        alert(data);
+                    }
+                 )
+             });-->
+        });
+    </script>
+        <%--登录弹窗--%>
     <div id="login_dialog" class="modal fade login-popup">
         <div class="popup-inner">
             <div class="modal-header">
@@ -13,14 +27,14 @@
             <form action="${pageContext.request.contextPath}/user?method=login" method="post">
                 <p class="login-username">
                     <label for="user_login">Username*:</label>
-                    <input name="log" id="user_login" class="input" value="tom" size="20" type="text" />
+                    <input name="log" id="user_login" class="input" value="1664320691@qq.com" size="20" type="text"/>
                 </p>
                 <p class="login-password">
                     <label for="user_pass">Password*:</label>
-                    <input name="pwd" id="user_pass" class="input" value="123456" size="20" type="password" />
+                    <input name="pwd" id="user_pass" class="input" value="123456789." size="20" type="password"/>
                 </p>
                 <p class="login-submit">
-                    <input  id="wp-submit" class="button-primary" value="Login" type="submit" />
+                    <input  id="wp-submit" class="button-primary" value="Login" type="submit"/>
                 </p>
             </form>
 
@@ -31,14 +45,74 @@
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
     </div><!-- .search-popup -->
+
+    <%--显示个人信息弹窗--%>
+    <div id="myAccout_dialog" class="modal fade login-popup">
+        <div class="popup-inner">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
+                <h3 class="modal-title">MyAccout</h3>
+            </div>
+
+            <form action="${pageContext.request.contextPath}/user?method=" method="post">
+                <p class="login-username">
+                    <label for="user_login">Username*:</label>
+
+                    <input name="log" id="user_login" class="input" value="${user.username}
+                                <c:if test="${user.username==null}">请设置</c:if>" size="20" type="text"/>
+                </p>
+                <p class="login-password">
+                    <label for="user_pass">Password*:</label>
+                    <input name="pwd" id="user_pass" class="input" value="${user.password}" size="20" type="password"/>
+                </p>
+                <p class="login-username">
+                    <label for="sex">Sex*:</label>
+                    <input name="sex" id="sex" class="input" value="${user.sex}<c:if test="${user.sex==null}">请设置</c:if>" size="20" type="text"/>
+                </p>
+                <p class="login-username">
+                    <label for="telephone">Telephone*:</label>
+                    <input name="telephone" id="telephone" class="input" value="${user.telephone}<c:if test="${user.telephone==null}">请设置</c:if>" size="20" type="text"/>
+                </p>
+                <p class="login-username">
+                    <label for="email">Email*:</label>
+                    <input name="email" id="email" class="input" value="${user.email}<c:if test="${user.email==null}">请设置</c:if>" size="20" type="text"/>
+                </p>
+                <p class="login-submit">
+                    <input  id="wp-submit" class="button-primary" value="Edit" type="submit"/>
+                </p>
+            </form>
+
+            <div class="modal-footer">
+                <a href="register.jsp">Register</a>
+                <a href="#">Forgot Password</a>
+            </div>
+        </div><!-- .popup-inner -->
+        <div class="mask popup-close"></div>
+    </div>
+
+
     <div class="top-header">
         <div class="no-container">
             <div class="left-header">
-                <span class="icon_setting"><i class="pe-7s-config"></i></span>
+
+                <span class="icon_setting">
+                    <a class="top-account top-login">
+                        <i class="pe-7s-config" ></i>
+                    </a>
+                </span>
                 <div class="setting-wrap">
                     <ul class="setting-account-list">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="my-wishlist.jsp">My Wishlist</a></li>
+                        <li>
+                            <!--利用session中的user来判断用户是否登录-->
+                            <!--通过改变data-target属性的值来跳转不同页面-->
+                            <a class="top-account top-login" id="myAccount"
+                               href="#" data-toggle="modal"
+                               data-target="<c:if test="${user!=null}">#myAccout_dialog</c:if>
+                                <c:if test="${user==null}">#login_dialog</c:if>">
+                                My Account
+                            </a>
+                        </li>
+                        <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Wishlist</a></li>
                         <li><a href="compare.jsp">Compare</a></li>
                         <li><a href="shopgridleft.jsp">My Cart</a></li>
                         <li><a href="check-out.jsp">Check out</a></li>
@@ -62,14 +136,15 @@
                     </div><!-- .language -->
 
                 </div>
+
             </div>
 
             <div class="right-header">
                 <ul>
                     <c:if test="${user!=null}">
-                        <li style="font-size:20px "><a href="#" style="color:black; font-size:20px">${user.username}</a> </li>
+                        <li style="font-size:20px "><a href="#" class="top-account top-login" style="font-size:20px">${user.username}</a> </li>
                         <li >
-                            <a href="${pageContext.request.contextPath}/user?method=logout" style="font-size: 20px">
+                            <a href="${pageContext.request.contextPath}/user?method=logout" class="top-account top-login" style="font-size:20px">
                                 LogOut
                             </a>
                         </li>
@@ -160,7 +235,7 @@
                     <li id="home" class="mega-menu-wrap"><a href="index.jsp" id="choose1" class="choose1">Home</a>
 
                     </li>
-                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/product?method=getAllRedWine&sizePage=9" class="choose1">Shop</a>
+                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/page?method=getCurrentPage&currentPage=1" class="choose1">Shop</a>
 
                     </li>
 

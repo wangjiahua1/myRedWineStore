@@ -7,20 +7,30 @@ import com.igeek.utils.BeanFactory;
 import com.igeek.utils.MD5Utils;
 
 public class UserServiceImpl implements UserService {
+
     UserDao dao= (UserDao) BeanFactory.getBean("userDao");
     @Override
-    public User findUser(User user) {
+    public User findUserByEmail(User user) {
         //MD5编码
-       String pwd=user.getPassword();
-       String md5Pwd= MD5Utils.enCode(pwd);
-      user.setPassword(md5Pwd);
-        System.out.println(md5Pwd);
-        return dao.findUser(user);
+        String pwd=user.getPassword();
+        String md5Pwd= MD5Utils.enCode(pwd);
+        user.setPassword(md5Pwd);
+
+        return dao.findUserByEmail(user);
     }
     public boolean checkActiveCode(String activeCode) {
         return dao.checkActiveCode(activeCode);
     }
 
+    @Override
+    public User findUserByUsername(User user) {
+        //MD5编码
+        String pwd=user.getPassword();
+        String md5Pwd= MD5Utils.enCode(pwd);
+        user.setPassword(md5Pwd);
+
+        return dao.findUserByUsername(user);
+    }
     public void updateActiveCode(String activeCode) {
         dao.updateActiveCode(activeCode);
     }

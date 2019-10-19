@@ -10,4 +10,11 @@
     <!--Dao-->
     <bean id="myredwinedao" class="com.igeek.dao.imp.ProductDaoImpl"></bean>
     <bean id="userDao" class="com.igeek.dao.imp.UserDaoImpl"></bean>
+
+    <bean id="messageservice" class="com.igeek.service.imp.MessageServiceImpl"></bean>
+    <bean id="messagedao" class="com.igeek.dao.imp.MessageDaoImpl"></bean>
+    <bean id="emailservice" class="com.igeek.service.imp.EmailServiceImpl"></bean>
+    <bean id="emaildao" class="com.igeek.dao.imp.EmailDaoImpl"></bean>
+    <bean id="collectservice" class="com.igeek.service.imp.CollectServiceImpl"></bean>
+    <bean id="collectdao" class="com.igeek.dao.imp.CollectDaoImpl"></bean>
 </beans>
