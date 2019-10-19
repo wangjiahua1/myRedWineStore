@@ -24,4 +24,14 @@ public class CollectServiceImpl implements CollectService {
         return dao.findProductByPid(pid);
     }
 
+    @Override
+    public void addCollect(Collect collect) {
+        dao.addCollect(collect);
+    }
+
+    @Override
+    public List<Collect> findCollectByUid(String uid) {
+        return dao.findCollectByUid(uid);
+    }
+
 }

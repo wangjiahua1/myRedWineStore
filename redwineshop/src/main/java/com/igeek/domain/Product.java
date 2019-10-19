@@ -109,4 +109,21 @@ public class Product {
     public void setIshot(String ishot) {
         this.ishot = ishot;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "pid=" + pid +
+                ", pname='" + pname + '\'' +
+                ", pimage='" + pimage + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", brand='" + brand + '\'' +
+                ", size='" + size + '\'' +
+                ", availability='" + availability + '\'' +
+                ", color='" + color + '\'' +
+                ", cid='" + cid + '\'' +
+                ", ishot='" + ishot + '\'' +
+                '}';
+    }
 }
