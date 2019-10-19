@@ -22,33 +22,88 @@
 
 
 <div id="content" class="site-content left-sidebar-content shop-content">
-<div class="space-dark"></div>
-<div class="no-container">
-    <div class="blog-breadcrumb shop-breadcrumb">
-        <div class="container">
+    <div class="space-dark"></div>
+    <div class="no-container">
+        <div class="blog-breadcrumb shop-breadcrumb">
+            <div class="container">
 
-            <div class="intro-div">
-                <h1 class="page-title">Left Sidebar</h1>
-                <div class="breadcrumb">
-                    <ul>
-                        <li><a href="#">Home</a></li>
+                <div class="intro-div">
+                    <h1 class="page-title">Left Sidebar</h1>
+                    <div class="breadcrumb">
+                        <ul>
+                            <li><a href="#">Home</a></li>
 
-                        <li><span class="current">Shop Grid</span></li>
+                            <li><span class="current">Shop Grid</span></li>
 
-                    </ul>
+                        </ul>
 
-                </div><!-- .breadcrumb -->
-            </div>
+                    </div><!-- .breadcrumb -->
+                </div>
 
-        </div><!-- .container -->
+            </div><!-- .container -->
+        </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-    <main id="main" class="site-main col-md-9">
-    <div class="sort clearfix">
+    <div class="container">
         <div class="row">
+            <jsp:include page="main.jsp"></jsp:include>
+            <div id="sidebar" class="sidebar left-sidebar left-shop-sidebar col-md-3">
+                <aside class="widget">
+                    <h3 class="widget-title"><span>Shop by</span></h3>
+                    <div class="f-price">
+                        <div id="slider-range"></div>
+                        <span>Price: <strong id="amount"></strong></span>
+                        <button class="button radius" type="button" id="getPrice">Filter</button>
+                    </div>
+                </aside>
+                <script type="text/javascript">
+                    $("#getPrice").click(function () {
+                        var price=$("#amount").text();
+                        console.log(price);
+                        $.ajax({
+                            type: 'get',
+                            url: 'product?method=getChoosePrice',
+                            //url: '/api/one/new/list?p=1',
+                            data: {"price": price},
+                            dataType: 'json',
+                            success: function (data) {
+                                $("#myproduct").empty();
+                                $.each(data, function (i, v) {
+                                    var message = "<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item\">\n" +
+                                        "        <div class=\"p-thumb\">\n" +
+                                        "            <a href=\"productdetails-fullwidth.jsp\">\n" +
+                                        "                <img src=\"" + v.pimage + "\" class=\"myimg\" style=\"height: 480px\">\n" +
+                                        "                <a href=\"#\" class=\"onnew\">" + v.ishot + "</a>\n" +
+                                        "            </a>\n" +
+                                        "        </div><!-- .p-thumb -->\n" +
+                                        "\n" +
+                                        "        <div class=\"p-info\">\n" +
+                                        "            <h3 class=\"p-title\"><a href=\"productdetails-fullwidth.jsp\">" + v.pname + "</a></h3>\n" +
+                                        "\n" +
+                                        "            <div class=\"clearfix\">\n" +
+                                        "                <div class=\"star-rating\">\n" +
+                                        "                    <span style=\"width:60%\"></span>\n" +
+                                        "                </div>\n" +
+                                        "\n" +
+                                        "                    <span class=\"price\">\n" +
+                                        "                        <span class=\"amount\">$ " + v.price + "</span>\n" +
+                                        "                    </span>\n" +
+                                        "            </div>\n" +
+                                        "\n" +
+                                        "            <div class=\"p-actions\">\n" +
+                                        "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
+                                        "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
+                                        "                <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
+                                        "                <a href=\"${pageContext.request.contextPath}/product?method=addcart\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                                        "            </div><!-- .p-actions -->\n" +
+                                        "        </div><!-- .p-info -->\n" +
+                                        "    </div><!-- .product -->";
+                                    $("#myproduct").append(message);
+                                });
+                            }
+                        });
+                    });
+                </script>
             <div class="col-lg-4 col-md-4 col-sm-4">
 
                 <form id="f1" action="" class="num-prod-form" method="get">
@@ -315,46 +370,47 @@
 
 
 
-    <aside class="widget">
-        <h3 class="widget-title"><span>Colors</span></h3>
-        <ul class="list-color" id="mycolor">
-            <li><a href="#" class="red" id="a1">red</a><span class="count" id="red">(42)</span></li>
-            <li><a href="#" class="black" id="a2">black</a> <span class="count" id="black">(28)</span></li>
-            <li><a href="#" class="blue" id="a3">blue</a><span class="count" id="blue">(27)</span></li>
-            <li><a href="#" class="yellow" id="a4">yellow</a><span class="count" id="yellow">(15)</span></li>
 
-        </ul>
-    </aside>
-    <aside class="widget">
+                <aside class="widget">
+                    <h3 class="widget-title"><span>Colors</span></h3>
+                    <ul class="list-color" id="mycolor">
+                        <li><a href="#" class="red" id="a1">red</a><span class="count" id="red">(42)</span></li>
+                        <li><a href="#" class="black" id="a2">black</a> <span class="count" id="black">(28)</span></li>
+                        <li><a href="#" class="blue" id="a3">blue</a><span class="count" id="blue">(27)</span></li>
+                        <li><a href="#" class="yellow" id="a4">yellow</a><span class="count" id="yellow">(15)</span></li>
 
-        <h3 class="widget-title"><span>Sizes</span></h3>
+                    </ul>
+                </aside>
+                <aside class="widget">
 
-        <ul class="list-size clearfix">
+                    <h3 class="widget-title"><span>Sizes</span></h3>
 
-            <li><a href="#">S</a></li>
+                    <ul class="list-size clearfix">
 
-            <li><a href="#">M</a></li>
+                        <li><a href="#">S</a></li>
 
-            <li><a href="#">L</a></li>
-        </ul>
+                        <li><a href="#">M</a></li>
 
-    </aside>
+                        <li><a href="#">L</a></li>
+                    </ul>
 
-    <aside class="widget image_widget">
-        <a href="#" target="_blank"><img src="images/placeholder/left-sidebar-banner.jpg" alt=""/></a>
-    </aside>
+                </aside>
+
+                <aside class="widget image_widget">
+                    <a href="#" target="_blank"><img src="images/placeholder/left-sidebar-banner.jpg" alt=""/></a>
+                </aside>
 
 
-    <aside class="widget featured-prod">
+                <aside class="widget featured-prod">
 
-        <h3 class="widget-title"><span>new shop</span></h3>
+                    <h3 class="widget-title"><span>new shop</span></h3>
 
-        <ul id="newul"></ul>
-    </aside>
-    </div><!-- .left-sidebar -->
-    </div>
+                    <ul id="newul"></ul>
+                </aside>
+            </div><!-- .left-sidebar -->
+        </div>
 
-</div><!-- .container -->
+    </div><!-- .container -->
 
 </div><!-- .site-content -->
 <div id="bottom" class="site-bottom">

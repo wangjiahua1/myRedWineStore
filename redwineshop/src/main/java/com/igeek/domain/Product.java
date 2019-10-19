@@ -22,6 +22,45 @@ public class Product {
     public Product() {
     }
 
+    public Product(int pid, String pname, String pimage, double price, String description, String brand, String size, String availability, String color, String cid, String ishot) {
+        this.pid = pid;
+        this.pname = pname;
+        this.pimage = pimage;
+        this.price = price;
+        this.description = description;
+        this.brand = brand;
+        this.size = size;
+        this.availability = availability;
+        this.color = color;
+        this.cid = cid;
+        this.ishot = ishot;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "pid=" + pid +
+                ", pname='" + pname + '\'' +
+                ", pimage='" + pimage + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", brand='" + brand + '\'' +
+                ", size='" + size + '\'' +
+                ", availability='" + availability + '\'' +
+                ", color='" + color + '\'' +
+                ", cid='" + cid + '\'' +
+                ", ishot='" + ishot + '\'' +
+                '}';
+    }
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
+
     public int getPid() {
         return pid;
     }
@@ -78,14 +117,6 @@ public class Product {
         this.size = size;
     }
 
-    public String getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(String availability) {
-        this.availability = availability;
-    }
-
     public String getColor() {
         return color;
     }
@@ -110,20 +141,5 @@ public class Product {
         this.ishot = ishot;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "pid=" + pid +
-                ", pname='" + pname + '\'' +
-                ", pimage='" + pimage + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", brand='" + brand + '\'' +
-                ", size='" + size + '\'' +
-                ", availability='" + availability + '\'' +
-                ", color='" + color + '\'' +
-                ", cid='" + cid + '\'' +
-                ", ishot='" + ishot + '\'' +
-                '}';
-    }
+
 }

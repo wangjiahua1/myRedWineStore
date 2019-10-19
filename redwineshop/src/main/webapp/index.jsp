@@ -1,9 +1,73 @@
 <%@ page contentType="textml;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-    <jsp:include page="head.jsp"></jsp:include>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
+        <title>My Wishlist</title>
+
+        <!-- Style CSS -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" type="text/css" href="css/responsive.css">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <![endif]-->
+        <script src="js/ie9/html5shiv.min.js"></script>
+        <script src="js/ie9/respond.min.js"></script>
+
+    </head>
     <body class="home-01">
         <jsp:include page="pageloader.jsp"></jsp:include>
         <jsp:include page="header.jsp"></jsp:include>
+
+        <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
+        <script src="js/index.js" type="text/javascript"></script>
+
+        <script src="js/template-web.js" type="text/javascript"></script>
+        <script type="text/html" id="Mytemplate">
+            {{each list}}
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
+                <div class="p-thumb">
+                    <a href="product?method=findbyPidproduct&pid={{$value.pid}}">
+                        <img src="{{$value.pimage}}"  style='width:25%' alt=""/>
+                    </a>
+                    <a href="#" class="onnew">{{$value.ishot}}
+                    </a>
+
+                </div><!-- .p-thumb -->
+
+                <div class="p-info">
+                    <h3 class="p-title"><a href="productdetails-fullwidth.jsp">{{$value.pname}}</a></h3>
+
+                    <div class="clearfix">
+                        <div class="star-rating">
+                            <span style="width:60%"></span>
+                        </div>
+
+                        <span class="price">
+                            <span class="amount">$<span>{{$value.price}}</span></span>
+                        </span>
+                    </div>
+
+                    <div class="p-actions">
+                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
+                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
+                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
+                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                    </div><!-- .p-actions -->
+                </div><!-- .p-info -->
+            </div><!-- .product -->
+            {{/each}}
+        </script>
+
+
+
 
             <div id="content" class="site-content content-fullwidth">
                 <div class="home-slider">
@@ -12,14 +76,14 @@
                             <img src="images/placeholder/01_slider1.jpg" alt=""/>
                             <div class="slider-content">
                                 <img src="images/placeholder/logo-a.png" alt=""/>
-                                <div class="slider-btn"><a href="shopgrid-fullwidth.jsp">Shop now</a></div>
+                                <div class="slider-btn"><a href="page?method=getCurrentPage&currentPage=1">Shop now</a></div>
                             </div>
                         </div><!-- .home-slider-item -->
                         <div class="home-slider-item">
                             <img src="images/placeholder/01_slider2.jpg" alt=""/>
                             <div class="slider-content">
                                 <img src="images/placeholder/logo-a.png" alt=""/>
-                                <div class="slider-btn"><a href="shopgrid-fullwidth.jsp">Shop now</a></div>
+                                <div class="slider-btn"><a href="page?method=getCurrentPage&currentPage=1">Shop now</a></div>
                             </div>
                         </div><!-- .home-slider-item -->
                     </div>
@@ -83,638 +147,33 @@
                             <div class="break-line"><span><img src="images/assets/break-image.png" alt=""/></span></div>
                             <div class="featured-tab">
                                 <div class="featured-tab-heading">
-                                    <ul>
-                                        <li>
-                                            <a href="#roes">Roes</a>
-                                        </li>
-                                        <li>
-                                            <a class="active" href="#organic">Organic</a>
-                                        </li>
-                                        <li>
-                                            <a href="#kosher">Kosher</a>
-                                        </li>
-                                        <li>
-                                            <a href="#champagne">Champagne</a>
-                                        </li>
-                                        <li>
-                                            <a href="#other">Other</a>
-                                        </li>
+                                    <ul id="list">
                                     </ul>
                                 </div>
                                 <div class="featured-container">
                                     <div id="roes" class="featured-content">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product2.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product3.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onsale">Sale</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$241.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product4.jpg" alt="">
-                                                    </a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product5.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">The Gooseberry</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
                                         </div>
                                     </div>
                                     <div id="organic" class="featured-content">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product1.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product2.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onsale">Sale</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$241.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product3.jpg" alt="">
-                                                    </a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product4.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">The Gooseberry</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
                                         </div>
                                     </div>
                                     <div id="kosher" class="featured-content">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product4.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product5.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onsale">Sale</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$241.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product6.jpg" alt="">
-                                                    </a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product7.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">The Gooseberry</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
                                         </div>
                                     </div>
                                     <div id="champagne" class="featured-content">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product1.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product3.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onsale">Sale</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$241.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product5.jpg" alt="">
-                                                    </a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product7.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">The Gooseberry</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
                                         </div>
                                     </div>
                                     <div id="other" class="featured-content">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product2.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product3.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onsale">Sale</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product4.jpg" alt="">
-                                                    </a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
-
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                                                <div class="p-thumb">
-                                                    <a href="productdetails-leftsidebar.html">
-                                                        <img src="images/placeholder/product5.jpg" alt="">
-                                                    </a>
-                                                    <a href="#" class="onnew">New</a>
-                                                </div><!-- .p-thumb -->
-
-                                                <div class="p-info">
-                                                    <h3 class="p-title"><a href="productdetails-leftsidebar.html">Phasellus Vel Hendrerit</a></h3>
-
-                                                    <div class="clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:60%"></span>
-                                                        </div>
-
-                                                        <span class="price">
-                                                            <span class="amount">$125.00</span>
-                                                        </span>
-                                                    </div>
-
-                                                    <div class="p-actions">
-                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                    </div><!-- .p-actions -->
-                                                </div><!-- .p-info -->
-                                            </div><!-- .product -->
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- .featured-tab -->
-                            <a href="#" class="btn-viney">View All</a>
+                            <a href="${pageContext.request.contextPath}/page?method=getCurrentPage&currentPage=1" class="btn-viney">View All</a>
                         </div>
                     </div><!-- .featured-box-->
 
@@ -731,7 +190,9 @@
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br>
                                         consequat.
                                     </div>
-                                    <div class="countdown"><ul></ul></div>
+                                    <div class="countdown">
+                                        <%--<span id="dtime" title="2019/10/28 10:10:10"></span>--%>
+                                        <ul id="ulist"></ul></div>
                                     <p><a href="#" class="btn-viney">Shop Now</a></p>
                                 </div>
                             </div>
@@ -743,12 +204,12 @@
                                                 <div class="tb-product-item">
                                                     <div class="tb-image">
                                                         <div class="tb-item-content-image img-inner">
-                                                            <a href="#"><img src="images/placeholder/deal-item.jpg" alt=""></a>
+                                                            <a href="product?method=findbyPidproduct&pid=55"><img src="images/placeholder/product55.png"  style="height:260px" alt=""></a>
                                                         </div>
                                                     </div>
                                                     <div class="tb-content">
                                                         <div class="tb-price-rating">
-                                                            <span class="price"><span class="woocs_price_code" data-product-id="1291"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>150.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>145.00</span></ins></span></span>
+                                                            <span class="price"><span class="woocs_price_code" data-product-id="1291"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>222.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>222.00</span></ins></span></span>
                                                         </div>
                                                         <div class="clear"></div>
                                                         <div class="tb-action">
@@ -762,12 +223,12 @@
                                                 <div class="tb-product-item">
                                                     <div class="tb-image">
                                                         <div class="tb-item-content-image img-inner">
-                                                            <a href="#"><img src="images/placeholder/deal-item.jpg" alt=""></a>
+                                                            <a href="product?method=findbyPidproduct&pid=82"><img src="images/placeholder/product82.png" style="height:260px" alt=""></a>
                                                         </div>
                                                     </div>
                                                     <div class="tb-content">
                                                         <div class="tb-price-rating">
-                                                            <span class="price"><span class="woocs_price_code" data-product-id="1291"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>150.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>145.00</span></ins></span></span>
+                                                            <span class="price"><span class="woocs_price_code" data-product-id="1291"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>168.00</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>168.00</span></ins></span></span>
                                                         </div>
                                                         <div class="clear"></div>
                                                         <div class="tb-action">
@@ -793,277 +254,11 @@
                                     <div class="product-box-content featured-prod">
                                         <div class="owl-carousel">
                                             <div class="item">
-                                                <ul>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product1.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product2.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Champagne Amyot</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product3.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product4.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
+                                                <ul style="display:block;" id="list1">
                                                 </ul>
                                             </div>
                                             <div class="item">
-                                                <ul>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product5.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product6.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Champagne Amyot</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product7.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product1.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
+                                                <ul id="list2">
                                                 </ul>
                                             </div>
                                         </div>
@@ -1076,277 +271,11 @@
                                     <div class="product-box-content featured-prod">
                                         <div class="owl-carousel">
                                             <div class="item">
-                                                <ul>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product2.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product3.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Champagne Amyot</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product4.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product5.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
+                                                <ul id="list3">
                                                 </ul>
                                             </div>
                                             <div class="item">
-                                                <ul>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product6.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product7.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Champagne Amyot</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product1.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product2.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
+                                                <ul id="list4">
                                                 </ul>
                                             </div>
                                         </div>
@@ -1359,276 +288,11 @@
                                     <div class="product-box-content featured-prod">
                                         <div class="owl-carousel">
                                             <div class="item">
-                                                <ul>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product3.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product4.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Champagne Amyot</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product5.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product6.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
+                                                <ul id="list5">
                                                 </ul>
                                             </div>
                                             <div class="item">
-                                                <ul>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product7.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Rose Wines</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product1.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Champagne Amyot</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product2.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix product-item">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-xs-4 col-sm-12">
-                                                                <a class="product-thumb" href="productdetails-leftsidebar.html">
-                                                                    <img src="images/placeholder/product3.jpg" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-md-8 col-xs-8 col-sm-12">
-                                                                <div class="product-info">
-
-                                                                    <h3 class="title"><a href="productdetails-leftsidebar.html">Tomatin 12 Year Old</a></h3>
-
-                                                                    <div class="star-rating">
-
-                                                                        <span style="width:60%"></span>
-
-                                                                    </div>
-
-                                                                    <span class="price">
-
-                                                                        <span class="amount">$125.00</span>
-
-                                                                    </span>
-                                                                    <div class="p-actions">
-                                                                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                                                                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                                                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                                                                    </div><!-- .p-actions -->
-                                                                </div><!-- .product-info -->
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                                                <ul id="list6">
 
                                                 </ul>
                                             </div>
@@ -1874,6 +538,8 @@
         <script src="js/vendor/masonry.pkgd.min.js"></script>
         <!-- Main -->
         <script src="js/main.js"></script>
+        <script src="js/indexproduct.js" type="text/javascript"></script>
+        <%--<script src="js/indextime.js" type="text/javascript"></script>--%>
     </body>
         <!-- Custom -->
 </html>

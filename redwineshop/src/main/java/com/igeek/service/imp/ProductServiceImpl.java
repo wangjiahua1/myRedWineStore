@@ -28,8 +28,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getChoosePrice(int price1, int price2) {
-        return pd.getChoosePrice(price1,price2);
+    public List<Product> getChoosePrice(int price1, int price2, int currentpage) {
+        return pd.getChoosePrice(price1,price2,currentpage);
     }
 
     @Override
@@ -51,4 +51,37 @@ public class ProductServiceImpl implements ProductService {
     public List<Cart> findallcart(String uid) {
         return pd.findallcart(uid);
     }
+
+    @Override
+    public Product getRedWineById(int id) {
+        return pd.getRedWineById(id);
+    }
+
+    @Override
+    public List<Product> findproduct(String cid) {
+        return pd.findproduct(cid);
+    }
+
+    @Override
+    public List<Product> findproductbyIsnew(String aNew) {
+        System.out.println(aNew);
+        return pd.findproductbyIsnew(aNew);
+    }
+
+    @Override
+    public List<Product> findproductbyIshot(String s) {
+        return pd.findproductbyIshot(s);
+    }
+
+    @Override
+    public List<Product> findproductbyIsbhot(String hot) {
+        return pd.findproductbyIsbhot(hot);
+    }
+
+    @Override
+    public Product findbyPidproduct(int pid) {
+        return pd.findbyPidproduct(pid);
+    }
+
+
 }

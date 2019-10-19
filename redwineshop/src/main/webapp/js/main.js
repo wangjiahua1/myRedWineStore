@@ -64,7 +64,7 @@
 
         /*  [ jQuery Countdown ]
         - - - - - - - - - - - - - - - - - - - - */
-        var endDate = 'November 15, 2016';
+        var endDate = 'October 30, 2019';
         $( '.countdown ul' ).countdown({
             date: endDate,
             render: function(data) {
@@ -113,7 +113,7 @@
         if( $( '.quantity' ).length > 0 ) {
             var form_cart = $( 'form .quantity' );
             form_cart.prepend( '<span class="minus"><i class="fa fa-angle-left"></i></span>' );
-            form_cart.append( '<span class="plus"><i class="fa fa-angle-right"></i></span>' );
+            //form_cart.append( '<span class="plus"><i class="fa fa-angle-right"></i></span>' );
 
             var minus = form_cart.find( $( '.minus' ) );
             var plus  = form_cart.find( $( '.plus' ) );

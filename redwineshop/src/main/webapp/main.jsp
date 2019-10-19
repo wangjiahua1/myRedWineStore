@@ -4,19 +4,6 @@
     <div class="sort clearfix">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4">
-
-                <form id="f1" action="" class="num-prod-form" method="get">
-                    <div class="selectbox">
-                        <select name="select-numb" id="select-numb">
-                            <option value="9">9 item/pages</option>
-                            <option value="12">12 item/pages</option>
-                            <option value="15">15 item/pages</option>
-                        </select>
-                    </div>
-                </form>
-
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
                 <form action="#" class="order pull-left">
                     <div class="selectbox">
                         <select class="orderby" name="orderby">
@@ -41,7 +28,7 @@
                 <%--&nbsp;--%>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item">
                     <div class="p-thumb">
-                        <a href="productdetails-fullwidth.jsp">
+                        <a href="product?method=getRedWineById&id=${redwine.pid}">
                             <img src="${redwine.pimage}" alt="" style="height:300px;">
                             <c:if test="${redwine.ishot == 'new'}">
                                 <a href="#" class="onnew">${redwine.ishot}</a>
@@ -85,6 +72,7 @@
     </div><!-- .products -->
     <%--分页框--%>
     <div class="zxf_pagediv"></div>
+    <script src="js/zxf_page.js"></script>
     <script type="text/javascript">
         $(".zxf_pagediv").createPage({
             pageNum:12,
