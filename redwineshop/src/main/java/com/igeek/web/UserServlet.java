@@ -60,7 +60,7 @@ public class UserServlet extends BaseServlet {
         }
 //        System.out.println("u:"+u);
         String msg="";
-        System.out.println(u);
+//        System.out.println(u);
         if(u==null){
             //用户名或密码错误
             msg="用户名或密码错误";
