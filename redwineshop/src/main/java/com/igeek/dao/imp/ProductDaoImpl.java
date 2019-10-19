@@ -1,9 +1,11 @@
 package com.igeek.dao.imp;
 
 import com.igeek.dao.ProductDao;
+import com.igeek.domain.Cart;
 import com.igeek.domain.Product;
 import com.igeek.utils.JDBCTools;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -69,6 +71,38 @@ public class ProductDaoImpl implements ProductDao {
         String sql="select * from product where color=?";
         try {
             return qr.query(sql,new BeanListHandler<>(Product.class),color);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Product getcart(String pid) {
+        String sql="select * from product where pid= ?";
+        try {
+            return qr.query(sql,new BeanHandler<>(Product.class),pid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void addcart(Cart cart) {
+        String sql="insert into cart  values(?,?,?,?,?,?,?,?)";
+        try {
+            qr.update(sql,null,cart.getUid(),cart.getPid(),cart.getPname(),cart.getPrice(),cart.getPimage(),cart.getQuantity(),cart.getTotal());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Cart> findallcart(String uid) {
+        String sql="select * from cart where uid=?";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Cart.class),uid);
         } catch (SQLException e) {
             e.printStackTrace();
         }

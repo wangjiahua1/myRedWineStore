@@ -1,6 +1,7 @@
 package com.igeek.service;
 
 
+import com.igeek.domain.Cart;
 import com.igeek.domain.Product;
 
 import java.util.List;
@@ -18,4 +19,10 @@ public interface ProductService {
     List<Product> getChoosePrice(int price1, int price2);
 
     List<Product> getChooseColor(String color);
+
+    Product getcart(String pid);
+
+    void addcart(Cart cart);
+
+    List<Cart> findallcart(String uid);
 }

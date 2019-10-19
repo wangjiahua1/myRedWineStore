@@ -1,6 +1,7 @@
 package com.igeek.service.imp;
 
 import com.igeek.dao.ProductDao;
+import com.igeek.domain.Cart;
 import com.igeek.domain.Product;
 import com.igeek.service.ProductService;
 import com.igeek.utils.BeanFactory;
@@ -34,5 +35,20 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getChooseColor(String color) {
         return pd.getChooseColor(color);
+    }
+
+    @Override
+    public Product getcart(String pid) {
+        return pd.getcart(pid);
+    }
+
+    @Override
+    public void addcart(Cart cart) {
+         pd.addcart(cart);
+    }
+
+    @Override
+    public List<Cart> findallcart(String uid) {
+        return pd.findallcart(uid);
     }
 }

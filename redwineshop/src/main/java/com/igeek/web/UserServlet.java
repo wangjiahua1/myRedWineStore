@@ -47,6 +47,7 @@ public class UserServlet extends BaseServlet {
         user.setPassword(pwd);
         User u= service.findUser(user);
         String msg="";
+        System.out.println(u);
         if(u==null){
             //用户名或密码错误
             msg="用户名或密码错误";

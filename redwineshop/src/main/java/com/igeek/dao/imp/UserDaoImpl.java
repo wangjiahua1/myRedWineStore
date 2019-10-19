@@ -13,10 +13,10 @@ public class UserDaoImpl implements UserDao{
     String sql="";
     @Override
     public User findUser(User user) {
-        sql="select * from user where username = ? and password = ? and activeState =1";
+        sql="select * from user where email = ? and password = ? and activeState =1";
         User u=null;
         try {
-            u=qr.query(sql,new BeanHandler<>(User.class),user.getUsername(),user.getPassword());
+            u=qr.query(sql,new BeanHandler<>(User.class),user.getEmail(),user.getPassword());
         } catch (SQLException e) {
             e.printStackTrace();
         }

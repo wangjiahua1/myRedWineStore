@@ -11,10 +11,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUser(User user) {
         //MD5编码
-//        String pwd=user.getPassword();
-//        String md5Pwd= MD5Utils.enCode(pwd);
-//        user.setPassword(md5Pwd);
-
+       String pwd=user.getPassword();
+       String md5Pwd= MD5Utils.enCode(pwd);
+      user.setPassword(md5Pwd);
+        System.out.println(md5Pwd);
         return dao.findUser(user);
     }
     public boolean checkActiveCode(String activeCode) {

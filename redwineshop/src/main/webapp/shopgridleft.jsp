@@ -159,7 +159,7 @@
                 <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
                 <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
                 <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                <a href="${pageContext.request.contextPath}/product?method=addcart&pid=${redwine.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
             </div><!-- .p-actions -->
         </div><!-- .p-info -->
     </div><!-- .product -->
@@ -219,7 +219,7 @@
                                     "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
                                     "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
                                     "                <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
-                                    "                <a href=\"#\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                                    "                <a href=\"${pageContext.request.contextPath}/product?method=addcart&pid="+v.price+"\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
                                     "            </div><!-- .p-actions -->\n" +
                                     "        </div><!-- .p-info -->\n" +
                                     "    </div><!-- .product -->";
@@ -283,7 +283,7 @@
                                 "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
                                 "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
                                 "                <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
-                                "                <a href=\"#\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                                "                <a href=\"${pageContext.request.contextPath}/product?method=addcart\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
                                 "            </div><!-- .p-actions -->\n" +
                                 "        </div><!-- .p-info -->\n" +
                                 "    </div><!-- .product -->";
