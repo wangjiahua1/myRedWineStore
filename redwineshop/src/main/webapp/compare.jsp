@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -24,110 +25,8 @@
 
 <body>
 
-    <div id="pageloader">
-        <div class="s1">
-            <div class="s b sb1"></div>
-            <div class="s b sb2"></div>
-            <div class="s b sb3"></div>
-            <div class="s b sb4"></div>
-        </div>
-
-
-        <div class="s2">
-            <div class="s b sb5"></div>
-            <div class="s b sb6"></div>
-            <div class="s b sb7"></div>
-            <div class="s b sb8"></div>
-        </div>
-
-        <div class="bigcon">
-            <div class="big b"></div>
-        </div>
-    </div><!-- #pageloader -->
-
-    <div id="wrapper">
-
-<div id="login_dialog" class="modal fade login-popup">
-    <div class="popup-inner">
-        <div class="modal-header">
-            <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-            <h3 class="modal-title">Login</h3>
-        </div>
-        <form action="#">
-            <p class="login-username">
-                <label for="user_login">Username*:</label>
-                <input name="log" id="user_login" class="input" value="" size="20" type="text">
-            </p>
-            <p class="login-password">
-                <label for="user_pass">Password*:</label>
-                <input name="pwd" id="user_pass" class="input" value="" size="20" type="password">
-            </p>
-            <p class="login-submit">
-                <input name="wp-submit" id="wp-submit" class="button-primary" value="Login" type="submit">
-            </p>
-
-        </form>
-        <div class="modal-footer">
-            <a href="#">Register</a>
-            <a href="#">Forgot Password</a>
-        </div>
-    </div><!-- .popup-inner -->
-    <div class="mask popup-close"></div>
-</div><!-- .search-popup -->
-
-<div id="search_dialog" class="modal fade search-popup">
-    <div class="popup-inner">
-        <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-        <form action="#">
-            <select class="selectpicker search-select" name="search_by_cat" id="search_by_cat">
-                <option value="#" selected>All Categories</option>
-                <option value="#">Champagne</option>
-                <option value="#">Kosher</option>
-                <option value="#">Organic</option>
-            </select>
-            <div class="search-div">
-                <input type="text" placeholder="Search">
-                <input value="Search" type="submit">
-            </div>
-        </form>
-    </div><!-- .popup-inner -->
-    <div class="mask popup-close"></div>
-</div><!-- .search-popup -->
-
-<header id="header" class="site-header">
-
-    <div class="top-header">
-        <div class="no-container">
-            <div class="left-header">
-                <span class="icon_setting"><i class="pe-7s-config"></i></span>
-                <div class="setting-wrap">
-                    <ul class="setting-account-list">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="my-wishlist.jsp">My Wishlist</a></li>
-                        <li><a href="compare.jsp">Compare</a></li>
-                        <li><a href="shopping-cart-fullwidth.jsp">My Cart</a></li>
-                        <li><a href="check-out.jsp">Check out</a></li>
-                    </ul>
-                    <div class="currency">
-                        <span>Currency</span>
-                        <ul>
-                            <li class="active"><a href="#">USD</a></li>
-                            <li><a href="#">EUR</a></li>
-                            <li><a href="#">GBP</a></li>
-                            <li><a href="#">CNY</a></li>
-                        </ul>
-                    </div><!-- .currency -->
-                    <div class="language">
-                        <span>Language</span>
-                        <ul>
-                            <li class="active"><a href="#"><img src="images/assets/icons/flag-en.jpg" alt=""/></a></li>
-                            <li><a href="#"><img src="images/assets/icons/flag-ger.jpg" alt=""/></a></li>
-                            <li><a href="#"><img src="images/assets/icons/flag-france.jpg" alt=""/></a></li>
-                        </ul>
-                    </div><!-- .language -->
-
-                </div>
-            </div>
+<jsp:include page="pageloader.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
             <div class="right-header">
                 <ul>
@@ -227,7 +126,7 @@
                                 <a href="productdetails-fullwidth.jsp">
                                     <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
                                 </a>
-                            </div>                          
+                            </div>
                             <div class="mega-item">
                                 <h3 class="menu-title">Shop Page</h3>
                                 <ul>
@@ -261,7 +160,7 @@
                                     <li><a href="shopgrid-leftsidebar.html">Shop Grid Left Sidebar</a></li>
                                     <li><a href="shopgrid-rightsidebar.html">Shop Grid Right Sidebar</a></li>
                                 </ul>
-                            </div>              
+                            </div>
                             <div class="mega-item">
                                 <h3 class="menu-title">Shop Single</h3>
                                 <ul>
@@ -597,96 +496,7 @@
         </div>
     </div><!-- .container -->
 </div><!-- .site-bottom -->
-<footer id="footer" class="site-footer">
-    <div class="container">
-        <div class="footer-widget">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <div class="footer-item">
-                        <aside class="widget about">
-                            <div class="textwidget">
-                                <a href="index.html" class="logo-ft"><img src="images/assets/logo.png" alt=""/></a>
-                                <p>Address : No 40 Baria Sreet 133/2 NewYork City, <br />
-                                    NY,  United States <br/>
-                                    Email: info.contact@gmail.com<br/>
-                                    Phone: (00) 123 456 789</p>
-                            </div><!-- .textwidget -->
-                        </aside><!-- .widget -->
-                    </div><!-- .footer-item -->
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
-                    <div class="footer-item">
-                        <aside class="widget footer_acc_links">
-                            <h3 class="widget-title">My Accounts</h3>
-                            <ul class="menu">
-                                <li><a href="#">My account</a></li>
-                                <li><a href="#">My orders</a></li>
-                                <li><a href="#">Register</a></li>
-                                <li><a href="#">Login</a></li>
-                            </ul>
-                        </aside><!-- .widget -->
-                    </div><!-- .footer-item -->
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
-                    <div class="footer-item">
-                        <aside class="widget quick_links">
-                            <h3 class="widget-title">Quick link</h3>
-                            <ul>
-                                <li><a href="#">New User</a></li>
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">Report Spam</a></li>
-                                <li><a href="#">FAQs</a></li>
-                            </ul>
-                        </aside><!-- .widget -->
-                    </div><!-- .footer-item -->
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <div class="footer-item">
-                        <aside class="widget tags_clound">
-                            <h3 class="widget-title">Tag Clound</h3>
-                            <ul>
-                                <li><a href="#">Music</a></li>
-                                <li><a href="#">Travel</a></li>
-                                <li><a href="#">Video</a></li>
-                                <li><a href="#">Ecommerce</a></li>
-                                <li><a href="#">Feature</a></li>
-                                <li><a href="#">Text</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Store</a></li>
-                            </ul>
-                        </aside><!-- .widget -->
-                    </div><!-- .footer-item -->
-                </div>
-            </div><!-- .row -->
-        </div><!-- .footer-widget -->
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="bot-footer clearfix">
-                    <nav class="footer-menu">
-                        <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav><!-- .footer-menu -->
-
-                    <div class="copyright">
-                        <p>Copyright <a href="#">VineYard</a> © 2015. All rights reserved.</p>
-                    </div><!-- .copyright -->
-                </div><!-- .bot-footer -->
-            </div>
-        </div><!-- .row -->
-    </div><!-- .container -->
-
-</footer><!-- .site-footer -->
+<jsp:include page="footer.jsp"></jsp:include>
 </div><!-- #wrapper -->
 
 <!-- jQuery -->

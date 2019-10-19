@@ -3,8 +3,21 @@
 <beans>
     <!--子节点对应每个java类-->
     <!--id 唯一标识   class 对应类的包名+类名-->
+    <!--Service-->
     <bean id="myredwineservice" class="com.igeek.service.imp.ProductServiceImpl"></bean>
+    <bean id="userService" class="com.igeek.service.imp.UserServiceImpl"></bean>
+
+    <!--Dao-->
     <bean id="myredwinedao" class="com.igeek.dao.imp.ProductDaoImpl"></bean>
     <bean id="mycateservice" class="com.igeek.service.imp.CategoryServiceImpl"></bean>
     <bean id="mycatedao" class="com.igeek.dao.imp.CategoryDaoImpl"></bean>
+    <bean id="userDao" class="com.igeek.dao.imp.UserDaoImpl"></bean>
+
+    <bean id="messageservice" class="com.igeek.service.imp.MessageServiceImpl"></bean>
+    <bean id="messagedao" class="com.igeek.dao.imp.MessageDaoImpl"></bean>
+    <bean id="emailservice" class="com.igeek.service.imp.EmailServiceImpl"></bean>
+    <bean id="emaildao" class="com.igeek.dao.imp.EmailDaoImpl"></bean>
+    <bean id="collectservice" class="com.igeek.service.imp.CollectServiceImpl"></bean>
+    <bean id="collectdao" class="com.igeek.dao.imp.CollectDaoImpl"></bean>
+    <bean id="mypage" class="com.igeek.domain.Page"></bean>
 </beans>

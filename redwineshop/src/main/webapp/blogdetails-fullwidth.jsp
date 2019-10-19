@@ -1,11 +1,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!doctype html>
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
-    <title>My Wishlist</title>
-
+    <title>Blog Details Fullwidth</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.getJSON(
+                "${pageContext.request.contextPath}/message?method=findFiveMessage",
+                function (data) {
+                    $.each(data , function (i,v) {
+                        var lili = "<li class='comment'><div class='comment-wrapper'><div class='comment-avatar'>";
+                        lili += "<img class='avatar' alt='' width='70px' height='68px' src='images/placeholder/avatar_0"+(v.mid % 5 + 1)+".jpg'></div>";
+                        lili += "<div class='comment-body'><header class='comment-meta clearfix'><cite class='comment-author'>";
+                        lili += "<span class='comment-date'>"+v.time+"</span>";
+                        lili += "<span><a class='url' rel='external nofollow' href='#'>"+v.name+"</a></span></cite></header><div class='comment-content'>";
+                        lili += "<p>"+v.message+"</p></div></div></div></li>";
+                        $("#pinglun").append(lili);
+                    });
+                }
+            )
+        });
+    </script>
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Responsive CSS -->
@@ -21,11 +40,9 @@
     <![endif]-->
 </head>
 
-<body>
-<jsp:include page="pageloader.jsp"></jsp:include>
-<jsp:include page="header.jsp"></jsp:include>
+<body class="single-post">
 
-        <div id="pageloader">
+    <div id="pageloader">
         <div class="s1">
             <div class="s b sb1"></div>
             <div class="s b sb2"></div>
@@ -103,11 +120,11 @@
                 <span class="icon_setting"><i class="pe-7s-config"></i></span>
                 <div class="setting-wrap">
                     <ul class="setting-account-list">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="my-wishlist.jsp">My Wishlist</a></li>
-                        <li><a href="compare.jsp">Compare</a></li>
-                        <li><a href="shopping-cart-fullwidth.jsp">My Cart</a></li>
-                        <li><a href="check-out.jsp">Check out</a></li>
+                        <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Account</a></li>
+                        <li><a href="my-wishlist.html">My Wishlist</a></li>
+                        <li><a href="compare.html">Compare</a></li>
+                        <li><a href="shopping-cart-fullwidth.html">My Cart</a></li>
+                        <li><a href="check-out.html">Check out</a></li>
                     </ul>
                     <div class="currency">
                         <span>Currency</span>
@@ -156,11 +173,11 @@
                                 <ul class="cart_list">
 
                                     <li class="clearfix">
-                                        <a class="p-thumb" href="productdetails-fullwidth.jsp">
+                                        <a class="p-thumb" href="productdetails-fullwidth.html">
                                             <img src="images/placeholder/thumb-product-cart1.jpg" alt="">
                                         </a>
                                         <div class="p-info">
-                                            <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
+                                            <a class="p-title" href="productdetails-fullwidth.html">Tomatin 12 Year Old</a>
                                             <span class="price">
                                                 <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
                                             </span>
@@ -169,11 +186,11 @@
                                     </li>
 
                                     <li class="clearfix">
-                                        <a class="p-thumb" href="productdetails-fullwidth.jsp">
+                                        <a class="p-thumb" href="productdetails-fullwidth.html">
                                             <img src="images/placeholder/thumb-product-cart2.jpg" alt="">
                                         </a>
                                         <div class="p-info">
-                                            <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
+                                            <a class="p-title" href="productdetails-fullwidth.html">Tomatin 12 Year Old</a>
                                             <span class="price">
                                                 <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
                                             </span>
@@ -186,8 +203,8 @@
                                 <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
 
                                 <p class="buttons">
-                                    <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
-                                    <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
+                                    <a href="shopping-cart-fullwidth.html" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
+                                    <a href="check-out.html" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
                                 </p>
                             </div>
                         </div>
@@ -225,31 +242,31 @@
                                 </ul>
                             </div>
                             <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
+                                <a href="productdetails-fullwidth.html">
                                     <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
                                 </a>
-                            </div>
+                            </div>                          
                             <div class="mega-item">
                                 <h3 class="menu-title">Shop Page</h3>
                                 <ul>
-                                    <li><a href="shopgrid-fullwidth.jsp">Shop Page</a></li>
-                                    <li><a href="productdetails-fullwidth.jsp">Single Product</a></li>
-                                    <li><a href="shopping-cart-fullwidth.jsp">Shopping cart</a></li>
-                                    <li><a href="check-out.jsp">Checkout</a></li>
-                                    <li><a href="compare.jsp">Compare</a></li>
+                                    <li><a href="shopgrid-fullwidth.html">Shop Page</a></li>
+                                    <li><a href="productdetails-fullwidth.html">Single Product</a></li>
+                                    <li><a href="shopping-cart-fullwidth.html">Shopping cart</a></li>
+                                    <li><a href="check-out.html">Checkout</a></li>
+                                    <li><a href="compare.html">Compare</a></li>
                                 </ul>
                             </div>
                             <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
+                                <a href="productdetails-fullwidth.html">
                                     <img src="images/placeholder/mega-menu-img2.jpg" alt=""/>
                                 </a>
                             </div>
                         </div><!-- .menu-mega -->
                     </li>
-                    <li class="mega-menu-wrap current-menu-item"><a href="shopgrid-fullwidth.jsp">Shop</a>
+                    <li class="mega-menu-wrap"><a href="shopgrid-fullwidth.html">Shop</a>
                         <div class="sub-menu menu-mega">
                             <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
+                                <a href="productdetails-fullwidth.html">
                                     <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
                                 </a>
                             </div>
@@ -258,23 +275,23 @@
                                 <ul>
                                     <li><a href="shoplist-leftsidebar.html">Shop List Left Sidebar</a></li>
                                     <li><a href="shoplist-rightsidebar.html">Shop List Right Sidebar</a></li>
-                                    <li><a href="shopgrid-fullwidth.jsp">Shop Grid Full Width</a></li>
+                                    <li><a href="shopgrid-fullwidth.html">Shop Grid Full Width</a></li>
                                     <li><a href="shopgrid-leftsidebar.html">Shop Grid Left Sidebar</a></li>
                                     <li><a href="shopgrid-rightsidebar.html">Shop Grid Right Sidebar</a></li>
                                 </ul>
-                            </div>
+                            </div>              
                             <div class="mega-item">
                                 <h3 class="menu-title">Shop Single</h3>
                                 <ul>
-                                    <li><a href="productdetails-fullwidth.jsp">Full Width</a></li>
-                                    <li><a href="productdetails-fullwidth.jsp">Left Sidebar</a></li>
+                                    <li><a href="productdetails-fullwidth.html">Full Width</a></li>
+                                    <li><a href="productdetails-leftsidebar.html">Left Sidebar</a></li>
                                     <li><a href="productdetails-rightsidebar.html">Right Sidebar</a></li>
                                 </ul>
                             </div>
                             <div class="mega-item">
                                 <h3 class="menu-title">Shopping Cart</h3>
                                 <ul>
-                                    <li><a href="shopping-cart-fullwidth.jsp">Cart Full Width</a></li>
+                                    <li><a href="shopping-cart-fullwidth.html">Cart Full Width</a></li>
                                     <li><a href="shopping-cart-leftsidebar.html">Cart Left Sidebar</a></li>
                                     <li><a href="shopping-cart-rightsidebar.html">Cart Right Sidebar</a></li>
                                 </ul>
@@ -282,9 +299,9 @@
                             <div class="mega-item">
                                 <h3 class="menu-title">Orther</h3>
                                 <ul>
-                                    <li class="current-menu-item"><a href="my-wishlist.jsp">My Wishlist</a></li>
-                                    <li><a href="check-out.jsp">Check Out</a></li>
-                                    <li><a href="compare.jsp">Compare</a></li>
+                                    <li><a href="my-wishlist.html">My Wishlist</a></li>
+                                    <li><a href="check-out.html">Check Out</a></li>
+                                    <li><a href="compare.html">Compare</a></li>
                                 </ul>
                             </div>
                         </div><!-- .menu-mega -->
@@ -306,24 +323,9 @@
                             <li><a href="page-404.html">404</a></li>
                         </ul>
                     </li>
-                    <li><a href="bloglist-fullwidth.html">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blogdetails-leftsidebar.html">Blog Details LeftSideBar</a></li>
-                            <li><a href="blogdetails-rightsidebar.html">Blog Details RightSidebar</a></li>
-                            <li><a href="blogdetails-fullwidth.html">Blog Details FullWidth</a></li>
-                            <li><a href="bloggrid-2column.html">Blog Grid 2Column</a></li>
-                            <li><a href="bloggrid-3column.html">Blog Grid 3Column</a></li>
-                            <li><a href="bloglist-fullwidth.html">Blog List Full Width</a></li>
-                            <li><a href="bloglist-rightsidebar.html">Blog List Right SideBar</a></li>
-                            <li><a href="bloglist-leftsidebar.html">Blog List Left SideBar</a></li>
-                            <li><a href="bloglist-zigzac.html">Blog List ZigZac</a></li>
-                            <li><a href="bloggrid-masonry.html">Blog Grid Masonry</a></li>
-                        </ul>
+                    <li class="current-menu-item"><a href="blogdetails-fullwidth.jsp">Blog</a>
                     </li>
-                    <li><a href="contact-us.html">Contact</a>
-                        <ul class="sub-menu">
-                            <li><a href="contact-us2.html">Contact 2</a></li>
-                        </ul>
+                    <li><a href="contact.jsp">Contact</a>
                     </li>
                 </ul>
 
@@ -336,17 +338,19 @@
 <div id="content" class="site-content content-fullwidth">
 <div class="space-dark"></div>
 <div class="no-container">
-    <div class="blog-breadcrumb shop-breadcrumb">
+    <div class="blog-breadcrumb">
         <div class="container">
 
             <div class="intro-div">
-                <h1 class="page-title">My WishList</h1>
+                <h1 class="page-title">Full Width</h1>
                 <div class="breadcrumb">
                     <ul>
 
-                        <li><a href="#">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
 
-                        <li><span class="current">My WishList</span></li>
+                        <li><a href="blogdetails-fullwidth.jsp">Blog</a></li>
+
+                        <li><span class="current">Details</span></li>
 
                     </ul>
 
@@ -361,85 +365,88 @@
 
 <main id="main" class="site-main">
 
-    <div class="inner-content">
-        <p class="wishlist-desc-text">Product with varients has added to your wishlist. <a href="shopgrid-fullwidth.jsp">Click here</a> to continue shopping</p>
-        <div class="woocommerce">
-            <form class="cart-form" action="#" method="post">
+    <article class="post clearfix">
 
-                <div class="cart-table">
-                    <table class="shop_table cart">
-                        <thead>
-                        <tr>
-                            <th class="table-col-product">Images</th>
-                            <th class="table-col-name">Product name</th>
-                            <th class="table-col-price">Price</th>
-                            <th class="table-col-qty text-center">Quantity</th>
-                            <th class="table-col-total text-right">Total</th>
-                            <th class="product-remove text-right"><a href="#" class="" title="#"><i class="pe-7s-close"></i></a></th>
-                        </tr>
-                        </thead>
-                        <tbody>
+        <div class="post-thumb post-thumb-full">
 
-                        <c:forEach items="${collects}" var="c">
-                            <tr class="cart-item cart_item">
-                                <td>
-                                    <a href="productdetails-fullwidth.jsp"><img src="${pageContext.request.contextPath}/${c.product.pimage}" style="height: 130px;" alt=""></a>
-                                </td>
-                                <td class="table-col-name">
-                                    <a href="productdetails-fullwidth.jsp">${c.product.pname}</a>
-                                    <div class="meta-cart">
-                                        <div class="list-color">Color: <a href="#" class="${c.product.color}"></a> </div>
-                                        <div class="list-size">Size: <a href="#">${c.product.size}</a></div>
-                                    </div>
-                                </td>
-                                <td class="table-col-price">
-                                    <span class="amount"><span class="symbol">$</span>${c.product.price}</span>
-                                </td>
-                                <td class="table-col-qty text-center">
-                                    <div class="quantity">
-                                        <input type="number" step="1" min="0" value="${c.number}" title="Qty" class="qty" size="4">
-                                    </div>
-                                </td>
-                                <td class="price text-right">
-                                    <span class="amount"><span class="symbol">$</span>${c.total}</span>
-                                </td>
-                                <td class="product-remove text-right">
-                                    <a href="#" class="remove" title="Remove this item"><i class="pe-7s-close"></i></a>
-                                </td>
-                            </tr>
-                        </c:forEach>
+            <img src="images/placeholder/blog-img01.jpg" alt="">
 
-                        <tr class="action-wrap">
-                            <td colspan="6" class="actions clearfix">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="wc-proceed-to-checkout">
+        </div><!-- .post-thumb.post-thumb-full -->
 
-                                            <p class="return-to-shop"><a class="button radius" href="#">Continue Shopping</a></p>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="post-info">
+            <div class="post-date"><span class="month">Aug</span> <span class="date">08</span></div>
 
-                                        <input class="button radius plum" name="update_cart" value="Update Cart" disabled="" type="submit">
+            <h3 class="post-title">William Shatner's New Wine Enterprise</h3>
 
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+            <div class="post-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
+                <blockquote>
+                    Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something.
+                    <span class="author-qoute">LUCY MARKET</span>
+                </blockquote>
+                <p class="txt-title">Recipes from a Winemaker's Restaurant</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nutlla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+            </div>
 
-                        </tbody>
-                    </table>
+            <div class="entry-footer">
+                <div class="tags-links">
+                    <a href="#" rel="tag">Fashions</a>
+                    <a href="#" rel="tag">LIFE STYLE</a>
+                    <a href="#" rel="tag">Summer</a>
                 </div>
+                <div class="single-share">
+                    <div class="social">
+                        <ul>
+                            <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-heart"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- entry-footer -->
 
-            </form>
+            <div class="comments-area" id="comments">
+                <h3 class="comments-title widget-title"><span>5</span> comments</h3>
+                <ol class="comment-list" id="pinglun">
 
 
-        </div><!-- .woocommerce -->
+                </ol><!-- .comment-list -->
 
-    </div><!-- inner-content -->
+                <div class="comment-respond" id="respond">
+                    <h3 class="comment-reply-title widget-title" id="reply-title">LEAVE A COMMENT</h3>
+
+                    <form novalidate="" class="comment-form" id="commentform" method="post" action="${pageContext.request.contextPath}/message?method=addMessage">
+
+                        <p class="comment-form-author">
+                            <input size="30" value="" name="author" placeholder="Name" id="author" type="text">
+                        </p>
+
+                        <p class="comment-form-email">
+                            <input size="30" value="" name="email" placeholder="Email" id="email" type="text">
+                        </p>
+
+                        <p class="comment-form-comment">
+                            <textarea aria-required="true" rows="9" cols="45" placeholder="Your comment" name="comment" id="comment"></textarea>
+                        </p>
+
+                        <p class="form-submit">
+                            <input value="Send Messages" class="submit button radius plum bold" id="submit" name="submit" type="submit">
+                        </p>
+                    </form>
+                </div> <!-- #respond -->
+            </div><!-- comments-area -->
+
+        </div><!-- .post-info -->
+
+    </article>
+
 
 </main><!-- .site-main -->
+
 
 </div><!-- .container -->
 
@@ -469,7 +476,96 @@
         </div>
     </div><!-- .container -->
 </div><!-- .site-bottom -->
-<jsp:include page="footer.jsp"></jsp:include>
+<footer id="footer" class="site-footer">
+    <div class="container">
+        <div class="footer-widget">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="footer-item">
+                        <aside class="widget about">
+                            <div class="textwidget">
+                                <a href="index.html" class="logo-ft"><img src="images/assets/logo.png" alt=""/></a>
+                                <p>Address : No 40 Baria Sreet 133/2 NewYork City, <br />
+                                    NY,  United States <br/>
+                                    Email: info.contact@gmail.com<br/>
+                                    Phone: (00) 123 456 789</p>
+                            </div><!-- .textwidget -->
+                        </aside><!-- .widget -->
+                    </div><!-- .footer-item -->
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                    <div class="footer-item">
+                        <aside class="widget footer_acc_links">
+                            <h3 class="widget-title">My Accounts</h3>
+                            <ul class="menu">
+                                <li><a href="#">My account</a></li>
+                                <li><a href="#">My orders</a></li>
+                                <li><a href="#">Register</a></li>
+                                <li><a href="#">Login</a></li>
+                            </ul>
+                        </aside><!-- .widget -->
+                    </div><!-- .footer-item -->
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                    <div class="footer-item">
+                        <aside class="widget quick_links">
+                            <h3 class="widget-title">Quick link</h3>
+                            <ul>
+                                <li><a href="#">New User</a></li>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Report Spam</a></li>
+                                <li><a href="#">FAQs</a></li>
+                            </ul>
+                        </aside><!-- .widget -->
+                    </div><!-- .footer-item -->
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="footer-item">
+                        <aside class="widget tags_clound">
+                            <h3 class="widget-title">Tag Clound</h3>
+                            <ul>
+                                <li><a href="#">Music</a></li>
+                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Video</a></li>
+                                <li><a href="#">Ecommerce</a></li>
+                                <li><a href="#">Feature</a></li>
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Sports</a></li>
+                                <li><a href="#">Fashion</a></li>
+                                <li><a href="#">Store</a></li>
+                            </ul>
+                        </aside><!-- .widget -->
+                    </div><!-- .footer-item -->
+                </div>
+            </div><!-- .row -->
+        </div><!-- .footer-widget -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bot-footer clearfix">
+                    <nav class="footer-menu">
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Site Map</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </nav><!-- .footer-menu -->
+
+                    <div class="copyright">
+                        <p>Copyright <a href="#">VineYard</a> © 2015. All rights reserved.</p>
+                    </div><!-- .copyright -->
+                </div><!-- .bot-footer -->
+            </div>
+        </div><!-- .row -->
+    </div><!-- .container -->
+
+</footer><!-- .site-footer -->
 </div><!-- #wrapper -->
 
 <!-- jQuery -->

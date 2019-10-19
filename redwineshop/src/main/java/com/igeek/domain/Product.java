@@ -117,6 +117,14 @@ public class Product {
         this.size = size;
     }
 
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
+
     public String getColor() {
         return color;
     }

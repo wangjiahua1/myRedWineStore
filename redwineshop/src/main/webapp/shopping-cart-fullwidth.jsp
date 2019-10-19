@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
@@ -74,6 +75,15 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <c:forEach items="${carts}" var="cart">
+                        <tr class="cart-item cart_item">
+
+                            <td>
+                                <a href="productdetails-fullwidth.html"><img style="height: 70px"  src="${pageContext.request.contextPath}/${cart.pimage}" alt="" ></a>
+                            </td>
+
+                            <td class="table-col-name">
+                                <a href="productdetails-fullwidth.html">${cart.pname}</a>
 
                         <tr class="cart-item cart_item">
 
@@ -90,16 +100,19 @@
                             </td>
 
                             <td class="table-col-price">
+                                <span class="amount"><span class="symbol">$</span>${cart.price}</span>
                                 <span class="amount"><span class="symbol">$</span>145.00</span>
                             </td>
 
                             <td class="table-col-qty text-center">
                                 <div class="quantity">
+                                    <input type="number" step="1" min="0" value="${cart.quantity}" title="Qty" class="qty" size="4">
                                     <input type="number" step="1" min="0" value="1" title="Qty" class="qty" size="4">
                                 </div>
                             </td>
 
                             <td class="price text-right">
+                                <span class="amount"><span class="symbol">$</span>${cart.total}</span>
                                 <span class="amount"><span class="symbol">$</span>145.00</span>
                             </td>
 
@@ -108,6 +121,8 @@
                             </td>
 
                         </tr>
+                        </c:forEach>
+<%--
 
                         <tr class="cart-item cart_item">
 
@@ -194,6 +209,7 @@
                                     </div>
                                 </div>
                             </td>
+                        </tr>--%>
                         </tr>
 
                         </tbody>
@@ -313,6 +329,7 @@
         </div>
     </div><!-- .container -->
 </div><!-- .site-bottom -->
+<jsp:include page="footer.jsp"></jsp:include>
 <footer id="footer" class="site-footer">
     <div class="container">
         <div class="footer-widget">
