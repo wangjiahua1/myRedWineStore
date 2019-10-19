@@ -48,25 +48,19 @@ public class ProductServlet extends BaseServlet {
         resp.getWriter().write(t);
     }
 
-
-    public void getChoosePrice(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String price = req.getParameter("price");
-        String s[]=price.split("-");
-        for (int i = 0; i <s.length ; i++) {
-            s[i]=s[i].replace("$ ","");
-        }
-        int price1= Integer.parseInt(s[0]);
-        int price2= Integer.parseInt(s[1]);
-        List<Product> myredwine=ps.getChoosePrice(price1,price2);
-        Gson gson=new Gson();
-        String s1 = gson.toJson(myredwine);
-        resp.getWriter().write(s1);
-    }
     public void getChooseColor (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String color=req.getParameter("color");
         List<Product> colorRedWine=ps.getChooseColor(color);
         Gson gson=new Gson();
         String s1 = gson.toJson(colorRedWine);
         resp.getWriter().write(s1);
+    }
+
+
+    public void getRedWineById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id= Integer.parseInt(req.getParameter("id"));
+        Product redwine=ps.getRedWineById(id);
+        req.setAttribute("RedWine",redwine);
+        req.getRequestDispatcher("productdetails-fullwidth.jsp").forward(req,resp);
     }
 }

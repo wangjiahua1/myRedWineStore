@@ -11,7 +11,9 @@ public interface ProductDao {
     List<Product> gethotRedwine();
 
 
-    List<Product> getChoosePrice(int price1, int price2);
+    List<Product> getChoosePrice(int price1, int price2, int currentpage);
 
     List<Product> getChooseColor(String color);
+
+    Product getRedWineById(int id);
 }

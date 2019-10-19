@@ -27,12 +27,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getChoosePrice(int price1, int price2) {
-        return pd.getChoosePrice(price1,price2);
+    public List<Product> getChoosePrice(int price1, int price2, int currentpage) {
+        return pd.getChoosePrice(price1,price2,currentpage);
     }
 
     @Override
     public List<Product> getChooseColor(String color) {
         return pd.getChooseColor(color);
+    }
+
+    @Override
+    public Product getRedWineById(int id) {
+        return pd.getRedWineById(id);
     }
 }

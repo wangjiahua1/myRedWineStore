@@ -4,6 +4,7 @@ import com.igeek.dao.ProductDao;
 import com.igeek.domain.Product;
 import com.igeek.utils.JDBCTools;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -54,10 +55,10 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public List<Product> getChoosePrice(int price1, int price2) {
-        String sql="select * from product where price>=? and price<=?";
+    public List<Product> getChoosePrice(int price1, int price2, int currentpage) {
+        String sql="select * from product where price>=? and price<=? limit ?,9";
         try {
-            return qr.query(sql,new BeanListHandler<>(Product.class),price1,price2);
+            return qr.query(sql,new BeanListHandler<>(Product.class),price1,price2,currentpage);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -69,6 +70,17 @@ public class ProductDaoImpl implements ProductDao {
         String sql="select * from product where color=?";
         try {
             return qr.query(sql,new BeanListHandler<>(Product.class),color);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Product getRedWineById(int id) {
+        String sql="select * from product where pid=?";
+        try {
+            return qr.query(sql,new BeanHandler<>(Product.class),id);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -47,6 +47,7 @@
 <div class="container">
     <div class="row">
 
+       <jsp:include page="main.jsp"></jsp:include>
     <div id="sidebar" class="sidebar left-sidebar left-shop-sidebar col-md-3">
     <aside class="widget">
         <h3 class="widget-title"><span>Shop by</span></h3>
