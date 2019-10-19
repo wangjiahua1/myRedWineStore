@@ -17,12 +17,11 @@ public class PageServlet extends BaseServlet {
     ProductService ps=(ProductService)BeanFactory.getBean("myredwineservice");
     public void getCurrentPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int currentpage= Integer.parseInt(request.getParameter("currentPage"));
-        List<Product> redWines=ps.getCurrentPage(currentpage);
+        List<Product> RedWines=ps.getCurrentPage(currentpage);
         //System.out.println("redWines:"+redWines);
-        Gson gson=new Gson();
-        String s = gson.toJson(redWines);
-        System.out.println("s"+s);
-        response.getWriter().write(s);
+        request.setAttribute("allredwine",RedWines);
+        request.setAttribute("currentPage",currentpage);
+        request.getRequestDispatcher("shopgridleft.jsp").forward(request,response);
     }
 
 }

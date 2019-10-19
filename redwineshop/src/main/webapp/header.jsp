@@ -192,7 +192,7 @@
                                 <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
 
                                 <p class="buttons">
-                                    <a href="shopgridleft.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
+                                    <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
                                     <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
                                 </p>
                             </div>
@@ -222,7 +222,7 @@
                     <li id="home" class="mega-menu-wrap"><a href="index.jsp" id="choose1" class="choose1">Home</a>
 
                     </li>
-                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/product?method=getAllRedWine&sizePage=9" class="choose1">Shop</a>
+                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/page?method=getCurrentPage&currentPage=1" class="choose1">Shop</a>
 
                     </li>
 

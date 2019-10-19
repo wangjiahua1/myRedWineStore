@@ -9,47 +9,13 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
-
-    <script src="js/ie9/html5shiv.min.js"></script>
-    <script src="js/ie9/respond.min.js"></script>
     <script src="js/jquery-1.12.4.min.js"></script>
     <%--加载分页页面样式--%>
     <link href="css/zxf_page.css" type="text/css" rel="stylesheet"/>
+    <script src="js/zxf_page.js"></script>
 </head>
-<script type="text/javascript">
-
-    //左下热门商品加载
-    $(function () {
-        $.getJSON(
-            "product?method=gethotRedwine",
-            function (data) {
-                console.log(data);
-                var myhot=$("#newul");
-                $.each(data,function (i,v) {
-                    console.log(v);
-                    myhot.append("<li class=\"clearfix\">\n" +
-                        "                <a class=\"product-thumb\" href=\"productdetails-fullwidth.jsp\">\n" +
-                        "                    <img src=\""+v.pimage+"\" style='height: 50px' >\n" +
-                        "                </a>\n" +
-                        "                <div class=\"product-info\">\n" +
-                        "                    <h3 class=\"title\"><a href=\"productdetails-fullwidth.jsp\">"+v.pname+"</a></h3>\n" +
-                        "                    <div class=\"star-rating\">\n" +
-                        "                        <span style=\"width:60%\"></span>\n" +
-                        "                    </div>\n" +
-                        "                    <span class=\"price\">\n" +
-                        "                        <span class=\"amount\">$"+v.price+"</span>\n" +
-                        "                    </span>\n" +
-                        "                </div><!-- .product-info -->\n" +
-                        "            </li>");
-                })
-            }
-        )
-    });
-</script>
 <body>
 <jsp:include page="pageloader.jsp"></jsp:include>
 <jsp:include page="header.jsp"></jsp:include>
@@ -79,7 +45,6 @@
 </div>
 
 <div class="container">
-
     <div class="row">
     <main id="main" class="site-main col-md-9">
     <div class="sort clearfix">
@@ -159,7 +124,7 @@
                 <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
                 <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
                 <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                <a href="${pageContext.request.contextPath}/product?method=addcart&pid=${redwine.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
             </div><!-- .p-actions -->
         </div><!-- .p-info -->
     </div><!-- .product -->
@@ -219,7 +184,7 @@
                                     "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
                                     "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
                                     "                <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
-                                    "                <a href=\"#\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                                    "                <a href=\"${pageContext.request.contextPath}/product?method=addcart&pid="+v.price+"\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
                                     "            </div><!-- .p-actions -->\n" +
                                     "        </div><!-- .p-info -->\n" +
                                     "    </div><!-- .product -->";
@@ -283,7 +248,7 @@
                                 "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
                                 "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
                                 "                <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
-                                "                <a href=\"#\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                                "                <a href=\"${pageContext.request.contextPath}/product?method=addcart\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
                                 "            </div><!-- .p-actions -->\n" +
                                 "        </div><!-- .p-info -->\n" +
                                 "    </div><!-- .product -->";
@@ -378,6 +343,8 @@
 <!-- Boostrap -->
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/vendor/bootstrap-select.min.js"></script>
+<script src="js/ie9/html5shiv.min.js"></script>
+<script src="js/ie9/respond.min.js"></script>
 <!-- jQuery Sticky -->
 <script src="js/vendor/jquery.sticky.js"></script>
 <!-- OWL CAROUSEL Slider -->
@@ -396,5 +363,7 @@
 <script src="js/vendor/masonry.pkgd.min.js"></script>
 <!-- Main -->
 <script src="js/main.js"></script>
+<%--加载shop.js文件--%>
+<script src="js/shop.js"></script>
 </body>
 </html>
