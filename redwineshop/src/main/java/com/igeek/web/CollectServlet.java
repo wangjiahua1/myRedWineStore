@@ -92,7 +92,10 @@ public class CollectServlet extends BaseServlet {
 
     public void findPartCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int page = Integer.valueOf(request.getParameter("page"));
-        List<Collect> collects = service.findPartCid(page);
+        User user= (User) request.getSession().getAttribute("user");
+        String uid = user.getUid();
+        List<Collect> collects = service.findPartCid(page,uid);
+        System.out.println("collect:"+collects);
         List<MyCollect> list = new LinkedList<>();
         for (int i = 0; i < collects.size(); i++) {
             MyCollect my = new MyCollect();
@@ -102,13 +105,29 @@ public class CollectServlet extends BaseServlet {
             list.add(my);
         }
         request.setAttribute("partCollect",list);
+        System.out.println("list:"+list);
+        request.setAttribute("page",page);
         request.getRequestDispatcher("compare.jsp").forward(request,response);
     }
 
     public void findCountCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int count = service.findCountCollect();
-        count = (int) Math.ceil((double)count / 3);
-        request.getSession().setAttribute("count",count);
-        request.getRequestDispatcher("collect?method=findPartCollect&page=1").forward(request,response);
+        User user= (User) request.getSession().getAttribute("user");
+        if (user == null){
+            response.sendRedirect(request.getContextPath()+"/index.jsp");
+        }else {
+            String uid = user.getUid();
+            int count = service.findCountCollect(uid);
+            count = (int) Math.ceil((double) count / 3);
+            request.getSession().setAttribute("count", count);
+            request.getRequestDispatcher("collect?method=findPartCollect&page=1").forward(request, response);
+        }
+    }
+
+    public void delCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = (User) request.getSession().getAttribute("user");
+        String uid = user.getUid();
+        String pid = request.getParameter("pid");
+        service.delCollect(uid,pid);
+        request.getRequestDispatcher("collect?method=findPartCollect&page=1").forward(request, response);
     }
 }

@@ -52,7 +52,7 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
           hours: 0,
           min:0,
           sec:0,
-          millisec: 0
+          millisec:0
         };
         console.log(dateData+3333);
         if (diff >= (365.25 * 86400)) {

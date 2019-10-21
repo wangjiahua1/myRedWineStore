@@ -84,14 +84,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public int getcartid(String uid, int pid) {
-        return  pd.getcartid(uid,pid);
-
+    public List<Product> fincproduct() {
+        return pd.findcproduct();
     }
 
     @Override
-    public void addcartpast(Cart cart) {
-        pd.addcartpast(cart);
+    public List<Product> findproductbycolor(String color) {
+        return pd.findproductbycolor(color);
     }
+
 
 }

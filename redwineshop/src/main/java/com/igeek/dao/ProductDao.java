@@ -33,6 +33,10 @@ public interface ProductDao {
 
     Product findbyPidproduct(int pid);
 
+    List<Product> findcproduct();
+
+    List<Product> findproductbycolor(String color);
+
     int getcartid(String uid, int pid);
 
     void addcartpast(Cart cart);

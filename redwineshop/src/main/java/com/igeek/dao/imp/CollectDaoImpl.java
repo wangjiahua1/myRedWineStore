@@ -63,10 +63,10 @@ public class CollectDaoImpl implements CollectDao {
     }
 
     @Override
-    public List<Collect> findPartCid(int start, int end) {
-        sql = "select * from collect limit ?,?;";
+    public List<Collect> findPartCid(int start, int len , String uid) {
+        sql = "select * from collect where uid = ? limit ?,?;";
         try {
-            return qr.query(sql,new BeanListHandler<>(Collect.class),start,end);
+            return qr.query(sql,new BeanListHandler<>(Collect.class),uid,start,len);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -74,10 +74,10 @@ public class CollectDaoImpl implements CollectDao {
     }
 
     @Override
-    public int findCountCollect() {
-        sql = "select count(*) from collect;";
+    public int findCountCollect(String uid) {
+        sql = "select count(*) from collect where uid = ?;";
         try {
-            return Integer.valueOf(String.valueOf(qr.query(sql,new ScalarHandler<Long>())));
+            return Integer.valueOf(String.valueOf(qr.query(sql,new ScalarHandler<Long>(),uid)));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -99,6 +99,16 @@ public class CollectDaoImpl implements CollectDao {
         sql="delete from collect where uid = ?";
         try {
             qr.update(sql,uid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void delCollect(String uid, String pid) {
+        sql = "delete from collect where uid = ? and pid = ?;";
+        try {
+            qr.update(sql,uid,pid);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -47,15 +47,15 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img01.jpg" alt=""></a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=1"><img src="images/placeholder/blog-img01.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
 
                             <div class="post-info">
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Fieldsheer Motorcycle Products</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=1">Fieldsheer Motorcycle Products</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
 
@@ -63,7 +63,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=1" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -73,15 +73,15 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img02.jpg" alt=""></a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=2"><img src="images/placeholder/blog-img02.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
 
                             <div class="post-info">
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">William Shatner's New Wine Enterprise</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=2">William Shatner's New Wine Enterprise</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
 
@@ -89,7 +89,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=2" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -99,7 +99,7 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img03.jpg" alt=""></a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=3"><img src="images/placeholder/blog-img03.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
@@ -107,8 +107,8 @@
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Recipes from a Winemaker's Restaurant</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=3">Recipes from a Winemaker's Restaurant</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
 
@@ -116,7 +116,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=3" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -127,15 +127,13 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img04.jpg" alt=""></a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=4"><img src="images/placeholder/blog-img04.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
-                            <div class="post-info">
-
-
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Louis Jadot Fine & Wine Tasting</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                            <div class="post-info"
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=4">Louis Jadot Fine & Wine Tasting</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
 
@@ -143,35 +141,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
-
-                            </div><!-- .post-info -->
-
-
-                        </article>
-
-                        <article class="post thumb-full col-xs-12 col-sm-12 col-md-4 col-lg-4 grid-item">
-
-
-                            <div class="post-thumb light-line">
-
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img05.jpg" alt=""></a>
-
-                            </div><!-- .post-thumb -->
-
-                            <div class="post-info">
-
-
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Recipes from a Winemaker's Restaurant</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
-                                        href="#">20 COMMENT</a></span></div>
-                                <div class="post-desc">
-
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa  officia deserunt mollitid est laborum. Sed ut perspiciatis unde qui omnis iste natus error sit voluptatem.</p>
-
-                                </div><!-- .post-desc -->
-
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=4" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -183,15 +153,15 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img06.jpg" alt=""></a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=5"><img src="images/placeholder/blog-img05.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">I'll Drink to That: Bruce Neyers of Neyers Vineyards</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=5">Recipes from a Winemaker's Restaurant</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
 
@@ -199,7 +169,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=5" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -211,15 +181,15 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img07.jpg" alt=""></a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=6"><img src="images/placeholder/blog-img06.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">William Shatner's New Wine Enterprise</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=6">I'll Drink to That: Bruce Neyers of Neyers Vineyards</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
 
@@ -227,7 +197,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=6" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -239,15 +209,15 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img08.jpg" alt=""></a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=7"><img src="images/placeholder/blog-img07.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">I'll Drink to That: Bruce Neyers of Neyers Vineyards</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=7">William Shatner's New Wine Enterprise</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
 
@@ -255,7 +225,7 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=7" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -267,15 +237,15 @@
 
                             <div class="post-thumb light-line">
 
-                                <a href="blogdetails-fullwidth.jsp"><img src="images/placeholder/blog-img09.jpg" alt=""></a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=8"><img src="images/placeholder/blog-img08.jpg" alt=""></a>
 
                             </div><!-- .post-thumb -->
 
                             <div class="post-info">
 
 
-                                <h3 class="post-title"><a href="blogdetails-fullwidth.jsp">Holiday Gift Guide for the Wine Lover</a></h3>
-                                <div class="post-meta"><span class="date">MAR 8, 2015</span><span class="comment"><a
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=8">I'll Drink to That: Bruce Neyers of Neyers Vineyards</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
                                         href="#">20 COMMENT</a></span></div>
                                 <div class="post-desc">
 
@@ -283,7 +253,35 @@
 
                                 </div><!-- .post-desc -->
 
-                                <a href="blogdetails-fullwidth.jsp" class="link">CONTINUE</a>
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=8" class="link">CONTINUE</a>
+
+                            </div><!-- .post-info -->
+
+
+                        </article>
+
+                        <article class="post thumb-full col-xs-12 col-sm-12 col-md-4 col-lg-4 grid-item">
+
+
+                            <div class="post-thumb light-line">
+
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=9"><img src="images/placeholder/blog-img09.jpg" alt=""></a>
+
+                            </div><!-- .post-thumb -->
+
+                            <div class="post-info">
+
+
+                                <h3 class="post-title"><a href="${pageContext.request.contextPath}/blog?method=findblog&bid=9">Holiday Gift Guide for the Wine Lover</a></h3>
+                                <div class="post-meta"><span class="date">Oct 20,2019</span><span class="comment"><a
+                                        href="#">20 COMMENT</a></span></div>
+                                <div class="post-desc">
+
+                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa  officia deserunt mollitid est laborum. Sed ut perspiciatis unde qui omnis iste natus error sit voluptatem.</p>
+
+                                </div><!-- .post-desc -->
+
+                                <a href="${pageContext.request.contextPath}/blog?method=findblog&bid=9" class="link">CONTINUE</a>
 
                             </div><!-- .post-info -->
 
@@ -356,6 +354,13 @@
 <script src="js/vendor/masonry.pkgd.min.js"></script>
 <!-- Main -->
 <script src="js/main.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.getJSON(
+            ""
+        )
+    })
+</script>
 </body>
 </html>
 

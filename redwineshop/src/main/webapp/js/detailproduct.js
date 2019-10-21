@@ -12,6 +12,7 @@ $(function () {
     $(".quantity input").change(function () {
         console.log($(".quantity input").val())
         var number=$(".quantity input").val();
+        $(this).attr({"value":number});
 
     })
 });
