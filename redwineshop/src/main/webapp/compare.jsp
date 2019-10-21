@@ -143,14 +143,14 @@
                         <span>items</span>
                     </th>
                     <c:forEach items="${partCollect}" var="part">
-                    <td>
-                        <a href="#">
+                        <td>
+                            <a href="#">
                             <span class="thumb">
                                 <img src="${pageContext.request.contextPath}/${part.product.pimage}" alt="" style="height: 132px;">
                             </span>
-                            <span class="prod-name">${part.product.pname}</span>
-                        </a>
-                    </td>
+                                <span class="prod-name">${part.product.pname}</span>
+                            </a>
+                        </td>
                     </c:forEach>
                 </tr>
 
@@ -159,22 +159,13 @@
                     <th class="compare-head">
                         <span>Rating</span>
                     </th>
-                    <td>
-                        <div class="star-rating">
-                            <span style="width:60%"></span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="star-rating">
-                            <span style="width:60%"></span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="star-rating">
-                            <span style="width:60%"></span>
-                        </div>
-                    </td>
-
+                    <c:forEach items="${partCollect}" var="part">
+                        <td>
+                            <div class="star-rating">
+                                <span style="width:60%"></span>
+                            </div>
+                        </td>
+                    </c:forEach>
                 </tr>
 
                 <tr class="compare-price compare-item">
@@ -183,9 +174,9 @@
                         <span>UNIT PRICE</span>
                     </th>
                     <c:forEach items="${partCollect}" var="part">
-                    <td>
-                        <span class="amount"><span class="symbol">$</span>${part.product.price}</span>
-                    </td>
+                        <td>
+                            <span class="amount"><span class="symbol">$</span>${part.product.price}</span>
+                        </td>
                     </c:forEach>
                 </tr>
 
@@ -194,16 +185,11 @@
                     <th class="compare-head">
                         <span>Description</span>
                     </th>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-                    </td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-                    </td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-                    </td>
-
+                    <c:forEach items="${partCollect}" var="part">
+                        <td>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                        </td>
+                    </c:forEach>
                 </tr>
 
                 <tr class="compare-manufature compare-item">
@@ -212,9 +198,9 @@
                         <span>manufature</span>
                     </th>
                     <c:forEach items="${partCollect}" var="part">
-                    <td>
-                        ${part.product.brand}
-                    </td>
+                        <td>
+                                ${part.product.brand}
+                        </td>
                     </c:forEach>
                 </tr>
 
@@ -224,13 +210,12 @@
                         <span>availability</span>
                     </th>
                     <c:forEach items="${partCollect}" var="part">
-                        111
-                        <c:if test="${part.product.availability} == 'In Stock'">
+                        <c:if test="${part.product.availability == 'In Stock'}">
                             <td class="instock">
                                     ${part.product.availability}
                             </td>
                         </c:if>
-                        <c:if test="${part.product.availability}== 'Out Stock'">
+                        <c:if test="${part.product.availability == 'Out Stock'}">
                             <td class="outstock">
                                     ${part.product.availability}
                             </td>
@@ -244,9 +229,9 @@
                         <span>Size</span>
                     </th>
                     <c:forEach items="${partCollect}" var="part">
-                    <td class="list-size">
-                        <a href="#">${part.product.size}</a>
-                    </td>
+                        <td class="list-size">
+                            <a href="#">${part.product.size}</a>
+                        </td>
                     </c:forEach>
                 </tr>
 
@@ -256,9 +241,9 @@
                         <span>Color</span>
                     </th>
                     <c:forEach items="${partCollect}" var="part">
-                    <td class="list-color">
-                        <a class="${part.product.color}" href="#"></a>
-                    </td>
+                        <td class="list-color">
+                            <a class="${part.product.color}" href="#"></a>
+                        </td>
                     </c:forEach>
                 </tr>
 
@@ -268,9 +253,9 @@
                         <span>Quantity</span>
                     </th>
                     <c:forEach items="${partCollect}" var="part">
-                    <td>
-                        ${part.number}
-                    </td>
+                        <td>
+                                ${part.number}
+                        </td>
                     </c:forEach>
                 </tr>
 
@@ -278,34 +263,14 @@
                     <th class="compare-head">
                         <span>actions</span>
                     </th>
-
-                    <td>
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist" style="color:red"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                            <a href="compare.jsp" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="shopping-cart-fullwidth.jsp" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </td>
-
-                    <td>
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist" style="color: red"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                            <a href="compare.jsp" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="shopping-cart-fullwidth.jsp" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </td>
-
-                    <td>
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle add-to-wishlist" style="color: red"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                            <a href="compare.jsp" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="shopping-cart-fullwidth.jsp" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </td>
-
+                    <c:forEach items="${partCollect}" var="part">
+                        <td>
+                            <div class="p-actions">
+                                <a href="collect?method=delCollect&pid=${part.product.pid}" class="button btn-circle add-to-wishlist" style="color:red"><span class="pe-7s-like"></span></a>
+                                <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                            </div><!-- .p-actions -->
+                        </td>
+                    </c:forEach>
                 </tr>
                 </tbody>
             </table>
@@ -318,11 +283,13 @@
     <script type="text/javascript">
         $(".zxf_pagediv").createPage({
             pageNum: ${sessionScope.count},
-            current: 6,
+            current: ${page},
             backfun: function(e) {
-                var path="page?method=getCurrentPage&currentPage="+currentPage;
+                var page = e.current;
+                console.log(page);
+                var path="collect?method=findPartCollect&page="+page;
                 window.location.href=path;
-                //console.log(e);//回调
+//                console.log(page);//回调
             }
         });
     </script>

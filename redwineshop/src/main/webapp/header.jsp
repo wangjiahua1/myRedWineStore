@@ -106,7 +106,10 @@
                                 My Wishlist
                             </a>
                         </li>
-                        <li><a href="${pageContext.request.contextPath}/collect?method=findCountCollect">Compare</a></li>
+                        <li><a <c:if test="${user == null}">data-toggle="modal" data-target="#login_dialog"</c:if>
+                               <c:if test="${user != null}">href="${pageContext.request.contextPath}/collect?method=findCountCollect"</c:if>>
+                            Compare</a>
+                        </li>
                         <li><a href="shopgridleft.jsp">My Cart</a></li>
                         <li><a href="check-out.jsp">Check out</a></li>
                     </ul>
