@@ -8,7 +8,6 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import org.bouncycastle.util.Strings;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -177,28 +176,6 @@ public class ProductDaoImpl implements ProductDao {
         String sql="select * from product where pid=?";
         try {
             return qr.query(sql,new BeanHandler<>(Product.class),pid);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<Product> findcproduct() {
-        String sql="select * from product limit 10,4";
-        try {
-            return qr.query(sql,new BeanListHandler<>(Product.class));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<Product> findproductbycolor(String color) {
-        String sql="select * from product where color=? limit 0,9";
-        try {
-            return qr.query(sql,new BeanListHandler<>(Product.class),color);
         } catch (SQLException e) {
             e.printStackTrace();
         }
