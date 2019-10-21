@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--根节点-->
+<beans>
+    <!--子节点对应每个java类-->
+    <!--id 唯一标识   class 对应类的包名+类名-->
+    <bean id="myredwineservice" class="com.igeek.service.impl.RedWineServiceImpl"></bean>
+
+    <bean id="myredwinedao" class="com.igeek.dao.impl.RedWineDaoImpl"></bean>
+</beans>

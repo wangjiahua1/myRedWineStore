@@ -10,4 +10,10 @@ public interface UserDao {
     void changeUserAccount(User user);
 
     void changeUserPassword(User user);
+
+    boolean checkActiveCode(String activeCode);
+
+    void updateActiveCode(String activeCode);
+
+    void save(User user);
 }

@@ -1,14 +1,18 @@
 package com.igeek.dao.imp;
 
 import com.igeek.dao.ProductDao;
+import com.igeek.domain.Cart;
 import com.igeek.domain.Product;
 import com.igeek.utils.JDBCTools;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.bouncycastle.util.Strings;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.ConsoleHandler;
 
 public class ProductDaoImpl implements ProductDao {
     QueryRunner qr=new QueryRunner(JDBCTools.getDataSource());
@@ -54,10 +58,10 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public List<Product> getChoosePrice(int price1, int price2) {
-        String sql="select * from product where price>=? and price<=?";
+    public List<Product> getChoosePrice(int price1, int price2, int currentpage) {
+        String sql="select * from product where price>=? and price<=? limit ?,9";
         try {
-            return qr.query(sql,new BeanListHandler<>(Product.class),price1,price2);
+            return qr.query(sql,new BeanListHandler<>(Product.class),price1,price2,currentpage);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -74,4 +78,132 @@ public class ProductDaoImpl implements ProductDao {
         }
         return null;
     }
+
+    @Override
+    public Product getcart(String pid) {
+        String sql="select * from product where pid= ?";
+        try {
+            return qr.query(sql,new BeanHandler<>(Product.class),pid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void addcart(Cart cart) {
+        String sql="insert into cart  values(?,?,?,?,?,?,?,?)";
+        try {
+            qr.update(sql,null,cart.getUid(),cart.getPid(),cart.getPname(),cart.getPrice(),cart.getPimage(),cart.getQuantity(),cart.getTotal());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Cart> findallcart(String uid) {
+        String sql="select * from cart where uid=?";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Cart.class),uid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Product getRedWineById(int id) {
+        String sql="select * from product where pid=?";
+        try {
+            return qr.query(sql,new BeanHandler<>(Product.class),id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Product> findproduct(String  cid) {
+        String sql="select * from product where cid=? limit 0,4";
+
+        try {
+
+            return qr.query(sql,new BeanListHandler<>(Product.class),cid);
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+        System.out.println(4);
+
+        return null;
+    }
+
+    @Override
+    public List<Product> findproductbyIsnew(String aNew) {
+        System.out.println(aNew);
+        String sql="select * from product where ishot=? limit 0,4;";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class),aNew);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Product> findproductbyIshot(String s) {
+        String sql="select * from product where ishot=? limit 0,4;";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class),s);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Product> findproductbyIsbhot(String hot) {
+        String sql="select * from product where ishot=? limit 0,4;";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class),hot);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Product findbyPidproduct(int pid) {
+        String sql="select * from product where pid=?";
+        try {
+            return qr.query(sql,new BeanHandler<>(Product.class),pid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Product> findcproduct() {
+        String sql="select * from product limit 10,4";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Product> findproductbycolor(String color) {
+        String sql="select * from product where color=? limit 0,9";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class),color);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 }

@@ -1,33 +1,5 @@
 <%@ page contentType="textml;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div id="login_dialog" class="modal fade login-popup">
-    <div class="popup-inner">
-        <div class="modal-header">
-            <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-            <h3 class="modal-title">Login</h3>
-        </div>
-
-        <form action="${pageContext.request.contextPath}/user?method=login&url=pageloader.jsp" method="post">
-            <p class="login-username">
-                <label for="user_login">Username*:</label>
-                <input name="log" id="user_login" class="input" value="tom" size="20" type="text"/>
-            </p>
-            <p class="login-password">
-                <label for="user_pass">Password*:</label>
-                <input name="pwd" id="user_pass" class="input" value="123456" size="20" type="password"/>
-            </p>
-            <p class="login-submit">
-                <input  id="wp-submit" class="button-primary" value="Login" type="submit"/>
-            </p>
-        </form>
-
-        <div class="modal-footer">
-            <a href="register.jsp">Register</a>
-            <a href="#">Forgot Password</a>
-        </div>
-    </div><!-- .popup-inner -->
-    <div class="mask popup-close"></div>
-</div><!-- .search-popup -->
 <div id="search_dialog" class="modal fade search-popup">
     <div class="popup-inner">
         <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>

@@ -1176,8 +1176,7 @@ label.sl-label, .input-field.select-country label[for="bill-country"]{
 }
 .blog-slider .post-info {
 	padding-top: 20px;
-}
-.blog-slider .post-title {
+}  .blog-slider .post-title{
 	font-size: 18px;
 }
 .blog-slider .post-meta li {

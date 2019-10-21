@@ -1,4 +1,4 @@
-﻿$(function(){
+$(function(){
 
 	//页面切换初始化
 	$(".number2").click(function(){
@@ -38,8 +38,8 @@
 			$(".otherError").hide();
 			$(this).attr("isshow","false");
 		}
-		
-	}); 
+
+	});
 
 
 	//mainform1
@@ -61,21 +61,21 @@
 			$(".password").show();
 			$(".pwdBtnShow").attr("isshow","false");
 		}
-		
+
 	});
-	
+
 	//邮箱栏失去焦点
 	$(".emails").blur(function(){
 		reg=/(\S)+[@]{1}(\S)+[.]{1}(\w)+/;//验证邮箱正则(输入前7位至11位)
 
 		if( $(".emails").val()=="")
-		{ 
+		{
 			$(".emails").parent().addClass("errorC");
 			$(".error1").html("请输入邮箱");
 			$(".error1").css("display","block");
 		}
         else if(!reg.test($(".emails").val()))
-        {   
+        {
         	$(".emails").parent().addClass("errorC");
             $(".error1").html("逗我呢吧，你确定这是你的邮箱!!");
             $(".error1").css("display","block");
@@ -96,7 +96,7 @@
 			$(".error2").css("display","block");
 		}
         else if($(".kapkey").val().length<6)
-        {   
+        {
         	$(".kapkey").parent().addClass("errorC");
             $(".error2").html("验证码长度有误！");
             $(".error2").css("display","block");
@@ -107,7 +107,7 @@
             $(".error2").html("验证码里无中文！");
             $(".error2").css("display","block");
         }
-        else 
+        else
         {
         	$(".kapkey").parent().addClass("checkedN");
         }
@@ -126,7 +126,7 @@
 		{
 			var Pval = $(".password1").val();
 		}
-		
+
 		if( Pval =="")
 		{
 			$(".password").parent().addClass("errorC");
@@ -134,7 +134,7 @@
 			$(".error3").css("display","block");
 		}
         else if(Pval.length>16 || Pval.length<8)
-        {   
+        {
         	$(".password").parent().addClass("errorC");
             $(".error3").html("密码应为8-16个字符，区分大小写");
             $(".error3").css("display","block");
@@ -172,7 +172,7 @@
 		{
 			$("#mz_Float").css("top","304px");
 		}
-		
+
 		$("#mz_Float").find(".bRadius2").html("请输入邮箱收到的验证码");
 	});
 	//密码栏获得焦点(mainform1)
@@ -192,7 +192,7 @@
 		{
 			$("#mz_Float").css("top","376px");
 		}
-		
+
 		$("#mz_Float").find(".bRadius2").html("长度为8-16个字符，区分大小写，至少包含两种类型");
 	});
 
@@ -220,7 +220,7 @@
 			$(".passwordN").show();
 			$(".pwdBtnShowN").attr("isshow","false");
 		}
-		
+
 	});
 
 
@@ -249,7 +249,7 @@
 		{
 			$("#mz_Float").css("top","230px");
 		}
-		
+
 		$("#mz_Float").find(".bRadius2").html("用于找回密码，提高账户安全等级");
 	});
 	//密码栏获得焦点(mainform2)
@@ -265,7 +265,7 @@
 		{
 			$("#mz_Float").css("top","304px");
 		}
-		
+
 		$("#mz_Float").find(".bRadius2").html("长度为8-16个字符，区分大小写，至少包含两种类型");
 	});
 
@@ -274,19 +274,19 @@
 		reg=/^[a-zA-Z][0-9a-zA-Z_]{2,30}[0-9a-zA-Z]$/;//验证手机正则(输入前7位至11位)
 
 		if( $(".username").val()=="")
-		{ 
+		{
 			$(".username").parent().addClass("errorC");
 			$(".error1").html("请输入账户名");
 			$(".error1").css("display","block");
 		}
 		else if($(".username").val().length>32 || $(".username").val().length<4)
-        {   
+        {
         	$(".username").parent().addClass("errorC");
             $(".error1").html("账户名长度有误！");
             $(".error1").css("display","block");
         }
         else if(!reg.test($(".username").val()))
-        {   
+        {
         	$(".username").parent().addClass("errorC");
             $(".error1").html("账户名格式有误!!");
             $(".error1").css("display","block");
@@ -309,7 +309,7 @@
 		{
 			var Pval = $(".password1N").val();
 		}
-		
+
 		if( Pval =="")
 		{
 			$(".passwordN").parent().addClass("errorC");
@@ -317,7 +317,7 @@
 			$(".error3").css("display","block");
 		}
         else if(Pval.length>16 || Pval.length<8)
-        {   
+        {
         	$(".passwordN").parent().addClass("errorC");
             $(".error3").html("密码应为8-16个字符，区分大小写");
             $(".error3").css("display","block");
@@ -333,7 +333,7 @@
         	$(".passwordN").parent().addClass("checkedN");
         }
 	});
-	
+
 
 	//邮箱栏键盘操作
 	$(".email").keyup(function(){//键盘监听keyup,keydown,keypress
@@ -344,14 +344,14 @@
 		{
 			$(".email").val(emailValN);
 		}
-		
+
 		var mailVal = emailValN.split("@");
 		var mailHtml=mailVal[0];
 		if(mailHtml.length>15)
 		{
 			mailHtml=mailHtml.slice(0,15)+"...";//字数超加省略
 		}
-		
+
 		for(var i=1;i<6;i++)
 		{
 			var M = $(".item"+i).attr("data-mail");
@@ -381,7 +381,7 @@
 		{
 			$(".mail").css("top","300px");
 		}
-		$(".mail").show(); 
+		$(".mail").show();
 		return false;
 	});
 	$(document).click(function(){
@@ -403,7 +403,7 @@
             $(".error2").html("邮箱格式错误！");
             $(".error2").css("display","block");
         }
-        else 
+        else
         {
         	$(".email").parent().addClass("checkedN");
         }

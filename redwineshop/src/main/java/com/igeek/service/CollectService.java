@@ -13,4 +13,14 @@ public interface CollectService {
 
 
     Product findProductByPid(int pid);
+
+    void addCollect(Collect collect);
+
+    List<Collect> findCollectByUid(String uid);
+
+    List<Collect> findPartCid(int page , String uid);
+
+    int findCountCollect(String uid);
+
+    void delCollect(String uid, String pid);
 }

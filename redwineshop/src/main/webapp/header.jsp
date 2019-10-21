@@ -3,6 +3,7 @@
 <header id="header" class="site-header">
     <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/chooseme.js"></script>
+
     <script type="text/javascript" src="js/myAccount.js"></script>
     <script type="text/javascript">
         $(function(a) {
@@ -100,7 +101,6 @@
     <div class="top-header">
         <div class="no-container">
             <div class="left-header">
-
                 <span class="icon_setting">
                     <a class="top-account top-login">
                         <i class="pe-7s-config" ></i>
@@ -118,8 +118,17 @@
                                 My Account
                             </a>
                         </li>
-                        <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Wishlist</a></li>
-                        <li><a href="compare.jsp">Compare</a></li>
+
+                        <li>
+                            <a <c:if test="${user==null}">data-toggle="modal" data-target="#login_dialog"</c:if>
+                               <c:if test="${user!=null}">href="${pageContext.request.contextPath}/collect?method=findAllCollect"</c:if>>
+                                My Wishlist
+                            </a>
+                        </li>
+                        <li><a <c:if test="${user == null}">data-toggle="modal" data-target="#login_dialog"</c:if>
+                               <c:if test="${user != null}">href="${pageContext.request.contextPath}/collect?method=findCountCollect"</c:if>>
+                            Compare</a>
+                        </li>
                         <li><a href="shopgridleft.jsp">My Cart</a></li>
                         <li><a href="check-out.jsp">Check out</a></li>
                     </ul>
@@ -211,7 +220,7 @@
                                 <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
 
                                 <p class="buttons">
-                                    <a href="shopgridleft.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
+                                    <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
                                     <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
                                 </p>
                             </div>
@@ -241,7 +250,7 @@
                     <li id="home" class="mega-menu-wrap"><a href="index.jsp" id="choose1" class="choose1">Home</a>
 
                     </li>
-                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/product?method=getAllRedWine&sizePage=9" class="choose1">Shop</a>
+                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/page?method=getCurrentPage&currentPage=1" class="choose1">Shop</a>
 
                     </li>
 
