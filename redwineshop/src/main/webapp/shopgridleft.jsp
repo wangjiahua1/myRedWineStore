@@ -104,6 +104,262 @@
                         });
                     });
                 </script>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+
+                <form id="f1" action="" class="num-prod-form" method="get">
+                    <div class="selectbox">
+                        <select name="select-numb" id="select-numb">
+                            <option value="9">9 item/pages</option>
+                            <option value="12">12 item/pages</option>
+                            <option value="15">15 item/pages</option>
+                        </select>
+                    </div>
+                </form>
+                <script type="text/javascript">
+                    $("#select-numb").change(function () {
+                        var options=$("#select-numb option:selected").val();
+
+                        var path="product?method=getAllRedWine&sizePage="+options;
+                        window.location.href=path;
+                    });
+                </script>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <form action="#" class="order pull-left">
+                    <div class="selectbox">
+                        <select class="orderby" name="orderby">
+                            <option value="asc">Name: A to Z</option>
+                            <option value="desc">Name: Z to A</option>
+                            <option value="popularity">Popularity Name</option>
+                            <option value="default">Default sorting</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div><!-- .sort -->
+<script type="text/javascript">
+//    $(function () {
+//       $("#addCollect").click(function () {
+//            alert("aaa");
+//           $("#addCollect").attr("data-target","#myAccout_dialog");
+//       }) ;
+//    });
+
+
+    function addCollect(pid) {
+        $.getJSON(
+            "collect?metho" +
+            "" +
+            "d=addCollect",
+            {pid:pid},
+            function (data) {
+                console.log(data);
+            }
+        )
+    }
+</script>
+
+        <div id="add_success" class="modal fade login-popup">
+            <div class="popup-inner">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
+                    <h3 class="modal-title">添加收藏成功</h3>
+                </div>
+
+                <p class="login-submit">
+                    <input  id="wp-submit" class="button-primary" value="确定" type="submit" data-dismiss="modal" aria-hidden="true"/>
+                </p>
+
+            </div><!-- .popup-inner -->
+            <div class="mask popup-close"></div>
+        </div>
+
+
+    <div class="products grid">
+    <div class="row" id="myproduct">
+
+    <c:forEach items="${allredwine}" var="redwine">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item">
+        <div class="p-thumb">
+            <a href="productdetails-fullwidth.jsp">
+                <img src="${redwine.pimage}" alt="" style="height: 480px">
+                <c:if test="${redwine.ishot == 'new'}">
+                    <a href="#" class="onnew">${redwine.ishot}</a>
+                </c:if>
+                <c:if test="${redwine.ishot == 'hot'}">
+                    <a href="#" class="onsale">${redwine.ishot}</a>
+                </c:if>
+                <c:if test="${redwine.ishot == null}">
+                    <a href="#" class="">${redwine.ishot}</a>
+                </c:if>
+            </a>
+        </div><!-- .p-thumb -->
+
+        <div class="p-info">
+            <h3 class="p-title"><a href="productdetails-fullwidth.jsp">${redwine.pname}</a></h3>
+
+            <div class="clearfix">
+                <div class="star-rating">
+                    <span style="width:60%"></span>
+                </div>
+
+                    <span class="price">
+                        <span class="amount">$ ${redwine.price}</span>
+                    </span>
+            </div>
+
+            <div class="p-actions">
+                <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
+                <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
+
+
+
+                <a href="javascript:void (0)" data-toggle="modal" onclick="addCollect('${redwine.pid}')"
+                   id="addCollect" class="button btn-circle add-to-wishlist" data-target="
+                    <c:if test="${user!=null}">#add_success</c:if>
+                    <c:if test="${user==null}">#login_dialog</c:if>">
+                    <span class="pe-7s-like" ></span>
+                </a>
+                <a href="${pageContext.request.contextPath}/product?method=addcart&pid=${redwine.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+            </div><!-- .p-actions -->
+        </div><!-- .p-info -->
+    </div><!-- .product -->
+    </c:forEach>
+
+
+    </div>
+
+    </div><!-- .products -->
+
+    <%--分页框--%>
+    <div class="zxf_pagediv"></div>
+        <script src="js/zxf_page.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(".zxf_pagediv").createPage({
+                pageNum: ${maxPage},
+                current: 1,
+                backfun: function(e) {
+                    //console.log(e.current);
+                    //ajax获得参数
+                    var currentPage=e.current;
+                    if (currentPage>${maxPage}){
+                        currentPage=${maxPage};
+                    }
+                    var options=$("#select-numb option:selected").val();
+                    $.ajax({
+                        type: 'get',
+                        url : 'page?method=getCurrentPage',
+                        //url: '/api/one/new/list?p=1',
+                        data: {"currentPage":currentPage,"options":options},
+                        dataType: 'json',
+                        success: function (data) {
+                            $("#myproduct").empty();
+                            $.each(data,function (i,v) {
+                                var message="<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item\">\n" +
+                                    "        <div class=\"p-thumb\">\n" +
+                                    "            <a href=\"productdetails-fullwidth.jsp\">\n" +
+                                    "                <img src=\""+v.pimage+"\" class=\"myimg\" style=\"height: 480px\">\n" +
+                                    "                <a href=\"#\" class=\"onnew\">"+v.ishot+"</a>\n" +
+                                    "            </a>\n" +
+                                    "        </div><!-- .p-thumb -->\n" +
+                                    "\n" +
+                                    "        <div class=\"p-info\">\n" +
+                                    "            <h3 class=\"p-title\"><a href=\"productdetails-fullwidth.jsp\">"+v.pname+"</a></h3>\n" +
+                                    "\n" +
+                                    "            <div class=\"clearfix\">\n" +
+                                    "                <div class=\"star-rating\">\n" +
+                                    "                    <span style=\"width:60%\"></span>\n" +
+                                    "                </div>\n" +
+                                    "\n" +
+                                    "                    <span class=\"price\">\n" +
+                                    "                        <span class=\"amount\">$ "+v.price+"</span>\n" +
+                                    "                    </span>\n" +
+                                    "            </div>\n" +
+                                    "\n" +
+                                    "            <div class=\"p-actions\">\n" +
+                                    "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
+                                    "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
+                                    "                <a href=\"javascript:void (0)\" data-target=\"\" " +
+                                    "                   data-toggle=\"modal\"  id=\"addCollect\"" +
+                                    "                   class=\"button btn-circle add-to-wishlist\">" +
+                                    "                   <span class=\"pe-7s-like\"></span></a>\n" +
+                                    "                <a href=\"${pageContext.request.contextPath}/product?method=addcart&pid="+v.price+"\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                                    "            </div><!-- .p-actions -->\n" +
+                                    "        </div><!-- .p-info -->\n" +
+                                    "    </div><!-- .product -->";
+                                $("#myproduct").append(message);
+                            })
+                        },
+                        error: function () {
+                            //alert("");
+                        }
+                    });
+                }
+            });
+        </script>
+
+    </main><!-- .site-main -->
+
+    <div id="sidebar" class="sidebar left-sidebar left-shop-sidebar col-md-3">
+    <aside class="widget">
+        <h3 class="widget-title"><span>Shop by</span></h3>
+        <div class="f-price">
+            <div id="slider-range"></div>
+            <span>Price: <strong id="amount"></strong></span>
+            <button class="button radius" type="button" id="getPrice">Filter</button>
+        </div>
+    </aside>
+        <script type="text/javascript">
+            $("#getPrice").click(function () {
+                var price=$("#amount").text();
+                console.log(price);
+                $.ajax({
+                    type: 'get',
+                    url: 'product?method=getChoosePrice',
+                    //url: '/api/one/new/list?p=1',
+                    data: {"price": price},
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#myproduct").empty();
+                        $.each(data, function (i, v) {
+                            var message = "<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item\">\n" +
+                                "        <div class=\"p-thumb\">\n" +
+                                "            <a href=\"productdetails-fullwidth.jsp\">\n" +
+                                "                <img src=\"" + v.pimage + "\" class=\"myimg\" style=\"height: 480px\">\n" +
+                                "                <a href=\"#\" class=\"onnew\">" + v.ishot + "</a>\n" +
+                                "            </a>\n" +
+                                "        </div><!-- .p-thumb -->\n" +
+                                "\n" +
+                                "        <div class=\"p-info\">\n" +
+                                "            <h3 class=\"p-title\"><a href=\"productdetails-fullwidth.jsp\">" + v.pname + "</a></h3>\n" +
+                                "\n" +
+                                "            <div class=\"clearfix\">\n" +
+                                "                <div class=\"star-rating\">\n" +
+                                "                    <span style=\"width:60%\"></span>\n" +
+                                "                </div>\n" +
+                                "\n" +
+                                "                    <span class=\"price\">\n" +
+                                "                        <span class=\"amount\">$ " + v.price + "</span>\n" +
+                                "                    </span>\n" +
+                                "            </div>\n" +
+                                "\n" +
+                                "            <div class=\"p-actions\">\n" +
+                                "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
+                                "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
+                                "                <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
+                                "                <a href=\"${pageContext.request.contextPath}/product?method=addcart\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                                "            </div><!-- .p-actions -->\n" +
+                                "        </div><!-- .p-info -->\n" +
+                                "    </div><!-- .product -->";
+                            $("#myproduct").append(message);
+                        });
+                    }
+                });
+            });
+        </script>
 
 
 
