@@ -84,4 +84,24 @@ public class CollectDaoImpl implements CollectDao {
         return Integer.parseInt(null);
     }
 
+    @Override
+    public void deleCollectByPid(int pid) {
+        sql="delete from collect where pid = ?";
+        try {
+            qr.update(sql,pid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void delAllCollect(String uid) {
+        sql="delete from collect where uid = ?";
+        try {
+            qr.update(sql,uid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

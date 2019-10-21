@@ -23,6 +23,24 @@ import java.util.List;
 public class CollectServlet extends BaseServlet {
     CollectService service = (CollectService) BeanFactory.getBean("collectservice");
 
+    public void delAllCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //删除全部收藏
+        User user= (User) request.getSession().getAttribute("user");
+        String uid=user.getUid();
+        service.delAllCollect(uid);
+//        request.getRequestDispatcher("collect?method=findAllCollect").forward(request,response);
+        response.getWriter().write("success");
+    }
+
+    public void deleCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String strPid=request.getParameter("pid");
+        int pid=Integer.parseInt(strPid);
+        //删除对应的商品
+        service.deleCollectByPid(pid);
+        //跳转显示心愿单的servlet
+        request.getRequestDispatcher("collect?method=findAllCollect").forward(request,response);
+    }
+
     public void addCollect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //判断是否登录
         User user= (User) request.getSession().getAttribute("user");

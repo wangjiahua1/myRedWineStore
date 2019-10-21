@@ -12,13 +12,33 @@
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
+    <script src="js/jquery.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="js/ie9/html5shiv.min.js"></script>
     <script src="js/ie9/respond.min.js"></script>
+
     <![endif]-->
+    <script type="text/javascript">
+        $(function () {
+            $("#delAll").click(function () {
+                if(confirm("确定删除全部收藏吗？")){
+                    <%--$("#delAll").attr("href","${pageContext.request.contextPath}/collect?method=delAllCollect");--%>
+                    $("#delAll").attr("data-toggle","modal");
+                    $("#delAll").attr("data-target","#del_success");
+
+                    $.get(
+                        "${pageContext.request.contextPath}/collect?method=delAllCollect",
+                        function (data) {
+                            $("#collects").empty();
+                        }
+                    )
+                }
+            });
+        })
+    </script>
 </head>
 
 <body>
@@ -52,6 +72,21 @@
 
 <main id="main" class="site-main">
 
+    <!--删除成功-->
+    <div id="del_success" class="modal fade login-popup">
+        <div class="popup-inner">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
+                <h3 class="modal-title">删除成功</h3>
+            </div>
+
+            <p class="login-submit">
+                <input  id="wp-submit" class="button-primary" value="确定" type="submit" data-dismiss="modal" aria-hidden="true"/>
+            </p>
+
+        </div><!-- .popup-inner -->
+        <div class="mask popup-close"></div>
+    </div>
     <div class="inner-content">
         <p class="wishlist-desc-text">Product with varients has added to your wishlist. <a href="shopgrid-fullwidth.jsp">Click here</a> to continue shopping</p>
         <div class="woocommerce">
@@ -66,10 +101,14 @@
                             <th class="table-col-price">Price</th>
                             <th class="table-col-qty text-center">Quantity</th>
                             <th class="table-col-total text-right">Total</th>
-                            <th class="product-remove text-right"><a href="#" class="" title="#"><i class="pe-7s-close"></i></a></th>
+                            <th class="product-remove text-right">
+                                <a
+                                   id="delAll" title="#"><i class="pe-7s-close"></i></a>
+                                </a>
+                            </th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="collects">
 
                         <c:forEach items="${collects}" var="c">
                             <tr class="cart-item cart_item">
@@ -95,10 +134,11 @@
                                     <span class="amount"><span class="symbol">$</span>${c.product.price}</span>
                                 </td>
                                 <td class="product-remove text-right">
-                                    <a href="#" class="remove" title="Remove this item"><i class="pe-7s-close"></i></a>
+                                    <a href="${pageContext.request.contextPath}/collect?method=deleCollect&pid=${c.product.pid}" class="remove" title="Remove this item"><i class="pe-7s-close"></i></a>
                                 </td>
                             </tr>
                         </c:forEach>
+                        </tbody>
 
                         <tr class="action-wrap">
                             <td colspan="6" class="actions clearfix">
@@ -106,7 +146,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="wc-proceed-to-checkout">
 
-                                            <p class="return-to-shop"><a class="button radius" href="#">Continue Shopping</a></p>
+                                            <p class="return-to-shop"><a class="button radius" href="${pageContext.request.contextPath}/page?method=getCurrentPage&currentPage=1">Continue Shopping</a></p>
 
                                         </div>
                                     </div>
@@ -119,7 +159,6 @@
                             </td>
                         </tr>
 
-                        </tbody>
                     </table>
                 </div>
 

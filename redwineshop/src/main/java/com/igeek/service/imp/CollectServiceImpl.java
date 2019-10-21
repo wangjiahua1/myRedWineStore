@@ -46,4 +46,14 @@ public class CollectServiceImpl implements CollectService {
         return dao.findCountCollect();
     }
 
+    @Override
+    public void deleCollectByPid(int pid) {
+        dao.deleCollectByPid(pid);
+    }
+
+    @Override
+    public void delAllCollect(String uid) {
+        dao.delAllCollect(uid);
+    }
+
 }

@@ -21,4 +21,8 @@ public interface CollectService {
     List<Collect> findPartCid(int page);
 
     int findCountCollect();
+
+    void deleCollectByPid(int pid);
+
+    void delAllCollect(String uid);
 }

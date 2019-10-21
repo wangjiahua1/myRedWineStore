@@ -83,5 +83,15 @@ public class ProductServiceImpl implements ProductService {
         return pd.findbyPidproduct(pid);
     }
 
+    @Override
+    public int getcartid(String uid, int pid) {
+        return  pd.getcartid(uid,pid);
+
+    }
+
+    @Override
+    public void addcartpast(Cart cart) {
+        pd.addcartpast(cart);
+    }
 
 }

@@ -38,4 +38,8 @@ public interface ProductService {
     List<Product> findproductbyIsbhot(String hot);
 
     Product findbyPidproduct(int pid);
+
+    int getcartid(String uid, int pid);
+
+    void addcartpast(Cart cart);
 }
