@@ -158,7 +158,7 @@
                                 <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
                                 <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
                                 <a href="my-wishlist.jsp" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                                <a href="shopping-cart-fullwidth.jsp" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                                <a href="product?method=addcart&pid=${product.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                             </div>
                         </div><!-- .p-actions -->
                     </form>
@@ -189,72 +189,22 @@
                         </li>
 
                         <li class="tab-item">
-                            <a href="#" class="tab-title">Customer Reviews <span>(15)</span></a>
+                            <a href="#" class="tab-title">Customer Reviews <span>(5)</span></a>
                             <div class="tab-content">
-                                <ol class="comment-list">
-                                    <li class="comment">
+                                <ol class="comment-list" id="huifu">
 
-                                        <div class="comment-wrapper">
-
-                                            <div class="comment-avatar">
-                                                <img class="avatar" alt="" src="images/placeholder/avatar_01.jpg">
-                                            </div><!-- .comment-avatar -->
-
-                                            <div class="comment-body">
-                                                <header class="comment-meta clearfix">
-
-                                                    <cite class="comment-author">
-                                                        <span class="comment-date">MAR 8, 2015</span>
-                                                        <span><a class="url" rel="external nofollow" href="#">TuanClean</a></span>
-                                                    </cite>
-
-                                                </header><!-- .comment-meta -->
-
-                                                <div class="comment-content">
-                                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
-                                                </div> <!-- .comment-content -->
-                                            </div><!-- comment-body -->
-
-                                        </div><!-- .comment-wrapper -->
-
-                                    </li><!-- .comment -->
-
-                                    <li class="comment">
-                                        <div class="comment-wrapper">
-
-                                            <div class="comment-avatar">
-                                                <img class="avatar" alt="" src="images/placeholder/avatar_01.jpg">
-                                            </div><!-- .comment-avatar -->
-
-                                            <div class="comment-body">
-                                                <header class="comment-meta clearfix">
-
-                                                    <cite class="comment-author">
-                                                        <span class="comment-date">MAR 8, 2015</span>
-                                                        <span><a class="url" rel="external nofollow" href="#">TuanClean</a></span>
-                                                    </cite>
-
-                                                </header><!-- .comment-meta -->
-
-                                                <div class="comment-content">
-                                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
-                                                </div> <!-- .comment-content -->
-                                            </div><!-- .comment-body -->
-
-                                        </div><!-- .comment-wrapper -->
-                                    </li><!-- .comment -->
                                 </ol><!-- .comment-list -->
                                 <div class="comment-respond" id="respond">
                                     <h3 class="comment-reply-title widget-title" id="reply-title">LEAVE A COMMENT</h3>
-                                    <form novalidate="" class="comment-form" id="commentform" method="post" action="#">
+                                    <form novalidate="" class="comment-form" id="commentform" method="post" action="${pageContext.request.contextPath}/comment?method=addcomment">
                                         <p class="comment-form-author">
-                                            <input size="30" value="" name="author" placeholder="Name" id="author" type="text">
+                                            <input size="30" value="" name="name" placeholder="Name" id="author" type="text">
                                         </p>
                                         <p class="comment-form-email">
                                             <input size="30" value="" name="email" placeholder="Email" id="email" type="text">
                                         </p>
                                         <p class="comment-form-comment">
-                                            <textarea aria-required="true" rows="9" cols="45" placeholder="Your comment" name="comment" id="comment"></textarea>
+                                            <textarea aria-required="true" rows="9" cols="45" placeholder="Your comment" name="desc" id="comment"></textarea>
                                         </p>
                                         <p class="form-submit">
                                             <input value="Send Messages" class="submit button radius plum bold" id="submit" name="submit" type="submit">
@@ -278,126 +228,11 @@
             <div class="break-line"><span><img src="images/assets/break-image.png" alt=""/></span></div>
 
             <div class="list-products row">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                    <div class="p-thumb">
-                        <a href="productdetails-fullwidth.jsp">
-                            <img src="images/placeholder/product1.jpg" alt="">
-                        </a>
-                    </div><!-- .p-thumb -->
 
-                    <div class="p-info">
-                        <h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>
-
-                        <div class="clearfix">
-                            <div class="star-rating">
-                                <span style="width:60%"></span>
-                            </div>
-
-                            <span class="price">
-                        <span class="amount">$125.00</span>
-                    </span>
-                        </div>
-
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                            <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </div><!-- .p-info -->
-                </div><!-- .product -->
-
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                    <div class="p-thumb">
-                        <a href="productdetails-fullwidth.jsp">
-                            <img src="images/placeholder/product2.jpg" alt="">
-                        </a>
-                    </div><!-- .p-thumb -->
-
-                    <div class="p-info">
-                        <h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>
-
-                        <div class="clearfix">
-                            <div class="star-rating">
-                                <span style="width:60%"></span>
-                            </div>
-
-                            <span class="price">
-                        <span class="amount">$125.00</span>
-                    </span>
-                        </div>
-
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                            <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </div><!-- .p-info -->
-                </div><!-- .product -->
-
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                    <div class="p-thumb">
-                        <a href="productdetails-fullwidth.jsp">
-                            <img src="images/placeholder/product4.jpg" alt="">
-                        </a>
-                    </div><!-- .p-thumb -->
-
-                    <div class="p-info">
-                        <h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>
-
-                        <div class="clearfix">
-                            <div class="star-rating">
-                                <span style="width:60%"></span>
-                            </div>
-
-                            <span class="price">
-                        <span class="amount">$125.00</span>
-                    </span>
-                        </div>
-
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                            <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </div><!-- .p-info -->
-                </div><!-- .product -->
-
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item">
-                    <div class="p-thumb">
-                        <a href="productdetails-fullwidth.jsp">
-                            <img src="images/placeholder/product3.jpg" alt="">
-                        </a>
-                    </div><!-- .p-thumb -->
-
-                    <div class="p-info">
-                        <h3 class="p-title"><a href="productdetails-fullwidth.jsp">Phasellus Vel Hendrerit</a></h3>
-
-                        <div class="clearfix">
-                            <div class="star-rating">
-                                <span style="width:60%"></span>
-                            </div>
-
-                            <span class="price">
-                        <span class="amount">$125.00</span>
-                    </span>
-                        </div>
-
-                        <div class="p-actions">
-                            <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                            <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                            <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                        </div><!-- .p-actions -->
-                    </div><!-- .p-info -->
-                </div><!-- .product -->
             </div>
 
             <div class="view-all">
-
-                <a href="#" class="button radius">Show all</a>
+                <a href="page?method=getCurrentPage&currentPage=1" class="button radius">Show all</a>
 
             </div>
         </div><!-- featured-product -->
@@ -538,5 +373,7 @@
 <!-- Main -->
 <script src="js/main.js"></script>
 <script src="js/detailproduct.js" type="text/javascript"></script>
+<script src="js/winecomment.js"></script>
+<script src="js/indexproduct.js"></script>
 </body>
 </html>

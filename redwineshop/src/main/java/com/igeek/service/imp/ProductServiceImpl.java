@@ -83,5 +83,15 @@ public class ProductServiceImpl implements ProductService {
         return pd.findbyPidproduct(pid);
     }
 
+    @Override
+    public List<Product> fincproduct() {
+        return pd.findcproduct();
+    }
+
+    @Override
+    public List<Product> findproductbycolor(String color) {
+        return pd.findproductbycolor(color);
+    }
+
 
 }

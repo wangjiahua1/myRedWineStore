@@ -134,9 +134,27 @@ public class ProductServlet extends BaseServlet {
 
     public void findbyPidproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pid=Integer.parseInt(request.getParameter("pid"));
+        System.out.println("4444..."+pid);
         Product product =ps.findbyPidproduct(pid);
         //System.out.println(product);
         request.setAttribute("product",product);
+        request.getSession().setAttribute("pid",pid);
         request.getRequestDispatcher("productdetails-fullwidth.jsp").forward(request,response);
+    }
+
+
+    public void findcproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Product> products=ps.fincproduct();
+        System.out.println(products);
+        Gson gson =new Gson();
+        String jsonString =gson.toJson(products);
+        response.getWriter().write(jsonString);
+    }
+
+
+    public void findproductbycolor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String color=request.getParameter("color");
+        System.out.println(color);
+        List<Product> products =ps.findproductbycolor(color);
     }
 }

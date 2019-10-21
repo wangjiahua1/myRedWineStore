@@ -38,4 +38,8 @@ public interface ProductService {
     List<Product> findproductbyIsbhot(String hot);
 
     Product findbyPidproduct(int pid);
+
+    List<Product> fincproduct();
+
+    List<Product> findproductbycolor(String color);
 }

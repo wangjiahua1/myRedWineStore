@@ -132,7 +132,7 @@ $(function () {
                     " <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
                     " <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
                     " <a href=\"#\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>"
-                    " </div><!-- .product-info -->\n" +
+                    " </div>\n" +
                     " </div>\n" +
                     " </div>\n" +
                     "  </li>";
@@ -140,6 +140,45 @@ $(function () {
                 ul2.append(lili);
 
             });
+        }
+    )
+    $.getJSON(
+        "product?method=findcproduct",
+        function (data) {
+            console.log(data+333);
+            var dvi=$(".list-products.row");
+            $.each(data, function (i,v) {
+                var di="";
+                di +="<div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-3 product-item\">\n" +
+                    " <div class=\"p-thumb\">\n" +
+                    "<a href=\"product?method=findbyPidproduct&pid="+v.pid+"\">\n" +
+                    " <img src=\""+v.pimage+"\" style='height: 360px' alt=\"\">\n" +
+                    " </a>\n" +
+                    " </div><!-- .p-thumb -->\n" +
+                    "\n" +
+                    " <div class=\"p-info\">\n" +
+                    " <h3 class=\"p-title\"><a href=\"product?method=findbyPidproduct&pid="+v.pid+"\">"+v.pname+"</a></h3>\n" +
+                    "\n" +
+                    "<div class=\"clearfix\">\n" +
+                    "<div class=\"star-rating\">\n" +
+                    " <span style=\"width:60%\"></span>\n" +
+                    " </div>\n" +
+                    "\n" +
+                    " <span class=\"price\">\n" +
+                    " <span class=\"amount\">$"+v.price+"</span>\n" +
+                    "</span>\n" +
+                    " </div>\n" +
+                    "\n" +
+                    "   <div class=\"p-actions\">\n" +
+                    "   <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
+                    " <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
+                    " <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
+                    " <a href=\"#\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
+                    " </div>\n" +
+                    " </div>\n" +
+                    " </div>"
+                dvi.append(di);
+            })
         }
     )
 

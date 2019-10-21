@@ -20,4 +20,8 @@
     <bean id="collectservice" class="com.igeek.service.imp.CollectServiceImpl"></bean>
     <bean id="collectdao" class="com.igeek.dao.imp.CollectDaoImpl"></bean>
     <bean id="mypage" class="com.igeek.domain.Page"></bean>
+    <bean id="commentservice" class="com.igeek.service.imp.CommentServiceImpl"></bean>
+    <bean id="commentdao" class="com.igeek.dao.imp.CommentDaoImpl"></bean>
+    <bean id="blogservice" class="com.igeek.service.imp.BlogServiceImpl"></bean>
+    <bean id="blogdao" class="com.igeek.dao.imp.BlogDaoImpl"></bean>
 </beans>

@@ -32,4 +32,8 @@ public interface ProductDao {
     List<Product> findproductbyIsbhot(String hot);
 
     Product findbyPidproduct(int pid);
+
+    List<Product> findcproduct();
+
+    List<Product> findproductbycolor(String color);
 }

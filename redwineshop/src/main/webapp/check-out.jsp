@@ -545,8 +545,8 @@
                             <aside class="widget about">
                                 <div class="textwidget">
                                     <a href="index.html" class="logo-ft"><img src="images/assets/logo.png" alt=""/></a>
-                                    <p>Address : No 40 Baria Sreet 133/2 NewYork City, <br />
-                                        NY,  United States <br/>
+                                    <p>Address : No 40 Baria Sreet 133/2 ChangZhou City, <br />
+                                        CN,  Chang Zhou <br/>
                                         Email: info.contact@gmail.com<br/>
                                         Phone: (00) 123 456 789</p>
                                 </div><!-- .textwidget -->

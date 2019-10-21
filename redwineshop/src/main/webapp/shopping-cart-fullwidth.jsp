@@ -39,7 +39,7 @@
                 <div class="breadcrumb">
                     <ul>
 
-                        <li><a href="#">Home</a></li>
+                        <li><a href="index.jsp">Home</a></li>
 
                         <li><span class="current">Shopping Cart</span></li>
 
@@ -94,7 +94,7 @@
                             <td class="table-col-name">
                                 <a href="productdetails-fullwidth.html">The Gooseberry </a>
                                 <div class="meta-cart">
-                                    <div class="list-color">Color: <a href="#" class="yellow"></a> </div>
+                                    <div class="list-color">Color: <a href="#" class="red"></a> </div>
                                     <div class="list-size">Size: <a href="#">M</a></div>
                                 </div>
                             </td>
