@@ -8,9 +8,10 @@ public class RedWine {
     private String description;
     private String brand;
     private String size;
+    private String availability;
     private String color;
     private String cid;
-    private int ishot;
+    private String ishot;
 
     public RedWine() {
     }
@@ -71,6 +72,14 @@ public class RedWine {
         this.size = size;
     }
 
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
+
     public String getColor() {
         return color;
     }
@@ -87,11 +96,11 @@ public class RedWine {
         this.cid = cid;
     }
 
-    public int getIshot() {
+    public String getIshot() {
         return ishot;
     }
 
-    public void setIshot(int ishot) {
+    public void setIshot(String ishot) {
         this.ishot = ishot;
     }
 }

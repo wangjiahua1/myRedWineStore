@@ -1,8 +1,9 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>消息回复--layui后台管理模板</title>
+	<title>消息列表--layui后台管理模板</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,17 +16,25 @@
 </head>
 <body class="childrenBody">
 	<form class="layui-form">
-		<div class="replay_edit">
-			<textarea class="layui-textarea" id="msgReply"></textarea>
-			<a class="layui-btn send_msg">发送</a>
-		</div>
+		<blockquote class="layui-elem-quote news_search">
+			<div class="layui-inline selectMsg">
+				<select name="msgColl" lay-filter="selectMsg">
+					<option value="0">全部</option>
+			        <option value="1">已收藏</option>
+			    </select>
+			</div>
+			<div class="layui-inline">
+				<div class="layui-form-mid layui-word-aux">本页所有数据均为静态，刷新后所有操作无效</div>
+			</div>
+		</blockquote>
 		<table class="layui-table msg_box" lay-skin="line">
 			<colgroup>
-				<col width="50%">
-				<col width="30%">
+				<col width="45%">
+				<col width="25%">
+				<col width="15%">
 				<col>
 			</colgroup>
-			<tbody class="msgReplyHtml"></tbody>
+			<tbody class="msgHtml"></tbody>
 		</table>
 	</form>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
