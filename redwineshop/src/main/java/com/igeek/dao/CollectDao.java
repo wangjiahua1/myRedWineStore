@@ -12,4 +12,12 @@ public interface CollectDao {
     List<Collect> findAllCid();
 
     Product findProductByPid(int pid);
+
+    void addCollect(Collect collect);
+
+    List<Collect> findCollectByUid(String uid);
+
+    List<Collect> findPartCid(int start, int end);
+
+    int findCountCollect();
 }

@@ -140,4 +140,6 @@ public class Product {
     public void setIshot(String ishot) {
         this.ishot = ishot;
     }
+
+
 }

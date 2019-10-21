@@ -5,21 +5,13 @@ package com.igeek.domain;
  */
 public class MyCollect {
     private int collectid;
+    private String uid;
     private int number;
     private Product product;
-    private int total;
 
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public MyCollect(int collectid, int number, Product product) {
+    public MyCollect(int collectid, String uid, Product product) {
         this.collectid = collectid;
-        this.number = number;
+        this.uid = uid;
         this.product = product;
     }
 
@@ -34,12 +26,12 @@ public class MyCollect {
         this.collectid = collectid;
     }
 
-    public int getNumber() {
-        return number;
+    public String getUid() {
+        return uid;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public Product getProduct() {
@@ -48,5 +40,13 @@ public class MyCollect {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
     }
 }
