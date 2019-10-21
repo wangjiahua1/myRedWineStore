@@ -3,6 +3,7 @@
 <header id="header" class="site-header">
     <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/chooseme.js"></script>
+    <script type="text/javascript" src="js/myAccount.js"></script>
     <script type="text/javascript">
         $(function(a) {
             <!--$("#myAccount").click(function() {
@@ -46,25 +47,26 @@
         <div class="mask popup-close"></div>
     </div><!-- .search-popup -->
 
+
     <%--显示个人信息弹窗--%>
     <div id="myAccout_dialog" class="modal fade login-popup">
         <div class="popup-inner">
             <div class="modal-header">
                 <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-                <h3 class="modal-title">MyAccout</h3>
+                <h3 class="modal-title">MyAccount</h3>
             </div>
 
-            <form action="${pageContext.request.contextPath}/user?method=" method="post">
+            <form id="myAccountForm" action="${pageContext.request.contextPath}/user?method=changeAccount" method="post">
                 <p class="login-username">
                     <label for="user_login">Username*:</label>
 
                     <input name="log" id="user_login" class="input" value="${user.username}
                                 <c:if test="${user.username==null}">请设置</c:if>" size="20" type="text"/>
                 </p>
-                <p class="login-password">
-                    <label for="user_pass">Password*:</label>
-                    <input name="pwd" id="user_pass" class="input" value="${user.password}" size="20" type="password"/>
-                </p>
+                <%--<p class="login-password">--%>
+                    <%--<label for="user_pass">Password*:</label>--%>
+                    <%--<input name="pwd" id="user_pass" class="input" value="${user.password}" size="20" type="password"/>--%>
+                <%--</p>--%>
                 <p class="login-username">
                     <label for="sex">Sex*:</label>
                     <input name="sex" id="sex" class="input" value="${user.sex}<c:if test="${user.sex==null}">请设置</c:if>" size="20" type="text"/>
@@ -77,6 +79,9 @@
                     <label for="email">Email*:</label>
                     <input name="email" id="email" class="input" value="${user.email}<c:if test="${user.email==null}">请设置</c:if>" size="20" type="text"/>
                 </p>
+                <p>
+                    <input type="hidden" name="uid" id="uid" class="input" value="${user.uid}"/>
+                </p>
                 <p class="login-submit">
                     <input  id="wp-submit" class="button-primary" value="Edit" type="submit"/>
                 </p>
@@ -85,6 +90,7 @@
             <div class="modal-footer">
                 <a href="register.jsp">Register</a>
                 <a href="#">Forgot Password</a>
+                <a href="changePassword.jsp">Update Password</a>
             </div>
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
