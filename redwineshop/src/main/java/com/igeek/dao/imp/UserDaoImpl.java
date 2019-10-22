@@ -36,6 +36,27 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public void changeUserAccount(User user) {
+        sql ="update user set username =? , sex=? , telephone=? , email=? where uid=?";
+        try {
+            qr.update(sql,user.getUsername(),user.getSex(),user.getTelephone(),user.getEmail(),user.getUid());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void changeUserPassword(User user) {
+        sql ="update user set password =? where uid =?";
+        try {
+            qr.update(sql,user.getPassword(),user.getUid());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public boolean checkActiveCode(String activeCode) {
         return false;
     }

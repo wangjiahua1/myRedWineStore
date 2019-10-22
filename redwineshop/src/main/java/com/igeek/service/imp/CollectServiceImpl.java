@@ -24,4 +24,30 @@ public class CollectServiceImpl implements CollectService {
         return dao.findProductByPid(pid);
     }
 
+    @Override
+    public void addCollect(Collect collect) {
+        dao.addCollect(collect);
+    }
+
+    @Override
+    public List<Collect> findCollectByUid(String uid) {
+        return dao.findCollectByUid(uid);
+    }
+
+    @Override
+    public List<Collect> findPartCid(int page , String uid) {
+        int start = (page - 1) * 3 ;
+        int len = page * 3;
+        return dao.findPartCid(start,len,uid);
+    }
+
+    @Override
+    public int findCountCollect(String uid) {
+        return dao.findCountCollect(uid);
+    }
+
+    @Override
+    public void delCollect(String uid, String pid) {
+        dao.delCollect(uid,pid);
+    }
 }

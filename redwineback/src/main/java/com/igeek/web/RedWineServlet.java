@@ -1,7 +1,8 @@
 package com.igeek.web;
 
 import com.igeek.domain.RedWine;
-import com.igeek.service.imp.RedWineServiceImpl;
+import com.igeek.service.impl.RedWineServiceImpl;
+import com.igeek.untilts.BeanFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @WebServlet("/redwine")
 public class RedWineServlet extends BaseServlet {
-    RedWineServiceImpl rws=new RedWineServiceImpl();
+    RedWineServiceImpl rws= (RedWineServiceImpl) BeanFactory.getBean("myredwineservice");
     public void getallredwine(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<RedWine> RedWines=rws.getallredwine();
         int maxPage = getMaxPage(request, response);

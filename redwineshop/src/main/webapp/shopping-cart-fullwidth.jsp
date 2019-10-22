@@ -38,7 +38,7 @@
                     <div class="breadcrumb">
                         <ul>
 
-                            <li><a href="#">Home</a></li>
+                        <li><a href="index.jsp">Home</a></li>
 
                             <li><span class="current">Shopping Cart</span></li>
 
@@ -81,13 +81,22 @@
                                             <a href="productdetails-fullwidth.html"><img style="height: 70px"  src="${pageContext.request.contextPath}/${cart.pimage}" alt="" ></a>
                                         </td>
 
-                                        <td class="table-col-name">
-                                            <a href="productdetails-fullwidth.html">${cart.pname}</a>
-                                            <div class="meta-cart">
-                                                <div class="list-color">Color: <a href="#" class="yellow"></a> </div>
-                                                <div class="list-size">Size: <a href="#">M</a></div>
-                                            </div>
-                                        </td>
+                            <td class="table-col-name">
+                                <a href="productdetails-fullwidth.html">${cart.pname}</a>
+
+                        <tr class="cart-item cart_item">
+
+                            <td>
+                                <a href="productdetails-fullwidth.html"><img src="images/placeholder/feature-prod-img1.jpg" alt=""></a>
+                            </td>
+
+                            <td class="table-col-name">
+                                <a href="productdetails-fullwidth.html">The Gooseberry </a>
+                                <div class="meta-cart">
+                                    <div class="list-color">Color: <a href="#" class="red"></a> </div>
+                                    <div class="list-size">Size: <a href="#">M</a></div>
+                                </div>
+                            </td>
 
                                         <td class="table-col-price">
                                             <span class="amount"><span class="symbol">$</span>${cart.price}</span>
@@ -142,17 +151,17 @@
                                         </select>
                                     </div>
 
-                                    <div class="input-text cart-input">
-                                        <span>Zip/Postal code</span>
-                                        <input type="text" placeholder="Post Code / Zip">
-                                    </div>
+                            <div class="input-text cart-input">
+                                <span>Zip/Postal code</span>
+                                <input type="text" placeholder="Post Code / Zip">
+                            </div>
 
-                                    <div class="input-submit">
-                                        <input class="button bold radius white" type="submit" value="get a quote">
-                                    </div>
-                                </form>
-                            </div><!-- .cal-shipping -->
-                        </aside>
+                            <div class="input-submit">
+                                <input class="button bold radius white" type="submit" value="get a quote">
+                            </div>
+                        </form>
+                    </div><!-- .cal-shipping -->
+                </aside>
 
                         <aside class="widget col-md-4">
                             <div class="cal-shipping">
@@ -192,13 +201,13 @@
                     </div><!-- .cart-collaterals -->
 
 
-                </div><!-- .container -->
+        </div><!-- .container -->
 
-            </div><!-- inner-content -->
+    </div><!-- inner-content -->
 
-        </main><!-- .site-main -->
+</main><!-- .site-main -->
 
-    </div><!-- .container -->
+</div><!-- .container -->
 
 </div><!-- .site-content -->
 <div id="bottom" class="site-bottom">

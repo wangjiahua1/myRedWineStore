@@ -63,7 +63,10 @@
 @import url(css/vendor/owl.carousel.min.css);
 @import url(css/vendor/flexslider.css);
 @import url(css/vendor/animate.css);
-
+@import url(css/home1.css);
+@import url(css/home2.css);
+@import url(css/home3.css);
+@import url(css/home4.css);
 
 /*==========================================================
 	2. GENERAL
@@ -1173,8 +1176,7 @@ label.sl-label, .input-field.select-country label[for="bill-country"]{
 }
 .blog-slider .post-info {
 	padding-top: 20px;
-}
-.blog-slider .post-title {
+}  .blog-slider .post-title{
 	font-size: 18px;
 }
 .blog-slider .post-meta li {
@@ -3062,10 +3064,10 @@ label.sl-label, .input-field.select-country label[for="bill-country"]{
     width: 100%;
 }
 .product-item{
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 .list .product-item{
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 .product-thumb{
     float: left;
@@ -3074,11 +3076,10 @@ label.sl-label, .input-field.select-country label[for="bill-country"]{
     line-height: 91px;
     border: 1px solid #e5e5e5;
     text-align: center;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 .product-thumb img{
     margin-right: 0;
-	height: auto;
 }
 .product-info{
     display: table;

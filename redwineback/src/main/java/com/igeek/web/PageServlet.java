@@ -2,7 +2,7 @@ package com.igeek.web;
 
 import com.google.gson.Gson;
 import com.igeek.domain.RedWine;
-import com.igeek.service.imp.RedWineServiceImpl;
+import com.igeek.service.impl.RedWineServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

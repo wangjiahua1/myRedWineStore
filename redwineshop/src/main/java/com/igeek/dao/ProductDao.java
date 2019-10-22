@@ -12,7 +12,7 @@ public interface ProductDao {
     List<Product> gethotRedwine();
 
 
-    List<Product> getChoosePrice(int price1, int price2);
+    List<Product> getChoosePrice(int price1, int price2, int currentpage);
 
     List<Product> getChooseColor(String color);
 
@@ -21,6 +21,21 @@ public interface ProductDao {
     void addcart(Cart cart);
 
     List<Cart> findallcart(String uid);
+
+    Product getRedWineById(int id);
+    List<Product> findproduct(String cid);
+
+    List<Product> findproductbyIsnew(String aNew);
+
+    List<Product> findproductbyIshot(String s);
+
+    List<Product> findproductbyIsbhot(String hot);
+
+    Product findbyPidproduct(int pid);
+
+    List<Product> findcproduct();
+
+    List<Product> findproductbycolor(String color);
 
     int getcartid(String uid, int pid);
 

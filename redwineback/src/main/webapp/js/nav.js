@@ -6,22 +6,22 @@ var navs = [{
 },{
 	"title" : "新闻管理",
 	"icon" : "icon-text",
-	"href" : "page/news/newsList.html",
+	"href" : "page/news/newsList.jsp",
 	"spread" : false
 },{
 	"title" : "评论管理",
 	"icon" : "icon-text",
-	"href" : "page/links/linksList.html",
+	"href" : "page/links/linksList.jsp",
 	"spread" : false
 },{
     "title" : "数据管理",
     "icon" : "icon-text",
-    "href" : "page/links/linksList.html",
+    "href" : "page/data/data.jsp",
     "spread" : false
 },{
     "title" : "订单管理",
     "icon" : "icon-text",
-    "href" : "page/links/linksList.html",
+    "href" : "page/links/linksList.jsp",
     "spread" : false
 },
 	{
@@ -32,7 +32,7 @@ var navs = [{
 },{
 	"title" : "系统基本参数",
 	"icon" : "&#xe631;",
-	"href" : "page/systemParameter/systemParameter.html",
+	"href" : "page/systemParameter/systemParameter.jsp",
 	"spread" : false
 },{
 	"title" : "商品管理",

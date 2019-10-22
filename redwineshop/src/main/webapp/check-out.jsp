@@ -35,164 +35,8 @@
 
 <body>
 
-<div id="pageloader">
-    <div class="s1">
-        <div class="s b sb1"></div>
-        <div class="s b sb2"></div>
-        <div class="s b sb3"></div>
-        <div class="s b sb4"></div>
-    </div>
-
-
-    <div class="s2">
-        <div class="s b sb5"></div>
-        <div class="s b sb6"></div>
-        <div class="s b sb7"></div>
-        <div class="s b sb8"></div>
-    </div>
-
-    <div class="bigcon">
-        <div class="big b"></div>
-    </div>
-</div><!-- #pageloader -->
-
-<div id="wrapper">
-
-    <%--显示个人信息弹窗--%>
-    <div id="myAccout_dialog" class="modal fade login-popup">
-        <div class="popup-inner">
-            <div class="modal-header">
-                <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-                <h3 class="modal-title">MyAccout</h3>
-            </div>
-
-            <form action="${pageContext.request.contextPath}/user?method=" method="post">
-                <p class="login-username">
-                    <label for="user_login">Username*:</label>
-
-                    <input name="log" id="user_login" class="input" value="${user.username}
-                                <c:if test="${user.username==null}">请设置</c:if>" size="20" type="text"/>
-                </p>
-                <p class="login-password">
-                    <label for="user_pass">Password*:</label>
-                    <input name="pwd" id="user_pass" class="input" value="${user.password}" size="20" type="password"/>
-                </p>
-                <p class="login-username">
-                    <label for="sex">Sex*:</label>
-                    <input name="sex" id="sex" class="input" value="${user.sex}<c:if test="${user.sex==null}">请设置</c:if>" size="20" type="text"/>
-                </p>
-                <p class="login-username">
-                    <label for="telephone">Telephone*:</label>
-                    <input name="telephone" id="telephone" class="input" value="${user.telephone}<c:if test="${user.telephone==null}">请设置</c:if>" size="20" type="text"/>
-                </p>
-                <p class="login-username">
-                    <label for="email">Email*:</label>
-                    <input name="email" id="email" class="input" value="${user.email}<c:if test="${user.email==null}">请设置</c:if>" size="20" type="text"/>
-                </p>
-                <p class="login-submit">
-                    <input  id="wp-submit" class="button-primary" value="Edit" type="submit"/>
-                </p>
-            </form>
-
-            <div class="modal-footer">
-                <a href="register.jsp">Register</a>
-                <a href="forgotpassword.jsp">Forgot Password</a>
-            </div>
-        </div><!-- .popup-inner -->
-        <div class="mask popup-close"></div>
-    </div>
-
-    <div id="login_dialog" class="modal fade login-popup">
-        <div class="popup-inner">
-            <div class="modal-header">
-                <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-                <h3 class="modal-title">Login</h3>
-            </div>
-
-            <form action="${pageContext.request.contextPath}/user?method=login&url=check-out.jsp" method="post">
-                <p class="login-username">
-                    <label for="user_login">Username*:</label>
-                    <input name="log" id="user_login" class="input" value="10086@163.com" size="20" type="text">
-                </p>
-                <p class="login-password">
-                    <label for="user_pass">Password*:</label>
-                    <input name="pwd" id="user_pass" class="input" value="123456789." size="20" type="password">
-                </p>
-                <p class="login-submit">
-                    <input  id="wp-submit" class="button-primary" value="Login" type="submit">
-                </p>
-            </form>
-
-            <div class="modal-footer">
-                <a href="register.jsp">Register</a>
-                <a href="forgotpassword.jsp">Forgot Password</a>
-            </div>
-        </div><!-- .popup-inner -->
-        <div class="mask popup-close"></div>
-    </div><!-- .search-popup -->
-
-    <div id="search_dialog" class="modal fade search-popup">
-        <div class="popup-inner">
-            <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-            <form action="#">
-                <select class="selectpicker search-select" name="search_by_cat" id="search_by_cat">
-                    <option value="#" selected>All Categories</option>
-                    <option value="#">Champagne</option>
-                    <option value="#">Kosher</option>
-                    <option value="#">Organic</option>
-                </select>
-                <div class="search-div">
-                    <input type="text" placeholder="Search">
-                    <input value="Search" type="submit">
-                </div>
-            </form>
-        </div><!-- .popup-inner -->
-        <div class="mask popup-close"></div>
-    </div><!-- .search-popup -->
-
-    <header id="header" class="site-header">
-
-        <div class="top-header">
-            <div class="no-container">
-                <div class="left-header">
-                    <span class="icon_setting"><i class="pe-7s-config"></i></span>
-                    <div class="setting-wrap">
-                        <ul class="setting-account-list">
-                            <li>
-                                <!--利用session中的user来判断用户是否登录-->
-                                <!--通过改变data-target属性的值来跳转不同页面-->
-                                <a class="top-account top-login" id="myAccount"
-                                   href="#" data-toggle="modal"
-                                   data-target="<c:if test="${user!=null}">#myAccout_dialog</c:if>
-                                <c:if test="${user==null}">#login_dialog</c:if>">
-                                    My Account
-                                </a>
-                            </li>
-                            <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Wishlist</a></li>
-                            <li><a href="compare.jsp">Compare</a></li>
-                            <li><a href="shopgridleft.jsp">My Cart</a></li>
-                            <li><a href="check-out.jsp">Check out</a></li>
-                        </ul>
-                        <div class="currency">
-                            <span>Currency</span>
-                            <ul>
-                                <li class="active"><a href="#">USD</a></li>
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">GBP</a></li>
-                                <li><a href="#">CNY</a></li>
-                            </ul>
-                        </div><!-- .currency -->
-                        <div class="language">
-                            <span>Language</span>
-                            <ul>
-                                <li class="active"><a href="#"><img src="images/assets/icons/flag-en.jpg" alt=""/></a></li>
-                                <li><a href="#"><img src="images/assets/icons/flag-ger.jpg" alt=""/></a></li>
-                                <li><a href="#"><img src="images/assets/icons/flag-france.jpg" alt=""/></a></li>
-                            </ul>
-                        </div><!-- .language -->
-
-                    </div>
-                </div>
+<jsp:include page="pageloader.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
                 <div class="right-header">
                     <ul>
@@ -733,8 +577,8 @@
                             <aside class="widget about">
                                 <div class="textwidget">
                                     <a href="index.html" class="logo-ft"><img src="images/assets/logo.png" alt=""/></a>
-                                    <p>Address : No 40 Baria Sreet 133/2 NewYork City, <br />
-                                        NY,  United States <br/>
+                                    <p>Address : No 40 Baria Sreet 133/2 ChangZhou City, <br />
+                                        CN,  Chang Zhou <br/>
                                         Email: info.contact@gmail.com<br/>
                                         Phone: (00) 123 456 789</p>
                                 </div><!-- .textwidget -->

@@ -7,6 +7,11 @@ public interface UserService {
 
     User findUserByUsername(User user);
 
+
+    void changeUserAccount(User user);
+
+    void changeUserPassword(User user);
+
     void save(User user);
     public boolean checkActiveCode(String activeCode) ;
 
