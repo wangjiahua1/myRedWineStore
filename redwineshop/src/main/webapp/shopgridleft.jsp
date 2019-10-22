@@ -124,7 +124,7 @@
                 <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
                 <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
                 <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                <a href="${pageContext.request.contextPath}/product?method=addcart&pid=${redwine.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                <a href="${pageContext.request.contextPath}/product?method=addcart&pid=${redwine.pid}&quantity=1" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
             </div><!-- .p-actions -->
         </div><!-- .p-info -->
     </div><!-- .product -->

@@ -70,7 +70,7 @@
 
         <div class="modal-footer">
             <a href="register.jsp">Register</a>
-            <a href="#">Forgot Password</a>
+            <a href="forgotpassword.jsp">Forgot Password</a>
         </div>
     </div><!-- .popup-inner -->
     <div class="mask popup-close"></div>
@@ -131,7 +131,7 @@
 
                 <div class="modal-footer">
                     <a href="register.jsp">Register</a>
-                    <a href="#">Forgot Password</a>
+                    <a href="forgotpassword.jsp">Forgot Password</a>
                 </div>
             </div><!-- .popup-inner -->
             <div class="mask popup-close"></div>
@@ -543,7 +543,7 @@
                         <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
                         <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
                         <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                        <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                        <a href="${pageContext.request.contextPath}/product?method=addcart&pid=${redwine.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                     </div>
                 </div><!-- .p-actions -->
             </form>
