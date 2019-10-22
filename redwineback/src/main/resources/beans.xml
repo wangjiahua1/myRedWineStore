@@ -4,6 +4,8 @@
     <!--子节点对应每个java类-->
     <!--id 唯一标识   class 对应类的包名+类名-->
     <bean id="myredwineservice" class="com.igeek.service.impl.RedWineServiceImpl"></bean>
-
     <bean id="myredwinedao" class="com.igeek.dao.impl.RedWineDaoImpl"></bean>
+
+    <bean id="dataservice" class="com.igeek.service.impl.DateServiceImpl"></bean>
+    <bean id="datadao" class="com.igeek.dao.impl.DataDaoImpl"></bean>
 </beans>

@@ -16,7 +16,7 @@ var navs = [{
 },{
     "title" : "数据管理",
     "icon" : "icon-text",
-    "href" : "page/links/linksList.jsp",
+    "href" : "page/data/data.jsp",
     "spread" : false
 },{
     "title" : "订单管理",
