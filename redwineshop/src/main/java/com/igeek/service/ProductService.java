@@ -25,4 +25,8 @@ public interface ProductService {
     void addcart(Cart cart);
 
     List<Cart> findallcart(String uid);
+
+    int getcartid(String uid, int pid);
+
+    void addcartpast(Cart cart);
 }

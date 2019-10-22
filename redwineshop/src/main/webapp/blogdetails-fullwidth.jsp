@@ -87,7 +87,7 @@
         </form>
         <div class="modal-footer">
             <a href="#">Register</a>
-            <a href="#">Forgot Password</a>
+            <a href="forgotpassword.jsp">Forgot Password</a>
         </div>
     </div><!-- .popup-inner -->
     <div class="mask popup-close"></div>

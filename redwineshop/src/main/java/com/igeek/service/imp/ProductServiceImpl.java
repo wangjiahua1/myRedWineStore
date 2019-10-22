@@ -51,4 +51,14 @@ public class ProductServiceImpl implements ProductService {
     public List<Cart> findallcart(String uid) {
         return pd.findallcart(uid);
     }
+
+    @Override
+    public int getcartid(String uid, int pid) {
+        return pd.getcartid(uid,pid);
+    }
+
+    @Override
+    public void addcartpast(Cart cart) {
+        pd.addcartpast(cart);
+    }
 }

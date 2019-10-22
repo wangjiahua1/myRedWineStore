@@ -69,7 +69,7 @@
 
         <div class="modal-footer">
             <a href="register.jsp">Register</a>
-            <a href="#">Forgot Password</a>
+            <a href="forgotpassword.jsp">Forgot Password</a>
         </div>
     </div><!-- .popup-inner -->
     <div class="mask popup-close"></div>
@@ -112,7 +112,7 @@
 
                 <div class="modal-footer">
                     <a href="register.jsp">Register</a>
-                    <a href="#">Forgot Password</a>
+                    <a href="forgotpassword.jsp">Forgot Password</a>
                 </div>
             </div><!-- .popup-inner -->
             <div class="mask popup-close"></div>

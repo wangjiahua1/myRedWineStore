@@ -2,6 +2,7 @@ package com.igeek.web;
 
 import com.google.gson.Gson;
 import com.igeek.domain.Cart;
+import com.igeek.domain.CartTotal;
 import com.igeek.domain.Product;
 import com.igeek.domain.User;
 import com.igeek.service.ProductService;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,27 +28,65 @@ import java.util.List;
 public class ProductServlet extends BaseServlet {
     ProductService ps=(ProductService)BeanFactory.getBean("myredwineservice");
 
+    public void deletecart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.getWriter().write("删除不想做，就懒");
+    }
+    public void findcartproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getParameter("uid")!=null&&!request.getParameter("uid").equals("")) {
+            List<Cart> carts = ps.findallcart(request.getParameter("uid"));
+            System.out.println("you look look");
+            System.out.println(carts);
+            CartTotal cartTotal = new CartTotal();
+            cartTotal.setCarts(carts);
+            cartTotal.setAlltotal(0.0);
+            request.setAttribute("cartTotal", cartTotal);
+            HttpSession httpSession=request.getSession();
+            httpSession.setAttribute("uid", request.getParameter("uid"));
+            request.setAttribute("uid", request.getParameter("uid"));
+            request.getRequestDispatcher("shopping-cart-fullwidth.jsp").forward(request,response);
+        }
+        else {
+            response.getWriter().write("You're not signed in. Get out of here+<br>你没有登录，滚蛋");
+        }
+    }
     public void addcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("i am coming");
        User user= (User) request.getSession().getAttribute("user");
         if(user!=null&&user.getUid()!=null&&!user.getUid().equals("")){
             System.out.println(request.getParameter("pid"));
+            int quantity=Integer.parseInt(request.getParameter("quantity"));
+            System.out.println("cart quantity="+quantity);
             Product product= ps.getcart(request.getParameter("pid"));
+            System.out.println(product);
             Cart cart=new Cart();
             cart.setPid(product.getPid());
             cart.setPimage(product.getPimage());
             cart.setPname(product.getPname());
             cart.setUid(user.getUid());
-            cart.setQuantity(1);
+            int quantitysql=ps.getcartid(user.getUid(),product.getPid());
+            System.out.println("cart quantitysql="+quantitysql);
+            quantity+=quantitysql;
+            System.out.println("cart quantitysql+quantity="+quantity);
+            cart.setQuantity(quantity);
             cart.setPrice(product.getPrice());
-            cart.setTotal(cart.getQuantity());
-            ps.addcart(cart);
+            cart.setTotal(1);
+            System.out.println("cart total"+cart.getTotal());
+            if(quantitysql==0){
+                ps.addcart(cart);
+            }
+            else {
+                ps.addcartpast(cart);
+            }
             System.out.println("cart:"+cart);
+
             /*查找出所有购物车关于此用户的信息*/
 
            List<Cart> carts= ps.findallcart(user.getUid());
             System.out.println(carts);
-            request.setAttribute("carts",carts);
+            CartTotal cartTotal=new CartTotal();
+            cartTotal.setCarts(carts);
+            cartTotal.setAlltotal(0.0);
+            request.setAttribute("cartTotal",cartTotal);
             request.getRequestDispatcher("shopping-cart-fullwidth.jsp").forward(request,response);
         }
         else {

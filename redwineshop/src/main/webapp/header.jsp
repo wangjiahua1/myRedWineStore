@@ -40,7 +40,7 @@
 
             <div class="modal-footer">
                 <a href="register.jsp">Register</a>
-                <a href="#">Forgot Password</a>
+                <a href="forgotpassword.jsp">Forgot Password</a>
             </div>
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
@@ -84,7 +84,7 @@
 
             <div class="modal-footer">
                 <a href="register.jsp">Register</a>
-                <a href="#">Forgot Password</a>
+                <a href="forgotpassword.jsp">Forgot Password</a>
             </div>
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
@@ -115,7 +115,7 @@
                         <li><a href="${pageContext.request.contextPath}/collect?method=findAllCollect">My Wishlist</a></li>
                         <li><a href="compare.jsp">Compare</a></li>
                         <li><a href="shopgridleft.jsp">My Cart</a></li>
-                        <li><a href="check-out.jsp">Check out</a></li>
+                        <li><a href="${pageContext.request.contextPath}/product?method=findcartproduct&uid=${user.uid}">Check out</a></li>
                     </ul>
                     <div class="currency">
                         <span>Currency</span>
@@ -205,8 +205,8 @@
                                 <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
 
                                 <p class="buttons">
-                                    <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
-                                    <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
+                                    <a href="${pageContext.request.contextPath}/product?method=findcartproduct&uid=${user.uid}" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
+                                    <a href="${pageContext.request.contextPath}/product?method=findcartproduct&uid=${user.uid}" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
                                 </p>
                             </div>
                         </div>

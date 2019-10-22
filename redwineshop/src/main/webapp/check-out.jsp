@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
     <title>Check out</title>
 
+    <script src="js/jquery.js"></script>
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Responsive CSS -->
@@ -19,8 +20,17 @@
     <!--[if lt IE 9]>
     <script src="js/ie9/html5shiv.min.js"></script>
     <script src="js/ie9/respond.min.js"></script>
-
+    <script type="text/javascript" src="js/chooseme.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+        $(function () {
+            $("#place-order").click(function () {
+                console.log("操蛋");
+                console.log(${cartTotal.alltotal});
+                window.location.href="order?method=orderredmine&total=${cartTotal.alltotal}";
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -86,7 +96,7 @@
 
             <div class="modal-footer">
                 <a href="register.jsp">Register</a>
-                <a href="#">Forgot Password</a>
+                <a href="forgotpassword.jsp">Forgot Password</a>
             </div>
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
@@ -115,7 +125,7 @@
 
             <div class="modal-footer">
                 <a href="register.jsp">Register</a>
-                <a href="#">Forgot Password</a>
+                <a href="forgotpassword.jsp">Forgot Password</a>
             </div>
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
@@ -435,6 +445,18 @@
                                 <div class="billing-block">
                                     <h3 class="title-checkout">BILLING ADDRESS</h3>
 
+
+
+                                    <c:forEach items="${cartTotal.carts}" var="cart">
+                                        <p>${cart.pname}</p>
+                                        <p>${cart.price}</p>
+                                    </c:forEach>
+
+
+
+
+
+
                                     <div class="input-field select-country">
                                         <div class="row">
                                             <div class="col-lg-3 col-md-3 col-sm-3">
@@ -628,7 +650,7 @@
                                                 </tr>
                                                 <tr class="order-total txt-up">
                                                     <th>Order Total</th>
-                                                    <td><span class="amount">$286.00</span></td>
+                                                    <td><span class="amount">${cartTotal.alltotal}</span></td>
                                                 </tr>
                                             </table>
                                         </div><!-- .product-total -->

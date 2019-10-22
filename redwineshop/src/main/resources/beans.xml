@@ -17,4 +17,8 @@
     <bean id="emaildao" class="com.igeek.dao.imp.EmailDaoImpl"></bean>
     <bean id="collectservice" class="com.igeek.service.imp.CollectServiceImpl"></bean>
     <bean id="collectdao" class="com.igeek.dao.imp.CollectDaoImpl"></bean>
+
+
+    <bean id="orderservice" class="com.igeek.service.imp.OrderServiceImpl"></bean>
+    <bean id="orderDao" class="com.igeek.dao.imp.OrderDaoImpl"></bean>
 </beans>
