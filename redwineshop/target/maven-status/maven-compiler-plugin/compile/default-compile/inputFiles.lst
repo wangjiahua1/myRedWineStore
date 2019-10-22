@@ -50,6 +50,7 @@ D:\myRedWineStore\redwineshop\src\main\java\com\igeek\domain\OrderItem.java
 D:\myRedWineStore\redwineshop\src\main\java\com\igeek\service\CollectService.java
 D:\myRedWineStore\redwineshop\src\main\java\com\igeek\service\imp\MessageServiceImpl.java
 D:\myRedWineStore\redwineshop\src\main\java\com\igeek\domain\Email.java
+D:\myRedWineStore\redwineshop\src\main\java\com\igeek\web\RedWineServlet.java
 D:\myRedWineStore\redwineshop\src\main\java\com\igeek\domain\Category.java
 D:\myRedWineStore\redwineshop\src\main\java\com\igeek\dao\imp\UserDaoImpl.java
 D:\myRedWineStore\redwineshop\src\main\java\com\igeek\domain\Collect.java

@@ -2,6 +2,7 @@ package com.igeek.service;
 
 
 import com.igeek.domain.Cart;
+import com.igeek.domain.Page;
 import com.igeek.domain.Product;
 
 import java.util.List;
@@ -15,8 +16,6 @@ public interface ProductService {
     public List<Product> getCurrentPage(int currentpage);
 
     List<Product> gethotRedwine();
-
-    List<Product> getChoosePrice(int price1, int price2, int currentpage);
 
     List<Product> getChooseColor(String color);
 
@@ -42,4 +41,10 @@ public interface ProductService {
     List<Product> fincproduct();
 
     List<Product> findproductbycolor(String color);
+    //分页
+    Page<Product> getPage(int currentpage, int i);
+
+    Page<Product> getRedWineByCId(String cid, int currentpage);
+
+    Page<Product> getRedWineByPrice(int price1, int price2, int currentpage);
 }

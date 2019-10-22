@@ -2,13 +2,14 @@ package com.igeek.service.imp;
 
 import com.igeek.dao.ProductDao;
 import com.igeek.domain.Cart;
+import com.igeek.domain.Page;
 import com.igeek.domain.Product;
 import com.igeek.service.ProductService;
 import com.igeek.utils.BeanFactory;
 
 import java.util.List;
 
-public class ProductServiceImpl implements ProductService {
+public  class ProductServiceImpl implements ProductService {
     ProductDao pd= (ProductDao) BeanFactory.getBean("myredwinedao");
     public int getCountRedWine() {
         return pd.getCountRedWine();
@@ -27,10 +28,6 @@ public class ProductServiceImpl implements ProductService {
         return pd.gethotRedwine();
     }
 
-    @Override
-    public List<Product> getChoosePrice(int price1, int price2, int currentpage) {
-        return pd.getChoosePrice(price1,price2,currentpage);
-    }
 
     @Override
     public List<Product> getChooseColor(String color) {
@@ -44,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void addcart(Cart cart) {
-         pd.addcart(cart);
+        pd.addcart(cart);
     }
 
     @Override
@@ -92,6 +89,34 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findproductbycolor(String color) {
         return pd.findproductbycolor(color);
     }
+    //分页
+    @Override
+    public Page<Product> getPage(int currentpage, int i) {
+        Page<Product> page=new Page<>();
+        //设置总数
+        page.setTotalRecord(pd.getCountRedWine());
+        page.setList(pd.getCurrentPage(currentpage));
+        return page;
+    }
+
+    @Override
+    public Page<Product> getRedWineByCId(String cid, int currentpage) {
+        Page<Product> page=new Page<>();
+        //设置总数
+        page.setTotalRecord(pd.getCountRedWine());
+        page.setList(pd.getRedWineByCId(cid,currentpage));
+        return page;
+    }
+
+    @Override
+    public Page<Product> getRedWineByPrice(int price1, int price2, int currentpage) {
+        Page<Product> page=new Page<>();
+        //设置总数
+        page.setTotalRecord(pd.getCountRedWineByPrice(price1,price2));
+        page.setList(pd.getChoosePrice(price1,price2,currentpage));
+        return page;
+    }
 
 
 }
+

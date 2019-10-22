@@ -36,4 +36,8 @@ public interface ProductDao {
     List<Product> findcproduct();
 
     List<Product> findproductbycolor(String color);
+    //获取类型分页
+    List<Product> getRedWineByCId(String cid, int currentpage);
+
+    int getCountRedWineByPrice(int price1, int price2);
 }

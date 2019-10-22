@@ -75,14 +75,11 @@
     <script src="js/zxf_page.js"></script>
     <script type="text/javascript">
         $(".zxf_pagediv").createPage({
-            pageNum:12,
-            current: ${currentPage},
+            pageNum:${maxPage},
+            current: ${page.pageNumber},
             backfun: function(e) {
                 var currentPage = e.current;
-                if (currentPage > 12) {
-                    currentPage = 12;
-                }
-                var path="page?method=getCurrentPage&currentPage="+currentPage;
+                var path="${page.path}"+currentPage;
                 window.location.href=path;
             }
         });

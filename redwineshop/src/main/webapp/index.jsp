@@ -5,8 +5,8 @@
     <body class="home-01">
         <jsp:include page="pageloader.jsp"></jsp:include>
         <jsp:include page="header.jsp"></jsp:include>
-
         <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
+
         <script src="js/index1.js" type="text/javascript"></script>
 
         <script src="js/template-web.js" type="text/javascript"></script>
@@ -52,14 +52,14 @@
                         <img src="images/placeholder/01_slider1.jpg" alt=""/>
                         <div class="slider-content">
                             <img src="images/placeholder/logo-a.png" alt=""/>
-                            <div class="slider-btn"><a href="page?method=getCurrentPage&currentPage=1">Shop now</a></div>
+                            <div class="slider-btn"><a href="page?method=getPage&currentPage=1">Shop now</a></div>
                         </div>
                     </div><!-- .home-slider-item -->
                     <div class="home-slider-item">
                         <img src="images/placeholder/01_slider2.jpg" alt=""/>
                         <div class="slider-content">
                             <img src="images/placeholder/logo-a.png" alt=""/>
-                            <div class="slider-btn"><a href="page?method=getCurrentPage&currentPage=1">Shop now</a></div>
+                            <div class="slider-btn"><a href="page?method=getPage&currentPage=1">Shop now</a></div>
                         </div>
                     </div><!-- .home-slider-item -->
                 </div>
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                         </div><!-- .featured-tab -->
-                        <a href="${pageContext.request.contextPath}/page?method=getCurrentPage&currentPage=1" class="btn-viney">View All</a>
+                        <a href="${pageContext.request.contextPath}/page?method=getPage&currentPage=1" class="btn-viney">View All</a>
                     </div>
                 </div><!-- .featured-box-->
 

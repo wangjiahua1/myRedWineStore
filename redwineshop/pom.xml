@@ -149,7 +149,7 @@
           <version>2.2</version>
           <configuration>
             <path>/webstore</path>
-            <port>7777</port>
+            <port>8888</port>
             <uriEncoding>utf-8</uriEncoding>
           </configuration>
         </plugin>

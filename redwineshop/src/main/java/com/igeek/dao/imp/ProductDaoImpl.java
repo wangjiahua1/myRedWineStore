@@ -61,7 +61,7 @@ public class ProductDaoImpl implements ProductDao {
     public List<Product> getChoosePrice(int price1, int price2, int currentpage) {
         String sql="select * from product where price>=? and price<=? limit ?,9";
         try {
-            return qr.query(sql,new BeanListHandler<>(Product.class),price1,price2,currentpage);
+            return qr.query(sql,new BeanListHandler<>(Product.class),price1,price2,9*(currentpage-1));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -196,7 +196,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public List<Product> findproductbycolor(String color) {
-        String sql="select * from product where color=? limit 0,9";
+        String sql="select * from product where color=? limit 0,12" ;
         try {
             return qr.query(sql,new BeanListHandler<>(Product.class),color);
         } catch (SQLException e) {
@@ -205,5 +205,25 @@ public class ProductDaoImpl implements ProductDao {
         return null;
     }
 
+    @Override
+    public List<Product> getRedWineByCId(String cid, int currentpage) {
+        String sql="select * from product where cid=? limit ?,9" ;
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class),cid,9*(currentpage-1)+1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    @Override
+    public int getCountRedWineByPrice(int price1, int price2) {
+        String sql="select count(*) from product where price>=? and price<=?";
+        try {
+            return Integer.parseInt(qr.query(sql, new ScalarHandler<Long>(),price1,price2) + "");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

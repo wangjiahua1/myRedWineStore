@@ -57,64 +57,14 @@
         </div>
     </aside>
         <script type="text/javascript">
+            //过滤的点击事件
             $("#getPrice").click(function () {
-                var price=$("#amount").text();
-                console.log(price);
-                $.ajax({
-                    type: 'get',
-                    url: 'product?method=getChoosePrice',
-                    //url: '/api/one/new/list?p=1',
-                    data: {"price": price},
-                    dataType: 'json',
-                    success: function (data) {
-                        $("#myproduct").empty();
-                        $.each(data, function (i, v) {
-                            var message = "<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item\">\n" +
-                                "        <div class=\"p-thumb\">\n" +
-                                "            <a href=\"productdetails-fullwidth.jsp\">\n" +
-                                "                <img src=\"" + v.pimage + "\" class=\"myimg\" style=\"height: 480px\">\n" +
-                                "                <a href=\"#\" class=\"onnew\">" + v.ishot + "</a>\n" +
-                                "            </a>\n" +
-                                "        </div><!-- .p-thumb -->\n" +
-                                "\n" +
-                                "        <div class=\"p-info\">\n" +
-                                "            <h3 class=\"p-title\"><a href=\"productdetails-fullwidth.jsp\">" + v.pname + "</a></h3>\n" +
-                                "\n" +
-                                "            <div class=\"clearfix\">\n" +
-                                "                <div class=\"star-rating\">\n" +
-                                "                    <span style=\"width:60%\"></span>\n" +
-                                "                </div>\n" +
-                                "\n" +
-                                "                    <span class=\"price\">\n" +
-                                "                        <span class=\"amount\">$ " + v.price + "</span>\n" +
-                                "                    </span>\n" +
-                                "            </div>\n" +
-                                "\n" +
-                                "            <div class=\"p-actions\">\n" +
-                                "                <a href=\"#\" class=\"button btn-circle quick-view\"><span class=\"pe-7s-expand1\"></span></a>\n" +
-                                "                <a href=\"#\" class=\"button btn-circle view-compare\"><span class=\"pe-7s-refresh-2\"></span></a>\n" +
-                                "                <a href=\"#\" class=\"button btn-circle add-to-wishlist\"><span class=\"pe-7s-like\"></span></a>\n" +
-                                "                <a href=\"${pageContext.request.contextPath}/product?method=addcart\" class=\"button btn-circle add-to-cart-button\"><span class=\"pe-7s-cart\"></span></a>\n" +
-                                "            </div><!-- .p-actions -->\n" +
-                                "        </div><!-- .p-info -->\n" +
-                                "    </div><!-- .product -->";
-                            $("#myproduct").append(message);
-                        });
-                    }
-                });
+                var price = $("#amount").text();
+                path="page?method=getRedWineByPrice&<%= session.getAttribute("pathSession")%>&price="+price;
+                window.location.href = path;
+
             });
         </script>
-
-
-
-
-
-
-
-
-
-
-
                 <aside class="widget">
                     <h3 class="widget-title"><span>Colors</span></h3>
                     <ul class="list-color" id="mycolor">

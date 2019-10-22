@@ -38,7 +38,7 @@
                     <div class="breadcrumb">
                         <ul>
                             <li><a href="index.jsp">Home</a></li>
-                            <li><a href="page?method=getCurrentPage&currentPage=1">Shop</a></li>
+                            <li><a href="page?method=getPage&currentPage=1">Shop</a></li>
                             <li><span class="current">Details</span></li>
                         </ul>
                     </div><!-- .breadcrumb -->
@@ -232,7 +232,7 @@
             </div>
 
             <div class="view-all">
-                <a href="page?method=getCurrentPage&currentPage=1" class="button radius">Show all</a>
+                <a href="page?method=getPage&currentPage=1" class="button radius">Show all</a>
 
             </div>
         </div><!-- featured-product -->

@@ -3,6 +3,7 @@ com\igeek\domain\Comment.class
 com\igeek\utils\BeanFactory.class
 com\igeek\service\ProductService.class
 com\igeek\domain\Product.class
+com\igeek\web\RedWineServlet.class
 com\igeek\dao\CommentDao.class
 com\igeek\utils\MailUtils$1.class
 com\igeek\dao\OrderDao.class

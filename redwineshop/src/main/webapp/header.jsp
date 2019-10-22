@@ -6,7 +6,7 @@
 
         <%--登录弹窗--%>
     <div id="login_dialog" class="modal fade login-popup">
-        <div class="popup-inner">
+        <div class="">
             <div class="modal-header">
                 <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
                 <h3 class="modal-title">Login</h3>
@@ -228,7 +228,7 @@
                     <li id="home" class="mega-menu-wrap"><a href="index.jsp" id="choose1" class="choose1">Home</a>
 
                     </li>
-                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/page?method=getCurrentPage&currentPage=1" class="choose1">Shop</a>
+                    <li id="shop" class="mega-menu-wrap"><a href="${pageContext.request.contextPath}/page?method=getPage&currentPage=1" class="choose1">Shop</a>
 
                     </li>
 
@@ -242,5 +242,4 @@
             </nav><!-- .main-menu -->
         </div>
     </div><!-- header-menu -->
-
 </header><!-- .site-header -->
