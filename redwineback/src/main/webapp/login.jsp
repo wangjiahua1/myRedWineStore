@@ -23,7 +23,6 @@
         <div id="title">
             <i class="material-icons lock">lock</i> Login
         </div>
-        <div>${msg}</div>
         <form action="${pageContext.request.contextPath}/userb?method=login1" method="post">
             <div class="input">
                 <div class="input-addon">

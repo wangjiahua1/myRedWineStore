@@ -15,23 +15,17 @@
 	<link rel="stylesheet" href="../../css/user.css" media="all" />
 </head>
 <body class="childrenBody">
-	<blockquote class="layui-elem-quote news_search">
-		<div class="layui-inline">
-		    <div class="layui-input-inline">
-		    	<input type="text" value="" placeholder="请输入关键字" class="layui-input search_input">
-		    </div>
-		    <a class="layui-btn search_btn">查询</a>
-		</div>
-		<div class="layui-inline">
-			<a class="layui-btn layui-btn-normal usersAdd_btn">添加用户</a>
-		</div>
-		<div class="layui-inline">
-			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
-		</div>
-		<div class="layui-inline">
-			<div class="layui-form-mid layui-word-aux">　本页面刷新后除新添加的文章外所有操作无效，关闭页面所有数据重置</div>
-		</div>
-	</blockquote>
+	<%--<blockquote class="layui-elem-quote news_search">--%>
+		<%--<div class="layui-inline">--%>
+		    <%--<div class="layui-input-inline">--%>
+		    	<%--<input type="text" value="" placeholder="请输入关键字" class="layui-input search_input">--%>
+		    <%--</div>--%>
+		    <%--<a class="layui-btn search_btn">查询</a>--%>
+		<%--</div>--%>
+		<%--<div class="layui-inline">--%>
+			<%--<a class="layui-btn layui-btn-danger batchDel">批量删除</a>--%>
+		<%--</div>--%>
+	<%--</blockquote>--%>
 	<div class="layui-form news_list">
 	  	<table class="layui-table">
 		    <colgroup>
@@ -51,16 +45,61 @@
 					<th>邮箱</th>
 					<th>性别</th>
 					<th>会员等级</th>
-					<th>会员状态</th>
 					<th>最后登录时间</th>
 					<th>操作</th>
 				</tr> 
 		    </thead>
-		    <tbody class="users_content"></tbody>
+		    <tbody class="users_content" id="tbody2">
+				<%--<tr>--%>
+					<%--<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>--%>
+					<%--<td></td>--%>
+					<%--<td></td>--%>
+					<%--<td></td>--%>
+					<%--<td></td>--%>
+					<%--<td></td>--%>
+					<%--<td><a class="layui-btn layui-btn-danger layui-btn-mini users_del"><i class="layui-icon">&#xe640;</i> 删除</a></td>--%>
+				<%--</tr>--%>
+			</tbody>
 		</table>
 	</div>
 	<div id="page"></div>
+	<script type="text/javascript" src="../../js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript" src="allUsers.js"></script>
+	<script type="text/javascript">
+		$(function () {
+
+			$.getJSON(
+                "${pageContext.request.contextPath}/userb?method=findalluser",
+				function (data) {
+                    $("#tbody2").empty();
+                    console.log(data);
+                    $.each(data, function (i,v) {
+                        var tr="";
+                        var email=v.email;
+                        tr+="<tr>\n" +
+                            "<td><input type='checkbox' name='checked' lay-skin='primary' lay-filter='choose'></td>\n" +
+                            "<td>"+v.uname+"</td>\n" +
+                            "<td>"+v.email+"</td>\n" +
+                            "<td>"+v.sex+"</td>\n" +
+                            "<td>"+v.MemberOrder+"</td>\n" +
+                            "<td>"+v.lastlogin+"</td>\n" +
+                            "<td><a href='javascript:void(0)' email="+v.email+" class=\"layui-btn layui-btn-danger layui-btn-mini users_del\"><i class=\"layui-icon\"></i>查看</a></td>\n" +
+                            "</tr>";
+                        $("#tbody2").append(tr);
+                    })
+                    $("a").click(function () {
+						var email=$(this).attr("email");
+						window.location.href="${pageContext.request.contextPath}/userb?method=finduser&email="+email;
+                    })
+
+                }
+			)
+
+			
+
+
+        })
+	</script>
 </body>
 </html>

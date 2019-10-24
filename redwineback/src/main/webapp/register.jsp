@@ -6,6 +6,8 @@
     <meta name="description" content="Login - Register Template">
     <meta name="author" content="Lorenzo Angelino aka MrLolok">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/register.js"></script>
     <link rel="stylesheet" href="css/main1.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -21,12 +23,12 @@
             <i class="material-icons lock">lock</i> Register
         </div>
 
-        <form>
+        <form action="${pageContext.request.contextPath}/userb?method=register" method="post">
             <div class="input">
                 <div class="input-addon">
                     <i class="material-icons">email</i>
                 </div>
-                <input id="email" placeholder="Email" type="email" required class="validate" autocomplete="off">
+                <input id="email" placeholder="Email" name="email" type="email" required class="validate" autocomplete="off">
             </div>
 
             <div class="clearfix"></div>
@@ -35,7 +37,7 @@
                 <div class="input-addon">
                     <i class="material-icons">face</i>
                 </div>
-                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+                <input id="code"  name="code" placeholder="code" type="text" required class="validate" autocomplete="off">
             </div>
 
             <div class="clearfix"></div>
@@ -44,24 +46,15 @@
                 <div class="input-addon">
                     <i class="material-icons">vpn_key</i>
                 </div>
-                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+                <input id="password"  name="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
             </div>
-
-            <div class="remember-me">
-                <input type="checkbox">
-                <span style="color: #DDD">I accept Terms of Service</span>
-            </div>
-
+            <p></p>
+            <p></p>
             <input type="submit" value="Register" />
         </form>
-
-        <div class="privacy">
-            <a href="#">Privacy Policy</a>
-        </div>
-
         <div class="register">
             Do you already have an account?
-            <a href="#"><button id="register-link">Log In here</button></a>
+            <a href="javascript:void(0)"><button id="register-link">GetCode</button></a>
         </div>
     </div>
 </body>

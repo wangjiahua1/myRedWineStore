@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,25 +15,27 @@
 	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="../../css/user.css" media="all" />
 </head>
+<%--action="${pageContext.request.contextPath}/userb?method=information" --%>
 <body class="childrenBody">
-	<form class="layui-form">
+	<form id="form" class="layui-form" method="post">
 		<div class="user_left">
 			<div class="layui-form-item">
 			    <label class="layui-form-label">用户名</label>
 			    <div class="layui-input-block">
-			    	<input type="text" value="请叫我马哥" disabled class="layui-input layui-disabled">
+			    	<input type="text" id="uname"
+					<c:if test="${empty sessionScope.user}">
+						   value=""
+					</c:if>
+					<c:if test="${!empty sessionScope.user}">
+						   value="${sessionScope.user.uname}"
+					</c:if>
+						    name="uname" class="layui-input" >
 			    </div>
 			</div>
 			<div class="layui-form-item">
 			    <label class="layui-form-label">用户组</label>
 			    <div class="layui-input-block">
-			    	<input type="text" value="超级管理员" disabled class="layui-input layui-disabled">
-			    </div>
-			</div>
-			<div class="layui-form-item">
-			    <label class="layui-form-label">真实姓名</label>
-			    <div class="layui-input-block">
-			    	<input type="text" value="" placeholder="请输入真实姓名" lay-verify="required" class="layui-input">
+			    	<input type="text" id="memberorder" value="超级管理员" name="memberorder" disabled class="layui-input layui-disabled">
 			    </div>
 			</div>
 			<div class="layui-form-item" pane="">
@@ -45,75 +49,98 @@
 			<div class="layui-form-item">
 			    <label class="layui-form-label">手机号码</label>
 			    <div class="layui-input-block">
-			    	<input type="tel" value="" placeholder="请输入手机号码" lay-verify="required|phone" class="layui-input">
+			    	<input type="tel"  id="tel"
+					<c:if test="${empty sessionScope.user}">
+						   value=""
+					</c:if>
+					<c:if test="${!empty sessionScope.user}">
+						   value="${sessionScope.user.telephone}"
+					</c:if>
+						    placeholder="请输入手机号码" lay-verify="required|phone" class="layui-input">
 			    </div>
 			</div>
 			<div class="layui-form-item">
 			    <label class="layui-form-label">出生年月</label>
 			    <div class="layui-input-block">
-			    	<input type="text" value="" placeholder="请输入出生年月" lay-verify="required|date" onclick="layui.laydate({elem: this,max: laydate.now()})" class="layui-input">
+			    	<input type="text"  id="birthday"
+					<c:if test="${empty sessionScope.user}">
+						   value=""
+					</c:if>
+					<c:if test="${!empty sessionScope.user}">
+						   value="${sessionScope.user.birthday}"
+					</c:if>
+						   placeholder="请输入出生年月" lay-verify="required|date" onclick="layui.laydate({elem: this,max: laydate.now()})" class="layui-input">
 			    </div>
 			</div>
+			<c:if test="${empty sessionScope.user.area}">
 			<div class="layui-form-item">
 			    <label class="layui-form-label">家庭住址</label>
 			    <div class="layui-input-inline">
-	                <select name="province" lay-filter="province">
-	                    <option value="">请选择省</option>
+	                <select name="province" lay-filter="province" id="province">
+	                    <option value="" name="province">请选择省</option>
 	                </select>
 	            </div>
 	            <div class="layui-input-inline">
-	                <select name="city" lay-filter="city" disabled>
-	                    <option value="">请选择市</option>
+	                <select name="city" lay-filter="city" disabled id="city">
+	                    <option value="" name="city">请选择市</option>
 	                </select>
 	            </div>
 	            <div class="layui-input-inline">
-	                <select name="area" lay-filter="area" disabled>
-	                    <option value="">请选择县/区</option>
+	                <select name="area" lay-filter="area" disabled id="area">
+	                    <option value="" name="area">请选择县/区</option>
 	                </select>
 	            </div>
 			</div>
+			</c:if>
+			<c:if test="${!empty sessionScope.user.area}">
 			<div class="layui-form-item">
-			    <label class="layui-form-label">兴趣爱好</label>
-			    <div class="layui-input-block">
-			    	<input type="checkbox" name="like1[javascript]" title="Javascript">
-				    <input type="checkbox" name="like1[html]" title="HTML(5)">
-				    <input type="checkbox" name="like1[css]" title="CSS(3)">
-				    <input type="checkbox" name="like1[php]" title="PHP">
-				    <input type="checkbox" name="like1[.net]" title=".net">
-				    <input type="checkbox" name="like1[ASP]" title="ASP">
-				    <input type="checkbox" name="like1[C#]" title="C#">
-				    <input type="checkbox" name="like1[Angular]" title="Angular">
-				    <input type="checkbox" name="like1[VUE]" title="VUE">
-				    <input type="checkbox" name="like1[XML]" title="XML">
-			    </div>
+				<label class="layui-form-label">地址</label>
+				<div class="layui-input-block">
+
+					<input type="text" id="address" value="${sessionScope.user.area}" name="uname" class="layui-input" >
+				</div>
 			</div>
-			<div class="layui-form-item">
-			    <label class="layui-form-label">邮箱</label>
-			    <div class="layui-input-block">
-			    	<input type="text" value="" placeholder="请输入邮箱" lay-verify="required|email" class="layui-input">
-			    </div>
-			</div>
-			<div class="layui-form-item">
-			    <label class="layui-form-label">自我评价</label>
-			    <div class="layui-input-block">
-			    	<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
-			    </div>
-			</div>
-		</div>
-		<div class="user_right">
-			<input type="file" name="dddd" class="layui-upload-file" lay-title="掐指一算，我要换一个头像了">
-			<p>由于是纯静态页面，所以只能显示一张随机的图片</p>
-			<img src="" class="layui-circle" id="userFace">
-		</div>
-		<div class="layui-form-item" style="margin-left: 5%;">
-		    <div class="layui-input-block">
-		    	<button class="layui-btn" lay-submit="" lay-filter="changeUser">立即提交</button>
+			</c:if>
+			<div class="layui-input-block">
+				<button type="submit" class="layui-btn" lay-submit="" lay-filter="changeUser">立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-		    </div>
+			</div>
 		</div>
+		<%--<div class="layui-form-item" style="margin-left: 5%;">--%>
+		    <%--<div class="layui-input-block">--%>
+		    	<%--<button class="layui-btn" lay-submit="" lay-filter="changeUser">立即提交</button>--%>
+				<%--<button type="reset" class="layui-btn layui-btn-primary">重置</button>--%>
+		    <%--</div>--%>
+		<%--</div>--%>
 	</form>
+
+	<script type="text/javascript" src="../../js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript" src="address.js"></script>
 	<script type="text/javascript" src="user.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$(".layui-btn").click(function () {
+				var name = $("#uname").val();
+				var memberorder = $("#memberorder").val();
+				var sex=$("input[name='sex']:checked").val();
+				var tel = $("#tel").val();
+				var birthday = $("#birthday").val();
+				var province = $("#province").find("option:selected").text();
+                var city = $("#city").find("option:selected").text();
+                var area = $("#area").find("option:selected").text();
+                var address=province+"-"+city+"-"+area;
+				console.log(name + memberorder + sex + tel + birthday + province + city + area);
+				$.ajax({
+					url:"${pageContext.request.contextPath}/userb?method=information",
+					data:{name:name,memberorder:memberorder,sex:sex,tel:tel, birthday:birthday,address:address},
+
+					success:function () {
+
+                    }
+				})
+            });
+        });
+	</script>
 </body>
 </html>

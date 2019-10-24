@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>首页--后台管理</title>
+    <title>首页--layui后台管理模板</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -23,7 +23,7 @@
 <body class="childrenBody">
 <div class="panel_box row">
     <div class="panel col">
-        <a href="javascript:;" data-url="page/message/message.jsp">
+        <a href="javascript:;" data-url="page/message/message.html">
             <div class="panel_icon">
                 <i class="layui-icon" data-icon="&#xe63a;">&#xe63a;</i>
             </div>
@@ -34,12 +34,12 @@
         </a>
     </div>
     <div class="panel col">
-        <a href="javascript:;" data-url="page/user/allUsers.jsp">
+        <a href="javascript:;" data-url="page/user/allUsers.html">
             <div class="panel_icon" style="background-color:#FF5722;">
                 <i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
             </div>
             <div class="panel_word userAll">
-                <span></span>
+                <span>0</span>
                 <cite>新增人数</cite>
             </div>
         </a>
@@ -49,14 +49,13 @@
             <div class="panel_icon" style="background-color:#009688;">
                 <i class="layui-icon" data-icon="&#xe613;">&#xe613;</i>
             </div>
-            <div class="panel_word userAll">
-                <span></span>
-                <cite>用户总数</cite>
+            <div class="panel_word userAll" id="usercount">
+
             </div>
         </a>
     </div>
     <div class="panel col">
-        <a href="javascript:;" data-url="page/img/images.jsp">
+        <a href="javascript:;" data-url="page/img/images.html">
             <div class="panel_icon" style="background-color:#5FB878;">
                 <i class="layui-icon" data-icon="&#xe64a;">&#xe64a;</i>
             </div>
@@ -67,7 +66,7 @@
         </a>
     </div>
     <div class="panel col">
-        <a href="javascript:;" data-url="page/news/newsList.jsp">
+        <a href="javascript:;" data-url="page/news/newsList.html">
             <div class="panel_icon" style="background-color:#F7B824;">
                 <i class="iconfont icon-wenben" data-icon="icon-wenben"></i>
             </div>
@@ -78,7 +77,7 @@
         </a>
     </div>
     <div class="panel col max_panel">
-        <a href="javascript:;" data-url="page/news/newsList.jsp">
+        <a href="javascript:;" data-url="page/news/newsList.html">
             <div class="panel_icon" style="background-color:#2F4056;">
                 <i class="iconfont icon-text" data-icon="icon-text"></i>
             </div>
@@ -90,8 +89,25 @@
         </a>
     </div>
 </div>
-
+<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../layui/layui.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript">
+    $(function () {
+            $.getJSON(
+                "${pageContext.request.contextPath}/userb?method=findcount",
+                function(data){
+                    $("#usercount").empty();
+                    var di="<span>"+data+"</span>\n" +
+                        " <cite>用户总数</cite>"
+                    $("#usercount").append(di);
+                }
+            )
+
+
+        }
+
+    )
+</script>
 </body>
 </html>

@@ -67,7 +67,7 @@ layui.config({
                 layer.msg("密码修改成功！");
                 $(".pwd").val('');
             },2000);
-        	return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            return false;
         })
 
 })

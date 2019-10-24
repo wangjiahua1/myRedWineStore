@@ -14,41 +14,63 @@
 	<link rel="stylesheet" href="../../css/user.css" media="all" />
 </head>
 <body class="childrenBody">
-	<form class="layui-form changePwd">
-		<div style="margin:0 0 15px 110px;color:#f00;">旧密码请输入“123456”，新密码必须两次输入一致才能提交</div>
+	<form class="layui-form changePwd" id="form">
 		<div class="layui-form-item">
 		    <label class="layui-form-label">用户名</label>
 		    <div class="layui-input-block">
-		    	<input type="text" value="请叫我马哥" disabled class="layui-input layui-disabled">
+		    	<input type="text" value="${sessionScope.user.uname}"  class="layui-input pwd">
 		    </div>
 		</div>
 		<div class="layui-form-item">
 		    <label class="layui-form-label">旧密码</label>
 		    <div class="layui-input-block">
-		    	<input type="password" value="" placeholder="请输入旧密码" lay-verify="required|oldPwd" class="layui-input pwd">
+		    	<input type="password" name="oldpassword" value="" placeholder="请输入旧密码" class="layui-input pwd">
+				<span id="oldpd"></span>
 		    </div>
 		</div>
 		<div class="layui-form-item">
 		    <label class="layui-form-label">新密码</label>
 		    <div class="layui-input-block">
-		    	<input type="password" value="" placeholder="请输入新密码" lay-verify="required|newPwd" id="oldPwd" class="layui-input pwd">
+		    	<input type="password" name="newpassword" value="" placeholder="请输入新密码" lay-verify="required|newPwd" id="oldPwd" class="layui-input pwd">
 		    </div>
 		</div>
 		<div class="layui-form-item">
 		    <label class="layui-form-label">确认密码</label>
 		    <div class="layui-input-block">
-		    	<input type="password" value="" placeholder="请确认密码" lay-verify="required|confirmPwd" class="layui-input pwd">
+		    	<input type="password" name="commitpassword" value="" placeholder="请确认密码" lay-verify="required|confirmPwd" class="layui-input pwd">
 		    </div>
-		</div>
-		<div class="layui-form-item">
-		    <div class="layui-input-block">
-		    	<button class="layui-btn" lay-submit="" lay-filter="changePwd">立即修改</button>
-				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-		    </div>
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<button type="submit" class="layui-btn" lay-submit="" lay-filter="changePwd">立即修改</button>
+					<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				</div>
+			</div>
 		</div>
 	</form>
+	<script type="text/javascript" src="../../js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript" src="address.js"></script>
 	<script type="text/javascript" src="user.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$(".layui-btn").click(function () {
+				var oldpassword=$("input[name='oldpassword']").val();
+                var newpassword=$("input[name='newpassword']").val();
+                var commitpassword=$("input[name='commitpassword']").val();
+                $.ajax({
+					url:"${pageContext.request.contextPath}/userb?method=amendpassword",
+					data:{oldpassword:oldpassword,newpassword:newpassword,commitpassword:commitpassword},
+                    datatype:JSON,
+					success:function (data) {
+					    console.log(data);
+						if (data =='true') {
+							// location.href="login.jsp";
+                            window.location.reload();
+						}
+                    }
+				})
+            })
+        })
+	</script>
 </body>
 </html>

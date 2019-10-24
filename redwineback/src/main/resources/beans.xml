@@ -9,8 +9,8 @@
     <bean id="dataservice" class="com.igeek.service.impl.DateServiceImpl"></bean>
     <bean id="datadao" class="com.igeek.dao.impl.DataDaoImpl"></bean>
     <!--Service-->
-    <bean id="userservice" class="com.igeek.service.imp.UserServiceImpl"></bean>
-    <bean id="userdao" class="com.igeek.dao.imp.UserDaoImpl"></bean>
+    <bean id="userservice" class="com.igeek.service.impl.UserServiceImpl"></bean>
+    <bean id="userdao" class="com.igeek.dao.impl.UserDaoImpl"></bean>
 
     <bean id="lettersService" class="com.igeek.service.imp.LettersServiceImpl"></bean>
     <bean id="lettersDao" class="com.igeek.dao.imp.LettersDaoImpl"></bean>

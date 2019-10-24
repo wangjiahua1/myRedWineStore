@@ -36,7 +36,7 @@
             </ul>
             <div class="layui-tab-content clildFrame">
                 <div class="layui-tab-item layui-show">
-                    <iframe src="page/main.jsp"></iframe>
+                    <iframe src="page/main.jsp" id="iframe1"></iframe>
                 </div>
             </div>
         </div>
@@ -48,20 +48,17 @@
 <div class="admin-header-lock" id="lock-box" style="display: none;">
     <div class="admin-header-lock-img"><img src="images/face.jpg"/></div>
     <div class="admin-header-lock-name" id="lockUserName">请叫我马哥</div>
-    <div class="input_btn">
-        <input type="password" class="admin-header-lock-input layui-input" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />
-        <button class="layui-btn" id="unlock">解锁</button>
-    </div>
-    <p>请输入“123456”，否则不会解锁成功哦！！！</p>
+
 </div>
 <!-- 移动导航 -->
 <div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 <div class="site-mobile-shade"></div>
-
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="layui/layui.js"></script>
 <script type="text/javascript" src="js/nav.js"></script>
 <script type="text/javascript" src="js/leftNav.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
 </body>
 </html>
 </body>
