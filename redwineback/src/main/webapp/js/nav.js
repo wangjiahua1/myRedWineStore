@@ -4,9 +4,9 @@ var navs = [{
 	"href" : "page/main.html",
 	"spread" : false
 },{
-	"title" : "新闻管理",
+	"title" : "来信管理",
 	"icon" : "icon-text",
-	"href" : "page/news/newsList.jsp",
+	"href" : "letters?method=findALLletters",
 	"spread" : false
 },{
 	"title" : "评论管理",
