@@ -79,7 +79,7 @@
 
         <div class="post-thumb post-thumb-full">
 
-            <img src="images/placeholder/blog-img01.jpg" alt="">
+            <img src="${blogs.bimage}" alt="">
 
         </div><!-- .post-thumb.post-thumb-full -->
 

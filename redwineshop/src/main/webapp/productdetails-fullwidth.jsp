@@ -234,10 +234,10 @@
                                     <h3 class="comment-reply-title widget-title" id="reply-title">LEAVE A COMMENT</h3>
                                     <form novalidate="" class="comment-form" id="commentform" method="post" action="${pageContext.request.contextPath}/comment?method=addcomment">
                                         <p class="comment-form-author">
-                                            <input size="30" value="" name="name" placeholder="Name" id="author" type="text">
+                                            <input size="30" value="${sessionScope.user.username}" name="name" placeholder="Name" id="author" type="text">
                                         </p>
                                         <p class="comment-form-email">
-                                            <input size="30" value="" name="email" placeholder="Email" id="email" type="text">
+                                            <input size="30" value="${sessionScope.user.email}" name="email" placeholder="Email" id="email" type="text">
                                         </p>
                                         <p class="comment-form-comment">
                                             <textarea aria-required="true" rows="9" cols="45" placeholder="Your comment" name="desc" id="comment"></textarea>

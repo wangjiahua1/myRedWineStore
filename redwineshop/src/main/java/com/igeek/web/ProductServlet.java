@@ -208,7 +208,12 @@ public class ProductServlet extends BaseServlet {
 
     public void findproductbycolor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String color=request.getParameter("color");
+        String page=request.getParameter("page");
         System.out.println(color);
         List<Product> products =ps.findproductbycolor(color);
+        System.out.println(products);
+        Gson gson =new Gson();
+        String jsonString =gson.toJson(products);
+        response.getWriter().write(jsonString);
     }
 }
