@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="redwineback" />
         <module name="redwineshop" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="redwineback" target="1.7" />
       <module name="redwineshop" target="1.7" />
     </bytecodeTargetLevel>
   </component>

@@ -39,12 +39,14 @@
     </properties>
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/redwineback" />
     <file type="web" url="file://$PROJECT_DIR$/redwineshop" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/redwineshop/pom.xml" />
+        <option value="$PROJECT_DIR$/redwineback/pom.xml" />
       </list>
     </option>
   </component>
