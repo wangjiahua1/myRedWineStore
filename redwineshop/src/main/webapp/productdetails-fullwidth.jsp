@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -165,6 +165,42 @@
                 </div><!-- .p-info -->
                 <div class="tabs-infor">
                     <ul>
+                <div class="p-tag-share clearfix">
+                    <div class="p-tags">
+                        <a href="#">blackberry</a> ,
+                        <a href="#">cassis</a> ,
+                        <a href="#">plum</a> ,
+                        <a href="#">vanilla</a> ,
+                        <a href="#">cocoa</a>
+                    </div><!-- p-tags -->
+                    <div class="social">
+                        <span>Share Link: </span>
+                        <ul>
+                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div><!-- p-tag-share -->
+                <div class="p-actions">
+                    <div class="attr-item">
+                        <label>Qty:</label>
+                        <div class="quantity">
+                            <input type="number" step="1" min="0" value="1" title="Qty" class="qty" size="4">
+                        </div>
+                    </div><!-- .attr-item -->
+                    <div class="p-actions-btn">
+                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
+                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
+                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
+                        <a href="${pageContext.request.contextPath}/product?method=addcart&pid=${redwine.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                    </div>
+                </div><!-- .p-actions -->
+            </form>
+        </div><!-- .p-info -->
+        <div class="tabs-infor">
+            <ul>
 
                         <li class="tab-item">
                             <a href="#" class="tab-title">Product DESCRIPTION</a>
@@ -198,10 +234,10 @@
                                     <h3 class="comment-reply-title widget-title" id="reply-title">LEAVE A COMMENT</h3>
                                     <form novalidate="" class="comment-form" id="commentform" method="post" action="${pageContext.request.contextPath}/comment?method=addcomment">
                                         <p class="comment-form-author">
-                                            <input size="30" value="" name="name" placeholder="Name" id="author" type="text">
+                                            <input size="30" value="${sessionScope.user.username}" name="name" placeholder="Name" id="author" type="text">
                                         </p>
                                         <p class="comment-form-email">
-                                            <input size="30" value="" name="email" placeholder="Email" id="email" type="text">
+                                            <input size="30" value="${sessionScope.user.email}" name="email" placeholder="Email" id="email" type="text">
                                         </p>
                                         <p class="comment-form-comment">
                                             <textarea aria-required="true" rows="9" cols="45" placeholder="Your comment" name="desc" id="comment"></textarea>

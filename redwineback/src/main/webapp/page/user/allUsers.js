@@ -15,7 +15,7 @@ layui.config({
 			usersData = JSON.parse(addUsers).concat(usersData);
 		}
 		//执行加载数据的方法
-		usersList();
+		// usersList();
 	})
 
 	//查询
@@ -129,58 +129,58 @@ layui.config({
 		layer.alert('您点击了会员编辑按钮,由于是纯静态页面,所以暂时不存在编辑内容,后期会添加,敬请谅解。。。',{icon:6, title:'文章编辑'});
 	})
 
-	$("body").on("click",".users_del",function(){  //删除
-		var _this = $(this);
-		layer.confirm('确定删除此用户？',{icon:3, title:'提示信息'},function(index){
-			//_this.parents("tr").remove();
-			for(var i=0;i<usersData.length;i++){
-				if(usersData[i].usersId == _this.attr("data-id")){
-					usersData.splice(i,1);
-					usersList(usersData);
-				}
-			}
-			layer.close(index);
-		});
-	})
+	// $("body").on("click",".users_del",function(){  //删除
+	// 	var _this = $(this);
+	// 	layer.confirm('确定删除此用户？',{icon:3, title:'提示信息'},function(index){
+	// 		//_this.parents("tr").remove();
+	// 		for(var i=0;i<usersData.length;i++){
+	// 			if(usersData[i].usersId == _this.attr("data-id")){
+	// 				usersData.splice(i,1);
+	// 				usersList(usersData);
+	// 			}
+	// 		}
+	// 		layer.close(index);
+	// 	});
+	// })
 
-	function usersList(){
-		//渲染数据
-		function renderDate(data,curr){
-			var dataHtml = '';
-			currData = usersData.concat().splice(curr*nums-nums, nums);
-			if(currData.length != 0){
-				for(var i=0;i<currData.length;i++){
-					dataHtml += '<tr>'
-			    	+  '<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
-			    	+  '<td>'+currData[i].userName+'</td>'
-			    	+  '<td>'+currData[i].userEmail+'</td>'
-			    	+  '<td>'+currData[i].userSex+'</td>'
-			    	+  '<td>'+currData[i].userGrade+'</td>'
-			    	+  '<td>'+currData[i].userStatus+'</td>'
-			    	+  '<td>'+currData[i].userEndTime+'</td>'
-			    	+  '<td>'
-					+    '<a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
-					+    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].usersId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
-			        +  '</td>'
-			    	+'</tr>';
-				}
-			}else{
-				dataHtml = '<tr><td colspan="8">暂无数据</td></tr>';
-			}
-		    return dataHtml;
-		}
-
-		//分页
-		var nums = 13; //每页出现的数据量
-		laypage({
-			cont : "page",
-			pages : Math.ceil(usersData.length/nums),
-			jump : function(obj){
-				$(".users_content").html(renderDate(usersData,obj.curr));
-				$('.users_list thead input[type="checkbox"]').prop("checked",false);
-		    	form.render();
-			}
-		})
-	}
+	// function usersList(){
+	// 	//渲染数据
+	// 	function renderDate(data,curr){
+	// 		var dataHtml = '';
+	// 		currData = usersData.concat().splice(curr*nums-nums, nums);
+	// 		if(currData.length != 0){
+	// 			for(var i=0;i<currData.length;i++){
+	// 				dataHtml += '<tr>'
+	// 		    	+  '<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
+	// 		    	+  '<td>'+currData[i].userName+'</td>'
+	// 		    	+  '<td>'+currData[i].userEmail+'</td>'
+	// 		    	+  '<td>'+currData[i].userSex+'</td>'
+	// 		    	+  '<td>'+currData[i].userGrade+'</td>'
+	// 		    	+  '<td>'+currData[i].userStatus+'</td>'
+	// 		    	+  '<td>'+currData[i].userEndTime+'</td>'
+	// 		    	+  '<td>'
+	// 				+    '<a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+	// 				+    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].usersId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+	// 		        +  '</td>'
+	// 		    	+'</tr>';
+	// 			}
+	// 		}else{
+	// 			dataHtml = '<tr><td colspan="8">暂无数据</td></tr>';
+	// 		}
+	// 	    return dataHtml;
+	// 	}
+    //
+	// 	//分页
+	// 	var nums = 13; //每页出现的数据量
+	// 	laypage({
+	// 		cont : "page",
+	// 		pages : Math.ceil(usersData.length/nums),
+	// 		jump : function(obj){
+	// 			$(".users_content").html(renderDate(usersData,obj.curr));
+	// 			$('.users_list thead input[type="checkbox"]').prop("checked",false);
+	// 	    	form.render();
+	// 		}
+	// 	})
+	// }
         
 })

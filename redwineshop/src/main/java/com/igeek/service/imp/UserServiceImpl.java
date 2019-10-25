@@ -50,7 +50,21 @@ public class UserServiceImpl implements UserService {
     public void updateActiveCode(String activeCode) {
         dao.updateActiveCode(activeCode);
     }
+
+    @Override
+    public int findforgetpasswordu(User user) {
+
+        return dao.findforgetpasswordu(user);
+    }
+
+    @Override
+    public void saveforgetu(User user) {
+        dao.saveforgetu(user);
+    }
+
     public void save(User user) {
         dao.save(user);
     }
+
+
 }

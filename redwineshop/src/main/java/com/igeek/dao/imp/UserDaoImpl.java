@@ -78,4 +78,26 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public int findforgetpasswordu(User user) {
+        sql="select * from user where email = ?";
+        User u=null;
+        try {
+            u=qr.query(sql,new BeanHandler<>(User.class),user.getEmail());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return u!=null?1:0;
+    }
+
+    @Override
+    public void saveforgetu(User user) {
+        String  sql ="update user set password = ? where email = ?";
+        try {
+            qr.update(sql,user.getPassword(),user.getEmail());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

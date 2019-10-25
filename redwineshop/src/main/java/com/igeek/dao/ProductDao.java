@@ -40,4 +40,8 @@ public interface ProductDao {
     List<Product> getRedWineByCId(String cid, int currentpage);
 
     int getCountRedWineByPrice(int price1, int price2);
+
+    int getcartid(String uid, int pid);
+
+    void addcartpast(Cart cart);
 }

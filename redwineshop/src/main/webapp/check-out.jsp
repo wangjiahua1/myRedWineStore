@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="images/assets/favicon.png"/>
     <title>Check out</title>
 
+    <script src="js/jquery.js"></script>
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Responsive CSS -->
@@ -18,8 +20,17 @@
     <!--[if lt IE 9]>
     <script src="js/ie9/html5shiv.min.js"></script>
     <script src="js/ie9/respond.min.js"></script>
-
+    <script type="text/javascript" src="js/chooseme.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+        $(function () {
+            $("#place-order").click(function () {
+                console.log("操蛋");
+                console.log(${cartTotal.alltotal});
+                window.location.href="order?method=orderredmine&total=${cartTotal.alltotal}";
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -27,208 +38,217 @@
 <jsp:include page="pageloader.jsp"></jsp:include>
 <jsp:include page="header.jsp"></jsp:include>
 
-            <div class="right-header">
-                <ul>
-                    <li>
-                        <a class="top-account top-login" href="#" data-toggle="modal" data-target="#login_dialog">
-                            <i class="pe-7s-users"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="top-search" href="#" data-toggle="modal" data-target="#search_dialog">
-                            <i class="pe-7s-search"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cart-control" href="#">
-                            <i class="pe-7s-shopbag cart-icon"></i>
-                            <span class="cart-number">2</span>
-                        </a>
-
-                        <div class="shop-item" id="shopping_cart_dropdown">
-                            <div class="widget_shopping_cart_content">
-
-                                <ul class="cart_list">
-
-                                    <li class="clearfix">
-                                        <a class="p-thumb" href="productdetails-fullwidth.jsp">
-                                            <img src="images/placeholder/thumb-product-cart1.jpg" alt="">
-                                        </a>
-                                        <div class="p-info">
-                                            <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
-                                            <span class="price">
-                                                <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
-                                            </span>
-                                            <a class="remove" href="#"><i class="pe-7s-close"></i></a>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix">
-                                        <a class="p-thumb" href="productdetails-fullwidth.jsp">
-                                            <img src="images/placeholder/thumb-product-cart2.jpg" alt="">
-                                        </a>
-                                        <div class="p-info">
-                                            <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
-                                            <span class="price">
-                                                <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
-                                            </span>
-                                            <a class="remove" href="#"><i class="pe-7s-close"></i></a>
-                                        </div>
-                                    </li>
-
-                                </ul>
-
-                                <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
-
-                                <p class="buttons">
-                                    <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
-                                    <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div><!-- right-header -->
-
-            <div class="site-brand">
-                <a class="logo" href="index.html">
-                    <img src="images/assets/logo.png" alt="Vineyard">
-                </a>
-            </div><!-- .site-brand -->
-        </div>
-    </div><!-- top-header -->
-
-    <div class="header-menu">
-        <div class="container">
-            <div class="site-brand">
-                <a class="logo" href="index.html">
-                    <img src="images/assets/logo.png" alt="Vineyard">
-                </a>
-            </div><!-- .site-brand -->
-            <nav class="main-menu">
-                <span class="mobile-menu"><i class="fa fa-bars"></i></span>
-                <ul>
-                    <li class="mega-menu-wrap"><a href="index.html">Home</a>
-                        <div class="sub-menu menu-mega sub-menu menu-mega2">
-                            <div class="mega-item">
-                                <h3 class="menu-title">Home page</h3>
-                                <ul>
-                                    <li><a href="index.html">Home version 1</a></li>
-                                    <li><a href="home02.html">Home version 2</a></li>
-                                    <li><a href="home03.html">Home version 3</a></li>
-                                    <li><a href="home04.html">Home version 4</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
-                                    <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
+                <div class="right-header">
+                    <ul>
+                        <c:if test="${user!=null}">
+                            <li style="font-size:20px ">${user.username}</li>
+                            <li >
+                                <a href="${pageContext.request.contextPath}/user?method=logout" style="font-size: 20px">
+                                    LogOut
                                 </a>
-                            </div>
-                            <div class="mega-item">
-                                <h3 class="menu-title">Shop Page</h3>
-                                <ul>
-                                    <li><a href="shopgrid-fullwidth.jsp">Shop Page</a></li>
-                                    <li><a href="productdetails-fullwidth.jsp">Single Product</a></li>
-                                    <li><a href="shopping-cart-fullwidth.jsp">Shopping cart</a></li>
-                                    <li><a href="check-out.jsp">Checkout</a></li>
-                                    <li><a href="compare.jsp">Compare</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
-                                    <img src="images/placeholder/mega-menu-img2.jpg" alt=""/>
-                                </a>
-                            </div>
-                        </div><!-- .menu-mega -->
-                    </li>
-                    <li class="mega-menu-wrap current-menu-item"><a href="shopgrid-fullwidth.jsp">Shop</a>
-                        <div class="sub-menu menu-mega">
-                            <div class="mega-item image">
-                                <a href="productdetails-fullwidth.jsp">
-                                    <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="mega-item">
-                                <h3 class="menu-title">Shop Page</h3>
-                                <ul>
-                                    <li><a href="shoplist-leftsidebar.html">Shop List Left Sidebar</a></li>
-                                    <li><a href="shoplist-rightsidebar.html">Shop List Right Sidebar</a></li>
-                                    <li><a href="shopgrid-fullwidth.jsp">Shop Grid Full Width</a></li>
-                                    <li><a href="shopgrid-leftsidebar.html">Shop Grid Left Sidebar</a></li>
-                                    <li><a href="shopgrid-rightsidebar.html">Shop Grid Right Sidebar</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item">
-                                <h3 class="menu-title">Shop Single</h3>
-                                <ul>
-                                    <li><a href="productdetails-fullwidth.jsp">Full Width</a></li>
-                                    <li><a href="productdetails-fullwidth.jsp">Left Sidebar</a></li>
-                                    <li><a href="productdetails-rightsidebar.html">Right Sidebar</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item">
-                                <h3 class="menu-title">Shopping Cart</h3>
-                                <ul>
-                                    <li><a href="shopping-cart-fullwidth.jsp">Cart Full Width</a></li>
-                                    <li><a href="shopping-cart-leftsidebar.html">Cart Left Sidebar</a></li>
-                                    <li><a href="shopping-cart-rightsidebar.html">Cart Right Sidebar</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-item">
-                                <h3 class="menu-title">Orther</h3>
-                                <ul>
-                                    <li><a href="my-wishlist.jsp">My Wishlist</a></li>
-                                    <li class="current-menu-item"><a href="check-out.jsp">Check Out</a></li>
-                                    <li><a href="compare.jsp">Compare</a></li>
-                                </ul>
-                            </div>
-                        </div><!-- .menu-mega -->
-                    </li>
-                    <li><a href="portfolio-grid3column1.html">Pages</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="portfolio-grid3column1.html">Portfolio</a>
-                                <ul class="sub-menu">
-                                    <li><a href="portfolio-freestyle.html">Portfolio FreeStyle</a></li>
-                                    <li><a href="portfolio-grid2column.html">Portfolio Grid 2 Column</a></li>
-                                    <li><a href="portfolio-grid3column1.html">Portfolio Grid 3 Column 1</a></li>
-                                    <li><a href="portfolio-grid3column2.html">Portfolio Grid 3 Column 2</a></li>
-                                    <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                </ul>
                             </li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="comming-soon.html">Comming Soon</a></li>
-                            <li><a href="page-404.html">404</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="bloglist-fullwidth.html">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blogdetails-leftsidebar.html">Blog Details LeftSideBar</a></li>
-                            <li><a href="blogdetails-rightsidebar.html">Blog Details RightSidebar</a></li>
-                            <li><a href="blogdetails-fullwidth.jsp">Blog Details FullWidth</a></li>
-                            <li><a href="bloggrid-2column.html">Blog Grid 2Column</a></li>
-                            <li><a href="bloggrid-3column.html">Blog Grid 3Column</a></li>
-                            <li><a href="bloglist-fullwidth.html">Blog List Full Width</a></li>
-                            <li><a href="bloglist-rightsidebar.html">Blog List Right SideBar</a></li>
-                            <li><a href="bloglist-leftsidebar.html">Blog List Left SideBar</a></li>
-                            <li><a href="bloglist-zigzac.html">Blog List ZigZac</a></li>
-                            <li><a href="bloggrid-masonry.html">Blog Grid Masonry</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact-us.html">Contact</a>
-                        <ul class="sub-menu">
-                            <li><a href="contact-us2.html">Contact 2</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                        </c:if>
+                        <c:if test="${user==null}">
+                            <li>
+                                <a class="top-account top-login" href="#" data-toggle="modal" data-target="#login_dialog">
+                                    <i class="pe-7s-users"></i>
+                                </a>
+                            </li>
+                        </c:if>
+                        <li>
+                            <a class="top-search" href="#" data-toggle="modal" data-target="#search_dialog">
+                                <i class="pe-7s-search"></i>
+                            </a>
+                        </li>
 
-            </nav><!-- .main-menu -->
-        </div>
-    </div><!-- header-menu -->
+                        <li>
+                            <a class="cart-control" href="#">
+                                <i class="pe-7s-shopbag cart-icon"></i>
+                                <span class="cart-number">2</span>
+                            </a>
 
-</header><!-- .site-header -->
+                            <div class="shop-item" id="shopping_cart_dropdown">
+                                <div class="widget_shopping_cart_content">
+
+                                    <ul class="cart_list">
+
+                                        <li class="clearfix">
+                                            <a class="p-thumb" href="productdetails-fullwidth.jsp">
+                                                <img src="images/placeholder/thumb-product-cart1.jpg" alt="">
+                                            </a>
+                                            <div class="p-info">
+                                                <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
+                                                <span class="price">
+                                                <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
+                                            </span>
+                                                <a class="remove" href="#"><i class="pe-7s-close"></i></a>
+                                            </div>
+                                        </li>
+
+                                        <li class="clearfix">
+                                            <a class="p-thumb" href="productdetails-fullwidth.jsp">
+                                                <img src="images/placeholder/thumb-product-cart2.jpg" alt="">
+                                            </a>
+                                            <div class="p-info">
+                                                <a class="p-title" href="productdetails-fullwidth.jsp">Tomatin 12 Year Old</a>
+                                                <span class="price">
+                                                <span class="p-qty">1</span> x <ins><span class="amount">$35.00</span></ins>
+                                            </span>
+                                                <a class="remove" href="#"><i class="pe-7s-close"></i></a>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+
+                                    <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
+
+                                    <p class="buttons">
+                                        <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
+                                        <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- right-header -->
+
+                <div class="site-brand">
+                    <a class="logo" href="index.html">
+                        <img src="images/assets/logo.png" alt="Vineyard">
+                    </a>
+                </div><!-- .site-brand -->
+            </div>
+        </div><!-- top-header -->
+
+        <div class="header-menu">
+            <div class="container">
+                <div class="site-brand">
+                    <a class="logo" href="index.html">
+                        <img src="images/assets/logo.png" alt="Vineyard">
+                    </a>
+                </div><!-- .site-brand -->
+                <nav class="main-menu">
+                    <span class="mobile-menu"><i class="fa fa-bars"></i></span>
+                    <ul>
+                        <li class="mega-menu-wrap"><a href="index.html">Home</a>
+                            <div class="sub-menu menu-mega sub-menu menu-mega2">
+                                <div class="mega-item">
+                                    <h3 class="menu-title">Home page</h3>
+                                    <ul>
+                                        <li><a href="index.html">Home version 1</a></li>
+                                        <li><a href="home02.html">Home version 2</a></li>
+                                        <li><a href="home03.html">Home version 3</a></li>
+                                        <li><a href="home04.html">Home version 4</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-item image">
+                                    <a href="productdetails-fullwidth.jsp">
+                                        <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
+                                    </a>
+                                </div>
+                                <div class="mega-item">
+                                    <h3 class="menu-title">Shop Page</h3>
+                                    <ul>
+                                        <li><a href="shopgrid-fullwidth.jsp">Shop Page</a></li>
+                                        <li><a href="productdetails-fullwidth.jsp">Single Product</a></li>
+                                        <li><a href="shopping-cart-fullwidth.jsp">Shopping cart</a></li>
+                                        <li><a href="check-out.jsp">Checkout</a></li>
+                                        <li><a href="compare.jsp">Compare</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-item image">
+                                    <a href="productdetails-fullwidth.jsp">
+                                        <img src="images/placeholder/mega-menu-img2.jpg" alt=""/>
+                                    </a>
+                                </div>
+                            </div><!-- .menu-mega -->
+                        </li>
+                        <li class="mega-menu-wrap current-menu-item"><a href="shopgrid-fullwidth.jsp">Shop</a>
+                            <div class="sub-menu menu-mega">
+                                <div class="mega-item image">
+                                    <a href="productdetails-fullwidth.jsp">
+                                        <img src="images/placeholder/mega-menu-img.jpg" alt=""/>
+                                    </a>
+                                </div>
+                                <div class="mega-item">
+                                    <h3 class="menu-title">Shop Page</h3>
+                                    <ul>
+                                        <li><a href="shoplist-leftsidebar.html">Shop List Left Sidebar</a></li>
+                                        <li><a href="shoplist-rightsidebar.html">Shop List Right Sidebar</a></li>
+                                        <li><a href="shopgrid-fullwidth.jsp">Shop Grid Full Width</a></li>
+                                        <li><a href="shopgrid-leftsidebar.html">Shop Grid Left Sidebar</a></li>
+                                        <li><a href="shopgrid-rightsidebar.html">Shop Grid Right Sidebar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-item">
+                                    <h3 class="menu-title">Shop Single</h3>
+                                    <ul>
+                                        <li><a href="productdetails-fullwidth.jsp">Full Width</a></li>
+                                        <li><a href="productdetails-leftsidebar.html">Left Sidebar</a></li>
+                                        <li><a href="productdetails-rightsidebar.html">Right Sidebar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-item">
+                                    <h3 class="menu-title">Shopping Cart</h3>
+                                    <ul>
+                                        <li><a href="shopping-cart-fullwidth.jsp">Cart Full Width</a></li>
+                                        <li><a href="shopping-cart-leftsidebar.html">Cart Left Sidebar</a></li>
+                                        <li><a href="shopping-cart-rightsidebar.html">Cart Right Sidebar</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-item">
+                                    <h3 class="menu-title">Orther</h3>
+                                    <ul>
+                                        <li><a href="my-wishlist.jsp">My Wishlist</a></li>
+                                        <li class="current-menu-item"><a href="check-out.jsp">Check Out</a></li>
+                                        <li><a href="compare.jsp">Compare</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .menu-mega -->
+                        </li>
+                        <li><a href="portfolio-grid3column1.html">Pages</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="portfolio-grid3column1.html">Portfolio</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="portfolio-freestyle.html">Portfolio FreeStyle</a></li>
+                                        <li><a href="portfolio-grid2column.html">Portfolio Grid 2 Column</a></li>
+                                        <li><a href="portfolio-grid3column1.html">Portfolio Grid 3 Column 1</a></li>
+                                        <li><a href="portfolio-grid3column2.html">Portfolio Grid 3 Column 2</a></li>
+                                        <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="comming-soon.html">Comming Soon</a></li>
+                                <li><a href="page-404.html">404</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="bloglist-fullwidth.html">Blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="blogdetails-leftsidebar.html">Blog Details LeftSideBar</a></li>
+                                <li><a href="blogdetails-rightsidebar.html">Blog Details RightSidebar</a></li>
+                                <li><a href="blogdetails-fullwidth.html">Blog Details FullWidth</a></li>
+                                <li><a href="bloggrid-2column.html">Blog Grid 2Column</a></li>
+                                <li><a href="bloggrid-3column.html">Blog Grid 3Column</a></li>
+                                <li><a href="bloglist-fullwidth.html">Blog List Full Width</a></li>
+                                <li><a href="bloglist-rightsidebar.html">Blog List Right SideBar</a></li>
+                                <li><a href="bloglist-leftsidebar.html">Blog List Left SideBar</a></li>
+                                <li><a href="bloglist-zigzac.html">Blog List ZigZac</a></li>
+                                <li><a href="bloggrid-masonry.html">Blog Grid Masonry</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact-us.html">Contact</a>
+                            <ul class="sub-menu">
+                                <li><a href="contact-us2.html">Contact 2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </nav><!-- .main-menu -->
+            </div>
+        </div><!-- header-menu -->
+
+    </header><!-- .site-header -->
 
     <div id="content" class="site-content content-fullwidth">
         <div class="space-dark"></div>
@@ -268,6 +288,18 @@
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="billing-block">
                                     <h3 class="title-checkout">BILLING ADDRESS</h3>
+
+
+
+                                    <c:forEach items="${cartTotal.carts}" var="cart">
+                                        <p>${cart.pname}</p>
+                                        <p>${cart.price}</p>
+                                    </c:forEach>
+
+
+
+
+
 
                                     <div class="input-field select-country">
                                         <div class="row">
@@ -462,7 +494,7 @@
                                                 </tr>
                                                 <tr class="order-total txt-up">
                                                     <th>Order Total</th>
-                                                    <td><span class="amount">$286.00</span></td>
+                                                    <td><span class="amount">${cartTotal.alltotal}</span></td>
                                                 </tr>
                                             </table>
                                         </div><!-- .product-total -->

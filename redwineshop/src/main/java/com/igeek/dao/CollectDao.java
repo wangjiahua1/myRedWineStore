@@ -19,6 +19,10 @@ public interface CollectDao {
 
     List<Collect> findPartCid(int start, int end , String uid);
 
+
+    void deleCollectByPid(int pid);
+
+    void delAllCollect(String uid);
     int findCountCollect(String uid);
 
     void delCollect(String uid, String pid);

@@ -18,9 +18,13 @@ public interface CollectService {
 
     List<Collect> findCollectByUid(String uid);
 
-    List<Collect> findPartCid(int page , String uid);
+    List<Collect> findPartCid(int page,String uid);
 
     int findCountCollect(String uid);
+
+    void deleCollectByPid(int pid);
+
+    void delAllCollect(String uid);
 
     void delCollect(String uid, String pid);
 }

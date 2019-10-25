@@ -16,4 +16,8 @@ public interface UserDao {
     void updateActiveCode(String activeCode);
 
     void save(User user);
+
+    int findforgetpasswordu(User user);
+
+    void saveforgetu(User user);
 }

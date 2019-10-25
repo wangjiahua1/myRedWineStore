@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 顶部 -->
 <div class="layui-header header">
     <div class="layui-main">
@@ -88,22 +89,35 @@
             <li class="layui-nav-item" mobile>
                 <a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
             </li>
-            <li class="layui-nav-item" mobile>
-                <a href="javascript:;"><i class="iconfont icon-loginout"></i> 退出</a>
-            </li>
-            <li class="layui-nav-item lockcms" pc>
-                <a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>
-            </li>
+            <%--<li class="layui-nav-item" mobile>--%>
+                <%--<a href="javascript:;"><i class="iconfont icon-loginout"></i> 退出</a>--%>
+            <%--</li>--%>
+            <%--<li class="layui-nav-item lockcms" pc>--%>
+                <%--<a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>--%>
+            <%--</li>--%>
             <li class="layui-nav-item" pc>
-                <a href="javascript:;">
-                    <img src="${pageContext.request.contextPath}/images/face.jpg" class="layui-circle" width="35" height="35">
-                    <cite>请叫我马哥</cite>
+                <c:if test="${empty sessionScope.user}">
+                    <a href="${pageContext.request.contextPath}/login.jsp">
+                        <img src="${pageContext.request.contextPath}/images/1.jpg" class="layui-circle" width="35" height="35">
+                        <cite>登录</cite>
+                    </a>
+                    <%--<dl class="layui-nav-child">--%>
+                        <%--<dd><a href="javascript:void(0);" data-url="page/user/userInfo.jsp"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>--%>
+                        <%--<dd><a href="javascript:void(0);" data-url="page/user/changePwd.jsp"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>--%>
+                        <%--<dd><a href="javascript:void(0);"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>--%>
+                    <%--</dl>--%>
+                </c:if>
+                <c:if test="${!empty sessionScope.user}">
+                <a href="javascript:void(0);">
+                    <img src="${pageContext.request.contextPath}/images/1.jpg" class="layui-circle" width="35" height="35">
+                    <cite>${sessionScope.user.uname}</cite>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
-                    <dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
-                    <dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+                    <dd><a href="javascript:void(0);" data-url="page/user/userInfo.jsp"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
+                    <dd><a href="javascript:void(0);" data-url="page/user/changePwd.jsp"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
+                    <dd><a href="${pageContext.request.contextPath}/userb?method=loginout"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
                 </dl>
+                </c:if>
             </li>
         </ul>
     </div>

@@ -75,7 +75,7 @@ public class CollectDaoImpl implements CollectDao {
 
     @Override
     public int findCountCollect(String uid) {
-        sql = "select count(*) from collect where uid = ?;";
+        sql = "select count(*) from collect where uid = ?";
         try {
             return Integer.valueOf(String.valueOf(qr.query(sql,new ScalarHandler<Long>(),uid)));
         } catch (SQLException e) {
@@ -89,6 +89,26 @@ public class CollectDaoImpl implements CollectDao {
         sql = "delete from collect where uid = ? and pid = ?;";
         try {
             qr.update(sql,uid,pid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleCollectByPid(int pid) {
+        sql="delete from collect where pid = ?";
+        try {
+            qr.update(sql,pid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void delAllCollect(String uid) {
+        sql="delete from collect where uid = ?";
+        try {
+            qr.update(sql,uid);
         } catch (SQLException e) {
             e.printStackTrace();
         }

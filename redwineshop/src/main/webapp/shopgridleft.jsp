@@ -68,10 +68,10 @@
                 <aside class="widget">
                     <h3 class="widget-title"><span>Colors</span></h3>
                     <ul class="list-color" id="mycolor">
-                        <li><a href="#" class="red" id="a1">red</a><span class="count" id="red">(42)</span></li>
-                        <li><a href="#" class="black" id="a2">black</a> <span class="count" id="black">(28)</span></li>
-                        <li><a href="#" class="blue" id="a3">blue</a><span class="count" id="blue">(27)</span></li>
-                        <li><a href="#" class="yellow" id="a4">yellow</a><span class="count" id="yellow">(15)</span></li>
+                        <li><a href="javascript:void(0)" class="red" id="a1">red</a><span class="count" id="red">(7)</span></li>
+                        <li><a href="javascript:void(0)" class="black" id="a2">black</a> <span class="count" id="black">(74)</span></li>
+                        <li><a href="javascript:void(0)" class="green" id="a3">green</a><span class="count" id="green">(4)</span></li>
+                        <li><a href="javascript:void(0)" class="yellow" id="a4">yellow</a><span class="count" id="yellow">(12)</span></li>
 
                     </ul>
                 </aside>
@@ -157,6 +157,7 @@
 <script src="js/vendor/jquery-ui.min.js"></script>
 <!-- Jquery Masonry -->
 <script src="js/vendor/masonry.pkgd.min.js"></script>
+<script src="js/findbycolor.js"></script>
 <!-- Main -->
 <script src="js/main.js"></script>
 <%--加载shop.js文件--%>

@@ -17,6 +17,8 @@ public interface ProductService {
 
     List<Product> gethotRedwine();
 
+    List<Product> getChoosePrice(int price1, int price2, int currentpage);
+
     List<Product> getChooseColor(String color);
 
     Product getRedWineById(int id);
@@ -41,6 +43,10 @@ public interface ProductService {
     List<Product> fincproduct();
 
     List<Product> findproductbycolor(String color);
+
+    int getcartid(String uid, int pid);
+
+    void addcartpast(Cart cart);
     //分页
     Page<Product> getPage(int currentpage, int i);
 

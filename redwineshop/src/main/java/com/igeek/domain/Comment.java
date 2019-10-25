@@ -9,12 +9,17 @@ public class Comment {
     private String desc;
     private  int pid;
     private Date time;
+    String title;
+    String uid;
 
-    public Comment(String name, String email, String desc,int pid) {
+    public Comment() {
+    }
+
+    public Comment(String name, String email, String desc, int pid) {
         this.name = name;
         this.email = email;
         this.desc = desc;
-        this.pid=pid;
+        this.pid = pid;
     }
 
     public int getMmid() {
@@ -65,8 +70,20 @@ public class Comment {
         this.time = time;
     }
 
-    public Comment() {
+    public String getTitle() {
+        return title;
+    }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     @Override
@@ -78,6 +95,8 @@ public class Comment {
                 ", desc='" + desc + '\'' +
                 ", pid=" + pid +
                 ", time=" + time +
+                ", title='" + title + '\'' +
+                ", uid='" + uid + '\'' +
                 '}';
     }
 }

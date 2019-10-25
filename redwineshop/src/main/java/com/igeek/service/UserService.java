@@ -11,4 +11,13 @@ public interface UserService {
     void changeUserAccount(User user);
 
     void changeUserPassword(User user);
+
+    void save(User user);
+    public boolean checkActiveCode(String activeCode) ;
+
+    public void updateActiveCode(String activeCode);
+
+    int findforgetpasswordu(User user);
+
+    void saveforgetu(User user);
 }
