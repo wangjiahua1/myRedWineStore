@@ -6,9 +6,6 @@ var navs = [{
 },{
 	"title" : "来信管理",
 	"icon" : "icon-text",
-
-	"href" : "page/news/newsList.html",
-
 	"href" : "letters?method=findALLletters",
 
 	"spread" : false
