@@ -112,7 +112,7 @@
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "15",
-    "newsName" : "element.tabChange()方法运行了，但是页面并没有产生效果",
+    "newsName" : "element.tabChange()方法运行了,但是页面并没有产生效果",
     "newsAuthor" : "请叫我马哥",
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
@@ -136,7 +136,7 @@
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "18",
-    "newsName" : "layer移动版，有一年没有更新了，不更新了吗？",
+    "newsName" : "layer移动版,有一年没有更新了,不更新了吗？",
     "newsAuthor" : "admin",
     "newsStatus" : "待审核",
     "newsLook" : "开放浏览",
@@ -152,7 +152,7 @@
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "20",
-    "newsName" : "点击layer弹窗里的按钮，不能再显示一个弹窗，为什么呢？",
+    "newsName" : "点击layer弹窗里的按钮,不能再显示一个弹窗,为什么呢？",
     "newsAuthor" : "admin",
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
@@ -208,7 +208,7 @@
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "27",
-    "newsName" : "layim for mobile，移动端关于群聊的插件",
+    "newsName" : "layim for mobile,移动端关于群聊的插件",
     "newsAuthor" : "admin",
     "newsStatus" : "待审核",
     "newsLook" : "开放浏览",

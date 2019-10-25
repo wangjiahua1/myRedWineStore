@@ -1,9 +1,9 @@
 package com.igeek.web;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.google.gson.Gson;
+import com.igeek.domain.Page;
 import com.igeek.domain.RedWine;
-import com.igeek.service.RedWineService;
+import com.igeek.service.impl.RedWineServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,15 +14,19 @@ import java.util.List;
 
 @WebServlet("/page")
 public class PageServlet extends BaseServlet {
-    RedWineService rws=new RedWineService();
+    RedWineServiceImpl rws=new RedWineServiceImpl();
     public void getCurrentPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int currentpage= Integer.parseInt(request.getParameter("currentPage"));
-        List<RedWine> redWines=rws.getCurrentPage(currentpage);
-        //System.out.println("redWines:"+redWines);
-        Gson gson=new Gson();
-        String s = gson.toJson(redWines);
-        System.out.println("s"+s);
-        response.getWriter().write(s);
+        Page<RedWine> page=rws.getCurrentPage(currentpage);
+        int maxPage= (int) Math.ceil(page.getTotalRecord()/10.0);
+        String path="page?method=getCurrentPage&currentPage=";
+        page.setPath(path);
+        page.setPageNumber(currentpage);
+        request.setAttribute("allredwine",page.getList());
+        request.setAttribute("maxPage",maxPage);
+        request.setAttribute("page",page);
+        request.getRequestDispatcher("redwine.jsp").forward(request,response);
+
     }
 
 }

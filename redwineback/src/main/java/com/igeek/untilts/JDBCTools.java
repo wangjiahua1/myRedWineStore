@@ -55,8 +55,8 @@ public class JDBCTools {
             //1.从属性文件中获取连接信息
             Properties ps = new Properties();
             //D:\java82\idea_web_workspaces\day02login\out\artifacts\day02login_war_exploded\WEB-INF\classes
-            //当前项目被部署后db.properties 文件与 JDBCTools的字节码文件在同一个目录，在classes 目录下
-            //以后项目中的配置文件一般放在src目录下，被部署之后，到classes文件夹下
+            //当前项目被部署后db.properties 文件与 JDBCTools的字节码文件在同一个目录,在classes 目录下
+            //以后项目中的配置文件一般放在src目录下,被部署之后,到classes文件夹下
             //如何找到被部署的项目路径
             //1.CATALINA_BASE:   "C:\Users\Administrator\.IntelliJIdea2018.1\system\tomcat\index_jsp_day02login
             //2.conf\Catalina\localhost\ROOT.xml

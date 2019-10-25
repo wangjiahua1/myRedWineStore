@@ -7,7 +7,7 @@ import org.dom4j.io.SAXReader;
 public class BeanFactory {
     public static Object getBean(String id) {
         try {
-            // 解析xml文件，引入dom4jjar包
+            // 解析xml文件,引入dom4jjar包
             //创建一个解析器
             SAXReader reader = new SAXReader();
             String url = BeanFactory.class.getClassLoader().getResource("beans.xml").getPath();

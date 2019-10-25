@@ -63,7 +63,7 @@ layui.config({
         var $checked = $('#Images li input[type="checkbox"]:checked');
         if($checkbox.is(":checked")){
             layer.confirm('确定删除选中的图片？',{icon:3, title:'提示信息'},function(index){
-                var index = layer.msg('删除中，请稍候',{icon: 16,time:false,shade:0.8});
+                var index = layer.msg('删除中,请稍候',{icon: 16,time:false,shade:0.8});
                 setTimeout(function(){
                     //删除数据
                     $checked.each(function(){

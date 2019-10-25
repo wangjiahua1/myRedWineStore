@@ -78,7 +78,7 @@ layui.config({
         var index = layui.layer.open({
             title : "与 "+userName+" 的聊天",
             type : 2,
-            content : "messageReply.html",
+            content : "messageReply.jsp",
             success : function(layero, index){
                 layui.layer.tips('点击此处返回消息列表', '.layui-layer-setwin .layui-layer-close', {
                     tips: 3
@@ -126,7 +126,7 @@ layui.config({
                 })
             }
         })
-        //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+        //改变窗口大小时,重置弹窗的高度,防止超出可视区域(如F12调出debug的操作)
         $(window).resize(function(){
             layui.layer.full(index);
         })

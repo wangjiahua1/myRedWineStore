@@ -50,7 +50,7 @@ public class ProductServlet extends BaseServlet {
             request.getRequestDispatcher("shopping-cart-fullwidth.jsp").forward(request,response);
         }
         else {
-            response.getWriter().write("You're not signed in. Get out of here+<br>你没有登录，滚蛋");
+            response.getWriter().write("You're not signed in. Get out of here+<br>你没有登录,滚蛋");
         }
 
     }

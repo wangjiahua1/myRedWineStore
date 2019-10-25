@@ -22,7 +22,7 @@ layui.config({
 	$(".search_btn").click(function(){
 		var userArray = [];
 		if($(".search_input").val() != ''){
-			var index = layer.msg('查询中，请稍候',{icon: 16,time:false,shade:0.8});
+			var index = layer.msg('查询中,请稍候',{icon: 16,time:false,shade:0.8});
             setTimeout(function(){
             	$.ajax({
 					url : "../../json/usersList.json",
@@ -96,7 +96,7 @@ layui.config({
 				});
 			}
 		})
-		//改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+		//改变窗口大小时,重置弹窗的高度,防止超出可视区域(如F12调出debug的操作)
 		$(window).resize(function(){
 			layui.layer.full(index);
 		})
@@ -126,7 +126,7 @@ layui.config({
 
 	//操作
 	$("body").on("click",".users_edit",function(){  //编辑
-		layer.alert('您点击了会员编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'文章编辑'});
+		layer.alert('您点击了会员编辑按钮,由于是纯静态页面,所以暂时不存在编辑内容,后期会添加,敬请谅解。。。',{icon:6, title:'文章编辑'});
 	})
 
 	$("body").on("click",".users_del",function(){  //删除

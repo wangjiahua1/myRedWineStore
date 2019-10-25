@@ -43,7 +43,7 @@ layui.config({
  		addUserArray.unshift(JSON.parse(addUser));
  		window.sessionStorage.setItem("addUser",JSON.stringify(addUserArray));
  		//弹出loading
- 		var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
+ 		var index = top.layer.msg('数据提交中,请稍候',{icon: 16,time:false,shade:0.8});
         setTimeout(function(){
             top.layer.close(index);
 			top.layer.msg("用户添加成功！");

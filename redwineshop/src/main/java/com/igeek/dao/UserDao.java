@@ -7,6 +7,10 @@ public interface UserDao {
 
     User findUserByUsername(User user);
 
+    void changeUserAccount(User user);
+
+    void changeUserPassword(User user);
+
     boolean checkActiveCode(String activeCode);
 
     void updateActiveCode(String activeCode);

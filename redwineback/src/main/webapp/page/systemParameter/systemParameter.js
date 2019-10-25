@@ -22,7 +22,7 @@ layui.config({
  		systemParameter += '"keywords":"'+$(".keywords").val()+'"}'; //默认关键字
  		window.sessionStorage.setItem("systemParameter",systemParameter);
  		//弹出loading
- 		var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
+ 		var index = top.layer.msg('数据提交中,请稍候',{icon: 16,time:false,shade:0.8});
         setTimeout(function(){
             layer.close(index);
 			layer.msg("系统基本参数修改成功！");

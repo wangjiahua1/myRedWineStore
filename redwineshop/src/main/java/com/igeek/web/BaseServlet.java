@@ -25,7 +25,7 @@ public class BaseServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //http://localhost:8383/webstore/user?method=login
         //http://localhost:8383/webstore/user?method=regist
-        //使用反射执行请求中参数值对应的方法，要求每个请求都有一个method参数
+        //使用反射执行请求中参数值对应的方法,要求每个请求都有一个method参数
         String method =request.getParameter("method");
         Class clazz =this.getClass();
 

@@ -27,7 +27,7 @@ public class MailUtils {
             //邮件回话.不是web中的HttpSession
             Session session = Session.getInstance(props, auth);
 
-            // 2.创建一个Message，它相当于是邮件内容
+            // 2.创建一个Message,它相当于是邮件内容
             Message message = new MimeMessage(session);
 
             message.setFrom(new InternetAddress("igeekhome@126.com")); // 设置发送者
@@ -35,7 +35,7 @@ public class MailUtils {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(to)); // 设置发送方式与接收者
 
             message.setSubject(title);
-            // message.setText("这是一封激活邮件，请<a href='#'>点击</a>");
+            // message.setText("这是一封激活邮件,请<a href='#'>点击</a>");
 
             message.setContent(content, "text/html;charset=utf-8");
 

@@ -77,7 +77,7 @@ $(function(){
         else if(!reg.test($(".emails").val()))
         {
         	$(".emails").parent().addClass("errorC");
-            $(".error1").html("逗我呢吧，你确定这是你的邮箱!!");
+            $(".error1").html("逗我呢吧,你确定这是你的邮箱!!");
             $(".error1").css("display","block");
         }
         else
@@ -136,7 +136,7 @@ $(function(){
         else if(Pval.length>16 || Pval.length<8)
         {
         	$(".password").parent().addClass("errorC");
-            $(".error3").html("密码应为8-16个字符，区分大小写");
+            $(".error3").html("密码应为8-16个字符,区分大小写");
             $(".error3").css("display","block");
         }
         else if(!((reg1.test(Pval) && reg2.test(Pval)) || (reg1.test(Pval) && reg3.test(Pval)) || (reg2.test(Pval) && reg3.test(Pval)) ))
@@ -157,7 +157,7 @@ $(function(){
 		$(".emails").parent().removeClass("checkedN");
 		$(".error1").hide();
 		$("#mz_Float").css("top","232px");
-		$("#mz_Float").find(".bRadius2").html("输入邮箱，可用于登录和找回密码");
+		$("#mz_Float").find(".bRadius2").html("输入邮箱,可用于登录和找回密码");
 	});
 	//验证码栏获得焦点
 	$(".kapkey").focus(function(){
@@ -193,7 +193,7 @@ $(function(){
 			$("#mz_Float").css("top","376px");
 		}
 
-		$("#mz_Float").find(".bRadius2").html("长度为8-16个字符，区分大小写，至少包含两种类型");
+		$("#mz_Float").find(".bRadius2").html("长度为8-16个字符,区分大小写,至少包含两种类型");
 	});
 
 
@@ -230,7 +230,7 @@ $(function(){
 		$(".username").parent().removeClass("checkedN");
 		$(".error1").hide();
 		$("#mz_Float").css("top","232px");
-		$("#mz_Float").find(".bRadius2").html("长度为4-32个字符支持数字、字母、下划线，字母开头，字母或数字结尾");
+		$("#mz_Float").find(".bRadius2").html("长度为4-32个字符支持数字、字母、下划线,字母开头,字母或数字结尾");
 	});
 	//邮箱栏获得焦点
 	$(".email").focus(function(){
@@ -250,7 +250,7 @@ $(function(){
 			$("#mz_Float").css("top","230px");
 		}
 
-		$("#mz_Float").find(".bRadius2").html("用于找回密码，提高账户安全等级");
+		$("#mz_Float").find(".bRadius2").html("用于找回密码,提高账户安全等级");
 	});
 	//密码栏获得焦点(mainform2)
 	$(".passwordN,.password1N").focus(function(){
@@ -266,7 +266,7 @@ $(function(){
 			$("#mz_Float").css("top","304px");
 		}
 
-		$("#mz_Float").find(".bRadius2").html("长度为8-16个字符，区分大小写，至少包含两种类型");
+		$("#mz_Float").find(".bRadius2").html("长度为8-16个字符,区分大小写,至少包含两种类型");
 	});
 
 	//账户名栏失去焦点
@@ -319,7 +319,7 @@ $(function(){
         else if(Pval.length>16 || Pval.length<8)
         {
         	$(".passwordN").parent().addClass("errorC");
-            $(".error3").html("密码应为8-16个字符，区分大小写");
+            $(".error3").html("密码应为8-16个字符,区分大小写");
             $(".error3").css("display","block");
         }
         else if(!((reg1.test(Pval) && reg2.test(Pval)) || (reg1.test(Pval) && reg3.test(Pval)) || (reg2.test(Pval) && reg3.test(Pval)) ))
@@ -364,7 +364,7 @@ $(function(){
 		var a= $(".email").val();
 		var b= $(this).attr("data-mail");
 		$(".email").val(a+b);
-		$(".email").trigger("focus");//setTimeout($(".email").("focus") );效果同，时间设多少无所谓
+		$(".email").trigger("focus");//setTimeout($(".email").("focus") );效果同,时间设多少无所谓
 	});
 
 

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2019/10/14 0014
-  Time: 下午 20:55
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -22,14 +15,18 @@
     <link rel="stylesheet" href="css/user.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/zxf_page.css"/>
 </head>
-
+<style>
+    #myimg:hover{
+        width: 160px;
+    }
+</style>
 <body class="childrenBody">
 <blockquote class="layui-elem-quote news_search">
     <div class="layui-inline">
         <div class="layui-input-inline">
-            <input type="text" value="" placeholder="请输入关键字" class="layui-input search_input">
+            <input type="text" value="" placeholder="请输入id" class="layui-input search_input" id="getpid">
         </div>
-        <a class="layui-btn search_btn">查询</a>
+        <a class="layui-btn search_btn" >查询</a>
     </div>
     <div class="layui-inline">
         <a class="layui-btn linksAdd_btn" style="background-color:#5FB878">添加红酒</a>
@@ -38,14 +35,14 @@
         <a class="layui-btn layui-btn-danger batchDel">批量删除</a>
     </div>
     <div class="layui-inline">
-        <div class="layui-form-mid layui-word-aux">本页面刷新后除新添加的链接外所有操作无效，关闭页面所有数据重置</div>
+        <div class="layui-form-mid layui-word-aux">本页面刷新后除新添加的链接外所有操作无效,关闭页面所有数据重置</div>
     </div>
 </blockquote>
 <div class="layui-form links_list">
     <table class="layui-table">
         <colgroup>
-            <col width="50">
-            <col width="30%">
+            <col width="5%">
+            <col width="5%">
             <col>
             <col>
             <col>
@@ -72,12 +69,16 @@
                 <td></td>
                 <td>${rw.pid}</td>
                 <td>${rw.pname}</td>
-                <td><img src="${pageContext.request.contextPath}/${rw.pimage}" width="30px"/></td>
+                <td><img src="${rw.pimage}" width="5px" id="myimg"/></td>
                 <td>${rw.price}</td>
                 <td>${rw.description}</td>
                 <td>${rw.cid}</td>
                 <td>${rw.ishot}</td>
-                <td></td>
+                <td><a class="layui-btn layui-btn-mini redwine_edit"><i class="iconfont icon-edit"></i>
+                    <input type="hidden" value="${rw.pid}" id="myid1">编辑</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-mini redwine_del" ><i class="layui-icon">&#xe640;</i>
+                    <input type="hidden" value="${rw.pid}" id="myid2">  删除</a></td>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
@@ -90,7 +91,7 @@
 <script type="text/javascript">
     $(".zxf_pagediv").createPage({
         pageNum: ${maxPage},
-        current: 1,
+        current: ${page.pageNumber},
         backfun: function(e) {
             //console.log(e.current);
             //ajax获得参数
@@ -98,35 +99,12 @@
             if (currentPage>${maxPage}){
                 currentPage=${maxPage};
             }
-            $.ajax({
-                type: 'get',
-                url : 'page?method=getCurrentPage',
-                //url: '/api/one/new/list?p=1',
-                data: {"currentPage":currentPage},
-                dataType: 'json',
-                success: function (data) {
-                    $("#tbody1").empty();
-                   $.each(data,function (i,v) {
-                       var tr="<tr><td></td>\n" +
-                           "                <td>"+v.pid+"</td>\n" +
-                           "                <td>"+v.pname+"</td>\n" +
-                           "                <td><img src=\"${pageContext.request.contextPath}/"+v.pimage+"\" width=\"30px\"/></td>\n" +
-                           "                <td>"+v.price+"</td>\n" +
-                           "                <td>"+v.description+"</td>\n" +
-                           "                <td>"+v.cid+"</td>\n" +
-                           "                <td>"+v.ishot+"</td>\n" +
-                           "                <td>+'<a class=\"layui-btn layui-btn-mini users_edit\"><i class=\"iconfont icon-edit\"></i> 编辑</a>'\n" +
-                           "                '<a class=\"layui-btn layui-btn-danger layui-btn-mini users_del\" data-id=\"\"><i class=\"layui-icon\">&#xe640;</i> 删除</a>'</td>" +
-                           "</tr>";
-                       $("#tbody1").append(tr);
-                   })
-                },
-                error: function () {
-                    //alert("");
-                }
-            });
+            var path="${page.path}"+currentPage;
+            window.location.href=path;
         }
     });
 </script>
 </body>
+<script type="text/javascript" src="layui/layui.js"></script>
+<script type="text/javascript" src="js/redwine.js"></script>
 </html>

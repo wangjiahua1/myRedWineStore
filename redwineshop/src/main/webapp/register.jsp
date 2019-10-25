@@ -155,7 +155,7 @@
         <div class="mz3AngleL">
             <i class="i_icon"></i>
         </div>
-        <div class="mzFloatTip bRadius2">长度为8-16个字符，区分大小写，至少包含两种类型</div>
+        <div class="mzFloatTip bRadius2">长度为8-16个字符,区分大小写,至少包含两种类型</div>
     </div>
 </div>
 <div style="text-align:center;">

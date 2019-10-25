@@ -1,43 +1,33 @@
 package com.igeek.dao;
 
+import com.igeek.domain.Brand;
+import com.igeek.domain.Category;
 import com.igeek.domain.RedWine;
-import com.igeek.untilts.JDBCTools;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import java.sql.SQLException;
 import java.util.List;
 
-public class RedWineDao {
-    QueryRunner qr=new QueryRunner(JDBCTools.getDataSource());
-    public List<RedWine> getallredwine() {
-        String sql="select * from product limit 0,10";
-        try {
-            return qr.query(sql,new BeanListHandler<>(RedWine.class));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+/**
+ * Created by LENOVO on 2019/10/21.
+ */
+public interface RedWineDao {
+    public List<RedWine> getallredwine();
 
-    public int getallredwineNum() {
-        String sql="select count(*) from product";
-        try {
-            return Integer.parseInt(qr.query(sql,new ScalarHandler<Long>())+"");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
+    public int getallredwineNum();
 
-    public List<RedWine> getCurrentPage(int currentpage) {
-        String sql="select * from product limit ?,?";
-        try {
-            return qr.query(sql,new BeanListHandler<>(RedWine.class),10*(currentpage-1),10);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+    public List<RedWine> getCurrentPage(int currentpage);
+    public RedWine getredwinebypid(int pid);
+
+    List<Brand> getredwineBrand();
+
+    List<Category> getredwineCategory();
+
+    String getredwineCategoryByname(String category);
+
+    boolean updateRedwine(RedWine redWine);
+
+    boolean addRedwine(RedWine redWine);
+
+    boolean deleteRedWineByPid(String pid);
+
+    RedWine findRedWineByPid(String pid);
 }

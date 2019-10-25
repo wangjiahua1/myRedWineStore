@@ -1,4 +1,6 @@
 <%@ page contentType="textml;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <footer id="footer" class="site-footer">
     <div class="container">
         <div class="footer-widget">
@@ -22,7 +24,14 @@
                         <aside class="widget footer_acc_links">
                             <h3 class="widget-title">My Accounts</h3>
                             <ul class="menu">
-                                <li><a href="#">My account</a></li>
+                                <li><!--利用session中的user来判断用户是否登录-->
+                                    <!--通过改变data-target属性的值来跳转不同页面-->
+                                    <a class="top-account top-login" id="myAccount"
+                                       href="#" data-toggle="modal"
+                                       data-target="<c:if test="${user!=null}">#myAccout_dialog</c:if>
+                                       <c:if test="${user==null}">#login_dialog</c:if>">
+                                        My account
+                                    </a></li>
                                 <li><a href="#">My orders</a></li>
                                 <li><a href="register.jsp">Register</a></li>
                                 <li><a href="#">Login</a></li>

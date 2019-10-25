@@ -10,7 +10,7 @@ layui.config({
 	var newsData = '';
 	$.get("../../json/newsList.json", function(data){
 		var newArray = [];
-		//单击首页“待审核文章”加载的信息
+		//单击首页"待审核文章"加载的信息
 		if($(".top_tab li.layui-this cite",parent.document).text() == "待审核文章"){
 			if(window.sessionStorage.getItem("addNews")){
 				var addNews = window.sessionStorage.getItem("addNews");
@@ -40,7 +40,7 @@ layui.config({
 	$(".search_btn").click(function(){
 		var newArray = [];
 		if($(".search_input").val() != ''){
-			var index = layer.msg('查询中，请稍候',{icon: 16,time:false,shade:0.8});
+			var index = layer.msg('查询中,请稍候',{icon: 16,time:false,shade:0.8});
             setTimeout(function(){
             	$.ajax({
 					url : "../../json/newsList.json",
@@ -111,14 +111,14 @@ layui.config({
 		var index = layui.layer.open({
 			title : "添加文章",
 			type : 2,
-			content : "newsAdd.html",
+			content : "newsAdd.jsp",
 			success : function(layero, index){
 				layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
 					tips: 3
 				});
 			}
 		})
-		//改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+		//改变窗口大小时,重置弹窗的高度,防止超出可视区域(如F12调出debug的操作)
 		$(window).resize(function(){
 			layui.layer.full(index);
 		})
@@ -129,7 +129,7 @@ layui.config({
 	$(".recommend").click(function(){
 		var $checkbox = $(".news_list").find('tbody input[type="checkbox"]:not([name="show"])');
 		if($checkbox.is(":checked")){
-			var index = layer.msg('推荐中，请稍候',{icon: 16,time:false,shade:0.8});
+			var index = layer.msg('推荐中,请稍候',{icon: 16,time:false,shade:0.8});
             setTimeout(function(){
                 layer.close(index);
 				layer.msg("推荐成功");
@@ -144,7 +144,7 @@ layui.config({
 		var $checkbox = $('.news_list tbody input[type="checkbox"][name="checked"]');
 		var $checked = $('.news_list tbody input[type="checkbox"][name="checked"]:checked');
 		if($checkbox.is(":checked")){
-			var index = layer.msg('审核中，请稍候',{icon: 16,time:false,shade:0.8});
+			var index = layer.msg('审核中,请稍候',{icon: 16,time:false,shade:0.8});
             setTimeout(function(){
             	for(var j=0;j<$checked.length;j++){
             		for(var i=0;i<newsData.length;i++){
@@ -171,7 +171,7 @@ layui.config({
 		var $checked = $('.news_list tbody input[type="checkbox"][name="checked"]:checked');
 		if($checkbox.is(":checked")){
 			layer.confirm('确定删除选中的信息？',{icon:3, title:'提示信息'},function(index){
-				var index = layer.msg('删除中，请稍候',{icon: 16,time:false,shade:0.8});
+				var index = layer.msg('删除中,请稍候',{icon: 16,time:false,shade:0.8});
 	            setTimeout(function(){
 	            	//删除数据
 	            	for(var j=0;j<$checked.length;j++){
@@ -216,7 +216,7 @@ layui.config({
 
 	//是否展示
 	form.on('switch(isShow)', function(data){
-		var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
+		var index = layer.msg('修改中,请稍候',{icon: 16,time:false,shade:0.8});
         setTimeout(function(){
             layer.close(index);
 			layer.msg("展示状态修改成功！");
@@ -225,7 +225,7 @@ layui.config({
  
 	//操作
 	$("body").on("click",".news_edit",function(){  //编辑
-		layer.alert('您点击了文章编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'文章编辑'});
+		layer.alert('您点击了文章编辑按钮,由于是纯静态页面,所以暂时不存在编辑内容,后期会添加,敬请谅解。。。',{icon:6, title:'文章编辑'});
 	})
 
 	$("body").on("click",".news_collect",function(){  //收藏.
