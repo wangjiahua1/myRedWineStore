@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -81,7 +80,13 @@
                                         <%--</div>--%>
                                     <%--</li>--%>
 
-                                <%--</ul>--%>
+                <div class="modal-footer">
+                    <a href="register.jsp">Register</a>
+                    <a href="forgotpassword.jsp">Forgot Password</a>
+                </div>
+            </div><!-- .popup-inner -->
+            <div class="mask popup-close"></div>
+        </div>
 
                                 <%--<p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>--%>
 
@@ -95,13 +100,13 @@
                 <%--</ul>--%>
             <%--</div><!-- right-header -->--%>
 
-            <%--<div class="site-brand">--%>
-                <%--<a class="logo" href="index.html">--%>
-                    <%--<img src="images/assets/logo.png" alt="Vineyard">--%>
-                <%--</a>--%>
-            <%--</div><!-- .site-brand -->--%>
-        <%--</div>--%>
-    <%--</div><!-- top-header -->--%>
+        <div class="modal-footer">
+            <a href="register.jsp">Register</a>
+            <a href="forgotpassword.jsp">Forgot Password</a>
+        </div>
+    </div><!-- .popup-inner -->
+    <div class="mask popup-close"></div>
+</div><!-- .search-popup -->
 
 
 <div id="content" class="site-content content-fullwidth">
@@ -322,7 +327,6 @@
                 <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
             </ul>
         </div>
-
     </div><!-- .container -->
 </div><!-- .site-bottom -->
 

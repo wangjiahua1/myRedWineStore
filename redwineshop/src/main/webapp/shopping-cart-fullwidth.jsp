@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
@@ -29,58 +28,58 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 <div id="content" class="site-content content-fullwidth">
-<div class="space-dark"></div>
-<div class="no-container">
-    <div class="blog-breadcrumb shop-breadcrumb">
-        <div class="container">
+    <div class="space-dark"></div>
+    <div class="no-container">
+        <div class="blog-breadcrumb shop-breadcrumb">
+            <div class="container">
 
-            <div class="intro-div">
-                <h1 class="page-title">Shopping Cart</h1>
-                <div class="breadcrumb">
-                    <ul>
+                <div class="intro-div">
+                    <h1 class="page-title">Shopping Cart</h1>
+                    <div class="breadcrumb">
+                        <ul>
 
                         <li><a href="index.jsp">Home</a></li>
 
-                        <li><span class="current">Shopping Cart</span></li>
+                            <li><span class="current">Shopping Cart</span></li>
 
-                    </ul>
+                        </ul>
 
-                </div><!-- .breadcrumb -->
-            </div>
+                    </div><!-- .breadcrumb -->
+                </div>
 
-        </div><!-- .container -->
+            </div><!-- .container -->
+        </div>
     </div>
-</div>
 
-<div class="container">
+    <div class="container">
 
-<main id="main" class="site-main">
+        <main id="main" class="site-main">
 
-    <div class="inner-content">
+            <div class="inner-content">
 
-        <div class="woocommerce">
-            <form class="cart-form" action="#" method="post">
+                <div class="woocommerce">
+                    <form class="cart-form" action="#" method="post">
 
 
-                <div class="cart-table">
-                    <table class="shop_table cart">
-                        <thead>
-                        <tr>
-                            <th class="table-col-product">Images</th>
-                            <th class="table-col-name">Product name</th>
-                            <th class="table-col-price">Price</th>
-                            <th class="table-col-qty text-center">Quantity</th>
-                            <th class="table-col-total text-right">Total</th>
-                            <th class="product-remove text-right"><a href="#" class="" title="#"><i class="pe-7s-close"></i></a></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${carts}" var="cart">
-                        <tr class="cart-item cart_item">
+                        <div class="cart-table">
+                            <table class="shop_table cart">
+                                <thead>
+                                <tr>
+                                    <th class="table-col-product">Images</th>
+                                    <th class="table-col-name">Product name</th>
+                                    <th class="table-col-price">Price</th>
+                                    <th class="table-col-qty text-center">Quantity</th>
+                                    <th class="table-col-total text-right">Total</th>
+                                    <th class="product-remove text-right"><a href="#" class="" title="#"><i class="pe-7s-close"></i></a></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${cartTotal.carts}" var="cart">
+                                    <tr class="cart-item cart_item">
 
-                            <td>
-                                <a href="productdetails-fullwidth.html"><img style="height: 70px"  src="${pageContext.request.contextPath}/${cart.pimage}" alt="" ></a>
-                            </td>
+                                        <td>
+                                            <a href="productdetails-fullwidth.html"><img style="height: 70px"  src="${pageContext.request.contextPath}/${cart.pimage}" alt="" ></a>
+                                        </td>
 
                             <td class="table-col-name">
                                 <a href="productdetails-fullwidth.html">${cart.pname}</a>
@@ -99,151 +98,58 @@
                                 </div>
                             </td>
 
-                            <td class="table-col-price">
-                                <span class="amount"><span class="symbol">$</span>${cart.price}</span>
-                                <span class="amount"><span class="symbol">$</span>145.00</span>
-                            </td>
+                                        <td class="table-col-price">
+                                            <span class="amount"><span class="symbol">$</span>${cart.price}</span>
+                                        </td>
 
-                            <td class="table-col-qty text-center">
-                                <div class="quantity">
-                                    <input type="number" step="1" min="0" value="${cart.quantity}" title="Qty" class="qty" size="4">
-                                    <input type="number" step="1" min="0" value="1" title="Qty" class="qty" size="4">
-                                </div>
-                            </td>
+                                        <td class="table-col-qty text-center">
+                                            <div class="quantity">
+                                                <input type="number" step="1" min="0" value="${cart.quantity}" title="Qty" class="qty" size="4">
+                                            </div>
+                                        </td>
 
-                            <td class="price text-right">
-                                <span class="amount"><span class="symbol">$</span>${cart.total}</span>
-                                <span class="amount"><span class="symbol">$</span>145.00</span>
-                            </td>
+                                        <td class="price text-right">
+                                            <span class="amount"><span class="symbol">$</span>${cart.total}</span>
+                                        </td>
 
-                            <td class="product-remove text-right">
-                                <a href="#" class="remove" title="Remove this item"><i class="pe-7s-close"></i></a>
-                            </td>
+                                        <td class="product-remove text-right">
+                                            <a href="${pageContext.request.contextPath}/product?method=deletecart&pid=${cart.pid}&uid=${cart.uid}" class="remove" title="Remove this item"><i class="pe-7s-close"></i></a>
+                                        </td>
 
-                        </tr>
-                        </c:forEach>
-<%--
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <tr class="cart-item cart_item">
+                    </form>
 
-                            <td>
-                                <a href="productdetails-fullwidth.html"><img src="images/placeholder/feature-prod-img1.jpg" alt=""></a>
-                            </td>
-
-                            <td class="table-col-name">
-                                <a href="productdetails-fullwidth.html">The Gooseberry </a>
-                                <div class="meta-cart">
-                                    <div class="list-color">Color: <a href="#" class="yellow"></a> </div>
-                                    <div class="list-size">Size: <a href="#">M</a></div>
-                                </div>
-                            </td>
-
-                            <td class="table-col-price">
-                                <span class="amount"><span class="symbol">$</span>145.00</span>
-                            </td>
-
-                            <td class="table-col-qty text-center">
-                                <div class="quantity">
-                                    <input type="number" step="1" min="0" value="1" title="Qty" class="qty" size="4">
-                                </div>
-                            </td>
-
-                            <td class="price text-right">
-                                <span class="amount"><span class="symbol">$</span>145.00</span>
-                            </td>
-
-                            <td class="product-remove text-right">
-                                <a href="#" class="remove" title="Remove this item"><i class="pe-7s-close"></i></a>
-                            </td>
-
-                        </tr>
-
-                        <tr class="cart-item cart_item">
-
-                            <td>
-                                <a href="productdetails-fullwidth.html"><img src="images/placeholder/feature-prod-img1.jpg" alt=""></a>
-                            </td>
-
-                            <td class="table-col-name">
-                                <a href="productdetails-fullwidth.html">The Gooseberry </a>
-                                <div class="meta-cart">
-                                    <div class="list-color">Color: <a href="#" class="yellow"></a> </div>
-                                    <div class="list-size">Size: <a href="#">M</a></div>
-                                </div>
-                            </td>
-
-                            <td class="table-col-price">
-                                <span class="amount"><span class="symbol">$</span>145.00</span>
-                            </td>
-
-                            <td class="table-col-qty text-center">
-                                <div class="quantity">
-                                    <input type="number" step="1" min="0" value="1" title="Qty" class="qty" size="4">
-                                </div>
-                            </td>
-
-                            <td class="price text-right">
-                                <span class="amount"><span class="symbol">$</span>145.00</span>
-                            </td>
-
-                            <td class="product-remove text-right">
-                                <a href="#" class="remove" title="Remove this item"><i class="pe-7s-close"></i></a>
-                            </td>
-
-                        </tr>
-
-                        <tr class="action-wrap">
-                            <td colspan="6" class="actions clearfix">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="wc-proceed-to-checkout">
-
-                                            <p class="return-to-shop"><a class="button radius" href="#">Continue Shopping</a></p>
-
-                                        </div>
+                    <div class="cart-collaterals row">
+                        <aside class="widget col-md-4">
+                            <div class="cal-shipping">
+                                <h3>estimate shipping and tax</h3>
+                                <p class="desc-cal">Enter your destination to get shipping & tax</p>
+                                <form action="#">
+                                    <div class="cart-input">
+                                        <span>Country *:</span>
+                                        <label for="country" class="sl-label"><i class="fa fa-angle-down"></i></label>
+                                        <select name="country" id="country" class="selectbox">
+                                            <option value="default">Select option</option>
+                                            <option value="vietnam">Vietnam</option>
+                                            <option value="us">US</option>
+                                            <option value="uk">UK</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
 
-                                        <input class="button radius plum" name="update_cart" value="Update Cart" disabled="" type="submit">
-
+                                    <div class="cart-input">
+                                        <span>State/Province *:</span>
+                                        <label for="bill-provin" class="sl-label"><i class="fa fa-angle-down"></i></label>
+                                        <select name="bill-provin" id="bill-provin" class="selectbox">
+                                            <option value="default">Select option</option>
+                                            <option value="country1">Vinh</option>
+                                            <option value="country2">Ha Noi</option>
+                                        </select>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>--%>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-            </form>
-
-            <div class="cart-collaterals row">
-                <aside class="widget col-md-4">
-                    <div class="cal-shipping">
-                        <h3>estimate shipping and tax</h3>
-                        <p class="desc-cal">Enter your destination to get shipping & tax</p>
-                        <form action="#">
-                            <div class="cart-input">
-                                <span>Country *:</span>
-                                <label for="country" class="sl-label"><i class="fa fa-angle-down"></i></label>
-                                <select name="country" id="country" class="selectbox">
-                                    <option value="default">Select option</option>
-                                    <option value="vietnam">Vietnam</option>
-                                    <option value="us">US</option>
-                                    <option value="uk">UK</option>
-                                </select>
-                            </div>
-
-                            <div class="cart-input">
-                                <span>State/Province *:</span>
-                                <label for="bill-provin" class="sl-label"><i class="fa fa-angle-down"></i></label>
-                                <select name="bill-provin" id="bill-provin" class="selectbox">
-                                    <option value="default">Select option</option>
-                                    <option value="country1">Vinh</option>
-                                    <option value="country2">Ha Noi</option>
-                                </select>
-                            </div>
 
                             <div class="input-text cart-input">
                                 <span>Zip/Postal code</span>
@@ -257,42 +163,42 @@
                     </div><!-- .cal-shipping -->
                 </aside>
 
-                <aside class="widget col-md-4">
-                    <div class="cal-shipping">
-                        <h3>Discount codes</h3>
-                        <p class="desc-cal">Enter your coupin if you have one</p>
+                        <aside class="widget col-md-4">
+                            <div class="cal-shipping">
+                                <h3>Discount codes</h3>
+                                <p class="desc-cal">Enter your coupin if you have one</p>
 
-                        <form action="#">
-                            <div class="cart-input">
-                                <input name="bill-code" class="input-text" id="bill-code" type="text">
-                                <input class="button bold radius white btn-subscribe" type="submit" value="Subscribe">
-                            </div>
-                        </form>
-                    </div><!-- .cal-shipping -->
-                </aside>
+                                <form action="${pageContext.request.contextPath}/order?method=findallorder&uid=${uid}" method="post">
+                                    <div class="cart-input">
+                                        <input name="bill-code" class="input-text" id="bill-code" type="text">
+                                        <input class="button bold radius white btn-subscribe" type="submit" value="Subscribe">
+                                    </div>
+                                </form>
+                            </div><!-- .cal-shipping -->
+                        </aside>
 
-                <aside class="widget col-md-4">
-                    <div class="cal-shipping">
-                        <h3>Cart total</h3>
-                        <table class="clearfix">
-                            <tr class="cart-subtotal">
-                                <th>Subtotal:</th>
-                                <td><strong><span class="amount">$142.00</span></strong></td>
-                            </tr>
-                            <tr class="cart-grandtotal">
-                                <th>GRAND TOTAL:</th>
-                                <td><strong><span class="amount">$142.00</span></strong></td>
-                            </tr>
-                        </table>
-                        <div class="cart-actions clearfix">
-                            <span>Checkout with multiple address</span>
-                            <form action="#">
-                                <a class="button radius text-center bold plum" href="checkout.html">PROCESS TO CHECK OUT</a>
-                            </form>
-                        </div><!-- .cart-actions -->
-                    </div><!-- .cal-shipping -->
-                </aside>
-            </div><!-- .cart-collaterals -->
+                        <aside class="widget col-md-4">
+                            <div class="cal-shipping">
+                                <h3>Cart total</h3>
+                                <table class="clearfix">
+                                    <tr class="cart-subtotal">
+                                        <th>Subtotal:</th>
+                                        <td><strong><span class="amount">$142.00</span></strong></td>
+                                    </tr>
+                                    <tr class="cart-grandtotal">
+                                        <th>GRAND TOTAL:</th>
+                                        <td><strong><span class="amount">$142.00</span></strong></td>
+                                    </tr>
+                                </table>
+                                <div class="cart-actions clearfix">
+                                    <span>Checkout with multiple address</span>
+                                    <form action="#">
+                                        <a class="button radius text-center bold plum" href="checkout.html">PROCESS TO CHECK OUT</a>
+                                    </form>
+                                </div><!-- .cart-actions -->
+                            </div><!-- .cal-shipping -->
+                        </aside>
+                    </div><!-- .cart-collaterals -->
 
 
         </div><!-- .container -->

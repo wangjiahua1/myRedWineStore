@@ -24,4 +24,8 @@
     <bean id="commentdao" class="com.igeek.dao.imp.CommentDaoImpl"></bean>
     <bean id="blogservice" class="com.igeek.service.imp.BlogServiceImpl"></bean>
     <bean id="blogdao" class="com.igeek.dao.imp.BlogDaoImpl"></bean>
+
+
+    <bean id="orderservice" class="com.igeek.service.imp.OrderServiceImpl"></bean>
+    <bean id="orderDao" class="com.igeek.dao.imp.OrderDaoImpl"></bean>
 </beans>

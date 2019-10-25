@@ -53,6 +53,16 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public int getcartid(String uid, int pid) {
+        return pd.getcartid(uid,pid);
+    }
+
+    @Override
+    public void addcartpast(Cart cart) {
+        pd.addcartpast(cart);
+    }
+
+    @Override
     public Product getRedWineById(int id) {
         return pd.getRedWineById(id);
     }

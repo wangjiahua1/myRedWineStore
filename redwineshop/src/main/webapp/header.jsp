@@ -3,8 +3,6 @@
 <header id="header" class="site-header">
     <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/chooseme.js"></script>
-
-    <script type="text/javascript" src="js/myAccount.js"></script>
     <script type="text/javascript">
         $(function(a) {
             <!--$("#myAccount").click(function() {
@@ -47,7 +45,6 @@
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
     </div><!-- .search-popup -->
-
 
     <%--显示个人信息弹窗--%>
     <div id="myAccout_dialog" class="modal fade login-popup">
@@ -92,6 +89,7 @@
                 <a href="register.jsp">Register</a>
                 <a href="#">Forgot Password</a>
                 <a href="changePassword.jsp">Update Password</a>
+                <a href="forgotpassword.jsp">Forgot Password</a>
             </div>
         </div><!-- .popup-inner -->
         <div class="mask popup-close"></div>
@@ -130,7 +128,7 @@
                             Compare</a>
                         </li>
                         <li><a href="shopgridleft.jsp">My Cart</a></li>
-                        <li><a href="check-out.jsp">Check out</a></li>
+                        <li><a href="${pageContext.request.contextPath}/product?method=findcartproduct&uid=${user.uid}">Check out</a></li>
                     </ul>
                     <div class="currency">
                         <span>Currency</span>
@@ -220,8 +218,8 @@
                                 <p class="total"><strong>Total:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">£</span>183.26</span></p>
 
                                 <p class="buttons">
-                                    <a href="shopping-cart-fullwidth.jsp" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
-                                    <a href="check-out.jsp" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
+                                    <a href="${pageContext.request.contextPath}/product?method=findcartproduct&uid=${user.uid}" class="ro-btn-bd-2 btn-viewcart wc-forward">VIEW CART</a>
+                                    <a href="${pageContext.request.contextPath}/product?method=findcartproduct&uid=${user.uid}" class="ro-btn-bd-2 btn-checkout wc-forward">CHECK OUT</a>
                                 </p>
                             </div>
                         </div>
