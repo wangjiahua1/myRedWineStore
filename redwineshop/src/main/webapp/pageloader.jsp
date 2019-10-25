@@ -7,7 +7,7 @@
             <h3 class="modal-title">Login</h3>
         </div>
 
-        <form action="${pageContext.request.contextPath}/user?method=login&url=pageloader.jsp" method="post">
+        <form action="${pageContext.request.contextPath}/user?method=login" method="post">
             <p class="login-username">
                 <label for="user_login">Username*:</label>
                 <input name="log" id="user_login" class="input" value="1664320691@qq.com" size="20" type="text"/>
