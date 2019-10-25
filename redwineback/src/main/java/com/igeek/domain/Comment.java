@@ -1,5 +1,6 @@
 package com.igeek.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Comment {
@@ -11,15 +12,26 @@ public class Comment {
     private Date time;
     String title;
     String uid;
+    private String time1;
 
+    public String getTime1() {
+        return time1;
+    }
+
+    public void setTime1(String time1) {
+        this.time1 = time1;
+    }
+
+    private Product product;
     public Comment() {
     }
 
-    public Comment(String name, String email, String desc, int pid) {
-        this.name = name;
-        this.email = email;
-        this.desc = desc;
-        this.pid = pid;
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getMmid() {
@@ -67,7 +79,12 @@ public class Comment {
     }
 
     public void setTime(Date time) {
+
         this.time = time;
+        //格式化
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String strTime=sdf.format(time);
+        time1 = strTime;
     }
 
     public String getTitle() {
@@ -97,6 +114,7 @@ public class Comment {
                 ", time=" + time +
                 ", title='" + title + '\'' +
                 ", uid='" + uid + '\'' +
+                ", product=" + product +
                 '}';
     }
 }

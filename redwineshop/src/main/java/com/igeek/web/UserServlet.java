@@ -25,17 +25,7 @@ import java.io.PrintWriter;
 public class UserServlet extends BaseServlet {
     UserService service= (UserService) BeanFactory.getBean("userService");
 
-//    public void myAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println("successful");
-//        //判断是否登录
-//        User user= (User) request.getSession().getAttribute("user");
-//        if(user==null){
-//            //跳转登录
-//            response.sendRedirect(request.getContextPath()+"/index.jsp");
-//
-//        }
-//
-//    }
+
 
     public void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session=request.getSession();

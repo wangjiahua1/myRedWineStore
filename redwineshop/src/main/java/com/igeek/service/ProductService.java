@@ -39,7 +39,7 @@ public interface ProductService {
 
     Product findbyPidproduct(int pid);
 
-    int getcartid(String uid, int pid);
-
     void addcartpast(Cart cart);
+
+    int getcartid(String uid, int pid);
 }

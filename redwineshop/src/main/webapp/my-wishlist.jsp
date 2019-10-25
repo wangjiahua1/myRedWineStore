@@ -37,6 +37,20 @@
                     )
                 }
             });
+            <!--更新购物车-->
+            $("#update_cart").click(function () {
+                $.get(
+                    "${pageContext.request.contextPath}/product?method=updateCart",
+                    function (data) {
+                        alert(data);
+                        console.log(data);
+
+                    },"json"
+                )
+
+                $("#update_cart").attr("data-toggle","modal");
+                $("#update_cart").attr("data-target","#update_cart_success");
+            });
         })
     </script>
 </head>
@@ -71,7 +85,21 @@
 <div class="container">
 
 <main id="main" class="site-main">
+    <!--更新购物车成功-->
+    <div id="update_cart_success" class="modal fade login-popup">
+        <div class="popup-inner">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
+                <h3 class="modal-title">更新购物车成功</h3>
+            </div>
 
+            <p class="login-submit">
+                <input  id="wp-submit1" class="button-primary" value="确定" type="submit" data-dismiss="modal" aria-hidden="true"/>
+            </p>
+
+        </div><!-- .popup-inner -->
+        <div class="mask popup-close"></div>
+    </div>
     <!--删除成功-->
     <div id="del_success" class="modal fade login-popup">
         <div class="popup-inner">
@@ -152,8 +180,9 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
 
-                                        <input class="button radius plum" name="update_cart" value="Update Cart" disabled="" type="submit">
-
+                                        <a id="update_cart" class="button radius plum" name="update_cart" value="Update Cart" disabled="" type="submit">
+                                            update cart
+                                        </a>
                                     </div>
                                 </div>
                             </td>

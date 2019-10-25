@@ -49,4 +49,14 @@ public class MyCollect {
     public int getNumber() {
         return number;
     }
+
+    @Override
+    public String toString() {
+        return "MyCollect{" +
+                "collectid=" + collectid +
+                ", uid='" + uid + '\'' +
+                ", number=" + number +
+                ", product=" + product +
+                '}';
+    }
 }

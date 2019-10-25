@@ -3,6 +3,7 @@
 <html>
     <jsp:include page="head.jsp"></jsp:include>
     <body class="home-01">
+        <script src="js/jquery.js"></script>
         <jsp:include page="pageloader.jsp"></jsp:include>
         <jsp:include page="header.jsp"></jsp:include>
 

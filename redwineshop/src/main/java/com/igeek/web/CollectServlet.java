@@ -84,9 +84,10 @@ public class CollectServlet extends BaseServlet {
             my.setNumber(collects.get(i).getNumber());
             Product product = service.findProductByPid(collects.get(i).getPid());
             my.setProduct(product);
+            my.setUid(user.getUid());
             lists.add(my);
         }
-        request.setAttribute("collects",lists);
+        request.getSession().setAttribute("collects",lists);
         request.getRequestDispatcher("my-wishlist.jsp").forward(request,response);
     }
 

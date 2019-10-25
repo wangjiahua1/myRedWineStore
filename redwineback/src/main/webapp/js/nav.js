@@ -11,7 +11,7 @@ var navs = [{
 },{
 	"title" : "评论管理",
 	"icon" : "icon-text",
-	"href" : "page/links/linksList.jsp",
+	"href" : "page/links/comment.jsp",
 	"spread" : false
 },{
     "title" : "数据管理",

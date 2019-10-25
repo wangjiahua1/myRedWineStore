@@ -182,5 +182,26 @@ public class ProductDaoImpl implements ProductDao {
         return null;
     }
 
+    @Override
+    public void addcartpast(Cart cart) {
+        String sql="update cart  set quantity=?, total=? where uid=? and pid=?";
+        try {
+            qr.update(sql,cart.getQuantity(),cart.getTotal(),cart.getUid(),cart.getPid());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public int getcartid(String uid, int pid) {
+        String sql="select quantity from cart where uid=? and pid=?";
+        try {
+            return qr.query(sql,new ScalarHandler<Long>(),uid,pid)==null?0:Integer.parseInt(qr.query(sql,new ScalarHandler<Long>(),uid,pid)+"");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
 }
