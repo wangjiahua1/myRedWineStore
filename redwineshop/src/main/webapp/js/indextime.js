@@ -27,7 +27,6 @@ $(function () {
                     int_second = "0" + int_second;
                 }
                 $("#ulist li").each(function (i, v) {
-                    console.log($(v).html(int_day));
                     //$(v[i]).html(int_day);
                 });
             } else {

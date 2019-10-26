@@ -23,7 +23,7 @@
                        Console.log(data);
                         Console.log(data.activeCode);*/
 
-                    console.log(data);
+
                     $("#emailhidden").val(data);
   /*                  console.log(data.uid);*/
                     },
@@ -32,7 +32,7 @@
                 }
                 else {
                     alert("无值");
-                    console.log("无值");
+
                 }
                 var time=60;
                 var validCode=true;

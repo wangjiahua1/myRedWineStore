@@ -26,6 +26,17 @@ public class ProductDaoImpl implements ProductDao {
         return 0;
     }
 
+    @Override
+    public int getCountRedWine(String cid) {
+        String sql = "select count(*) from product where cid=?";
+        try {
+            return Integer.parseInt(qr.query(sql, new ScalarHandler<Long>(),cid) + "");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
     public List<Product> getallredwine(int sizePage) {
         String sql="select * from product limit 0,?";
         try {
@@ -69,6 +80,17 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
+    public List<Product> getChoosePrice(int price1, int price2, int currentpage, String cid) {
+        String sql="select * from product where cid=? and price>=? and price<=? limit ?,9";
+        try {
+            return qr.query(sql,new BeanListHandler<>(Product.class),cid,price1,price2,9*(currentpage-1));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public List<Product> getChooseColor(String color) {
         String sql="select * from product where color=?";
         try {
@@ -93,7 +115,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public void addcart(Cart cart) {
      /*   String sqlsel="select * from cart where "*/
-        String sql="insert into cart  values(?,?,?,?,?,?,?,?,?)";
+        String sql="insert into cart  values(?,?,?,?,?,?,?,?,?,now())";
         try {
             qr.update(sql,null,cart.getUid(),cart.getPid(),cart.getPname(),cart.getPrice(),cart.getPimage(),cart.getQuantity(),cart.getTotal(),0);
         } catch (SQLException e) {
@@ -112,16 +134,6 @@ public class ProductDaoImpl implements ProductDao {
         return null;
     }
 
-    @Override
-    public int getcartid(String uid, int pid) {
-        String sql="select quantity from cart where uid=? and pid=?";
-        try {
-            return qr.query(sql,new ScalarHandler<Long>(),uid,pid)==null?0:Integer.parseInt(qr.query(sql,new ScalarHandler<Long>(),uid,pid)+"");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
 
     @Override
     public void addcartpast(Cart cart) {
@@ -206,33 +218,21 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public void addcartpast(Cart cart) {
-        String sql="update cart  set quantity=?, total=? where uid=? and pid=?";
-        try {
-            qr.update(sql,cart.getQuantity(),cart.getTotal(),cart.getUid(),cart.getPid());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public List<Product> findcproduct() {
+        return null;
     }
 
     @Override
-    public int getcartid(String uid, int pid) {
-        String sql="select quantity from cart where uid=? and pid=?";
     public List<Product> findproductbycolor(String color) {
-        String sql="select * from product where color=? limit 0,12" ;
-        try {
-            return qr.query(sql,new ScalarHandler<Long>(),uid,pid)==null?0:Integer.parseInt(qr.query(sql,new ScalarHandler<Long>(),uid,pid)+"");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
+        return null;
     }
+
 
     @Override
     public List<Product> getRedWineByCId(String cid, int currentpage) {
         String sql="select * from product where cid=? limit ?,9" ;
         try {
-            return qr.query(sql,new BeanListHandler<>(Product.class),cid,9*(currentpage-1)+1);
+            return qr.query(sql,new BeanListHandler<>(Product.class),cid,9*(currentpage-1));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -247,6 +247,22 @@ public class ProductDaoImpl implements ProductDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return 0;
+    }
+
+    @Override
+    public int getCountRedWineByPrice(int price1, int price2, String cid) {
+        String sql="select count(*) from product where cid=? and price>=? and price<=?";
+        try {
+            return Integer.parseInt(qr.query(sql, new ScalarHandler<Long>(),cid,price1,price2) + "");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public int getcartid(String uid, int pid) {
         return 0;
     }
 }

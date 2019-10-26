@@ -1,5 +1,7 @@
 package com.igeek.domain;
 
+import java.util.Date;
+
 /**
  * Created by Administrator on 2019/10/18.
  */
@@ -13,6 +15,7 @@ public class Cart {
     private  int quantity;
     private  double total;
     private  int state;
+    private Date date;
 
     @Override
     public String toString() {
@@ -26,46 +29,8 @@ public class Cart {
                 ", quantity=" + quantity +
                 ", total=" + total +
                 ", state=" + state +
+                ", date=" + date +
                 '}';
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
-
-    public Cart(int cartid, String uid, int pid, String pname, double price, String pimage, int quantity, double total, int state) {
-        this.cartid = cartid;
-        this.uid = uid;
-        this.pid = pid;
-        this.pname = pname;
-        this.price = price;
-        this.pimage = pimage;
-        this.quantity = quantity;
-        this.total = total;
-        this.state = state;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public Cart(int cartid, String uid, int pid, String pname, double price, String pimage, int quantity, double total) {
-        this.cartid = cartid;
-        this.uid = uid;
-        this.pid = pid;
-        this.pname = pname;
-        this.price = price;
-        this.pimage = pimage;
-        this.quantity = quantity;
-        this.total = total;
     }
 
     public int getCartid() {
@@ -100,6 +65,14 @@ public class Cart {
         this.pname = pname;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public String getPimage() {
         return pimage;
     }
@@ -121,21 +94,38 @@ public class Cart {
     }
 
     public void setTotal(double total) {
-        if(getQuantity()!=0||getPrice()!=0)
-            this.total =getQuantity()*getPrice();
-        else this.total=total;
+        this.total = total;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Cart() {
     }
 
-    public Cart(int cartid, String uid, int pid, String pname, String pimage, int quantity, double total) {
+    public Cart(int cartid, String uid, int pid, String pname, double price, String pimage, int quantity, double total, int state, Date date) {
         this.cartid = cartid;
         this.uid = uid;
         this.pid = pid;
         this.pname = pname;
+        this.price = price;
         this.pimage = pimage;
         this.quantity = quantity;
         this.total = total;
+        this.state = state;
+        this.date = date;
     }
 }

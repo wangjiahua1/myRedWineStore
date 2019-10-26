@@ -16,14 +16,6 @@
                 $.get(
                     "user?method=getactivecode",{ emaill: emaill},
                    function (data) {
-                       //window.open("registerSuccess.jsp",-blank);
-                       //pageContext.request.contextPath
-                     /*  window.location.href = "}/registerSuccess.jsp";*/
-                   /*  Console.log("我去");
-                       Console.log(data);
-                        Console.log(data.activeCode);*/
-
-                    console.log(data);
                     $("#emailhidden").val(data);
   /*                  console.log(data.uid);*/
                     },
@@ -32,7 +24,7 @@
                 }
                 else {
                     alert("无值");
-                    console.log("无值");
+
                 }
                 var time=60;
                 var validCode=true;

@@ -23,6 +23,36 @@
 </head>
 
 <body class="single-post">
+<script type="text/javascript">
+
+    function addCollect(pid) {
+        $.getJSON(
+            "collect?method=addCollect",
+            {pid:pid},
+            function (data) {
+                console.log(data);
+            }
+        )
+    }
+
+
+</script>
+
+<!--添加成功框-->
+<div id="add_success" class="modal fade login-popup">
+    <div class="popup-inner">
+        <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
+            <h3 class="modal-title">添加收藏成功</h3>
+        </div>
+
+        <p class="login-submit">
+            <input  id="wp-submit" class="button-primary" value="确定" type="submit" data-dismiss="modal" aria-hidden="true"/>
+        </p>
+
+    </div><!-- .popup-inner -->
+    <div class="mask popup-close"></div>
+</div>
 
 <jsp:include page="pageloader.jsp"></jsp:include>
 <jsp:include page="header.jsp"></jsp:include>
@@ -157,7 +187,12 @@
                             <div class="p-actions-btn">
                                 <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
                                 <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                                <a href="my-wishlist.jsp" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
+                                <a href="javascript:void (0)" data-toggle="modal" onclick="addCollect('${redwine.pid}')"
+                                   id="addCollect" class="button btn-circle add-to-wishlist" data-target="
+                                    <c:if test="${user!=null}">#add_success</c:if>
+                                    <c:if test="${user==null}">#login_dialog</c:if>">
+                                    <span class="pe-7s-like" ></span>
+                                </a>
                                 <a href="product?method=addcart&pid=${product.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                             </div>
                         </div><!-- .p-actions -->

@@ -5,7 +5,7 @@ $(function () {
             "user?method=checkUsername",
             {username:$("#username").val()},
             function (data) {
-                console.log(data);
+
                 //{"isExist":true}
                 if(data.isExist){
                     $("#errorUsername").html("用户已经存在");

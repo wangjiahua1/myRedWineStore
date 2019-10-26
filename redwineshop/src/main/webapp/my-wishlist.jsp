@@ -43,7 +43,6 @@
                     "${pageContext.request.contextPath}/product?method=updateCart",
                     function (data) {
                         alert(data);
-                        console.log(data);
 
                     },"json"
                 )

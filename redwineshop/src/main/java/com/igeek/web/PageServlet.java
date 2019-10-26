@@ -4,7 +4,7 @@ import com.igeek.domain.Page;
 import com.igeek.domain.Product;
 import com.igeek.service.ProductService;
 import com.igeek.utils.BeanFactory;
-
+import com.igeek.service.CategoryService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet("/page")
 public class PageServlet extends BaseServlet {
     ProductService ps=(ProductService)BeanFactory.getBean("myredwineservice");
+    CategoryService cs=(CategoryService)BeanFactory.getBean("mycateservice");
     //Page newPage= (Page) BeanFactory.getBean("mypage");
     public void getPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int currentpage= Integer.parseInt(request.getParameter("currentPage"));
@@ -57,7 +58,7 @@ public class PageServlet extends BaseServlet {
         String path="page?method=getPageByCid&search_by_cat="+cat+"&currentPage=";
         page.setPath(path);
         page.setPageNumber(currentpage);
-        int maxPage= (int) Math.ceil(page.getTotalRecord()/9);
+        int maxPage= (int) Math.ceil(page.getTotalRecord()/9.0);
         request.setAttribute("maxPage",maxPage);
         request.setAttribute("allredwine",page.getList());
         request.setAttribute("page",page);
@@ -70,7 +71,6 @@ public class PageServlet extends BaseServlet {
         String price = request.getParameter("price");
         int currentpage= Integer.parseInt(request.getParameter("currentPage"));
         String cat = request.getParameter("search_by_cat");
-        System.out.println(cat);
         Page<Product> page=null;
         if (cat==null){
             String[] prices = price.split("-");
@@ -80,13 +80,25 @@ public class PageServlet extends BaseServlet {
             page.setPageNumber(currentpage);
             String path="page?method=getRedWineByPrice&price="+price+"&currentPage=";
             page.setPath(path);
-            int maxPage= (int) Math.ceil(page.getTotalRecord()/9);
+            int maxPage= (int) Math.ceil(page.getTotalRecord()/9.0);
             request.setAttribute("page",page);
             request.setAttribute("maxPage",maxPage);
             request.setAttribute("allredwine",page.getList());
             request.getRequestDispatcher("shopgridleft.jsp").forward(request,response);
         }else{
-            System.out.println("is not null");
+            String[] prices = price.split("-");
+            int price1= Integer.parseInt(prices[0].replace("$ ",""));
+            int price2= Integer.parseInt(prices[1].replace("$ ",""));
+            String cid=cs.getCidByCname(cat);
+            page=ps.getRedWineByPrice(price1,price2,currentpage,cid);
+            page.setPageNumber(currentpage);
+            String path="page?method=getRedWineByPrice&price="+price+"&currentPage=";
+            page.setPath(path);
+            int maxPage= (int) Math.ceil(page.getTotalRecord()/9.0);
+            request.setAttribute("page",page);
+            request.setAttribute("maxPage",maxPage);
+            request.setAttribute("allredwine",page.getList());
+            request.getRequestDispatcher("shopgridleft.jsp").forward(request,response);
         }
 
     }

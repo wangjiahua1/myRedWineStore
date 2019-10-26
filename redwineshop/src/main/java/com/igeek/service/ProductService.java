@@ -53,4 +53,5 @@ public interface ProductService {
     Page<Product> getRedWineByCId(String cid, int currentpage);
 
     Page<Product> getRedWineByPrice(int price1, int price2, int currentpage);
+    Page<Product> getRedWineByPrice(int price1, int price2, int currentpage,String cid);
 }

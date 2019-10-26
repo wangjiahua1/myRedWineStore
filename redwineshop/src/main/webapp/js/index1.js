@@ -14,7 +14,6 @@ $(function () {
             $.getJSON(
                 "product?method=findproduct&cid=1",
                 function (data) {
-                    console.log(data)
                     var dataObj={};
                     dataObj.list=data;
                     var html=template("Mytemplate",dataObj);
@@ -55,7 +54,6 @@ $(function () {
                     $.getJSON(
                         "product?method=findproduct&cid=4",
                         function (data) {
-                            console.log(data);
                             var dataObj={};
                             dataObj.list=data;
                             var html=template("Mytemplate",dataObj);
@@ -83,7 +81,6 @@ $(function () {
                 $.getJSON(
                     "product?method=findproduct&cid=5",
                     function (data) {
-                        console.log(data)
                         var dataObj={};
                         dataObj.list=data;
                         var html=template("Mytemplate",dataObj);

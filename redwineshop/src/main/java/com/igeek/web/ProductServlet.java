@@ -1,11 +1,8 @@
 package com.igeek.web;
 
 import com.google.gson.Gson;
-import com.igeek.domain.Cart;
+import com.igeek.domain.*;
 import com.google.gson.Gson;
-import com.igeek.domain.CartTotal;
-import com.igeek.domain.Product;
-import com.igeek.domain.User;
 import com.igeek.service.ProductService;
 import com.igeek.utils.BeanFactory;
 
@@ -14,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,38 +29,30 @@ public class ProductServlet extends BaseServlet {
     public void updateCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<MyCollect> collects= (List<MyCollect>) request.getSession().getAttribute("collects");
         for(MyCollect collect:collects){
-//            System.out.println(collect);
             User user= (User) request.getSession().getAttribute("user");
             if(user!=null&&user.getUid()!=null&&!user.getUid().equals("")){
                 int quantity=collect.getNumber();
-                System.out.println("cart quantity="+quantity);
                 Product product= collect.getProduct();
-                System.out.println(product);
                 Cart cart=new Cart();
                 cart.setPid(product.getPid());
                 cart.setPimage(product.getPimage());
                 cart.setPname(product.getPname());
                 cart.setUid(user.getUid());
                 int quantitysql=ps.getcartid(user.getUid(),product.getPid());
-                System.out.println("cart quantitysql="+quantitysql);
                 quantity+=quantitysql;
-                System.out.println("cart quantitysql+quantity="+quantity);
                 cart.setQuantity(quantity);
                 cart.setPrice(product.getPrice());
                 cart.setTotal(1);
-                System.out.println("cart total"+cart.getTotal());
                 if(quantitysql==0){
                     ps.addcart(cart);
                 }
                 else {
                     ps.addcartpast(cart);
                 }
-                System.out.println("cart:"+cart);
 
             /*查找出所有购物车关于此用户的信息*/
 
                 List<Cart> carts= ps.findallcart(user.getUid());
-                System.out.println(carts);
                 CartTotal cartTotal=new CartTotal();
                 cartTotal.setCarts(carts);
                 cartTotal.setAlltotal(0.0);
@@ -80,13 +70,11 @@ public class ProductServlet extends BaseServlet {
     }
 
     public void deletecart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().write("删除不想做，就懒");
+        response.getWriter().write("删除界面");
     }
     public void findcartproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getParameter("uid")!=null&&!request.getParameter("uid").equals("")) {
             List<Cart> carts = ps.findallcart(request.getParameter("uid"));
-            System.out.println("you look look");
-            System.out.println(carts);
             CartTotal cartTotal = new CartTotal();
             cartTotal.setCarts(carts);
             cartTotal.setAlltotal(0.0);
@@ -101,13 +89,11 @@ public class ProductServlet extends BaseServlet {
         }
     }
     public void addcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println("i am coming");
+
        User user= (User) request.getSession().getAttribute("user");
         if(user!=null&&user.getUid()!=null&&!user.getUid().equals("")){
-//            System.out.println(request.getParameter("pid"));
-            System.out.println(request.getParameter("pid"));
+
             int quantity=Integer.parseInt(request.getParameter("quantity"));
-            System.out.println("cart quantity="+quantity);
             Product product= ps.getcart(request.getParameter("pid"));
             Cart cart=new Cart();
             cart.setPid(product.getPid());
@@ -115,25 +101,20 @@ public class ProductServlet extends BaseServlet {
             cart.setPname(product.getPname());
             cart.setUid(user.getUid());
             int quantitysql=ps.getcartid(user.getUid(),product.getPid());
-            System.out.println("cart quantitysql="+quantitysql);
             quantity+=quantitysql;
-            System.out.println("cart quantitysql+quantity="+quantity);
             cart.setQuantity(quantity);
             cart.setPrice(product.getPrice());
             cart.setTotal(1);
-            System.out.println("cart total"+cart.getTotal());
             if(quantitysql==0){
                 ps.addcart(cart);
             }
             else {
                 ps.addcartpast(cart);
             }
-            System.out.println("cart:"+cart);
 
             /*查找出所有购物车关于此用户的信息*/
 
            List<Cart> carts= ps.findallcart(user.getUid());
-            System.out.println(carts);
             CartTotal cartTotal=new CartTotal();
             cartTotal.setCarts(carts);
             cartTotal.setAlltotal(0.0);
@@ -146,25 +127,6 @@ public class ProductServlet extends BaseServlet {
 
     }
 
-    public void getAllRedWine(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int sizePage= Integer.parseInt(request.getParameter("sizePage"));
-        List<Product> RedWines=ps.getallredwine(sizePage);
-        int maxPage = getMaxPage(request, response);
-        request.setAttribute("allredwine",RedWines);
-        request.setAttribute("maxPage",maxPage);
-        request.getRequestDispatcher("shopgridleft.jsp").forward(request,response);
-    }
-
-
-    public int getMaxPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //获取每页个数及个图片每页
-        int sizePage= Integer.parseInt(request.getParameter("sizePage"));
-        //获取页面最大数值
-        int maxPage=(int)Math.ceil(ps.getCountRedWine()/sizePage);
-        return maxPage;
-    }
-
-
     public void gethotRedwine(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> hotwedwines=ps.gethotRedwine();
         Gson gson=new Gson();
@@ -173,19 +135,6 @@ public class ProductServlet extends BaseServlet {
     }
 
 
-    /*public void getChoosePrice(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String price = req.getParameter("price");
-        String s[]=price.split("-");
-        for (int i = 0; i <s.length ; i++) {
-            s[i]=s[i].replace("$ ","");
-        }
-        int price1= Integer.parseInt(s[0]);
-        int price2= Integer.parseInt(s[1]);
-        List<Product> myredwine=ps.getChoosePrice(price1,price2);
-        Gson gson=new Gson();
-        String s1 = gson.toJson(myredwine);
-        resp.getWriter().write(s1);
-    }*/
     public void getChooseColor (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String color=req.getParameter("color");
         List<Product> colorRedWine=ps.getChooseColor(color);
@@ -204,7 +153,6 @@ public class ProductServlet extends BaseServlet {
     public void findproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cid=request.getParameter("cid");
         List<Product> products=ps.findproduct(cid);
-        System.out.println("prodcut__"+products);
         Gson gson =new Gson();
         String jsonString =gson.toJson(products);
         response.getWriter().write(jsonString);
@@ -239,9 +187,7 @@ public class ProductServlet extends BaseServlet {
 
     public void findbyPidproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pid=Integer.parseInt(request.getParameter("pid"));
-        System.out.println("4444..."+pid);
         Product product =ps.findbyPidproduct(pid);
-        //System.out.println(product);
         request.setAttribute("product",product);
         request.getSession().setAttribute("pid",pid);
         request.getRequestDispatcher("productdetails-fullwidth.jsp").forward(request,response);
@@ -263,9 +209,6 @@ public class ProductServlet extends BaseServlet {
         System.out.println(color);
         List<Product> products =ps.findproductbycolor(color);
         System.out.println(products);
-        Gson gson =new Gson();
-        String jsonString =gson.toJson(products);
-        response.getWriter().write(jsonString);
         Gson gson =new Gson();
         String jsonString =gson.toJson(products);
         response.getWriter().write(jsonString);

@@ -25,8 +25,8 @@
     <script type="text/javascript">
         $(function () {
             $("#place-order").click(function () {
-                console.log("操蛋");
-                console.log(${cartTotal.alltotal});
+
+
                 window.location.href="order?method=orderredmine&total=${cartTotal.alltotal}";
             });
         });

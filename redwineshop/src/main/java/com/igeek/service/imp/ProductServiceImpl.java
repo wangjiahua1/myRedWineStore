@@ -28,6 +28,11 @@ public  class ProductServiceImpl implements ProductService {
         return pd.gethotRedwine();
     }
 
+    @Override
+    public List<Product> getChoosePrice(int price1, int price2, int currentpage) {
+        return null;
+    }
+
 
     @Override
     public List<Product> getChooseColor(String color) {
@@ -71,7 +76,6 @@ public  class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> findproductbyIsnew(String aNew) {
-        System.out.println(aNew);
         return pd.findproductbyIsnew(aNew);
     }
 
@@ -91,14 +95,15 @@ public  class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void addcartpast(Cart cart) {
-        pd.addcartpast(cart);
+    public List<Product> fincproduct() {
+        return null;
     }
 
     @Override
-    public int getcartid(String uid, int pid) {
-        return pd.getcartid(uid,pid);
+    public List<Product> findproductbycolor(String color) {
+        return null;
     }
+
     //分页
     @Override
     public Page<Product> getPage(int currentpage, int i) {
@@ -113,7 +118,7 @@ public  class ProductServiceImpl implements ProductService {
     public Page<Product> getRedWineByCId(String cid, int currentpage) {
         Page<Product> page=new Page<>();
         //设置总数
-        page.setTotalRecord(pd.getCountRedWine());
+        page.setTotalRecord(pd.getCountRedWine(cid));
         page.setList(pd.getRedWineByCId(cid,currentpage));
         return page;
     }
@@ -124,6 +129,15 @@ public  class ProductServiceImpl implements ProductService {
         //设置总数
         page.setTotalRecord(pd.getCountRedWineByPrice(price1,price2));
         page.setList(pd.getChoosePrice(price1,price2,currentpage));
+        return page;
+    }
+
+    @Override
+    public Page<Product> getRedWineByPrice(int price1, int price2, int currentpage, String cid) {
+        Page<Product> page=new Page<>();
+        //设置总数
+        page.setTotalRecord(pd.getCountRedWineByPrice(price1,price2,cid));
+        page.setList(pd.getChoosePrice(price1,price2,currentpage,cid));
         return page;
     }
 

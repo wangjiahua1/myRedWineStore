@@ -1,5 +1,6 @@
 <%@ page contentType="textml;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div id="wrapper">
 <div id="login_dialog" class="modal fade login-popup">
     <div class="popup-inner">
         <div class="modal-header">
@@ -28,10 +29,11 @@
     </div><!-- .popup-inner -->
     <div class="mask popup-close"></div>
 </div><!-- .search-popup -->
+
 <div id="search_dialog" class="modal fade search-popup">
     <div class="popup-inner">
         <a href="#" class="close" data-dismiss="modal" aria-hidden="true">X</a>
-        <form action="#">
+        <form action="search">
             <select class="selectpicker search-select" name="search_by_cat" id="search_by_cat">
                 <option value="all_cat" selected="selected">All Categories</option>
                 <option value="Champagne">Champagne</option>
@@ -48,4 +50,4 @@
     </div><!-- .popup-inner -->
     <div class="mask popup-close"></div>
 </div>
-</div><!-- .search-popup -->
+</div>

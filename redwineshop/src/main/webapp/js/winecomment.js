@@ -2,7 +2,6 @@ $(function () {
     $.getJSON(
         "comment?method=findcomment",
         function (data) {
-            console.log(data+9999);
             var list=$("#huifu");
             $.each(data, function (i,v) {
                 var lili="";

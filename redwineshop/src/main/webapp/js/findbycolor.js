@@ -4,18 +4,18 @@ $(function () {
         var num=$("#mycolor #"+color+"").html();
         num = num.replace("(","").replace(")","");
         num = Math.floor(num/9);
-        console.log(num)
+
         if (num ==0){
             num = 1;
         }
         if (num==0&&num%9!=0){
             num = num+1;
         }
-        console.log(num);
+
         $.getJSON(
             "product?method=findproductbycolor&color="+color,
             function (data) {
-                console.log(data);
+
                 $("#myproduct").empty();
                 $(".zxf_pagediv").empty();
                 $.each(data, function (i,v) {

@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ProductDao {
     public int getCountRedWine();
+    public int getCountRedWine(String cid);
     public List<Product> getallredwine(int sizePage);
     public List<Product> getCurrentPage(int currentpage);
 
@@ -13,7 +14,7 @@ public interface ProductDao {
 
 
     List<Product> getChoosePrice(int price1, int price2, int currentpage);
-
+    List<Product> getChoosePrice(int price1, int price2, int currentpage,String cid);
     List<Product> getChooseColor(String color);
 
     Product getcart(String pid);
@@ -40,6 +41,7 @@ public interface ProductDao {
     List<Product> getRedWineByCId(String cid, int currentpage);
 
     int getCountRedWineByPrice(int price1, int price2);
+    int getCountRedWineByPrice(int price1, int price2,String cid);
 
     int getcartid(String uid, int pid);
 

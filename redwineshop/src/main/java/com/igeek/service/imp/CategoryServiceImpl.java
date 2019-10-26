@@ -14,4 +14,9 @@ public class CategoryServiceImpl  implements CategoryService {
     public List<Category> findcategory() {
         return cd.findcategory();
     }
+
+    @Override
+    public String getCidByCname(String cat) {
+        return cd.getCidByCname(cat);
+    }
 }

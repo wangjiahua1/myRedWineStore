@@ -19,7 +19,6 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
       var getDateData,
         _this = this;
       this.el = el;
-      console.log(options);
       this.$el = $(el);
       this.$el.data("countdown", this);
       this.init = function() {
@@ -33,12 +32,9 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
         return _this;
       };
       getDateData = function(endDate) {
-        console.log(endDate+111111);
         var dateData, diff;
         endDate = Date.parse($.isPlainObject(_this.options.date) ? _this.options.date :new Date(_this.options.date));
-        console.log(endDate+2222)
         diff = (endDate-Date.parse(new Date)) / 1000;
-        console.log(diff);
         if (diff <= 0) {
           diff = 0;
           if (_this.interval) {
@@ -54,7 +50,6 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
           sec:0,
           millisec:0
         };
-        console.log(dateData+3333);
         if (diff >= (365.25 * 86400)) {
           dateData.years = Math.floor(diff / (365.25 * 86400));
           diff -= dateData.years * 365.25 * 86400;
@@ -66,14 +61,13 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
         if (diff >= 3600) {
           dateData.hours = Math.floor(diff / 3600);
           diff -= dateData.hours * 3600;
-            console.log(diff);
+
         }
         if (diff >= 60) {
           dateData.min = Math.floor(diff / 60);
           diff -= dateData.min * 60;
         }
         dateData.sec = diff;
-        console.log(dateData.sec);
         return dateData;
       };
       this.leadingZeros = function(num, length) {
@@ -81,7 +75,6 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
           length = 2;
         }
         num = String(num);
-        console.log(num);
         while (num.length < length) {
           num = "0" + num;
         }

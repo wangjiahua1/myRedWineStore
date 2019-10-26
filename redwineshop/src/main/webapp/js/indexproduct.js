@@ -4,7 +4,6 @@ $(function () {
         function (data) {
             var ul = $(".owl-item.active .item #list1");
             var ul2=$(".owl-carousel .item #list2");
-            console.log(ul);
             $.each(data, function (i,v) {
                 var lili="";
                 lili +="<li class='clearfix product-item'>";
@@ -51,7 +50,7 @@ $(function () {
         function (data) {
             var ul = $(".owl-item.active .item #list3");
             var ul2=$(".owl-carousel .item #list4");
-            console.log(ul);
+
             $.each(data, function (i,v) {
                 var lili="";
                 lili +="<li class='clearfix product-item'>";
@@ -98,7 +97,7 @@ $(function () {
         function (data) {
             var ul = $(".owl-item.active .item #list5");
             var ul2=$(".owl-carousel .item #list6");
-            console.log(ul);
+
             $.each(data, function (i,v) {
                 var lili="";
                 lili +="<li class='clearfix product-item'>";
@@ -145,7 +144,7 @@ $(function () {
     $.getJSON(
         "product?method=findcproduct",
         function (data) {
-            console.log(data+333);
+
             var dvi=$(".list-products.row");
             $.each(data, function (i,v) {
                 var di="";

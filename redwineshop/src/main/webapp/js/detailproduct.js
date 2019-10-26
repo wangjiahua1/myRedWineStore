@@ -5,12 +5,10 @@ $(function () {
 
     });
     $("#list li a").click(function () {
-        console.log($(this).html());
         $(this).css()
         var size=$(this).html();
     });
     $(".quantity input").change(function () {
-        console.log($(".quantity input").val())
         var number=$(".quantity input").val();
         $(this).attr({"value":number});
 
