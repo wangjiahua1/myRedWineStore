@@ -114,7 +114,7 @@
                     <li>
                         <a class="cart-control" href="#">
                             <i class="pe-7s-shopbag cart-icon"></i>
-                            <span class="cart-number">2</span>
+                            <%--<span class="cart-number">2</span>--%>
                         </a>
 
                         <div class="shop-item" id="shopping_cart_dropdown">

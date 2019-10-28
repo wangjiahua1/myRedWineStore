@@ -81,23 +81,9 @@
                                             <a href="productdetails-fullwidth.html"><img style="height: 70px"  src="${pageContext.request.contextPath}/${cart.pimage}" alt="" ></a>
                                         </td>
 
-                            <td class="table-col-name">
-                                <a href="productdetails-fullwidth.html">${cart.pname}</a>
-
-                        <tr class="cart-item cart_item">
-
-                            <td>
-                                <a href="productdetails-fullwidth.html"><img src="images/placeholder/feature-prod-img1.jpg" alt=""></a>
-                            </td>
-
-                            <td class="table-col-name">
-                                <a href="productdetails-fullwidth.html">The Gooseberry </a>
-                                <div class="meta-cart">
-                                    <div class="list-color">Color: <a href="#" class="red"></a> </div>
-                                    <div class="list-size">Size: <a href="#">M</a></div>
-                                </div>
-                            </td>
-
+                                        <td class="table-col-name">
+                                           <a href="productdetails-fullwidth.html">${cart.pname}</a>
+                                        </td>
                                         <td class="table-col-price">
                                             <span class="amount"><span class="symbol">$</span>${cart.price}</span>
                                         </td>
@@ -183,11 +169,11 @@
                                 <table class="clearfix">
                                     <tr class="cart-subtotal">
                                         <th>Subtotal:</th>
-                                        <td><strong><span class="amount">$142.00</span></strong></td>
+                                        <td><strong><span class="amount">$${cartTotal.alltotal}</span></strong></td>
                                     </tr>
                                     <tr class="cart-grandtotal">
                                         <th>GRAND TOTAL:</th>
-                                        <td><strong><span class="amount">$142.00</span></strong></td>
+                                        <td><strong><span class="amount">$${cartTotal.alltotal}</span></strong></td>
                                     </tr>
                                 </table>
                                 <div class="cart-actions clearfix">

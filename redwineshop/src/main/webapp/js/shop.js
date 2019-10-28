@@ -6,11 +6,11 @@ $(function () {
             var myhot=$("#newul");
             $.each(data,function (i,v) {
                 myhot.append("<li class=\"clearfix\">\n" +
-                    "                <a class=\"product-thumb\" href=\"productdetails-fullwidth.jsp\">\n" +
+                    "                <a class=\"product-thumb\" href=\"product?method=findbyPidproduct&pid="+v.pid+"\">\n" +
                     "                    <img src=\""+v.pimage+"\" style='height: 50px' >\n" +
                     "                </a>\n" +
                     "                <div class=\"product-info\">\n" +
-                    "                    <h3 class=\"title\"><a href=\"productdetails-fullwidth.jsp\">"+v.pname+"</a></h3>\n" +
+                    "                    <h3 class=\"title\"><a href=\"product?method=findbyPidproduct&pid="+v.pid+"\">"+v.pname+"</a></h3>\n" +
                     "                    <div class=\"star-rating\">\n" +
                     "                        <span style=\"width:60%\"></span>\n" +
                     "                    </div>\n" +

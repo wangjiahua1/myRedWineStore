@@ -58,7 +58,7 @@
                 <%--&nbsp;--%>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 product-item">
                     <div class="p-thumb">
-                        <a href="product?method=getRedWineById&id=${redwine.pid}">
+                        <a href="product?method=findbyPidproduct&pid=${redwine.pid}">
                             <img src="${redwine.pimage}" alt="" style="height:300px;">
                             <c:if test="${redwine.ishot == 'new'}">
                                 <a href="#" class="onnew">${redwine.ishot}</a>
@@ -73,7 +73,7 @@
                     </div><!-- .p-thumb -->
 
                     <div class="p-info">
-                        <h3 class="p-title"><a href="productdetails-fullwidth.jsp">${redwine.pname}</a></h3>
+                        <h3 class="p-title"><a href="product?method=findbyPidproduct&pid=${redwine.pid}">${redwine.pname}</a></h3>
 
                         <div class="clearfix">
                             <div class="star-rating">
@@ -94,7 +94,7 @@
                                     <c:if test="${user==null}">#login_dialog</c:if>">
                                 <span class="pe-7s-like" ></span>
                             </a>
-                            <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                            <a href="product?method=addcart&pid=${redwine.pid}&quantity=1" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                         </div><!-- .p-actions -->
                     </div><!-- .p-info -->
                 </div><!-- .product -->

@@ -40,7 +40,7 @@ public interface ProductService {
 
     Product findbyPidproduct(int pid);
 
-    List<Product> fincproduct();
+    List<Product> findcproduct();
 
     List<Product> findproductbycolor(String color);
 

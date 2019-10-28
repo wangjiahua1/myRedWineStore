@@ -7,10 +7,11 @@ $(function () {
     $("#list li a").click(function () {
         $(this).css()
         var size=$(this).html();
+        console.log(size)
     });
     $(".quantity input").change(function () {
         var number=$(".quantity input").val();
         $(this).attr({"value":number});
-
+        console.log(number)
     })
 });

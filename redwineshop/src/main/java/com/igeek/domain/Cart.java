@@ -94,7 +94,9 @@ public class Cart {
     }
 
     public void setTotal(double total) {
-        this.total = total;
+        if(getQuantity()!=0||getPrice()!=0)
+            this.total =getQuantity()*getPrice();
+        else this.total=total;
     }
 
     public int getState() {

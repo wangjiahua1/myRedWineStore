@@ -191,7 +191,7 @@
                         <td>
                             <div class="p-actions">
                                 <a href="collect?method=delCollect&pid=${part.product.pid}" class="button btn-circle add-to-wishlist" style="color:red"><span class="pe-7s-like"></span></a>
-                                <a href="#" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                                <a href="method=addcart&pid=${part.product.pid}&quantity=1" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                             </div><!-- .p-actions -->
                         </td>
                     </c:forEach>

@@ -21,6 +21,7 @@ public class Collect {
         this.uid = uid;
     }
 
+
     public Collect() {
     }
 

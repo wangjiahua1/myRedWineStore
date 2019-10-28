@@ -64,7 +64,7 @@
 
         /*  [ jQuery Countdown ]
         - - - - - - - - - - - - - - - - - - - - */
-        var endDate = 'October 28, 2019';
+        var endDate = 'October 30, 2019';
         $( '.countdown ul' ).countdown({
             date: endDate,
             render: function(data) {

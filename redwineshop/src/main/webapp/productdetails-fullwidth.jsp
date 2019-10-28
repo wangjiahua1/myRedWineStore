@@ -181,7 +181,7 @@
                             <div class="attr-item">
                                 <label>Qty:</label>
                                 <div class="quantity">
-                                    <input type="number" step="1" min="0" value="1" title="Qty" class="qty" size="4">
+                                    <input type="number"  step="1" min="0" value="1" title="Qty" class="qty" size="4">
                                 </div>
                             </div><!-- .attr-item -->
                             <div class="p-actions-btn">
@@ -193,47 +193,11 @@
                                     <c:if test="${user==null}">#login_dialog</c:if>">
                                     <span class="pe-7s-like" ></span>
                                 </a>
-                                <a href="product?method=addcart&pid=${product.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
+                                <a href="product?method=addcart&pid=${product.pid}&quantity=1" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
                             </div>
                         </div><!-- .p-actions -->
                     </form>
                 </div><!-- .p-info -->
-                <div class="tabs-infor">
-                    <ul>
-                <div class="p-tag-share clearfix">
-                    <div class="p-tags">
-                        <a href="#">blackberry</a> ,
-                        <a href="#">cassis</a> ,
-                        <a href="#">plum</a> ,
-                        <a href="#">vanilla</a> ,
-                        <a href="#">cocoa</a>
-                    </div><!-- p-tags -->
-                    <div class="social">
-                        <span>Share Link: </span>
-                        <ul>
-                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div><!-- p-tag-share -->
-                <div class="p-actions">
-                    <div class="attr-item">
-                        <label>Qty:</label>
-                        <div class="quantity">
-                            <input type="number" step="1" min="0" value="1" title="Qty" class="qty" size="4">
-                        </div>
-                    </div><!-- .attr-item -->
-                    <div class="p-actions-btn">
-                        <a href="#" class="button btn-circle quick-view"><span class="pe-7s-expand1"></span></a>
-                        <a href="#" class="button btn-circle view-compare"><span class="pe-7s-refresh-2"></span></a>
-                        <a href="#" class="button btn-circle add-to-wishlist"><span class="pe-7s-like"></span></a>
-                        <a href="${pageContext.request.contextPath}/product?method=addcart&pid=${redwine.pid}" class="button btn-circle add-to-cart-button"><span class="pe-7s-cart"></span></a>
-                    </div>
-                </div><!-- .p-actions -->
-            </form>
-        </div><!-- .p-info -->
         <div class="tabs-infor">
             <ul>
 

@@ -14,9 +14,9 @@ public class CommentDaoImpl implements CommentDao {
     String sql="";
     @Override
     public void addcomment(Comment c) {
-        sql="insert into comment values(null,?,?,?,?,now())";
+        sql="insert into comment values(null,?,?,?,?,now(),'',?)";
         try {
-            qr.update(sql,c.getName(),c.getEmail(),c.getDesc(),c.getPid());
+            qr.update(sql,c.getName(),c.getEmail(),c.getDesc(),c.getPid(),c.getUid());
         } catch (SQLException e) {
             e.printStackTrace();
         }

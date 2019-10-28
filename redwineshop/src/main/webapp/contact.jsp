@@ -83,7 +83,7 @@
                         <div class="contact-main-ct row">
                             <div class="contact-form-page col-lg-6 col-md-6 col-sm-6">
                                 <h3 class="title-form-ct">We will love to hear from you</h3>
-                                <form novalidate="" class="contact-form-7" id="contact-form-page" method="post" action="#">
+                                <form novalidate="" class="contact-form-7" id="contact-form-page" method="post" action="${pageContext.request.contextPath}/email?method=addEmail">
 
                                     <p class="contact-form-name">
                                         <input size="30" value="" name="author" placeholder="Name" id="author" type="text">

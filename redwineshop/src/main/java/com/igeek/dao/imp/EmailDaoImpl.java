@@ -15,7 +15,7 @@ public class EmailDaoImpl implements EmailDao {
     String sql = "";
     @Override
     public void addEmail(Email e) {
-        sql = "insert into email values (null,?,?,?,?);";
+        sql = "insert into email values (null,?,?,?,?,null);";
         try {
             qr.update(sql,e.getEname(),e.getEmail(),e.getEsubject(),e.getEmessage());
         } catch (SQLException e1) {

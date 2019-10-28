@@ -92,7 +92,6 @@ public class ProductServlet extends BaseServlet {
 
        User user= (User) request.getSession().getAttribute("user");
         if(user!=null&&user.getUid()!=null&&!user.getUid().equals("")){
-
             int quantity=Integer.parseInt(request.getParameter("quantity"));
             Product product= ps.getcart(request.getParameter("pid"));
             Cart cart=new Cart();
@@ -118,6 +117,7 @@ public class ProductServlet extends BaseServlet {
             CartTotal cartTotal=new CartTotal();
             cartTotal.setCarts(carts);
             cartTotal.setAlltotal(0.0);
+            System.out.println("cartTotal"+cartTotal);
             request.setAttribute("cartTotal",cartTotal);
             request.getRequestDispatcher("shopping-cart-fullwidth.jsp").forward(request,response);
         }
@@ -144,12 +144,12 @@ public class ProductServlet extends BaseServlet {
     }
 
 
-    public void getRedWineById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id= Integer.parseInt(req.getParameter("id"));
-        Product redwine=ps.getRedWineById(id);
-        req.setAttribute("product",redwine);
-        req.getRequestDispatcher("productdetails-fullwidth.jsp").forward(req,resp);
-    }
+//    public void getRedWineById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        int pid= Integer.parseInt(req.getParameter("pid"));
+//        Product redwine=ps.getRedWineById(pid);
+//        req.setAttribute("product",redwine);
+////        req.getRequestDispatcher("productdetails-fullwidth.jsp").forward(req,resp);
+//    }
     public void findproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cid=request.getParameter("cid");
         List<Product> products=ps.findproduct(cid);
@@ -195,8 +195,8 @@ public class ProductServlet extends BaseServlet {
 
 
     public void findcproduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> products=ps.fincproduct();
-        System.out.println(products);
+        List<Product> products=ps.findcproduct();
+        System.out.println(products+"123456");
         Gson gson =new Gson();
         String jsonString =gson.toJson(products);
         response.getWriter().write(jsonString);

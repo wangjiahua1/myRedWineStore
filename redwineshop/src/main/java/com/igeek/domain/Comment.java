@@ -15,11 +15,12 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(String name, String email, String desc, int pid) {
+    public Comment(String name, String email, String desc, int pid,String uid) {
         this.name = name;
         this.email = email;
         this.desc = desc;
-        this.pid = pid;
+        this.pid=pid;
+        this.uid=uid;
     }
 
     public int getMmid() {

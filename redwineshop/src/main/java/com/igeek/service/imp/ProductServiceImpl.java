@@ -95,8 +95,8 @@ public  class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> fincproduct() {
-        return null;
+    public List<Product> findcproduct() {
+        return pd.findcproduct();
     }
 
     @Override
